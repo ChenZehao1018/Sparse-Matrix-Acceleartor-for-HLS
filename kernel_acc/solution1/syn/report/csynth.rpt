@@ -1,0 +1,134 @@
+
+
+================================================================
+== Synthesis Summary Report of 'sort_C'
+================================================================
++ General Information: 
+    * Date:           Thu Jun  8 15:00:08 2023
+    * Version:        2021.1 (Build 3247384 on Thu Jun 10 19:36:33 MDT 2021)
+    * Project:        kernel_acc
+    * Solution:       solution1 (Vivado IP Flow Target)
+    * Product family: zynquplus
+    * Target device:  xczu7ev-ffvc1156-2-e
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +-------------------------------------------------------------+------+------+---------+-----------+----------+---------+------+----------+------+----+------------+-----------+-----+
+    |                           Modules                           | Issue|      | Latency |  Latency  | Iteration|         | Trip |          |      |    |            |           |     |
+    |                           & Loops                           | Type | Slack| (cycles)|    (ns)   |  Latency | Interval| Count| Pipelined| BRAM | DSP|     FF     |    LUT    | URAM|
+    +-------------------------------------------------------------+------+------+---------+-----------+----------+---------+------+----------+------+----+------------+-----------+-----+
+    |+ sort_C                                                     |     -|  0.02|        -|          -|         -|        -|     -|        no|     -|   -|  2375 (~0%)|  8469 (3%)|    -|
+    | + grp_sort_C_Pipeline_loop_diff_window_loop_diff_pe_fu_475  |     -|  0.63|        -|          -|         -|        -|     -|        no|     -|   -|  1306 (~0%)|  6121 (2%)|    -|
+    |  o loop_diff_window_loop_diff_pe                            |    II|  7.30|        -|          -|         5|        2|     -|       yes|     -|   -|           -|          -|    -|
+    | o VITIS_LOOP_135_1                                          |     -|  7.30|      144|  1.440e+03|        18|        -|     8|        no|     -|   -|           -|          -|    -|
+    |  o VITIS_LOOP_136_2                                         |     -|  7.30|       16|    160.000|         2|        -|     8|        no|     -|   -|           -|          -|    -|
+    | o loop_repeat_iter                                          |     -|  7.30|        -|          -|         -|        -|     -|        no|     -|   -|           -|          -|    -|
+    | o VITIS_LOOP_168_3                                          |     -|  7.30|      152|  1.520e+03|        19|        -|     8|        no|     -|   -|           -|          -|    -|
+    |  o VITIS_LOOP_169_4                                         |     -|  7.30|       16|    160.000|         2|        -|     8|        no|     -|   -|           -|          -|    -|
+    +-------------------------------------------------------------+------+------+---------+-----------+----------+---------+------+----------+------+----+------------+-----------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* AP_FIFO
++-----------------------+------------+
+| Interface             | Data Width |
++-----------------------+------------+
+| fifoCalcMatrixC_i_0_V | 32         |
+| fifoCalcMatrixC_i_1_V | 32         |
+| fifoCalcMatrixC_i_2_V | 32         |
+| fifoCalcMatrixC_i_3_V | 32         |
+| fifoCalcMatrixC_i_4_V | 32         |
+| fifoCalcMatrixC_i_5_V | 32         |
+| fifoCalcMatrixC_i_6_V | 32         |
+| fifoCalcMatrixC_i_7_V | 32         |
+| fifoEdgeListPtr_i_V   | 32         |
+| fifoMatrixCIdx_i_0_V  | 16         |
+| fifoMatrixCIdx_i_1_V  | 16         |
+| fifoMatrixCIdx_i_2_V  | 16         |
+| fifoMatrixCIdx_i_3_V  | 16         |
+| fifoMatrixCIdx_i_4_V  | 16         |
+| fifoMatrixCIdx_i_5_V  | 16         |
+| fifoMatrixCIdx_i_6_V  | 16         |
+| fifoMatrixCIdx_i_7_V  | 16         |
+| fifoSortMatrixC_o_0_V | 32         |
+| fifoSortMatrixC_o_1_V | 32         |
+| fifoSortMatrixC_o_2_V | 32         |
+| fifoSortMatrixC_o_3_V | 32         |
+| fifoSortMatrixC_o_4_V | 32         |
+| fifoSortMatrixC_o_5_V | 32         |
+| fifoSortMatrixC_o_6_V | 32         |
+| fifoSortMatrixC_o_7_V | 32         |
++-----------------------+------------+
+
+* REGISTER
++----------------+---------+----------+
+| Interface      | Mode    | Bitwidth |
++----------------+---------+----------+
+| lenEdgeListPtr | ap_none | 32       |
++----------------+---------+----------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------------------------------+
+| Interface | Type       | Ports                             |
++-----------+------------+-----------------------------------+
+| ap_clk    | clock      | ap_clk                            |
+| ap_rst    | reset      | ap_rst                            |
+| ap_ctrl   | ap_ctrl_hs | ap_done ap_idle ap_ready ap_start |
++-----------+------------+-----------------------------------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++-------------------+-----------+-------------------------+
+| Argument          | Direction | Datatype                |
++-------------------+-----------+-------------------------+
+| lenEdgeListPtr    | in        | int                     |
+| fifoEdgeListPtr_i | in        | stream<int, 0>&         |
+| fifoMatrixCIdx_i  | in        | stream<ap_uint<16>, 0>* |
+| fifoCalcMatrixC_i | in        | stream<float, 0>*       |
+| fifoSortMatrixC_o | out       | stream<float, 0>*       |
++-------------------+-----------+-------------------------+
+
+* SW-to-HW Mapping
++-------------------+-----------------------+-----------+
+| Argument          | HW Name               | HW Type   |
++-------------------+-----------------------+-----------+
+| lenEdgeListPtr    | lenEdgeListPtr        | port      |
+| fifoEdgeListPtr_i | fifoEdgeListPtr_i_V   | interface |
+| fifoMatrixCIdx_i  | fifoMatrixCIdx_i_0_V  | interface |
+| fifoMatrixCIdx_i  | fifoMatrixCIdx_i_1_V  | interface |
+| fifoMatrixCIdx_i  | fifoMatrixCIdx_i_2_V  | interface |
+| fifoMatrixCIdx_i  | fifoMatrixCIdx_i_3_V  | interface |
+| fifoMatrixCIdx_i  | fifoMatrixCIdx_i_4_V  | interface |
+| fifoMatrixCIdx_i  | fifoMatrixCIdx_i_5_V  | interface |
+| fifoMatrixCIdx_i  | fifoMatrixCIdx_i_6_V  | interface |
+| fifoMatrixCIdx_i  | fifoMatrixCIdx_i_7_V  | interface |
+| fifoCalcMatrixC_i | fifoCalcMatrixC_i_0_V | interface |
+| fifoCalcMatrixC_i | fifoCalcMatrixC_i_1_V | interface |
+| fifoCalcMatrixC_i | fifoCalcMatrixC_i_2_V | interface |
+| fifoCalcMatrixC_i | fifoCalcMatrixC_i_3_V | interface |
+| fifoCalcMatrixC_i | fifoCalcMatrixC_i_4_V | interface |
+| fifoCalcMatrixC_i | fifoCalcMatrixC_i_5_V | interface |
+| fifoCalcMatrixC_i | fifoCalcMatrixC_i_6_V | interface |
+| fifoCalcMatrixC_i | fifoCalcMatrixC_i_7_V | interface |
+| fifoSortMatrixC_o | fifoSortMatrixC_o_0_V | interface |
+| fifoSortMatrixC_o | fifoSortMatrixC_o_1_V | interface |
+| fifoSortMatrixC_o | fifoSortMatrixC_o_2_V | interface |
+| fifoSortMatrixC_o | fifoSortMatrixC_o_3_V | interface |
+| fifoSortMatrixC_o | fifoSortMatrixC_o_4_V | interface |
+| fifoSortMatrixC_o | fifoSortMatrixC_o_5_V | interface |
+| fifoSortMatrixC_o | fifoSortMatrixC_o_6_V | interface |
+| fifoSortMatrixC_o | fifoSortMatrixC_o_7_V | interface |
++-------------------+-----------------------+-----------+
+
+
+================================================================
+== M_AXI Burst Information
+================================================================
+

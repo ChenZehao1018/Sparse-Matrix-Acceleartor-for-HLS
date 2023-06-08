@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="kernel.h" path="D:\ProjectWork\SPARSE_MATRIX_ACC\kernel.h"/>
+    <originFiles name="kernel.cpp" path="D:\ProjectWork\SPARSE_MATRIX_ACC\kernel.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="cal_C_test.cpp" path="D:\ProjectWork\SPARSE_MATRIX_ACC\cal_C_test.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

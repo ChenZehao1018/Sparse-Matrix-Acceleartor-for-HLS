@@ -1,0 +1,1868 @@
+<profile>
+    <ReportVersion>
+        <Version>2021.1</Version>
+    </ReportVersion>
+    <UserAssignments>
+        <unit>ns</unit>
+        <ProductFamily>zynquplus</ProductFamily>
+        <Part>xczu7ev-ffvc1156-2-e</Part>
+        <TopModelName>sort_C</TopModelName>
+        <TargetClockPeriod>10.00</TargetClockPeriod>
+        <ClockUncertainty>2.70</ClockUncertainty>
+        <FlowTarget>vivado</FlowTarget>
+    </UserAssignments>
+    <PerformanceEstimates>
+        <PipelineType>no</PipelineType>
+        <SummaryOfTimingAnalysis>
+            <unit>ns</unit>
+            <EstimatedClockPeriod>7.280</EstimatedClockPeriod>
+        </SummaryOfTimingAnalysis>
+        <SummaryOfOverallLatency>
+            <unit>clock cycles</unit>
+            <Best-caseLatency>undef</Best-caseLatency>
+            <Average-caseLatency>undef</Average-caseLatency>
+            <Worst-caseLatency>undef</Worst-caseLatency>
+            <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
+            <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+            <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+            <Interval-min>undef</Interval-min>
+            <Interval-max>undef</Interval-max>
+        </SummaryOfOverallLatency>
+        <SummaryOfLoopLatency>
+            <VITIS_LOOP_135_1>
+                <TripCount>8</TripCount>
+                <Latency>144</Latency>
+                <AbsoluteTimeLatency>1440</AbsoluteTimeLatency>
+                <IterationLatency>18</IterationLatency>
+                <VITIS_LOOP_136_2>
+                    <TripCount>8</TripCount>
+                    <Latency>16</Latency>
+                    <AbsoluteTimeLatency>160</AbsoluteTimeLatency>
+                    <IterationLatency>2</IterationLatency>
+                </VITIS_LOOP_136_2>
+            </VITIS_LOOP_135_1>
+            <loop_repeat_iter>
+                <TripCount>undef</TripCount>
+                <Latency>undef</Latency>
+                <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
+                <IterationLatency>undef</IterationLatency>
+            </loop_repeat_iter>
+            <VITIS_LOOP_168_3>
+                <TripCount>8</TripCount>
+                <Latency>152</Latency>
+                <AbsoluteTimeLatency>1520</AbsoluteTimeLatency>
+                <IterationLatency>19</IterationLatency>
+                <VITIS_LOOP_169_4>
+                    <TripCount>8</TripCount>
+                    <Latency>16</Latency>
+                    <AbsoluteTimeLatency>160</AbsoluteTimeLatency>
+                    <IterationLatency>2</IterationLatency>
+                </VITIS_LOOP_169_4>
+            </VITIS_LOOP_168_3>
+        </SummaryOfLoopLatency>
+    </PerformanceEstimates>
+    <AreaEstimates>
+        <Resources>
+            <BRAM_18K>0</BRAM_18K>
+            <FF>2375</FF>
+            <LUT>8469</LUT>
+            <URAM>0</URAM>
+            <DSP>0</DSP>
+        </Resources>
+        <AvailableResources>
+            <BRAM_18K>624</BRAM_18K>
+            <DSP>1728</DSP>
+            <FF>460800</FF>
+            <LUT>230400</LUT>
+            <URAM>96</URAM>
+        </AvailableResources>
+    </AreaEstimates>
+    <InterfaceSummary>
+        <RtlPorts>
+            <name>ap_clk</name>
+            <Object>sort_C</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_rst</name>
+            <Object>sort_C</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_start</name>
+            <Object>sort_C</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_done</name>
+            <Object>sort_C</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_idle</name>
+            <Object>sort_C</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_ready</name>
+            <Object>sort_C</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>lenEdgeListPtr</name>
+            <Object>lenEdgeListPtr</Object>
+            <Type>scalar</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoEdgeListPtr_i_V_dout</name>
+            <Object>fifoEdgeListPtr_i_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoEdgeListPtr_i_V_empty_n</name>
+            <Object>fifoEdgeListPtr_i_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoEdgeListPtr_i_V_read</name>
+            <Object>fifoEdgeListPtr_i_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoMatrixCIdx_i_0_V_dout</name>
+            <Object>fifoMatrixCIdx_i_0_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>16</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoMatrixCIdx_i_0_V_empty_n</name>
+            <Object>fifoMatrixCIdx_i_0_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoMatrixCIdx_i_0_V_read</name>
+            <Object>fifoMatrixCIdx_i_0_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoMatrixCIdx_i_1_V_dout</name>
+            <Object>fifoMatrixCIdx_i_1_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>16</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoMatrixCIdx_i_1_V_empty_n</name>
+            <Object>fifoMatrixCIdx_i_1_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoMatrixCIdx_i_1_V_read</name>
+            <Object>fifoMatrixCIdx_i_1_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoMatrixCIdx_i_2_V_dout</name>
+            <Object>fifoMatrixCIdx_i_2_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>16</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoMatrixCIdx_i_2_V_empty_n</name>
+            <Object>fifoMatrixCIdx_i_2_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoMatrixCIdx_i_2_V_read</name>
+            <Object>fifoMatrixCIdx_i_2_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoMatrixCIdx_i_3_V_dout</name>
+            <Object>fifoMatrixCIdx_i_3_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>16</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoMatrixCIdx_i_3_V_empty_n</name>
+            <Object>fifoMatrixCIdx_i_3_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoMatrixCIdx_i_3_V_read</name>
+            <Object>fifoMatrixCIdx_i_3_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoMatrixCIdx_i_4_V_dout</name>
+            <Object>fifoMatrixCIdx_i_4_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>16</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoMatrixCIdx_i_4_V_empty_n</name>
+            <Object>fifoMatrixCIdx_i_4_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoMatrixCIdx_i_4_V_read</name>
+            <Object>fifoMatrixCIdx_i_4_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoMatrixCIdx_i_5_V_dout</name>
+            <Object>fifoMatrixCIdx_i_5_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>16</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoMatrixCIdx_i_5_V_empty_n</name>
+            <Object>fifoMatrixCIdx_i_5_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoMatrixCIdx_i_5_V_read</name>
+            <Object>fifoMatrixCIdx_i_5_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoMatrixCIdx_i_6_V_dout</name>
+            <Object>fifoMatrixCIdx_i_6_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>16</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoMatrixCIdx_i_6_V_empty_n</name>
+            <Object>fifoMatrixCIdx_i_6_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoMatrixCIdx_i_6_V_read</name>
+            <Object>fifoMatrixCIdx_i_6_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoMatrixCIdx_i_7_V_dout</name>
+            <Object>fifoMatrixCIdx_i_7_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>16</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoMatrixCIdx_i_7_V_empty_n</name>
+            <Object>fifoMatrixCIdx_i_7_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoMatrixCIdx_i_7_V_read</name>
+            <Object>fifoMatrixCIdx_i_7_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoCalcMatrixC_i_0_V_dout</name>
+            <Object>fifoCalcMatrixC_i_0_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoCalcMatrixC_i_0_V_empty_n</name>
+            <Object>fifoCalcMatrixC_i_0_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoCalcMatrixC_i_0_V_read</name>
+            <Object>fifoCalcMatrixC_i_0_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoCalcMatrixC_i_1_V_dout</name>
+            <Object>fifoCalcMatrixC_i_1_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoCalcMatrixC_i_1_V_empty_n</name>
+            <Object>fifoCalcMatrixC_i_1_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoCalcMatrixC_i_1_V_read</name>
+            <Object>fifoCalcMatrixC_i_1_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoCalcMatrixC_i_2_V_dout</name>
+            <Object>fifoCalcMatrixC_i_2_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoCalcMatrixC_i_2_V_empty_n</name>
+            <Object>fifoCalcMatrixC_i_2_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoCalcMatrixC_i_2_V_read</name>
+            <Object>fifoCalcMatrixC_i_2_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoCalcMatrixC_i_3_V_dout</name>
+            <Object>fifoCalcMatrixC_i_3_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoCalcMatrixC_i_3_V_empty_n</name>
+            <Object>fifoCalcMatrixC_i_3_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoCalcMatrixC_i_3_V_read</name>
+            <Object>fifoCalcMatrixC_i_3_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoCalcMatrixC_i_4_V_dout</name>
+            <Object>fifoCalcMatrixC_i_4_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoCalcMatrixC_i_4_V_empty_n</name>
+            <Object>fifoCalcMatrixC_i_4_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoCalcMatrixC_i_4_V_read</name>
+            <Object>fifoCalcMatrixC_i_4_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoCalcMatrixC_i_5_V_dout</name>
+            <Object>fifoCalcMatrixC_i_5_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoCalcMatrixC_i_5_V_empty_n</name>
+            <Object>fifoCalcMatrixC_i_5_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoCalcMatrixC_i_5_V_read</name>
+            <Object>fifoCalcMatrixC_i_5_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoCalcMatrixC_i_6_V_dout</name>
+            <Object>fifoCalcMatrixC_i_6_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoCalcMatrixC_i_6_V_empty_n</name>
+            <Object>fifoCalcMatrixC_i_6_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoCalcMatrixC_i_6_V_read</name>
+            <Object>fifoCalcMatrixC_i_6_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoCalcMatrixC_i_7_V_dout</name>
+            <Object>fifoCalcMatrixC_i_7_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoCalcMatrixC_i_7_V_empty_n</name>
+            <Object>fifoCalcMatrixC_i_7_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoCalcMatrixC_i_7_V_read</name>
+            <Object>fifoCalcMatrixC_i_7_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoSortMatrixC_o_0_V_din</name>
+            <Object>fifoSortMatrixC_o_0_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoSortMatrixC_o_0_V_full_n</name>
+            <Object>fifoSortMatrixC_o_0_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoSortMatrixC_o_0_V_write</name>
+            <Object>fifoSortMatrixC_o_0_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoSortMatrixC_o_1_V_din</name>
+            <Object>fifoSortMatrixC_o_1_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoSortMatrixC_o_1_V_full_n</name>
+            <Object>fifoSortMatrixC_o_1_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoSortMatrixC_o_1_V_write</name>
+            <Object>fifoSortMatrixC_o_1_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoSortMatrixC_o_2_V_din</name>
+            <Object>fifoSortMatrixC_o_2_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoSortMatrixC_o_2_V_full_n</name>
+            <Object>fifoSortMatrixC_o_2_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoSortMatrixC_o_2_V_write</name>
+            <Object>fifoSortMatrixC_o_2_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoSortMatrixC_o_3_V_din</name>
+            <Object>fifoSortMatrixC_o_3_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoSortMatrixC_o_3_V_full_n</name>
+            <Object>fifoSortMatrixC_o_3_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoSortMatrixC_o_3_V_write</name>
+            <Object>fifoSortMatrixC_o_3_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoSortMatrixC_o_4_V_din</name>
+            <Object>fifoSortMatrixC_o_4_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoSortMatrixC_o_4_V_full_n</name>
+            <Object>fifoSortMatrixC_o_4_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoSortMatrixC_o_4_V_write</name>
+            <Object>fifoSortMatrixC_o_4_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoSortMatrixC_o_5_V_din</name>
+            <Object>fifoSortMatrixC_o_5_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoSortMatrixC_o_5_V_full_n</name>
+            <Object>fifoSortMatrixC_o_5_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoSortMatrixC_o_5_V_write</name>
+            <Object>fifoSortMatrixC_o_5_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoSortMatrixC_o_6_V_din</name>
+            <Object>fifoSortMatrixC_o_6_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoSortMatrixC_o_6_V_full_n</name>
+            <Object>fifoSortMatrixC_o_6_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoSortMatrixC_o_6_V_write</name>
+            <Object>fifoSortMatrixC_o_6_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoSortMatrixC_o_7_V_din</name>
+            <Object>fifoSortMatrixC_o_7_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoSortMatrixC_o_7_V_full_n</name>
+            <Object>fifoSortMatrixC_o_7_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>fifoSortMatrixC_o_7_V_write</name>
+            <Object>fifoSortMatrixC_o_7_V</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+    </InterfaceSummary>
+    <RTLDesignHierarchy>
+        <TopModule MAX_DEPTH="3">
+            <ModuleName>sort_C</ModuleName>
+            <InstancesList>
+                <Instance>
+                    <InstName>grp_sort_C_Pipeline_loop_diff_window_loop_diff_pe_fu_475</InstName>
+                    <ModuleName>sort_C_Pipeline_loop_diff_window_loop_diff_pe</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>475</ID>
+                    <BindInstances>add_ln148_fu_351_p2 sub_ln494_fu_480_p2 sub_ln584_fu_500_p2 add_ln590_fu_512_p2 sub_ln590_fu_518_p2 matrixC_buffer_V_0_d0 sub_ln494_1_fu_683_p2 sub_ln584_1_fu_703_p2 add_ln590_1_fu_715_p2 sub_ln590_1_fu_721_p2 matrixC_buffer_V_1_d0 sub_ln494_2_fu_886_p2 sub_ln584_2_fu_906_p2 add_ln590_2_fu_918_p2 sub_ln590_2_fu_924_p2 matrixC_buffer_V_2_d0 sub_ln494_3_fu_1089_p2 sub_ln584_3_fu_1109_p2 add_ln590_3_fu_1121_p2 sub_ln590_3_fu_1127_p2 matrixC_buffer_V_3_d0 sub_ln494_4_fu_1556_p2 sub_ln584_4_fu_1576_p2 add_ln590_4_fu_1588_p2 sub_ln590_4_fu_1594_p2 matrixC_buffer_V_4_d0 sub_ln494_5_fu_1759_p2 sub_ln584_5_fu_1779_p2 add_ln590_5_fu_1791_p2 sub_ln590_5_fu_1797_p2 matrixC_buffer_V_5_d0 sub_ln494_6_fu_1962_p2 sub_ln584_6_fu_1982_p2 add_ln590_6_fu_1994_p2 sub_ln590_6_fu_2000_p2 matrixC_buffer_V_6_d0 sub_ln494_7_fu_2165_p2 sub_ln584_7_fu_2185_p2 add_ln590_7_fu_2197_p2 sub_ln590_7_fu_2203_p2 matrixC_buffer_V_7_d0</BindInstances>
+                </Instance>
+            </InstancesList>
+            <BindInstances>matrixC_buffer_V_0_U matrixC_buffer_V_1_U matrixC_buffer_V_2_U matrixC_buffer_V_3_U matrixC_buffer_V_4_U matrixC_buffer_V_5_U matrixC_buffer_V_6_U matrixC_buffer_V_7_U add_ln135_fu_546_p2 add_ln136_fu_573_p2 add_ln143_fu_552_p2 iter_2_fu_599_p2 sub_ln148_fu_630_p2 add_ln168_fu_670_p2 add_ln169_fu_682_p2 tmp_V_fu_720_p2 sub_ln997_fu_752_p2 lsb_index_fu_758_p2 sub_ln1000_fu_784_p2 add_ln1011_fu_864_p2 sub_ln1012_fu_886_p2 m_3_fu_922_p2 sub_ln1017_fu_964_p2 add_ln1017_fu_969_p2</BindInstances>
+        </TopModule>
+    </RTLDesignHierarchy>
+    <ModuleInformation>
+        <Module>
+            <Name>sort_C_Pipeline_loop_diff_window_loop_diff_pe</Name>
+            <Loops>
+                <loop_diff_window_loop_diff_pe/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>6.670</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>undef</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>undef</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>undef</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <loop_diff_window_loop_diff_pe>
+                        <Name>loop_diff_window_loop_diff_pe</Name>
+                        <TripCount>undef</TripCount>
+                        <Latency>undef</Latency>
+                        <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
+                        <PipelineII>2</PipelineII>
+                        <PipelineDepth>5</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                    </loop_diff_window_loop_diff_pe>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>1306</FF>
+                    <AVAIL_FF>460800</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>6121</LUT>
+                    <AVAIL_LUT>230400</AVAIL_LUT>
+                    <UTIL_LUT>2</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>624</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>1728</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>96</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="add" PRAGMA="" RTLNAME="add_ln148_fu_351_p2" SOURCE="kernel.cpp:148" URAM="0" VARIABLE="add_ln148"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln494_fu_480_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_base.h:494" URAM="0" VARIABLE="sub_ln494"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln584_fu_500_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:681" URAM="0" VARIABLE="sub_ln584"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="add" PRAGMA="" RTLNAME="add_ln590_fu_512_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:681" URAM="0" VARIABLE="add_ln590"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln590_fu_518_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:681" URAM="0" VARIABLE="sub_ln590"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="add" PRAGMA="" RTLNAME="matrixC_buffer_V_0_d0" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:712" URAM="0" VARIABLE="add_ln712"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln494_1_fu_683_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_base.h:494" URAM="0" VARIABLE="sub_ln494_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln584_1_fu_703_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:681" URAM="0" VARIABLE="sub_ln584_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="add" PRAGMA="" RTLNAME="add_ln590_1_fu_715_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:681" URAM="0" VARIABLE="add_ln590_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln590_1_fu_721_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:681" URAM="0" VARIABLE="sub_ln590_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="add" PRAGMA="" RTLNAME="matrixC_buffer_V_1_d0" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:712" URAM="0" VARIABLE="add_ln712_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln494_2_fu_886_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_base.h:494" URAM="0" VARIABLE="sub_ln494_2"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln584_2_fu_906_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:681" URAM="0" VARIABLE="sub_ln584_2"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="add" PRAGMA="" RTLNAME="add_ln590_2_fu_918_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:681" URAM="0" VARIABLE="add_ln590_2"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln590_2_fu_924_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:681" URAM="0" VARIABLE="sub_ln590_2"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="add" PRAGMA="" RTLNAME="matrixC_buffer_V_2_d0" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:712" URAM="0" VARIABLE="add_ln712_2"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln494_3_fu_1089_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_base.h:494" URAM="0" VARIABLE="sub_ln494_3"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln584_3_fu_1109_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:681" URAM="0" VARIABLE="sub_ln584_3"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="add" PRAGMA="" RTLNAME="add_ln590_3_fu_1121_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:681" URAM="0" VARIABLE="add_ln590_3"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln590_3_fu_1127_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:681" URAM="0" VARIABLE="sub_ln590_3"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="add" PRAGMA="" RTLNAME="matrixC_buffer_V_3_d0" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:712" URAM="0" VARIABLE="add_ln712_3"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln494_4_fu_1556_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_base.h:494" URAM="0" VARIABLE="sub_ln494_4"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln584_4_fu_1576_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:681" URAM="0" VARIABLE="sub_ln584_4"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="add" PRAGMA="" RTLNAME="add_ln590_4_fu_1588_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:681" URAM="0" VARIABLE="add_ln590_4"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln590_4_fu_1594_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:681" URAM="0" VARIABLE="sub_ln590_4"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="add" PRAGMA="" RTLNAME="matrixC_buffer_V_4_d0" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:712" URAM="0" VARIABLE="add_ln712_4"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln494_5_fu_1759_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_base.h:494" URAM="0" VARIABLE="sub_ln494_5"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln584_5_fu_1779_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:681" URAM="0" VARIABLE="sub_ln584_5"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="add" PRAGMA="" RTLNAME="add_ln590_5_fu_1791_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:681" URAM="0" VARIABLE="add_ln590_5"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln590_5_fu_1797_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:681" URAM="0" VARIABLE="sub_ln590_5"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="add" PRAGMA="" RTLNAME="matrixC_buffer_V_5_d0" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:712" URAM="0" VARIABLE="add_ln712_5"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln494_6_fu_1962_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_base.h:494" URAM="0" VARIABLE="sub_ln494_6"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln584_6_fu_1982_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:681" URAM="0" VARIABLE="sub_ln584_6"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="add" PRAGMA="" RTLNAME="add_ln590_6_fu_1994_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:681" URAM="0" VARIABLE="add_ln590_6"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln590_6_fu_2000_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:681" URAM="0" VARIABLE="sub_ln590_6"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="add" PRAGMA="" RTLNAME="matrixC_buffer_V_6_d0" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:712" URAM="0" VARIABLE="add_ln712_6"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln494_7_fu_2165_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_base.h:494" URAM="0" VARIABLE="sub_ln494_7"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln584_7_fu_2185_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:681" URAM="0" VARIABLE="sub_ln584_7"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="add" PRAGMA="" RTLNAME="add_ln590_7_fu_2197_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:681" URAM="0" VARIABLE="add_ln590_7"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln590_7_fu_2203_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:681" URAM="0" VARIABLE="sub_ln590_7"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_diff_window_loop_diff_pe" OPTYPE="add" PRAGMA="" RTLNAME="matrixC_buffer_V_7_d0" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:712" URAM="0" VARIABLE="add_ln712_7"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>sort_C</Name>
+            <Loops>
+                <VITIS_LOOP_135_1>
+                    <VITIS_LOOP_136_2/>
+                </VITIS_LOOP_135_1>
+                <loop_repeat_iter/>
+                <VITIS_LOOP_168_3>
+                    <VITIS_LOOP_169_4/>
+                </VITIS_LOOP_168_3>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>7.280</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>undef</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>undef</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>undef</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <VITIS_LOOP_135_1>
+                        <Name>VITIS_LOOP_135_1</Name>
+                        <TripCount>8</TripCount>
+                        <Latency>144</Latency>
+                        <AbsoluteTimeLatency>1.440 us</AbsoluteTimeLatency>
+                        <IterationLatency>18</IterationLatency>
+                        <PipelineDepth>18</PipelineDepth>
+                        <PipelineType>no</PipelineType>
+                        <VITIS_LOOP_136_2>
+                            <Name>VITIS_LOOP_136_2</Name>
+                            <TripCount>8</TripCount>
+                            <Latency>16</Latency>
+                            <AbsoluteTimeLatency>0.160 us</AbsoluteTimeLatency>
+                            <IterationLatency>2</IterationLatency>
+                            <PipelineDepth>2</PipelineDepth>
+                            <PipelineType>no</PipelineType>
+                        </VITIS_LOOP_136_2>
+                    </VITIS_LOOP_135_1>
+                    <loop_repeat_iter>
+                        <Name>loop_repeat_iter</Name>
+                        <TripCount>undef</TripCount>
+                        <Latency>undef</Latency>
+                        <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
+                        <IterationLatency>undef</IterationLatency>
+                        <PipelineDepth>undef</PipelineDepth>
+                        <PipelineType>no</PipelineType>
+                    </loop_repeat_iter>
+                    <VITIS_LOOP_168_3>
+                        <Name>VITIS_LOOP_168_3</Name>
+                        <TripCount>8</TripCount>
+                        <Latency>152</Latency>
+                        <AbsoluteTimeLatency>1.520 us</AbsoluteTimeLatency>
+                        <IterationLatency>19</IterationLatency>
+                        <PipelineDepth>19</PipelineDepth>
+                        <PipelineType>no</PipelineType>
+                        <VITIS_LOOP_169_4>
+                            <Name>VITIS_LOOP_169_4</Name>
+                            <TripCount>8</TripCount>
+                            <Latency>16</Latency>
+                            <AbsoluteTimeLatency>0.160 us</AbsoluteTimeLatency>
+                            <IterationLatency>2</IterationLatency>
+                            <PipelineDepth>2</PipelineDepth>
+                            <PipelineType>no</PipelineType>
+                        </VITIS_LOOP_169_4>
+                    </VITIS_LOOP_168_3>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>624</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <FF>2375</FF>
+                    <AVAIL_FF>460800</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>8469</LUT>
+                    <AVAIL_LUT>230400</AVAIL_LUT>
+                    <UTIL_LUT>3</UTIL_LUT>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>96</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>1728</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="storage" BRAM="0" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="matrixC_buffer_V_0_U" SOURCE="kernel.cpp:134" URAM="0" VARIABLE="matrixC_buffer_V_0"/>
+                <BindNode BINDTYPE="storage" BRAM="0" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="matrixC_buffer_V_1_U" SOURCE="kernel.cpp:134" URAM="0" VARIABLE="matrixC_buffer_V_1"/>
+                <BindNode BINDTYPE="storage" BRAM="0" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="matrixC_buffer_V_2_U" SOURCE="kernel.cpp:134" URAM="0" VARIABLE="matrixC_buffer_V_2"/>
+                <BindNode BINDTYPE="storage" BRAM="0" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="matrixC_buffer_V_3_U" SOURCE="kernel.cpp:134" URAM="0" VARIABLE="matrixC_buffer_V_3"/>
+                <BindNode BINDTYPE="storage" BRAM="0" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="matrixC_buffer_V_4_U" SOURCE="kernel.cpp:134" URAM="0" VARIABLE="matrixC_buffer_V_4"/>
+                <BindNode BINDTYPE="storage" BRAM="0" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="matrixC_buffer_V_5_U" SOURCE="kernel.cpp:134" URAM="0" VARIABLE="matrixC_buffer_V_5"/>
+                <BindNode BINDTYPE="storage" BRAM="0" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="matrixC_buffer_V_6_U" SOURCE="kernel.cpp:134" URAM="0" VARIABLE="matrixC_buffer_V_6"/>
+                <BindNode BINDTYPE="storage" BRAM="0" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="matrixC_buffer_V_7_U" SOURCE="kernel.cpp:134" URAM="0" VARIABLE="matrixC_buffer_V_7"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_135_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln135_fu_546_p2" SOURCE="kernel.cpp:135" URAM="0" VARIABLE="add_ln135"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_135_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln136_fu_573_p2" SOURCE="kernel.cpp:136" URAM="0" VARIABLE="add_ln136"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln143_fu_552_p2" SOURCE="kernel.cpp:143" URAM="0" VARIABLE="add_ln143"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_repeat_iter" OPTYPE="add" PRAGMA="" RTLNAME="iter_2_fu_599_p2" SOURCE="kernel.cpp:143" URAM="0" VARIABLE="iter_2"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="loop_repeat_iter" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln148_fu_630_p2" SOURCE="kernel.cpp:148" URAM="0" VARIABLE="sub_ln148"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_168_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln168_fu_670_p2" SOURCE="kernel.cpp:168" URAM="0" VARIABLE="add_ln168"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_168_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln169_fu_682_p2" SOURCE="kernel.cpp:169" URAM="0" VARIABLE="add_ln169"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_168_3" OPTYPE="sub" PRAGMA="" RTLNAME="tmp_V_fu_720_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:992" URAM="0" VARIABLE="tmp_V"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_168_3" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln997_fu_752_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:997" URAM="0" VARIABLE="sub_ln997"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_168_3" OPTYPE="add" PRAGMA="" RTLNAME="lsb_index_fu_758_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:997" URAM="0" VARIABLE="lsb_index"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_168_3" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln1000_fu_784_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:1000" URAM="0" VARIABLE="sub_ln1000"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_168_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1011_fu_864_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:1011" URAM="0" VARIABLE="add_ln1011"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_168_3" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln1012_fu_886_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:1012" URAM="0" VARIABLE="sub_ln1012"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_168_3" OPTYPE="add" PRAGMA="" RTLNAME="m_3_fu_922_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:1014" URAM="0" VARIABLE="m_3"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="VITIS_LOOP_168_3" OPTYPE="add" PRAGMA="" RTLNAME="sub_ln1017_fu_964_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:1017" URAM="0" VARIABLE="sub_ln1017"/>
+                <BindNode BINDTYPE="op" BRAM="0" DISPNAME="bind_op add" DSP="0" ID="" IMPL="tadder" LATENCY="0" LOOP="VITIS_LOOP_168_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln1017_fu_969_p2" SOURCE="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:1017" URAM="0" VARIABLE="add_ln1017"/>
+            </BindNodes>
+        </Module>
+    </ModuleInformation>
+    <FIFOInformation/>
+    <UserConfigCommands>
+        <config_compile pipeline_loops="0"/>
+        <config_export vivado_clock="10"/>
+    </UserConfigCommands>
+    <Args>
+        <Arg ArgName="lenEdgeListPtr" index="0" direction="in" srcType="int" srcSize="32">
+            <hwRefs>
+                <hwRef type="port" interface="lenEdgeListPtr" name="lenEdgeListPtr" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="fifoEdgeListPtr_i" index="1" direction="in" srcType="stream&lt;int, 0&gt;&amp;" srcSize="32">
+            <hwRefs>
+                <hwRef type="interface" interface="fifoEdgeListPtr_i_V" name="" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="fifoMatrixCIdx_i" index="2" direction="in" srcType="stream&lt;ap_uint&lt;16&gt;, 0&gt;*" srcSize="16">
+            <hwRefs>
+                <hwRef type="interface" interface="fifoMatrixCIdx_i_0_V" name="" usage="data" direction="in"/>
+                <hwRef type="interface" interface="fifoMatrixCIdx_i_1_V" name="" usage="data" direction="in"/>
+                <hwRef type="interface" interface="fifoMatrixCIdx_i_2_V" name="" usage="data" direction="in"/>
+                <hwRef type="interface" interface="fifoMatrixCIdx_i_3_V" name="" usage="data" direction="in"/>
+                <hwRef type="interface" interface="fifoMatrixCIdx_i_4_V" name="" usage="data" direction="in"/>
+                <hwRef type="interface" interface="fifoMatrixCIdx_i_5_V" name="" usage="data" direction="in"/>
+                <hwRef type="interface" interface="fifoMatrixCIdx_i_6_V" name="" usage="data" direction="in"/>
+                <hwRef type="interface" interface="fifoMatrixCIdx_i_7_V" name="" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="fifoCalcMatrixC_i" index="3" direction="in" srcType="stream&lt;float, 0&gt;*" srcSize="32">
+            <hwRefs>
+                <hwRef type="interface" interface="fifoCalcMatrixC_i_0_V" name="" usage="data" direction="in"/>
+                <hwRef type="interface" interface="fifoCalcMatrixC_i_1_V" name="" usage="data" direction="in"/>
+                <hwRef type="interface" interface="fifoCalcMatrixC_i_2_V" name="" usage="data" direction="in"/>
+                <hwRef type="interface" interface="fifoCalcMatrixC_i_3_V" name="" usage="data" direction="in"/>
+                <hwRef type="interface" interface="fifoCalcMatrixC_i_4_V" name="" usage="data" direction="in"/>
+                <hwRef type="interface" interface="fifoCalcMatrixC_i_5_V" name="" usage="data" direction="in"/>
+                <hwRef type="interface" interface="fifoCalcMatrixC_i_6_V" name="" usage="data" direction="in"/>
+                <hwRef type="interface" interface="fifoCalcMatrixC_i_7_V" name="" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="fifoSortMatrixC_o" index="4" direction="out" srcType="stream&lt;float, 0&gt;*" srcSize="32">
+            <hwRefs>
+                <hwRef type="interface" interface="fifoSortMatrixC_o_0_V" name="" usage="data" direction="out"/>
+                <hwRef type="interface" interface="fifoSortMatrixC_o_1_V" name="" usage="data" direction="out"/>
+                <hwRef type="interface" interface="fifoSortMatrixC_o_2_V" name="" usage="data" direction="out"/>
+                <hwRef type="interface" interface="fifoSortMatrixC_o_3_V" name="" usage="data" direction="out"/>
+                <hwRef type="interface" interface="fifoSortMatrixC_o_4_V" name="" usage="data" direction="out"/>
+                <hwRef type="interface" interface="fifoSortMatrixC_o_5_V" name="" usage="data" direction="out"/>
+                <hwRef type="interface" interface="fifoSortMatrixC_o_6_V" name="" usage="data" direction="out"/>
+                <hwRef type="interface" interface="fifoSortMatrixC_o_7_V" name="" usage="data" direction="out"/>
+            </hwRefs>
+        </Arg>
+    </Args>
+    <Interfaces>
+        <Interface InterfaceName="ap_clk" type="clock" busTypeName="clock" mode="slave">
+            <busParams>
+                <busParam busParamName="ASSOCIATED_RESET">ap_rst</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="ap_clk">CLK</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_clk</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="ap_rst" type="reset" busTypeName="reset" mode="slave">
+            <busParams>
+                <busParam busParamName="POLARITY">ACTIVE_HIGH</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="ap_rst">RST</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_rst</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="ap_ctrl" type="ap_ctrl" busTypeName="acc_handshake" mode="slave">
+            <portMaps>
+                <portMap portMapName="ap_start">start</portMap>
+                <portMap portMapName="ap_done">done</portMap>
+                <portMap portMapName="ap_idle">idle</portMap>
+                <portMap portMapName="ap_ready">ready</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_done</port>
+                <port>ap_idle</port>
+                <port>ap_ready</port>
+                <port>ap_start</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="lenEdgeListPtr" type="data" busTypeName="data" protocol="ap_none" mode="slave" dataWidth="32">
+            <portMaps>
+                <portMap portMapName="lenEdgeListPtr">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>lenEdgeListPtr</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="lenEdgeListPtr"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="fifoEdgeListPtr_i_V" type="ap_fifo" busTypeName="acc_fifo_read" mode="master" dataWidth="32" portPrefix="fifoEdgeListPtr_i_V_">
+            <portMaps>
+                <portMap portMapName="fifoEdgeListPtr_i_V_dout">RD_DATA</portMap>
+                <portMap portMapName="fifoEdgeListPtr_i_V_empty_n">EMPTY_N</portMap>
+                <portMap portMapName="fifoEdgeListPtr_i_V_read">RD_EN</portMap>
+            </portMaps>
+            <ports>
+                <port>fifoEdgeListPtr_i_V_dout</port>
+                <port>fifoEdgeListPtr_i_V_empty_n</port>
+                <port>fifoEdgeListPtr_i_V_read</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0" argName="fifoEdgeListPtr_i"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="fifoMatrixCIdx_i_0_V" type="ap_fifo" busTypeName="acc_fifo_read" mode="master" dataWidth="16" portPrefix="fifoMatrixCIdx_i_0_V_">
+            <portMaps>
+                <portMap portMapName="fifoMatrixCIdx_i_0_V_dout">RD_DATA</portMap>
+                <portMap portMapName="fifoMatrixCIdx_i_0_V_empty_n">EMPTY_N</portMap>
+                <portMap portMapName="fifoMatrixCIdx_i_0_V_read">RD_EN</portMap>
+            </portMaps>
+            <ports>
+                <port>fifoMatrixCIdx_i_0_V_dout</port>
+                <port>fifoMatrixCIdx_i_0_V_empty_n</port>
+                <port>fifoMatrixCIdx_i_0_V_read</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0" argName="fifoMatrixCIdx_i"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="fifoMatrixCIdx_i_1_V" type="ap_fifo" busTypeName="acc_fifo_read" mode="master" dataWidth="16" portPrefix="fifoMatrixCIdx_i_1_V_">
+            <portMaps>
+                <portMap portMapName="fifoMatrixCIdx_i_1_V_dout">RD_DATA</portMap>
+                <portMap portMapName="fifoMatrixCIdx_i_1_V_empty_n">EMPTY_N</portMap>
+                <portMap portMapName="fifoMatrixCIdx_i_1_V_read">RD_EN</portMap>
+            </portMaps>
+            <ports>
+                <port>fifoMatrixCIdx_i_1_V_dout</port>
+                <port>fifoMatrixCIdx_i_1_V_empty_n</port>
+                <port>fifoMatrixCIdx_i_1_V_read</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0" argName="fifoMatrixCIdx_i"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="fifoMatrixCIdx_i_2_V" type="ap_fifo" busTypeName="acc_fifo_read" mode="master" dataWidth="16" portPrefix="fifoMatrixCIdx_i_2_V_">
+            <portMaps>
+                <portMap portMapName="fifoMatrixCIdx_i_2_V_dout">RD_DATA</portMap>
+                <portMap portMapName="fifoMatrixCIdx_i_2_V_empty_n">EMPTY_N</portMap>
+                <portMap portMapName="fifoMatrixCIdx_i_2_V_read">RD_EN</portMap>
+            </portMaps>
+            <ports>
+                <port>fifoMatrixCIdx_i_2_V_dout</port>
+                <port>fifoMatrixCIdx_i_2_V_empty_n</port>
+                <port>fifoMatrixCIdx_i_2_V_read</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0" argName="fifoMatrixCIdx_i"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="fifoMatrixCIdx_i_3_V" type="ap_fifo" busTypeName="acc_fifo_read" mode="master" dataWidth="16" portPrefix="fifoMatrixCIdx_i_3_V_">
+            <portMaps>
+                <portMap portMapName="fifoMatrixCIdx_i_3_V_dout">RD_DATA</portMap>
+                <portMap portMapName="fifoMatrixCIdx_i_3_V_empty_n">EMPTY_N</portMap>
+                <portMap portMapName="fifoMatrixCIdx_i_3_V_read">RD_EN</portMap>
+            </portMaps>
+            <ports>
+                <port>fifoMatrixCIdx_i_3_V_dout</port>
+                <port>fifoMatrixCIdx_i_3_V_empty_n</port>
+                <port>fifoMatrixCIdx_i_3_V_read</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0" argName="fifoMatrixCIdx_i"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="fifoMatrixCIdx_i_4_V" type="ap_fifo" busTypeName="acc_fifo_read" mode="master" dataWidth="16" portPrefix="fifoMatrixCIdx_i_4_V_">
+            <portMaps>
+                <portMap portMapName="fifoMatrixCIdx_i_4_V_dout">RD_DATA</portMap>
+                <portMap portMapName="fifoMatrixCIdx_i_4_V_empty_n">EMPTY_N</portMap>
+                <portMap portMapName="fifoMatrixCIdx_i_4_V_read">RD_EN</portMap>
+            </portMaps>
+            <ports>
+                <port>fifoMatrixCIdx_i_4_V_dout</port>
+                <port>fifoMatrixCIdx_i_4_V_empty_n</port>
+                <port>fifoMatrixCIdx_i_4_V_read</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0" argName="fifoMatrixCIdx_i"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="fifoMatrixCIdx_i_5_V" type="ap_fifo" busTypeName="acc_fifo_read" mode="master" dataWidth="16" portPrefix="fifoMatrixCIdx_i_5_V_">
+            <portMaps>
+                <portMap portMapName="fifoMatrixCIdx_i_5_V_dout">RD_DATA</portMap>
+                <portMap portMapName="fifoMatrixCIdx_i_5_V_empty_n">EMPTY_N</portMap>
+                <portMap portMapName="fifoMatrixCIdx_i_5_V_read">RD_EN</portMap>
+            </portMaps>
+            <ports>
+                <port>fifoMatrixCIdx_i_5_V_dout</port>
+                <port>fifoMatrixCIdx_i_5_V_empty_n</port>
+                <port>fifoMatrixCIdx_i_5_V_read</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0" argName="fifoMatrixCIdx_i"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="fifoMatrixCIdx_i_6_V" type="ap_fifo" busTypeName="acc_fifo_read" mode="master" dataWidth="16" portPrefix="fifoMatrixCIdx_i_6_V_">
+            <portMaps>
+                <portMap portMapName="fifoMatrixCIdx_i_6_V_dout">RD_DATA</portMap>
+                <portMap portMapName="fifoMatrixCIdx_i_6_V_empty_n">EMPTY_N</portMap>
+                <portMap portMapName="fifoMatrixCIdx_i_6_V_read">RD_EN</portMap>
+            </portMaps>
+            <ports>
+                <port>fifoMatrixCIdx_i_6_V_dout</port>
+                <port>fifoMatrixCIdx_i_6_V_empty_n</port>
+                <port>fifoMatrixCIdx_i_6_V_read</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0" argName="fifoMatrixCIdx_i"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="fifoMatrixCIdx_i_7_V" type="ap_fifo" busTypeName="acc_fifo_read" mode="master" dataWidth="16" portPrefix="fifoMatrixCIdx_i_7_V_">
+            <portMaps>
+                <portMap portMapName="fifoMatrixCIdx_i_7_V_dout">RD_DATA</portMap>
+                <portMap portMapName="fifoMatrixCIdx_i_7_V_empty_n">EMPTY_N</portMap>
+                <portMap portMapName="fifoMatrixCIdx_i_7_V_read">RD_EN</portMap>
+            </portMaps>
+            <ports>
+                <port>fifoMatrixCIdx_i_7_V_dout</port>
+                <port>fifoMatrixCIdx_i_7_V_empty_n</port>
+                <port>fifoMatrixCIdx_i_7_V_read</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0" argName="fifoMatrixCIdx_i"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="fifoCalcMatrixC_i_0_V" type="ap_fifo" busTypeName="acc_fifo_read" mode="master" dataWidth="32" portPrefix="fifoCalcMatrixC_i_0_V_">
+            <portMaps>
+                <portMap portMapName="fifoCalcMatrixC_i_0_V_dout">RD_DATA</portMap>
+                <portMap portMapName="fifoCalcMatrixC_i_0_V_empty_n">EMPTY_N</portMap>
+                <portMap portMapName="fifoCalcMatrixC_i_0_V_read">RD_EN</portMap>
+            </portMaps>
+            <ports>
+                <port>fifoCalcMatrixC_i_0_V_dout</port>
+                <port>fifoCalcMatrixC_i_0_V_empty_n</port>
+                <port>fifoCalcMatrixC_i_0_V_read</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0" argName="fifoCalcMatrixC_i"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="fifoCalcMatrixC_i_1_V" type="ap_fifo" busTypeName="acc_fifo_read" mode="master" dataWidth="32" portPrefix="fifoCalcMatrixC_i_1_V_">
+            <portMaps>
+                <portMap portMapName="fifoCalcMatrixC_i_1_V_dout">RD_DATA</portMap>
+                <portMap portMapName="fifoCalcMatrixC_i_1_V_empty_n">EMPTY_N</portMap>
+                <portMap portMapName="fifoCalcMatrixC_i_1_V_read">RD_EN</portMap>
+            </portMaps>
+            <ports>
+                <port>fifoCalcMatrixC_i_1_V_dout</port>
+                <port>fifoCalcMatrixC_i_1_V_empty_n</port>
+                <port>fifoCalcMatrixC_i_1_V_read</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0" argName="fifoCalcMatrixC_i"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="fifoCalcMatrixC_i_2_V" type="ap_fifo" busTypeName="acc_fifo_read" mode="master" dataWidth="32" portPrefix="fifoCalcMatrixC_i_2_V_">
+            <portMaps>
+                <portMap portMapName="fifoCalcMatrixC_i_2_V_dout">RD_DATA</portMap>
+                <portMap portMapName="fifoCalcMatrixC_i_2_V_empty_n">EMPTY_N</portMap>
+                <portMap portMapName="fifoCalcMatrixC_i_2_V_read">RD_EN</portMap>
+            </portMaps>
+            <ports>
+                <port>fifoCalcMatrixC_i_2_V_dout</port>
+                <port>fifoCalcMatrixC_i_2_V_empty_n</port>
+                <port>fifoCalcMatrixC_i_2_V_read</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0" argName="fifoCalcMatrixC_i"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="fifoCalcMatrixC_i_3_V" type="ap_fifo" busTypeName="acc_fifo_read" mode="master" dataWidth="32" portPrefix="fifoCalcMatrixC_i_3_V_">
+            <portMaps>
+                <portMap portMapName="fifoCalcMatrixC_i_3_V_dout">RD_DATA</portMap>
+                <portMap portMapName="fifoCalcMatrixC_i_3_V_empty_n">EMPTY_N</portMap>
+                <portMap portMapName="fifoCalcMatrixC_i_3_V_read">RD_EN</portMap>
+            </portMaps>
+            <ports>
+                <port>fifoCalcMatrixC_i_3_V_dout</port>
+                <port>fifoCalcMatrixC_i_3_V_empty_n</port>
+                <port>fifoCalcMatrixC_i_3_V_read</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0" argName="fifoCalcMatrixC_i"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="fifoCalcMatrixC_i_4_V" type="ap_fifo" busTypeName="acc_fifo_read" mode="master" dataWidth="32" portPrefix="fifoCalcMatrixC_i_4_V_">
+            <portMaps>
+                <portMap portMapName="fifoCalcMatrixC_i_4_V_dout">RD_DATA</portMap>
+                <portMap portMapName="fifoCalcMatrixC_i_4_V_empty_n">EMPTY_N</portMap>
+                <portMap portMapName="fifoCalcMatrixC_i_4_V_read">RD_EN</portMap>
+            </portMaps>
+            <ports>
+                <port>fifoCalcMatrixC_i_4_V_dout</port>
+                <port>fifoCalcMatrixC_i_4_V_empty_n</port>
+                <port>fifoCalcMatrixC_i_4_V_read</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0" argName="fifoCalcMatrixC_i"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="fifoCalcMatrixC_i_5_V" type="ap_fifo" busTypeName="acc_fifo_read" mode="master" dataWidth="32" portPrefix="fifoCalcMatrixC_i_5_V_">
+            <portMaps>
+                <portMap portMapName="fifoCalcMatrixC_i_5_V_dout">RD_DATA</portMap>
+                <portMap portMapName="fifoCalcMatrixC_i_5_V_empty_n">EMPTY_N</portMap>
+                <portMap portMapName="fifoCalcMatrixC_i_5_V_read">RD_EN</portMap>
+            </portMaps>
+            <ports>
+                <port>fifoCalcMatrixC_i_5_V_dout</port>
+                <port>fifoCalcMatrixC_i_5_V_empty_n</port>
+                <port>fifoCalcMatrixC_i_5_V_read</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0" argName="fifoCalcMatrixC_i"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="fifoCalcMatrixC_i_6_V" type="ap_fifo" busTypeName="acc_fifo_read" mode="master" dataWidth="32" portPrefix="fifoCalcMatrixC_i_6_V_">
+            <portMaps>
+                <portMap portMapName="fifoCalcMatrixC_i_6_V_dout">RD_DATA</portMap>
+                <portMap portMapName="fifoCalcMatrixC_i_6_V_empty_n">EMPTY_N</portMap>
+                <portMap portMapName="fifoCalcMatrixC_i_6_V_read">RD_EN</portMap>
+            </portMaps>
+            <ports>
+                <port>fifoCalcMatrixC_i_6_V_dout</port>
+                <port>fifoCalcMatrixC_i_6_V_empty_n</port>
+                <port>fifoCalcMatrixC_i_6_V_read</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0" argName="fifoCalcMatrixC_i"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="fifoCalcMatrixC_i_7_V" type="ap_fifo" busTypeName="acc_fifo_read" mode="master" dataWidth="32" portPrefix="fifoCalcMatrixC_i_7_V_">
+            <portMaps>
+                <portMap portMapName="fifoCalcMatrixC_i_7_V_dout">RD_DATA</portMap>
+                <portMap portMapName="fifoCalcMatrixC_i_7_V_empty_n">EMPTY_N</portMap>
+                <portMap portMapName="fifoCalcMatrixC_i_7_V_read">RD_EN</portMap>
+            </portMaps>
+            <ports>
+                <port>fifoCalcMatrixC_i_7_V_dout</port>
+                <port>fifoCalcMatrixC_i_7_V_empty_n</port>
+                <port>fifoCalcMatrixC_i_7_V_read</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0" argName="fifoCalcMatrixC_i"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="fifoSortMatrixC_o_0_V" type="ap_fifo" busTypeName="acc_fifo_write" mode="master" dataWidth="32" portPrefix="fifoSortMatrixC_o_0_V_">
+            <portMaps>
+                <portMap portMapName="fifoSortMatrixC_o_0_V_din">WR_DATA</portMap>
+                <portMap portMapName="fifoSortMatrixC_o_0_V_full_n">FULL_N</portMap>
+                <portMap portMapName="fifoSortMatrixC_o_0_V_write">WR_EN</portMap>
+            </portMaps>
+            <ports>
+                <port>fifoSortMatrixC_o_0_V_din</port>
+                <port>fifoSortMatrixC_o_0_V_full_n</port>
+                <port>fifoSortMatrixC_o_0_V_write</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0" argName="fifoSortMatrixC_o"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="fifoSortMatrixC_o_1_V" type="ap_fifo" busTypeName="acc_fifo_write" mode="master" dataWidth="32" portPrefix="fifoSortMatrixC_o_1_V_">
+            <portMaps>
+                <portMap portMapName="fifoSortMatrixC_o_1_V_din">WR_DATA</portMap>
+                <portMap portMapName="fifoSortMatrixC_o_1_V_full_n">FULL_N</portMap>
+                <portMap portMapName="fifoSortMatrixC_o_1_V_write">WR_EN</portMap>
+            </portMaps>
+            <ports>
+                <port>fifoSortMatrixC_o_1_V_din</port>
+                <port>fifoSortMatrixC_o_1_V_full_n</port>
+                <port>fifoSortMatrixC_o_1_V_write</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0" argName="fifoSortMatrixC_o"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="fifoSortMatrixC_o_2_V" type="ap_fifo" busTypeName="acc_fifo_write" mode="master" dataWidth="32" portPrefix="fifoSortMatrixC_o_2_V_">
+            <portMaps>
+                <portMap portMapName="fifoSortMatrixC_o_2_V_din">WR_DATA</portMap>
+                <portMap portMapName="fifoSortMatrixC_o_2_V_full_n">FULL_N</portMap>
+                <portMap portMapName="fifoSortMatrixC_o_2_V_write">WR_EN</portMap>
+            </portMaps>
+            <ports>
+                <port>fifoSortMatrixC_o_2_V_din</port>
+                <port>fifoSortMatrixC_o_2_V_full_n</port>
+                <port>fifoSortMatrixC_o_2_V_write</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0" argName="fifoSortMatrixC_o"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="fifoSortMatrixC_o_3_V" type="ap_fifo" busTypeName="acc_fifo_write" mode="master" dataWidth="32" portPrefix="fifoSortMatrixC_o_3_V_">
+            <portMaps>
+                <portMap portMapName="fifoSortMatrixC_o_3_V_din">WR_DATA</portMap>
+                <portMap portMapName="fifoSortMatrixC_o_3_V_full_n">FULL_N</portMap>
+                <portMap portMapName="fifoSortMatrixC_o_3_V_write">WR_EN</portMap>
+            </portMaps>
+            <ports>
+                <port>fifoSortMatrixC_o_3_V_din</port>
+                <port>fifoSortMatrixC_o_3_V_full_n</port>
+                <port>fifoSortMatrixC_o_3_V_write</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0" argName="fifoSortMatrixC_o"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="fifoSortMatrixC_o_4_V" type="ap_fifo" busTypeName="acc_fifo_write" mode="master" dataWidth="32" portPrefix="fifoSortMatrixC_o_4_V_">
+            <portMaps>
+                <portMap portMapName="fifoSortMatrixC_o_4_V_din">WR_DATA</portMap>
+                <portMap portMapName="fifoSortMatrixC_o_4_V_full_n">FULL_N</portMap>
+                <portMap portMapName="fifoSortMatrixC_o_4_V_write">WR_EN</portMap>
+            </portMaps>
+            <ports>
+                <port>fifoSortMatrixC_o_4_V_din</port>
+                <port>fifoSortMatrixC_o_4_V_full_n</port>
+                <port>fifoSortMatrixC_o_4_V_write</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0" argName="fifoSortMatrixC_o"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="fifoSortMatrixC_o_5_V" type="ap_fifo" busTypeName="acc_fifo_write" mode="master" dataWidth="32" portPrefix="fifoSortMatrixC_o_5_V_">
+            <portMaps>
+                <portMap portMapName="fifoSortMatrixC_o_5_V_din">WR_DATA</portMap>
+                <portMap portMapName="fifoSortMatrixC_o_5_V_full_n">FULL_N</portMap>
+                <portMap portMapName="fifoSortMatrixC_o_5_V_write">WR_EN</portMap>
+            </portMaps>
+            <ports>
+                <port>fifoSortMatrixC_o_5_V_din</port>
+                <port>fifoSortMatrixC_o_5_V_full_n</port>
+                <port>fifoSortMatrixC_o_5_V_write</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0" argName="fifoSortMatrixC_o"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="fifoSortMatrixC_o_6_V" type="ap_fifo" busTypeName="acc_fifo_write" mode="master" dataWidth="32" portPrefix="fifoSortMatrixC_o_6_V_">
+            <portMaps>
+                <portMap portMapName="fifoSortMatrixC_o_6_V_din">WR_DATA</portMap>
+                <portMap portMapName="fifoSortMatrixC_o_6_V_full_n">FULL_N</portMap>
+                <portMap portMapName="fifoSortMatrixC_o_6_V_write">WR_EN</portMap>
+            </portMaps>
+            <ports>
+                <port>fifoSortMatrixC_o_6_V_din</port>
+                <port>fifoSortMatrixC_o_6_V_full_n</port>
+                <port>fifoSortMatrixC_o_6_V_write</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0" argName="fifoSortMatrixC_o"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="fifoSortMatrixC_o_7_V" type="ap_fifo" busTypeName="acc_fifo_write" mode="master" dataWidth="32" portPrefix="fifoSortMatrixC_o_7_V_">
+            <portMaps>
+                <portMap portMapName="fifoSortMatrixC_o_7_V_din">WR_DATA</portMap>
+                <portMap portMapName="fifoSortMatrixC_o_7_V_full_n">FULL_N</portMap>
+                <portMap portMapName="fifoSortMatrixC_o_7_V_write">WR_EN</portMap>
+            </portMaps>
+            <ports>
+                <port>fifoSortMatrixC_o_7_V_din</port>
+                <port>fifoSortMatrixC_o_7_V_full_n</port>
+                <port>fifoSortMatrixC_o_7_V_write</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0" argName="fifoSortMatrixC_o"/>
+            </constraints>
+        </Interface>
+    </Interfaces>
+    <ReportHWInterface>
+        <section name="HW Interfaces" level="0">
+            <item name="AP_FIFO">
+                <table isCollapsed="0">
+                    <keys size="2">Interface, Data Width</keys>
+                    <column name="fifoCalcMatrixC_i_0_V">32</column>
+                    <column name="fifoCalcMatrixC_i_1_V">32</column>
+                    <column name="fifoCalcMatrixC_i_2_V">32</column>
+                    <column name="fifoCalcMatrixC_i_3_V">32</column>
+                    <column name="fifoCalcMatrixC_i_4_V">32</column>
+                    <column name="fifoCalcMatrixC_i_5_V">32</column>
+                    <column name="fifoCalcMatrixC_i_6_V">32</column>
+                    <column name="fifoCalcMatrixC_i_7_V">32</column>
+                    <column name="fifoEdgeListPtr_i_V">32</column>
+                    <column name="fifoMatrixCIdx_i_0_V">16</column>
+                    <column name="fifoMatrixCIdx_i_1_V">16</column>
+                    <column name="fifoMatrixCIdx_i_2_V">16</column>
+                    <column name="fifoMatrixCIdx_i_3_V">16</column>
+                    <column name="fifoMatrixCIdx_i_4_V">16</column>
+                    <column name="fifoMatrixCIdx_i_5_V">16</column>
+                    <column name="fifoMatrixCIdx_i_6_V">16</column>
+                    <column name="fifoMatrixCIdx_i_7_V">16</column>
+                    <column name="fifoSortMatrixC_o_0_V">32</column>
+                    <column name="fifoSortMatrixC_o_1_V">32</column>
+                    <column name="fifoSortMatrixC_o_2_V">32</column>
+                    <column name="fifoSortMatrixC_o_3_V">32</column>
+                    <column name="fifoSortMatrixC_o_4_V">32</column>
+                    <column name="fifoSortMatrixC_o_5_V">32</column>
+                    <column name="fifoSortMatrixC_o_6_V">32</column>
+                    <column name="fifoSortMatrixC_o_7_V">32</column>
+                </table>
+            </item>
+            <item name="REGISTER">
+                <table isCollapsed="0">
+                    <keys size="3">Interface, Mode, Bitwidth</keys>
+                    <column name="lenEdgeListPtr">ap_none, 32</column>
+                </table>
+            </item>
+            <item name="TOP LEVEL CONTROL">
+                <table isCollapsed="0">
+                    <keys size="3">Interface, Type, Ports</keys>
+                    <column name="ap_clk">clock, ap_clk</column>
+                    <column name="ap_rst">reset, ap_rst</column>
+                    <column name="ap_ctrl">ap_ctrl_hs, ap_done ap_idle ap_ready ap_start</column>
+                </table>
+            </item>
+        </section>
+    </ReportHWInterface>
+    <ReportSWInterface>
+        <section name="SW I/O Information" level="0">
+            <item name="Top Function Arguments">
+                <table isCollapsed="1">
+                    <keys size="3">Argument, Direction, Datatype</keys>
+                    <column name="lenEdgeListPtr">in, int</column>
+                    <column name="fifoEdgeListPtr_i">in, stream&lt;int 0&gt;&amp;</column>
+                    <column name="fifoMatrixCIdx_i">in, stream&lt;ap_uint&lt;16&gt; 0&gt;*</column>
+                    <column name="fifoCalcMatrixC_i">in, stream&lt;float 0&gt;*</column>
+                    <column name="fifoSortMatrixC_o">out, stream&lt;float 0&gt;*</column>
+                </table>
+            </item>
+            <item name="SW-to-HW Mapping">
+                <table isCollapsed="1">
+                    <keys size="3">Argument, HW Name, HW Type</keys>
+                    <column name="lenEdgeListPtr">lenEdgeListPtr, port</column>
+                    <column name="fifoEdgeListPtr_i">fifoEdgeListPtr_i_V, interface</column>
+                    <column name="fifoMatrixCIdx_i">fifoMatrixCIdx_i_0_V, interface</column>
+                    <column name="fifoMatrixCIdx_i">fifoMatrixCIdx_i_1_V, interface</column>
+                    <column name="fifoMatrixCIdx_i">fifoMatrixCIdx_i_2_V, interface</column>
+                    <column name="fifoMatrixCIdx_i">fifoMatrixCIdx_i_3_V, interface</column>
+                    <column name="fifoMatrixCIdx_i">fifoMatrixCIdx_i_4_V, interface</column>
+                    <column name="fifoMatrixCIdx_i">fifoMatrixCIdx_i_5_V, interface</column>
+                    <column name="fifoMatrixCIdx_i">fifoMatrixCIdx_i_6_V, interface</column>
+                    <column name="fifoMatrixCIdx_i">fifoMatrixCIdx_i_7_V, interface</column>
+                    <column name="fifoCalcMatrixC_i">fifoCalcMatrixC_i_0_V, interface</column>
+                    <column name="fifoCalcMatrixC_i">fifoCalcMatrixC_i_1_V, interface</column>
+                    <column name="fifoCalcMatrixC_i">fifoCalcMatrixC_i_2_V, interface</column>
+                    <column name="fifoCalcMatrixC_i">fifoCalcMatrixC_i_3_V, interface</column>
+                    <column name="fifoCalcMatrixC_i">fifoCalcMatrixC_i_4_V, interface</column>
+                    <column name="fifoCalcMatrixC_i">fifoCalcMatrixC_i_5_V, interface</column>
+                    <column name="fifoCalcMatrixC_i">fifoCalcMatrixC_i_6_V, interface</column>
+                    <column name="fifoCalcMatrixC_i">fifoCalcMatrixC_i_7_V, interface</column>
+                    <column name="fifoSortMatrixC_o">fifoSortMatrixC_o_0_V, interface</column>
+                    <column name="fifoSortMatrixC_o">fifoSortMatrixC_o_1_V, interface</column>
+                    <column name="fifoSortMatrixC_o">fifoSortMatrixC_o_2_V, interface</column>
+                    <column name="fifoSortMatrixC_o">fifoSortMatrixC_o_3_V, interface</column>
+                    <column name="fifoSortMatrixC_o">fifoSortMatrixC_o_4_V, interface</column>
+                    <column name="fifoSortMatrixC_o">fifoSortMatrixC_o_5_V, interface</column>
+                    <column name="fifoSortMatrixC_o">fifoSortMatrixC_o_6_V, interface</column>
+                    <column name="fifoSortMatrixC_o">fifoSortMatrixC_o_7_V, interface</column>
+                </table>
+            </item>
+        </section>
+    </ReportSWInterface>
+    <ReportBurst>
+        <section name="M_AXI Burst Information" level="0"/>
+    </ReportBurst>
+</profile>
+

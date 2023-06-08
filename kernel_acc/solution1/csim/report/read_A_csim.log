@@ -1,0 +1,51 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../read_A_test.cpp in debug mode
+   Compiling ../../../../kernel.cpp in debug mode
+   Generating csim.exe
+Idx Stream element: 0
+Idx Stream element: 1
+Idx Stream element: 1
+Idx Stream element: 2
+Idx Stream element: 2
+Idx Stream element: 65536
+Idx Stream element: 3
+Idx Stream element: 393219
+Idx Stream element: 458752
+Idx Stream element: 65535
+Idx Stream element: 65535
+Idx Stream element: 65535
+Idx Stream element: 65535
+Idx Stream element: 131072
+Idx Stream element: 65535
+Idx Stream element: 458755
+Idx Stream element: 65535
+Idx Stream element: 65535
+Idx Stream element: 65535
+Idx Stream element: 65535
+Idx Stream element: 65535
+Idx Stream element: 458752
+A Stream element: 1
+A Stream element: 3
+A Stream element: 2
+A Stream element: 5
+A Stream element: 4
+A Stream element: 7
+A Stream element: 6
+A Stream element: 9
+A Stream element: 10
+A Stream element: 0
+A Stream element: 0
+A Stream element: 0
+A Stream element: 0
+A Stream element: 8
+A Stream element: 0
+A Stream element: 12
+A Stream element: 0
+A Stream element: 0
+A Stream element: 0
+A Stream element: 0
+A Stream element: 0
+A Stream element: 11
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

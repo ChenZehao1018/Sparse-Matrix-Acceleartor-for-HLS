@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [HLS 200-880] The II Violation in module 'sort_C_Pipeline_loop_diff_window_loop_diff_pe' (loop 'loop_diff_window_loop_diff_pe'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between 'store' operation ('matrixC_buffer_V_0_addr_write_ln122', kernel.cpp:122) of variable 'add_ln712' on array 'matrixC_buffer_V_0' and 'load' operation ('matrixC_buffer_V_0_load', kernel.cpp:120) on array 'matrixC_buffer_V_0'.&#xD;&#xA;Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2021.1;t=hls+guidance;d=200-880.html" projectName="kernel_acc" solutionName="solution1" date="2023-06-08T14:59:52.614+0200" type="Warning"/>
+        <logs message="WARNING: [SYNCHK 200-23] D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:1000: variable-indexed range selection may cause suboptimal QoR." projectName="kernel_acc" solutionName="solution1" date="2023-06-08T14:59:48.982+0200" type="Warning"/>
+        <logs message="WARNING: [HLS 207-5301] unused parameter 'print': D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_base.h:792:16" projectName="kernel_acc" solutionName="solution1" date="2023-06-08T14:59:40.520+0200" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

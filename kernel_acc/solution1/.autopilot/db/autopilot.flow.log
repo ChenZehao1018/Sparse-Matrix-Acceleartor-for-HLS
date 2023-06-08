@@ -1,0 +1,878 @@
+INFO-FLOW: Workspace D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1 opened at Thu Jun 08 14:59:20 +0200 2023
+Execute     ap_set_clock -name default -period 10 -default=false 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+Execute     set_part xczu7ev-ffvc1156-2-e 
+Execute       create_platform xczu7ev-ffvc1156-2-e -board  
+DBG:HLSDevice: Trying to load device library: D:/Xilinx/Vitis_HLS/2021.1\lib\win64.o\librdi_hlsvwrap.dll
+DBG:HLSDevice: first parts/arch.xml in RDI_DATADIR: D:/Xilinx/Vivado/2021.1/data/parts/arch.xml
+DBG:HLSDevice: init success
+Execute         source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/DSP48/dsp48.hlp 
+Execute         source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/DSP48/zynquplus_dsp48e2.hlp 
+INFO: [HLS 200-1611] Setting target device to 'xczu7ev-ffvc1156-2-e'
+Command       create_platform done; 3.77 sec.
+Execute       source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/common/xilinx.gen 
+Execute         source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/interface/plb46.gen 
+Execute         source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/interface/axi4.gen 
+Execute         source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute           source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/interface/saxilite.gen 
+Execute           source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/interface/maxi.gen 
+Execute         source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Command         ap_source done; 0.21 sec.
+Execute         source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute         source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/ip/dds_compiler.gen 
+Execute         source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/ip/util.gen 
+Execute         source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/ip/xfft.gen 
+Command         ap_source done; 0.57 sec.
+Execute         source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/ip/xfir.gen 
+Execute         source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/DSP48/dsp48.gen 
+Command       ap_source done; 0.978 sec.
+Execute       ap_part_info -name xczu7ev-ffvc1156-2-e -data info 
+Execute       config_compile -quiet -complex-mul-dsp=0 
+Command     set_part done; 5.091 sec.
+Execute     send_msg_by_id INFO @200-1505@%s%s  vivado 
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Execute     get_config_interface -m_axi_latency 
+Execute     get_config_interface -m_axi_alignment_byte_size 
+Execute     get_config_interface -m_axi_max_widen_bitwidth 
+Execute     get_config_interface -default_interface 
+Execute     get_config_rtl -register_reset_num 
+Execute     send_msg_by_id INFO @200-1464@%s config_compile -complex-mul-dsp=0 
+INFO: [HLS 200-1464] Running solution command: config_compile -complex-mul-dsp=0
+Execute     config_compile -complex-mul-dsp=0 
+Execute     send_msg_by_id INFO @200-1464@%s config_compile -pipeline_loops=0 
+INFO: [HLS 200-1464] Running solution command: config_compile -pipeline_loops=0
+Execute     config_compile -pipeline_loops=0 
+INFO: [XFORM 203-1171] Pipeline the innermost loop with trip count more than 0 or its parent loop when its trip count is less than or equal 0.
+Execute     send_msg_by_id INFO @200-1464@%s config_export -vivado_clock=10 
+INFO: [HLS 200-1464] Running solution command: config_export -vivado_clock=10
+Execute     config_export -vivado_clock=10 
+Command   open_solution done; 5.262 sec.
+Execute   set_part xczu7ev-ffvc1156-2-e 
+INFO: [HLS 200-1510] Running: set_part xczu7ev-ffvc1156-2-e 
+Execute     create_platform xczu7ev-ffvc1156-2-e -board  
+Execute       source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/DSP48/dsp48.hlp 
+Execute       source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/DSP48/zynquplus_dsp48e2.hlp 
+Execute     source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/common/xilinx.gen 
+Execute       source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/interface/plb46.gen 
+Execute       source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/interface/axi4.gen 
+Execute       source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute         source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/interface/saxilite.gen 
+Execute         source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/interface/maxi.gen 
+Execute       source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute       source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute       source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/ip/dds_compiler.gen 
+Execute       source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/ip/util.gen 
+Execute       source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/ip/xfft.gen 
+Command       ap_source done; 0.203 sec.
+Execute       source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/ip/xfir.gen 
+Execute       source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/DSP48/dsp48.gen 
+Command     ap_source done; 0.328 sec.
+Execute     ap_part_info -name xczu7ev-ffvc1156-2-e -data info 
+Execute     config_compile -quiet -complex-mul-dsp=0 
+INFO: [XFORM 203-1171] Pipeline the innermost loop with trip count more than 0 or its parent loop when its trip count is less than or equal 0.
+Command   set_part done; 0.481 sec.
+Execute   create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+Execute   config_compile -pipeline_loops 0 
+INFO: [HLS 200-1510] Running: config_compile -pipeline_loops 0 
+INFO: [XFORM 203-1171] Pipeline the innermost loop with trip count more than 0 or its parent loop when its trip count is less than or equal 0.
+Execute   config_export -vivado_clock 10 
+INFO: [HLS 200-1510] Running: config_export -vivado_clock 10 
+Execute   csynth_design 
+INFO: [HLS 200-1510] Running: csynth_design 
+Execute     get_config_compile -effort 
+Execute     get_config_compile -enable_clang39 
+Execute     get_config_compile -g 
+Execute     get_config_compile -hw_syn 
+Execute     get_config_compile -ng 
+Execute     get_config_compile -opt_fp 
+Execute     get_config_compile -skip_cdt 
+Execute     get_config_compile -skip_syncheck 
+Execute     get_config_compile -skip_transform 
+Execute     get_config_compile -pre_tcl 
+Execute     get_config_compile -keep_printf 
+Execute     elaborate -effort=medium -skip_syncheck=0 -keep_printf=0 -skip_cdt=0 -skip_transform=0 -ng=0 -g=0 -opt_fp=0 -from_csynth_design=1 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 2.668 seconds; current allocated memory: 1.054 GB.
+INFO: [HLS 200-10] Analyzing design file 'kernel.cpp' ... 
+INFO-FLOW: Compiling one TU...
+Execute       get_config_compile -pragma_strict_mode 
+INFO-FLOW: Handling kernel.cpp as C++
+Execute       ap_part_info -name xczu7ev-ffvc1156-2-e -data info 
+INFO-FLOW: Running: GCC PP 39
+INFO-FLOW: Source preprocessing
+Execute       ap_eval exec -ignorestderr D:/Xilinx/Vitis_HLS/2021.1/win64/tools/clang-3.9-csynth/bin/clang kernel.cpp -foptimization-record-file=D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/clang.kernel.cpp.diag.yml -mllvm -pass-remarks-missed=reflow|pasta|unroll -mllvm -pass-remarks=reflow|pasta|unroll|inline -fno-limit-debug-info --sysroot D:/Xilinx/Vitis_HLS/2021.1/tps/mingw/6.2.0/win64.o/nt -fhls -fno-exceptions -E -fno-math-errno -c -emit-llvm -mllvm -disable-llvm-optzns -Werror=implicit-function-declaration -Werror=implicit-hls-streams -Werror=return-type -Wpragmas -Wunused-parameter -fno-threadsafe-statics -fno-use-cxa-atexit -std=gnu++14 -target fpga64-xilinx-mingw32 -fno-threadsafe-statics -fno-use-cxa-atexit -I D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/39 -D__VITIS_HLS__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot -I D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -I /usr/include/x86_64-linux-gnu -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/kernel.pp.0.cpp -hls-platform-db-name=D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/common/platform.db -hls-platform-name=zynquplus_medium > D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/clang.kernel.cpp.out.log 2> D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/clang.kernel.cpp.err.log 
+Command       ap_eval done; 0.877 sec.
+INFO-FLOW: Done: GCC PP 39 time: 0.9 seconds per iteration
+Execute       set_directive_top sort_C -name=sort_C 
+Execute       source D:/Xilinx/Vitis_HLS/2021.1/tps/tcl/tcllib1.11.1/yaml/huddle.tcl 
+Execute       source D:/Xilinx/Vitis_HLS/2021.1/tps/tcl/tcllib1.11.1/yaml/json2huddle.tcl 
+Execute         source D:/Xilinx/Vitis_HLS/2021.1/tps/tcl/tcllib1.11.1/try/try.tcl 
+Execute       list_core -type functional_unit 
+Execute       ap_eval exec -ignorestderr D:/Xilinx/Vitis_HLS/2021.1/win64/tools/clang-3.9-csynth/bin/clang -foptimization-record-file=D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/clang.diag.yml -mllvm -pass-remarks-missed=reflow|pasta|unroll -mllvm -pass-remarks=reflow|pasta|unroll|inline -fsyntax-only -fhls -target fpga64-xilinx-linux-gnu D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/kernel.pp.0.cpp -hls-platform-db-name=D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/common/platform.db -hls-platform-name=zynquplus_medium > D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/clang.out.log 2> D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/clang.err.log 
+Command       ap_eval done; 1.695 sec.
+Execute       clang_tidy xilinx-systemc-detector D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/kernel.pp.0.cpp std=gnu++14 -target fpga  -directive=D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/.systemc_flag 
+INFO-FLOW: exec D:/Xilinx/Vitis_HLS/2021.1/win64/tools/clang-3.9-csynth/bin/clang-tidy -header-filter=.* --checks=-*,xilinx-systemc-detector -import-directive=D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/.systemc_flag -fix-errors D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/kernel.pp.0.cpp -- -std=gnu++14 -target fpga -fhls -ferror-limit=0
+Command       clang_tidy done; 1.712 sec.
+INFO-FLOW: Running: clang-tidy CDT preprocess 39
+Execute       clang_tidy xilinx-directive2pragma D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/kernel.pp.0.cpp std=gnu++14 -target fpga  -directive=D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/all.directive.json 
+INFO-FLOW: exec D:/Xilinx/Vitis_HLS/2021.1/win64/tools/clang-3.9-csynth/bin/clang-tidy -header-filter=.* --checks=-*,xilinx-directive2pragma -import-directive=D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/all.directive.json -fix-errors D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/kernel.pp.0.cpp -- -std=gnu++14 -target fpga -fhls -ferror-limit=0
+Command       clang_tidy done; 1.274 sec.
+Execute       clang_tidy xilinx-constantarray-param,xilinx-remove-assert D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/kernel.pp.0.cpp std=gnu++14 -target fpga  
+INFO-FLOW: exec D:/Xilinx/Vitis_HLS/2021.1/win64/tools/clang-3.9-csynth/bin/clang-tidy -header-filter=.* --checks=-*,xilinx-constantarray-param,xilinx-remove-assert -fix-errors D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/kernel.pp.0.cpp -- -std=gnu++14 -target fpga -fhls -ferror-limit=0
+Command       clang_tidy done; 1.406 sec.
+INFO-FLOW: Done: clang-tidy CDT preprocess 39 time: 2.7 seconds per iteration
+INFO-FLOW: Calling xilinx-label-all-loops ... 
+INFO-FLOW: Calling xilinx-aggregate-on-hls-vector ... 
+Execute       clang_tidy -errorcheck xilinx-label-all-loops,xilinx-aggregate-on-hls-vector,,xilinx-warn-mayneed-no-ctor-attribute D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/kernel.pp.0.cpp std=gnu++14 -target fpga  
+Execute         ap_eval exec -ignorestderr D:/Xilinx/Vitis_HLS/2021.1/win64/tools/clang-3.9-csynth/bin/clang-tidy -export-fixes=D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/clang-tidy.kernel.pp.0.cpp.diag.yml -header-filter=.* --checks=-*,xilinx-label-all-loops,xilinx-aggregate-on-hls-vector,,xilinx-warn-mayneed-no-ctor-attribute -fix-errors D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/kernel.pp.0.cpp -- -std=gnu++14 -target fpga -fhls -ferror-limit=0 > D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/clang-tidy.kernel.pp.0.cpp.out.log 2> D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/clang-tidy.kernel.pp.0.cpp.err.log 
+Command         ap_eval done; 1.988 sec.
+Execute         source D:/Xilinx/Vitis_HLS/2021.1/tps/tcl/tcllib1.11.1/yaml/yaml.tcl 
+Command       clang_tidy done; 2.147 sec.
+Execute       get_config_dataflow -strict_mode 
+Execute       ap_eval exec -ignorestderr D:/Xilinx/Vitis_HLS/2021.1/win64/tools/clang-3.9-csynth/bin/xilinx-dataflow-lawyer -export-fixes=D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/xilinx-dataflow-lawyer.kernel.pp.0.cpp.diag.yml D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/kernel.pp.0.cpp -- -std=gnu++14 -target fpga -fhls -ferror-limit=0 -fstrict-dataflow > D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/xilinx-dataflow-lawyer.kernel.pp.0.cpp.out.log 2> D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/xilinx-dataflow-lawyer.kernel.pp.0.cpp.err.log 
+Command       ap_eval done; 0.639 sec.
+Execute       ap_part_info -name xczu7ev-ffvc1156-2-e -data info 
+INFO-FLOW: compiling source code to llvm bc
+Execute       ap_eval exec -ignorestderr D:/Xilinx/Vitis_HLS/2021.1/win64/tools/clang-3.9-csynth/bin/clang -foptimization-record-file=D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/clang.kernel.pp.0.cpp.diag.yml -mllvm -pass-remarks-missed=reflow|pasta|unroll -mllvm -pass-remarks=reflow|pasta|unroll|inline -fno-limit-debug-info -fhls -flto -fno-exceptions -Wno-error=c++11-narrowing D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/kernel.pp.0.cpp -fno-math-errno -c -emit-llvm -mllvm -disable-llvm-optzns -Werror=implicit-function-declaration -Werror=implicit-hls-streams -Werror=return-type -Wpragmas -Wunused-parameter -fno-threadsafe-statics -fno-use-cxa-atexit -std=gnu++14 -target fpga64-xilinx-linux-gnu -D__VITIS_HLS__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot -I D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -g -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/kernel.bc -hls-platform-db-name=D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/common/platform.db -hls-platform-name=zynquplus_medium > D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/clang.kernel.pp.0.cpp.out.log 2> D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/clang.kernel.pp.0.cpp.err.log 
+Command       ap_eval done; 0.752 sec.
+WARNING: [HLS 207-5301] unused parameter 'print': D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_base.h:792:16
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 1 seconds. CPU system time: 1 seconds. Elapsed time: 10.953 seconds; current allocated memory: 189.775 MB.
+INFO-FLOW: Linking Debug ...
+INFO-FLOW: Linking dut bc code.
+Execute       run_link_or_opt -out D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.g.ld.0.bc -args  "D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/kernel.g.bc"  
+Execute         ap_eval exec -ignorestderr D:/Xilinx/Vitis_HLS/2021.1/win64/tools/clang-3.9-csynth/bin/llvm-link D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/kernel.g.bc -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.g.ld.0.bc > D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/llvm-link.a.g.ld.0.bc.out.log 2> D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/llvm-link.a.g.ld.0.bc.err.log 
+INFO-FLOW: 
+Execute       run_link_or_opt -opt -out D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.g.ld.1.lower.bc -args D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.g.ld.0.bc -reflow-lower-math-intrinsics 
+Execute         ap_eval exec -ignorestderr D:/Xilinx/Vitis_HLS/2021.1/win64/tools/clang-3.9-csynth/bin/opt -pass-remarks-missed=reflow|pasta|unroll -pass-remarks=reflow|pasta|unroll|inline -pass-remarks-output=D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/opt.a.g.ld.1.lower.bc.diag.yml D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.g.ld.0.bc -reflow-lower-math-intrinsics -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.g.ld.1.lower.bc > D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/opt.a.g.ld.1.lower.bc.out.log 2> D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/opt.a.g.ld.1.lower.bc.err.log 
+Command         ap_eval done; 0.103 sec.
+INFO-FLOW: 
+Command       run_link_or_opt done; 0.105 sec.
+INFO-FLOW: Linking math bc lib
+Execute       run_link_or_opt -out D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.g.ld.2.m1.bc -args D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.g.ld.1.lower.bc -only-needed D:/Xilinx/Vitis_HLS/2021.1/win64/lib/libhlsm_39.bc D:/Xilinx/Vitis_HLS/2021.1/win64/lib/libhlsmc++_39.bc 
+Execute         ap_eval exec -ignorestderr D:/Xilinx/Vitis_HLS/2021.1/win64/tools/clang-3.9-csynth/bin/llvm-link D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.g.ld.1.lower.bc -only-needed D:/Xilinx/Vitis_HLS/2021.1/win64/lib/libhlsm_39.bc D:/Xilinx/Vitis_HLS/2021.1/win64/lib/libhlsmc++_39.bc -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.g.ld.2.m1.bc > D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/llvm-link.a.g.ld.2.m1.bc.out.log 2> D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/llvm-link.a.g.ld.2.m1.bc.err.log 
+Command         ap_eval done; 3.693 sec.
+INFO-FLOW: 
+Command       run_link_or_opt done; 3.695 sec.
+Execute       run_link_or_opt -opt -out D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.g.ld.3.fpc.bc -args D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.g.ld.2.m1.bc -reflow-globaldce -hls-top-function-name=sort_C -reflow-float-conversion 
+Execute         ap_eval exec -ignorestderr D:/Xilinx/Vitis_HLS/2021.1/win64/tools/clang-3.9-csynth/bin/opt -pass-remarks-missed=reflow|pasta|unroll -pass-remarks=reflow|pasta|unroll|inline -pass-remarks-output=D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/opt.a.g.ld.3.fpc.bc.diag.yml D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.g.ld.2.m1.bc -reflow-globaldce -hls-top-function-name=sort_C -reflow-float-conversion -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.g.ld.3.fpc.bc > D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/opt.a.g.ld.3.fpc.bc.out.log 2> D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/opt.a.g.ld.3.fpc.bc.err.log 
+Command         ap_eval done; 1.204 sec.
+INFO-FLOW: 
+Command       run_link_or_opt done; 1.207 sec.
+Execute       run_link_or_opt -out D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.g.ld.4.m2.bc -args D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.g.ld.3.fpc.bc -only-needed D:/Xilinx/Vitis_HLS/2021.1/win64/lib/libfloatconversion_39.bc 
+Execute         ap_eval exec -ignorestderr D:/Xilinx/Vitis_HLS/2021.1/win64/tools/clang-3.9-csynth/bin/llvm-link D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.g.ld.3.fpc.bc -only-needed D:/Xilinx/Vitis_HLS/2021.1/win64/lib/libfloatconversion_39.bc -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.g.ld.4.m2.bc > D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/llvm-link.a.g.ld.4.m2.bc.out.log 2> D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/llvm-link.a.g.ld.4.m2.bc.err.log 
+Command         ap_eval done; 0.12 sec.
+INFO-FLOW: 
+Command       run_link_or_opt done; 0.121 sec.
+Execute       run_link_or_opt -opt -out D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.g.ld.5.gdce.bc -args D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.g.ld.4.m2.bc -reflow-globaldce -hls-top-function-name=sort_C 
+Execute         ap_eval exec -ignorestderr D:/Xilinx/Vitis_HLS/2021.1/win64/tools/clang-3.9-csynth/bin/opt -pass-remarks-missed=reflow|pasta|unroll -pass-remarks=reflow|pasta|unroll|inline -pass-remarks-output=D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/opt.a.g.ld.5.gdce.bc.diag.yml D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.g.ld.4.m2.bc -reflow-globaldce -hls-top-function-name=sort_C -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.g.ld.5.gdce.bc > D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/opt.a.g.ld.5.gdce.bc.out.log 2> D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/opt.a.g.ld.5.gdce.bc.err.log 
+INFO-FLOW: 
+Execute       get_solution -flow_target 
+Execute       get_config_export -xo 
+Execute       get_config_export -format 
+Execute       get_config_rtl -module_prefix 
+Execute       get_config_interface -default_slave_interface 
+Execute       get_solution -flow_target 
+Execute       get_config_export -xo 
+Execute       get_config_export -format 
+Execute       get_config_interface -m_axi_offset 
+Execute       get_config_interface -m_axi_latency 
+Execute       get_config_interface -m_axi_alignment_byte_size 
+Execute       get_config_interface -m_axi_min_bitwidth 
+Execute       get_config_interface -m_axi_max_bitwidth 
+Execute       get_config_interface -m_axi_max_widen_bitwidth 
+Execute       get_config_interface -m_axi_num_read_outstanding 
+Execute       get_config_interface -m_axi_num_write_outstanding 
+Execute       get_config_interface -m_axi_max_read_burst_length 
+Execute       get_config_interface -m_axi_max_write_burst_length 
+Execute       get_config_interface -m_axi_min_bitwidth 
+Execute       get_config_interface -m_axi_max_bitwidth 
+Execute       get_config_interface -m_axi_latency 
+Execute       get_config_interface -m_axi_min_bitwidth 
+Execute       get_config_interface -m_axi_max_bitwidth 
+Execute       get_config_interface -m_axi_max_widen_bitwidth 
+Execute       get_config_interface -m_axi_auto_max_ports 
+Execute       get_config_interface -m_axi_num_read_outstanding 
+Execute       get_config_interface -m_axi_num_write_outstanding 
+Execute       get_config_interface -m_axi_max_read_burst_length 
+Execute       get_config_interface -m_axi_max_write_burst_length 
+Execute       get_config_interface -s_axilite_data64 
+Execute       get_config_compile -instruction_warning_threshold 
+Execute       get_config_interface -m_axi_alignment_byte_size 
+Execute       get_config_compile -pragma_strict_mode 
+Execute       get_config_compile -pipeline_style 
+Execute       get_config_array_partition -throughput_driven 
+Execute       send_msg_by_id INFO @200-777@%s Vivado 
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+Execute       is_m_axi_addr64 
+INFO-FLOW: Doing LTO.
+Execute       ap_eval exec -ignorestderr D:/Xilinx/Vitis_HLS/2021.1/win64/tools/clang-3.9-csynth/bin/clang -foptimization-record-file=D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/clang.a.g.ld.0.bc.diag.yml -mllvm -pass-remarks-missed=reflow|pasta|unroll -mllvm -pass-remarks=reflow|pasta|unroll|inline -fhls -mllvm -hls-top-function-name=sort_C -mllvm -hls-db-dir -mllvm D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db -emit-llvm -c -target fpga64-xilinx-none -mllvm -xcl-xmlinfo=D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/kernel.internal.xml -mllvm -top-io-mapping-info=D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/top-io-fe.xml -mllvm -hls-bitcode-version=3.1 -mllvm -reflow-enable-slave-interface-default-setting=true -mllvm -gen-kernel-xml=false -mllvm -default-maxi-offset=slave -mllvm -maxi-latency=0 -mllvm -hls-maxi-data-size-in-bits=8 -mllvm -hls-maxi-max-data-size-in-bits=1024 -mllvm -hls-max-widen-size-in-bits=0 -mllvm -xcl-kernel-max-mem-ports=0 -mllvm -maxi-read-trans=16 -mllvm -maxi-write-trans=16 -mllvm -maxi-read-burst-len=16 -mllvm -maxi-write-burst-len=16 -mllvm -reflow-enable-saxi-64bits=0 -mllvm -reflow-basic-block-instr-threshhold=200000 -mllvm -assume-maxi-align=0 -mllvm -no-unaligned-maxi-accesses -mllvm -reflow-pipeline-style-llvm-setting=0 -mllvm -reflow-auto-array-partition-mode=default -mllvm -reflow-enable-auto-array-partition=true -mllvm -reflow-aggregate-bitwidth-threshold=4096 -mllvm -reflow-disaggregate-bitwidth-threshold=4096 -mllvm -hls -mllvm -disable-inlined-alloca-merging=true -x ir D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.g.ld.5.gdce.bc -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.g.lto.bc -hls-platform-db-name=D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/common/platform.db -hls-platform-name=zynquplus_medium > D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/clang.a.g.ld.0.bc.out.log 2> D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/clang.a.g.ld.0.bc.err.log 
+Command       ap_eval done; 0.59 sec.
+INFO: [HLS 214-279] Initial Interval estimation mode is set into default.
+INFO: [HLS 214-284] Auto array partition mode is set into default.
+INFO: [HLS 214-131] Inlining function 'ap_int_base<65, true>::ap_int_base<11, false>(ap_int_base<11, false> const&)' into 'ap_int_base<11, false>::RType<64, true>::minus operator-<11, false, 64, true>(ap_int_base<11, false> const&, ap_int_base<64, true> const&)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_base.h:1526:341)
+INFO: [HLS 214-131] Inlining function 'ap_int<65>::ap_int<65, true>(ap_int_base<65, true> const&)' into 'ap_int_base<11, false>::RType<64, true>::minus operator-<11, false, 64, true>(ap_int_base<11, false> const&, ap_int_base<64, true> const&)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_base.h:1526:555)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<65, true>::ap_int_base<64, true>(ap_int_base<64, true> const&)' into 'ap_int_base<11, false>::RType<64, true>::minus operator-<11, false, 64, true>(ap_int_base<11, false> const&, ap_int_base<64, true> const&)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_base.h:1526:430)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<64, true>::ap_int_base(long)' into 'ap_int_base<11, false>::RType<($_0)64, true>::minus operator-<11, false>(ap_int_base<11, false> const&, long)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_base.h:1642:1548)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<11, false>::RType<64, true>::minus operator-<11, false, 64, true>(ap_int_base<11, false> const&, ap_int_base<64, true> const&)' into 'ap_int_base<11, false>::RType<($_0)64, true>::minus operator-<11, false>(ap_int_base<11, false> const&, long)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_base.h:1642:1546)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<55, true>::ap_int_base<1, false>(ap_int_base<1, false> const&)' into 'ap_int_base<1, false>::RType<54, true>::minus operator-<1, false, 54, true>(ap_int_base<1, false> const&, ap_int_base<54, true> const&)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_base.h:1526:341)
+INFO: [HLS 214-131] Inlining function 'ap_int<55>::ap_int<55, true>(ap_int_base<55, true> const&)' into 'ap_int_base<1, false>::RType<54, true>::minus operator-<1, false, 54, true>(ap_int_base<1, false> const&, ap_int_base<54, true> const&)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_base.h:1526:555)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<55, true>::ap_int_base<54, true>(ap_int_base<54, true> const&)' into 'ap_int_base<1, false>::RType<54, true>::minus operator-<1, false, 54, true>(ap_int_base<1, false> const&, ap_int_base<54, true> const&)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_base.h:1526:430)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<1, false>::ap_int_base(int)' into 'ap_int_base<54, true>::operator-() const' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_base.h:925:12)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<1, false>::RType<54, true>::minus operator-<1, false, 54, true>(ap_int_base<1, false> const&, ap_int_base<54, true> const&)' into 'ap_int_base<54, true>::operator-() const' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_base.h:925:37)
+INFO: [HLS 214-131] Inlining function 'doubleToRawBits(double)' into 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed_base(double)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:565:14)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<54, true>& ap_int_base<54, true>::operator=<55, true>(ap_int_base<55, true> const&)' into 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed_base(double)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:579:20)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<54, true>::operator-() const' into 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed_base(double)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:579:22)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<12, true>& ap_int_base<12, true>::operator=<65, true>(ap_int_base<65, true> const&)' into 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed_base(double)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:572:9)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<11, false>::RType<($_0)64, true>::minus operator-<11, false>(ap_int_base<11, false> const&, long)' into 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed_base(double)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:572:19)
+INFO: [HLS 214-131] Inlining function 'hls::stream<int, 0>::read(int&)' into 'hls::stream<int, 0>::read()' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:156:9)
+INFO: [HLS 214-131] Inlining function 'hls::stream<ap_uint<16>, 0>::read(ap_uint<16>&)' into 'hls::stream<ap_uint<16>, 0>::read()' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:156:9)
+INFO: [HLS 214-131] Inlining function 'hls::stream<float, 0>::read(float&)' into 'hls::stream<float, 0>::read()' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:156:9)
+INFO: [HLS 214-131] Inlining function 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed_base(float)' into 'ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed(float)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed.h:190:61)
+INFO: [HLS 214-131] Inlining function 'ap_bit_ref<16, false>::ap_bit_ref(ap_int_base<16, false>*, int)' into 'ap_int_base<16, false>::operator[](int)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_base.h:1159:30)
+INFO: [HLS 214-131] Inlining function 'ap_bit_ref<16, false>::operator bool() const' into 'bool operator==<16, false>(ap_bit_ref<16, false> const&, int)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_ref.h:1082:365)
+INFO: [HLS 214-131] Inlining function 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator!() const' into 'ap_fixed_base<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0>& ap_fixed_base<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator=<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:707:9)
+INFO: [HLS 214-131] Inlining function 'ap_fixed_base<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0>& ap_fixed_base<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator=<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&)' into 'ap_fixed_base<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:440:5)
+INFO: [HLS 214-131] Inlining function 'ap_fixed_base<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&)' into 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::RType<32, 16, true>::plus ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator+<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&) const' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:1245:330)
+INFO: [HLS 214-131] Inlining function 'ap_fixed<33, 17, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&)' into 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::RType<32, 16, true>::plus ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator+<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&) const' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:1245:382)
+INFO: [HLS 214-131] Inlining function 'ap_fixed_base<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&)' into 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::RType<32, 16, true>::plus ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator+<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&) const' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:1245:342)
+INFO: [HLS 214-131] Inlining function 'ap_fixed_base<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator!() const' into 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>& ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator=<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:707:9)
+INFO: [HLS 214-131] Inlining function 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>& ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator=<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&)' into 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed_base<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:440:5)
+INFO: [HLS 214-131] Inlining function 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed_base<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&)' into 'ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed.h:75:9)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<16, false>::operator unsigned long long() const' into 'sort_C_core(ap_uint<16>, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*)' (kernel.cpp:120:44)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<16, false>::operator unsigned long long() const' into 'sort_C_core(ap_uint<16>, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*)' (kernel.cpp:122:9)
+INFO: [HLS 214-131] Inlining function 'ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&)' into 'sort_C_core(ap_uint<16>, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*)' (kernel.cpp:121:26)
+INFO: [HLS 214-131] Inlining function 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::RType<32, 16, true>::plus ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator+<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&) const' into 'sort_C_core(ap_uint<16>, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*)' (kernel.cpp:121:42)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<32, false>::ap_int_base(unsigned long)' into 'ap_int_base<32, false>::countLeadingZeros() const' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_base.h:1226:30)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<32, false>::countLeadingZeros() const' into 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::to_float() const' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:995:17)
+INFO: [HLS 214-131] Inlining function 'rawBitsToFloat(unsigned long)' into 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::to_float() const' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:1024:12)
+INFO: [HLS 214-131] Inlining function 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::to_float() const' into 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator float() const' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:1079:73)
+INFO: [HLS 214-131] Inlining function 'ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed(double)' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (kernel.cpp:137:27)
+INFO: [HLS 214-131] Inlining function 'hls::stream<int, 0>::read()' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (kernel.cpp:141:37)
+INFO: [HLS 214-131] Inlining function 'hls::stream<float, 0>::write(float const&)' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (kernel.cpp:170:25)
+INFO: [HLS 214-131] Inlining function 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator float() const' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (kernel.cpp:170:31)
+INFO: [HLS 214-131] Inlining function 'sort_C_core(ap_uint<16>, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*)' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (kernel.cpp:159:7)
+INFO: [HLS 214-131] Inlining function 'bool operator==<16, false>(ap_bit_ref<16, false> const&, int)' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (kernel.cpp:158:18)
+INFO: [HLS 214-131] Inlining function 'ap_int_base<16, false>::operator[](int)' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (kernel.cpp:158:10)
+INFO: [HLS 214-131] Inlining function 'ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed(float)' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (kernel.cpp:157:39)
+INFO: [HLS 214-131] Inlining function 'hls::stream<int, 0>::read()' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (kernel.cpp:145:35)
+INFO: [HLS 214-131] Inlining function 'hls::stream<float, 0>::read()' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (kernel.cpp:157:60)
+INFO: [HLS 214-131] Inlining function 'hls::stream<ap_uint<16>, 0>::read()' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (kernel.cpp:156:44)
+INFO: [HLS 214-178] Inlining function 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed_base(double)' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (kernel.cpp:131:0)
+INFO: [HLS 214-248] Applying array_partition to 'fifoMatrixCIdx_i': Complete partitioning on dimension 1. (kernel.cpp:131:0)
+INFO: [HLS 214-248] Applying array_partition to 'fifoCalcMatrixC_i': Complete partitioning on dimension 1. (kernel.cpp:131:0)
+INFO: [HLS 214-248] Applying array_partition to 'fifoSortMatrixC_o': Complete partitioning on dimension 1. (kernel.cpp:131:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoSortMatrixC_o_7' with field bit alignment mode in 32-bits (kernel.cpp:131:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoSortMatrixC_o_6' with field bit alignment mode in 32-bits (kernel.cpp:131:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoSortMatrixC_o_5' with field bit alignment mode in 32-bits (kernel.cpp:131:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoSortMatrixC_o_4' with field bit alignment mode in 32-bits (kernel.cpp:131:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoSortMatrixC_o_3' with field bit alignment mode in 32-bits (kernel.cpp:131:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoSortMatrixC_o_2' with field bit alignment mode in 32-bits (kernel.cpp:131:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoSortMatrixC_o_1' with field bit alignment mode in 32-bits (kernel.cpp:131:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoSortMatrixC_o_0' with field bit alignment mode in 32-bits (kernel.cpp:131:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoCalcMatrixC_i_7' with field bit alignment mode in 32-bits (kernel.cpp:131:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoCalcMatrixC_i_6' with field bit alignment mode in 32-bits (kernel.cpp:131:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoCalcMatrixC_i_5' with field bit alignment mode in 32-bits (kernel.cpp:131:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoCalcMatrixC_i_4' with field bit alignment mode in 32-bits (kernel.cpp:131:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoCalcMatrixC_i_3' with field bit alignment mode in 32-bits (kernel.cpp:131:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoCalcMatrixC_i_2' with field bit alignment mode in 32-bits (kernel.cpp:131:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoCalcMatrixC_i_1' with field bit alignment mode in 32-bits (kernel.cpp:131:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoCalcMatrixC_i_0' with field bit alignment mode in 32-bits (kernel.cpp:131:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoMatrixCIdx_i_7' with field bit alignment mode in 16-bits (kernel.cpp:131:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoMatrixCIdx_i_6' with field bit alignment mode in 16-bits (kernel.cpp:131:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoMatrixCIdx_i_5' with field bit alignment mode in 16-bits (kernel.cpp:131:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoMatrixCIdx_i_4' with field bit alignment mode in 16-bits (kernel.cpp:131:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoMatrixCIdx_i_3' with field bit alignment mode in 16-bits (kernel.cpp:131:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoMatrixCIdx_i_2' with field bit alignment mode in 16-bits (kernel.cpp:131:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoMatrixCIdx_i_1' with field bit alignment mode in 16-bits (kernel.cpp:131:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoMatrixCIdx_i_0' with field bit alignment mode in 16-bits (kernel.cpp:131:0)
+INFO: [HLS 214-270] Starting automatic array partition analysis...
+INFO: [HLS 214-270] Inferring complete partitioning for array 'matrixC_buffer' on dimension 1 (kernel.cpp:134:19)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i16.s_struct.ssdm_ints' into '_llvm.fpga.unpack.bits.s_struct.ap_uints.i16.1'
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.s_struct.ap_uints.i16.1' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.bits.i32.f32' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.bits.i32.f32' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.bits.i32.f32' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.bits.i32.f32' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.bits.i32.f32' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.bits.i32.f32' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.bits.i32.f32' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.bits.i32.f32' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.f32.i32' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.f32.i32' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.s_struct.ap_uints.i16.1' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.f32.i32' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.s_struct.ap_uints.i16.1' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.f32.i32' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.s_struct.ap_uints.i16.1' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.f32.i32' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.s_struct.ap_uints.i16.1' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.f32.i32' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.s_struct.ap_uints.i16.1' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.f32.i32' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.s_struct.ap_uints.i16.1' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.f32.i32' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.s_struct.ap_uints.i16.1' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9)
+INFO-FLOW: DBG:PUTS: copy_raw_kernel_xml ap_link_39: kernel.xml not generated: D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/kernel.internal.xml
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 8.016 seconds; current allocated memory: 192.431 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.077 seconds; current allocated memory: 192.431 MB.
+Execute       opt_and_import_c a -opt_level=2 -skip_syncheck=0 -ng=0 -keep_printf=0 
+Execute         cleanup_all_models 
+INFO: [HLS 200-10] Starting code transformations ...
+INFO-FLOW: Running Standard Transforms...
+Execute         transform -hls -share-std-xform -demangle-name -inline-byval-memcpy -always-inline -promote-dbg-pointer -interface-preproc -mem2reg -scalarrepl -mem2reg -keep-read-access -instcombine -dce -promote-dbg-pointer -bitop-raise -loop-simplify -indvarspre -indvars -loop-simplify -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -simplifycfg -mem2reg -globalopt -global-constprop -deadargelim -instcombine -simplifycfg -scalarrepl -instcombine -reassociate -licm -simplifycfg -loop-simplify -indvars -instcombine -simplifycfg -mem2reg -loop-simplify -indvars -instcombine -gvn -gvn -instcombine -adce -break-crit-edges -simplifycfg -loop-delete -global-array-opt -dce -dse -adce -find-syn-modules -top sort_C -deadargelim -mem2reg -instcombine -dce -presyn-prepare -auto-rom-infer -interface-preproc -syn-check -check-rec-only -find-region -simplifycfg -func-extr -function-inline -globaldce -mem2reg -instcombine -dce -gvn -globaldce -adce -adse -constprop -instcombine -bit-constprop -instcombine -dce -simplifycfg -bitop-raise -simplifycfg -dce -loop-delete -reassociate -globalopt -global-privatize -mem2reg -dce -global-constprop -pointer-simplify -constprop -dce -func-inst -deadargelim -auto-shift-reg-idiom -promote-dbg-pointer -norm-name D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.g.0.bc -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.g.1.bc -f -phase std-opt 
+Command         transform done; 0.167 sec.
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.281 seconds; current allocated memory: 205.163 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO-FLOW: Checking Synthesizability 1/2..
+Execute         transform -hls -syn-check -check-rec-only -scalarrepl -norm-name -dce -mem2reg -instcombine -function-uniquify -directive-preproc -mem2reg -dse -dce -auto-rom-infer -dce -pag -array-normalize -instcombine -dce -array-seg-normalize -instcombine -dce -data-pack -instcombine -dce -inst-simplify -array-flatten -instcombine -dce -array-burst -dce -deadargelim -promote-global-argument -simplifycfg -mem2reg -globaldce -dce -deadargelim -dce -instcombine -function-inline -globaldce -dce -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -dse -adse -instcombine -ptrLegalization -simplifycfg -dce -instcombine -pointer-simplify -ptrArgReplace -dce -instcombine -resolve-double-ptr -scalarrepl -norm-name -dce -mem2reg -instcombine -ptrLegalization -simplifycfg -deadargelim -instcombine -dce -inst-simplify -function-uniquify -directive-preproc -mem2reg -dse -dce -globaldce -check-dspbuiltin D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.g.1.bc -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.g.2.prechk.bc -f 
+Command         transform done; 0.126 sec.
+INFO-FLOW: Checking Synthesizability 2/2..
+Execute         transform -syn-check D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.g.2.prechk.bc -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.g.2.bc -f -phase syn-check 
+WARNING: [SYNCHK 200-23] D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:1000: variable-indexed range selection may cause suboptimal QoR.
+INFO: [SYNCHK 200-10] 0 error(s), 1 warning(s).
+Command         transform done; 0.122 sec.
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.394 seconds; current allocated memory: 222.956 MB.
+INFO-FLOW: Compiler optimizing ...
+INFO-FLOW: Share syncheck's 1.bc for syn flow: copy D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.g.1.bc to D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.o.1.bc
+INFO-FLOW: Presyn 1...
+Execute         transform -hls -tmp D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db -interface-port-rename -function-uniquify -directive-preproc -mem2reg -dse -dce -scalarrepl -norm-name -deadargelim -mem2reg -instcombine -dce -simplifycfg -auto-rom-infer -dce -function-uniquify -resource-proc -clib-intrinsic-prepare -dce -func-buffer -dce -pag -array-normalize -func-legal -instcombine -gvn -constprop -dce -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -ptrArgReplace -mem2reg -dce -array-seg-normalize -deadargelim -instcombine -dce -function-uniquify -directive-preproc -mem2reg -dse -dce -pointer-simplify -dce -port-alignment -dce -interface-preproc -data-pack -instcombine -dce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -loop-simplify -indvars -instcombine -gvn -loop-simplify -mem2reg -dce -find-region -instcombine -auto-loop-pipeline -inst-simplify -interface-preproc -cfgopt -instcombine -indvars -auto-loop-unroll -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -clean-region -attach-range -gvn -inst-simplify -constprop -simplifycfg -dce -pointer-simplify -dce -globalopt -constprop -dce -array-promote -constprop -dce -ptrArgReplace -mem2reg -simplifycfg -dce -instcombine -dce -array-transform-check -array-reshape -instcombine -simplifycfg -dce -ptrArgReplace -deadargelim -mem2reg -instcombine -simplifycfg -dce -indvars -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -duplicate-dataflow-processes -globaldce -instcombine -array-partition -instcombine -simplifycfg -dce -ptrArgReplace -global-constprop -deadargelim -mem2reg -func-legal -dce -global-constprop -deadargelim -mem2reg -simplifycfg -dce -merge-param -deadargelim -globalopt -constprop -dce -array-promote -constprop -dce -ptrArgReplace -mem2reg -simplifycfg -dce -mem-intrinsic-preproc -dce -global-internalize -global-privatize -mem2reg -globaldce -promote-global-argument -ptrArgReplace -mem2reg -dce -globalopt -mergereturn -simplify-global-access -mem2reg -dce -pointer-simplify -dce -functionattrs -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -dce -norm-name -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -accesses-merge -function-inline -complex-op-raise -inst-simplify -globaldce -func-inst -constprop -instcombine -simplifycfg -dce -func-legal -dce -loop-bound -arraycheck -bitwidthmin2 -bitwidthmin2 -on-by-dataflow -loop-delete -instcombine -simplifycfg -globaldce -dce -gvn -deadargelim -dce -loop-simplify -clean-region -simplifycfg -propagate-stable-arguments -loop-stream -instcombine -simplifycfg -dce -globaldce -duplicate-dataflow-processes -stream-intrinsic-preproc -dce -check-ap-stream -loop-simplify -eliminate-keepreads -extract-dataflow-in-loop -loop-simplify -dce -gvn -deadargelim -dse -duplicate-dataflow-processes -check-dataflow-syntax -legalize-stream-variable -legalize-global -extract-subproc -dce -dead-channel-elimination -canonicalize-gep -globaldce -dce -gvn -hls-dead-arg-elim -deadargelim -directive-preproc -annotate-dataflow-channels -scalar-preprocessing -scalar-propagation2 -deadargelim -globaldce -mem2reg -check-dataflow-channels -function-stream -dce -globaldce -prop-fifo-spec -internal-stream-gen -canonicalize-gep -globaldce -dce -gvn -deadargelim -mergereturn -indvars -loop-simplify -instcombine -array-stream -array-seg-normalize -array-partition -func-legal -instcombine -simplifycfg -dce -bundle-memfifo-ops -deadargelim -function-uniquify -directive-preproc -mem2reg -dse -dce -group-axi-access -licm -simplifycfg -dce -loop-delete -hls-display -norm-name D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.o.1.bc -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.o.1.tmp.bc -f 
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'loop_diff_pe' (kernel.cpp:151) in function 'sort_C' for pipelining.
+INFO: [HLS 200-489] Unrolling loop 'loop_for_col' (kernel.cpp:154) in function 'sort_C' completely with a factor of 8.
+INFO: [XFORM 203-101] Partitioning array 'matrixC_buffer.V' (kernel.cpp:134) in dimension 1 completely.
+Command         transform done; 0.421 sec.
+INFO-FLOW: Presyn 2...
+Execute         transform -hls -keep-callgraph -scalarrepl -mem2reg -port-alignment -attach-range -dce -pipe-mux-gen -indvars -loop-bound -inst-simplify -instcombine -dce -merge-array-access -mem2reg -dce -clean-region -mergereturn -if-conv -instcombine -dce -constprop -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -scalarrepl -mem2reg -global-constprop -deadargelim -deadargelim -instcombine -dce -simplifycfg -ptrArgReplace -mem2reg -function-inline -globaldce -mem2reg -instcombine -dce -expr-balance -instcombine -dce -bitwidthmin2 -bitwidthmin2 -interface-preproc -directive-preproc -inst-rectify -instcombine -dce -functionattrs -constprop -instcombine -bit-constprop -simplify-global-access -globalopt -globaldce -inst-simplify -instcombine -elimdeaddata -dce -loop-delete -simplifycfg -loop-simplify -auto-burst -barrier -norm-name D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.o.1.tmp.bc -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.o.2.bc -f -phase presyn 
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (kernel.cpp:151:13) to (kernel.cpp:158:10) in function 'sort_C'... converting 9 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9) to (kernel.cpp:158:10) in function 'sort_C'... converting 9 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9) to (kernel.cpp:158:10) in function 'sort_C'... converting 9 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9) to (kernel.cpp:158:10) in function 'sort_C'... converting 9 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9) to (kernel.cpp:158:10) in function 'sort_C'... converting 9 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9) to (kernel.cpp:158:10) in function 'sort_C'... converting 9 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9) to (kernel.cpp:158:10) in function 'sort_C'... converting 9 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9) to (kernel.cpp:158:10) in function 'sort_C'... converting 9 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (kernel.cpp:169:30) to (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174:9) in function 'sort_C'... converting 10 basic blocks.
+Command         transform done; 0.475 sec.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 1.477 seconds; current allocated memory: 264.709 MB.
+Execute         get_config_compile -enable_auto_rewind 
+Execute         get_config_compile -enable_loop_extract 
+INFO-FLOW: Building ssdm...
+Execute         transform -hls -function-uniquify -auto-function-inline -globaldce -ptrArgReplace -mem2reg -dce -reset-lda -loop-simplify -indvars -aggr-aa -licm -loop-dep -loop-bound -licm -loop-simplify -flattenloopnest -array-flatten -gvn -instcombine -dce -array-map -dce -func-legal -gvn -adce -instcombine -cfgopt -simplifycfg -loop-simplify -array-burst -promote-global-argument -dce -array-seg-normalize -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -gvn -gvn -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -dse -adse -adce -licm -inst-simplify -dce -globaldce -instcombine -array-stream -eliminate-keepreads -instcombine -dce -deadargelim -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -mem2reg -norm-name -mem2reg -instcombine -dse -adse -adce -ptrLegalization -dce -auto-rom-infer -array-flatten -dce -instcombine -check-doubleptr -loop-rot -constprop -cfgopt -simplifycfg -loop-simplify -indvars -pointer-simplify -dce -loop-bound -loop-simplify -loop-preproc -constprop -global-constprop -gvn -mem2reg -instcombine -dce -loop-bound -loop-merge -dce -deadargelim -dce -canonicalize-dataflow -dce -scalar-propagation2 -deadargelim -globaldce -mem2reg -load-elim -read-loop-dep -loop-simplify -loop-extract-inner -directive-preproc -bitwidthmin2 -bitwidthmin2 -read-loop-dep -interface-preproc -directive-preproc -interface-gen -bram-byte-enable -deadargelim -inst-simplify -dce -gvn -mem2reg -instcombine -dce -adse -loop-bound -instcombine -cfgopt -simplifycfg -loop-simplify -clean-region -io-protocol -find-region -mem2reg -bitop-raise -complex-op-raise -inst-simplify -inst-rectify -instcombine -adce -deadargelim -float-op-raise -loop-simplify -phi-opt -bitop-raise -cfgopt -simplifycfg -strip-dead-prototypes -interface-lower -bitop-lower -intrinsic-lower -auto-function-inline -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -inst-simplify -simplifycfg -loop-simplify -mergereturn -inst-simplify -inst-rectify -dce -load-elim -bitop-lower -float-op-raise -fma-raise -loop-rewind -pointer-simplify -dce -cfgopt -dce -loop-bound -loop-dep -read-loop-dep -dce -dyn-mem-reuse -dce -recurrence-min -dce -check-stream -norm-name -legalize -validate-dataflow -inst-clarity -bitwidth -dump-loop-dep-to-ir -check-all-ssdm -cdfg-build D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.o.2.bc -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/a.o.3.bc -f -phase build-ssdm 
+INFO: [XFORM 203-541] Flattening a loop nest 'loop_diff_window' (kernel.cpp:148:12) in function 'sort_C'.
+INFO: [HLS 200-472] Inferring partial write operation for 'matrixC_buffer.V[0]' (kernel.cpp:137:25)
+INFO: [HLS 200-472] Inferring partial write operation for 'matrixC_buffer.V[0]' (kernel.cpp:122:16)
+Command         transform done; 0.693 sec.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.904 seconds; current allocated memory: 278.374 MB.
+INFO-FLOW: Finish building internal data model.
+Command       opt_and_import_c done; 3.072 sec.
+Command     elaborate done; 24.781 sec.
+Execute     ap_eval exec zip -j D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/dut.hcp $dbDir/a.o.3.bc $dbDir/${topname}.rtl_wrap.cfg.tcl $dbDir/apatb_${topname}.cpp $dbDir/apatb_${topname}_util.cpp $dbDir/apatb_${topname}_ir.ll $dbDir/mapper_${topname}.cpp $dbDir/top-io-fe.xml $dbDir/kernel.internal.xml $workdir/../hls.app 
+Command     ap_eval done; 0.453 sec.
+Execute     autosyn -from_csynth_design=1 
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO-FLOW: Synthesizing C/C++ design ...
+INFO: [HLS 200-10] Synthesizing 'sort_C' ...
+Execute       ap_set_top_model sort_C 
+Execute       get_model_list sort_C -filter all-wo-channel -topdown 
+Execute       preproc_iomode -model sort_C 
+Execute       preproc_iomode -model sort_C_Pipeline_loop_diff_window_loop_diff_pe 
+Execute       get_model_list sort_C -filter all-wo-channel 
+INFO-FLOW: Model list for configure: sort_C_Pipeline_loop_diff_window_loop_diff_pe sort_C
+INFO-FLOW: Configuring Module : sort_C_Pipeline_loop_diff_window_loop_diff_pe ...
+Execute       set_default_model sort_C_Pipeline_loop_diff_window_loop_diff_pe 
+Execute       apply_spec_resource_limit sort_C_Pipeline_loop_diff_window_loop_diff_pe 
+INFO-FLOW: Configuring Module : sort_C ...
+Execute       set_default_model sort_C 
+Execute       apply_spec_resource_limit sort_C 
+INFO-FLOW: Model list for preprocess: sort_C_Pipeline_loop_diff_window_loop_diff_pe sort_C
+INFO-FLOW: Preprocessing Module: sort_C_Pipeline_loop_diff_window_loop_diff_pe ...
+Execute       set_default_model sort_C_Pipeline_loop_diff_window_loop_diff_pe 
+Execute       cdfg_preprocess -model sort_C_Pipeline_loop_diff_window_loop_diff_pe 
+Execute       rtl_gen_preprocess sort_C_Pipeline_loop_diff_window_loop_diff_pe 
+INFO-FLOW: Preprocessing Module: sort_C ...
+Execute       set_default_model sort_C 
+Execute       cdfg_preprocess -model sort_C 
+Execute       rtl_gen_preprocess sort_C 
+INFO-FLOW: Model list for synthesis: sort_C_Pipeline_loop_diff_window_loop_diff_pe sort_C
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'sort_C_Pipeline_loop_diff_window_loop_diff_pe' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute       set_default_model sort_C_Pipeline_loop_diff_window_loop_diff_pe 
+Execute       schedule -model sort_C_Pipeline_loop_diff_window_loop_diff_pe 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'loop_diff_window_loop_diff_pe'.
+WARNING: [HLS 200-880] The II Violation in module 'sort_C_Pipeline_loop_diff_window_loop_diff_pe' (loop 'loop_diff_window_loop_diff_pe'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between 'store' operation ('matrixC_buffer_V_0_addr_write_ln122', kernel.cpp:122) of variable 'add_ln712' on array 'matrixC_buffer_V_0' and 'load' operation ('matrixC_buffer_V_0_load', kernel.cpp:120) on array 'matrixC_buffer_V_0'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 2, Depth = 6, loop 'loop_diff_window_loop_diff_pe'
+INFO: [SCHED 204-11] Finished scheduling.
+Command       schedule done; 0.57 sec.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 1.287 seconds; current allocated memory: 279.883 MB.
+Execute       syn_report -verbosereport -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/sort_C_Pipeline_loop_diff_window_loop_diff_pe.verbose.sched.rpt 
+Execute         AP::get_flow_target_display_name
+Execute           get_solution -flow_target 
+Command       syn_report done; 0.22 sec.
+Execute       db_write -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/sort_C_Pipeline_loop_diff_window_loop_diff_pe.sched.adb -f 
+INFO-FLOW: Finish scheduling sort_C_Pipeline_loop_diff_window_loop_diff_pe.
+Execute       set_default_model sort_C_Pipeline_loop_diff_window_loop_diff_pe 
+Execute       bind -model sort_C_Pipeline_loop_diff_window_loop_diff_pe 
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+Command       bind done; 0.351 sec.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.805 seconds; current allocated memory: 281.473 MB.
+Execute       syn_report -verbosereport -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/sort_C_Pipeline_loop_diff_window_loop_diff_pe.verbose.bind.rpt 
+Execute         AP::get_flow_target_display_name
+Execute           get_solution -flow_target 
+Command       syn_report done; 0.97 sec.
+Execute       db_write -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/sort_C_Pipeline_loop_diff_window_loop_diff_pe.bind.adb -f 
+Command       db_write done; 0.117 sec.
+INFO-FLOW: Finish binding sort_C_Pipeline_loop_diff_window_loop_diff_pe.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'sort_C' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute       set_default_model sort_C 
+Execute       schedule -model sort_C 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+Command       schedule done; 0.19 sec.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.507 seconds; current allocated memory: 282.057 MB.
+Execute       syn_report -verbosereport -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/sort_C.verbose.sched.rpt 
+Execute         AP::get_flow_target_display_name
+Execute           get_solution -flow_target 
+Command       syn_report done; 0.147 sec.
+Execute       db_write -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/sort_C.sched.adb -f 
+INFO-FLOW: Finish scheduling sort_C.
+Execute       set_default_model sort_C 
+Execute       bind -model sort_C 
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+Command       bind done; 0.579 sec.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.071 seconds; current allocated memory: 282.996 MB.
+Execute       syn_report -verbosereport -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/sort_C.verbose.bind.rpt 
+Execute         AP::get_flow_target_display_name
+Execute           get_solution -flow_target 
+Command       syn_report done; 2.218 sec.
+Execute       db_write -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/sort_C.bind.adb -f 
+Command       db_write done; 0.109 sec.
+INFO-FLOW: Finish binding sort_C.
+Execute       get_model_list sort_C -filter all-wo-channel 
+INFO-FLOW: Preprocessing for RTLGen ...
+Execute       rtl_gen_preprocess sort_C_Pipeline_loop_diff_window_loop_diff_pe 
+Execute       rtl_gen_preprocess sort_C 
+INFO-FLOW: Model list for RTL generation: sort_C_Pipeline_loop_diff_window_loop_diff_pe sort_C
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'sort_C_Pipeline_loop_diff_window_loop_diff_pe' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute       get_config_rtl -module_prefix 
+Execute       get_config_rtl -module_auto_prefix 
+Execute       get_config_rtl -module_prefix 
+Execute       get_config_rtl -module_auto_prefix 
+Execute       create_rtl_model sort_C_Pipeline_loop_diff_window_loop_diff_pe -top_prefix sort_C_ -sub_prefix sort_C_ -mg_file D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/sort_C_Pipeline_loop_diff_window_loop_diff_pe.compgen.tcl 
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'sort_C_Pipeline_loop_diff_window_loop_diff_pe' pipeline 'loop_diff_window_loop_diff_pe' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fpext_32ns_64_2_no_dsp_1': 4 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'sort_C_Pipeline_loop_diff_window_loop_diff_pe'.
+Command       create_rtl_model done; 0.329 sec.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 2.969 seconds; current allocated memory: 285.870 MB.
+Execute       source D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/sort_C.rtl_wrap.cfg.tcl 
+Execute       gen_rtl sort_C_Pipeline_loop_diff_window_loop_diff_pe -style xilinx -f -lang vhdl -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/syn/vhdl/sort_C_sort_C_Pipeline_loop_diff_window_loop_diff_pe 
+Execute       gen_rtl sort_C_Pipeline_loop_diff_window_loop_diff_pe -style xilinx -f -lang vlog -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/syn/verilog/sort_C_sort_C_Pipeline_loop_diff_window_loop_diff_pe 
+Execute       syn_report -csynth -model sort_C_Pipeline_loop_diff_window_loop_diff_pe -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/syn/report/sort_C_Pipeline_loop_diff_window_loop_diff_pe_csynth.rpt 
+Execute         AP::get_flow_target_display_name
+Execute           get_solution -flow_target 
+Command       syn_report done; 2.01 sec.
+Execute       syn_report -rtlxml -model sort_C_Pipeline_loop_diff_window_loop_diff_pe -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/syn/report/sort_C_Pipeline_loop_diff_window_loop_diff_pe_csynth.xml 
+Execute         get_solution -flow_target
+Execute           get_solution -flow_target 
+Command       syn_report done; 0.846 sec.
+Execute       syn_report -verbosereport -model sort_C_Pipeline_loop_diff_window_loop_diff_pe -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/sort_C_Pipeline_loop_diff_window_loop_diff_pe.verbose.rpt 
+Execute         AP::get_flow_target_display_name
+Execute           get_solution -flow_target 
+Command       syn_report done; 2.849 sec.
+Execute       db_write -model sort_C_Pipeline_loop_diff_window_loop_diff_pe -f -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/sort_C_Pipeline_loop_diff_window_loop_diff_pe.adb 
+Command       db_write done; 0.457 sec.
+Execute       db_write -model sort_C_Pipeline_loop_diff_window_loop_diff_pe -bindview -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/design.bindinfo.xml 
+Execute       gen_tb_info sort_C_Pipeline_loop_diff_window_loop_diff_pe -p D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/sort_C_Pipeline_loop_diff_window_loop_diff_pe 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'sort_C' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute       get_config_rtl -module_prefix 
+Execute       get_config_rtl -module_prefix 
+Execute       get_config_rtl -module_auto_prefix 
+Execute       create_rtl_model sort_C -top_prefix  -sub_prefix sort_C_ -mg_file D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/sort_C.compgen.tcl 
+INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/lenEdgeListPtr' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoEdgeListPtr_i_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoMatrixCIdx_i_0_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoMatrixCIdx_i_1_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoMatrixCIdx_i_2_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoMatrixCIdx_i_3_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoMatrixCIdx_i_4_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoMatrixCIdx_i_5_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoMatrixCIdx_i_6_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoMatrixCIdx_i_7_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoCalcMatrixC_i_0_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoCalcMatrixC_i_1_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoCalcMatrixC_i_2_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoCalcMatrixC_i_3_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoCalcMatrixC_i_4_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoCalcMatrixC_i_5_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoCalcMatrixC_i_6_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoCalcMatrixC_i_7_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoSortMatrixC_o_0_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoSortMatrixC_o_1_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoSortMatrixC_o_2_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoSortMatrixC_o_3_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoSortMatrixC_o_4_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoSortMatrixC_o_5_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoSortMatrixC_o_6_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoSortMatrixC_o_7_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'sort_C' to 'ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Generating core module 'mux_83_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'sort_C'.
+Command       create_rtl_model done; 0.5 sec.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 2 seconds. CPU system time: 0 seconds. Elapsed time: 7.415 seconds; current allocated memory: 293.454 MB.
+Execute       source D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/sort_C.rtl_wrap.cfg.tcl 
+Execute       gen_rtl sort_C -istop -style xilinx -f -lang vhdl -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/syn/vhdl/sort_C 
+Execute       gen_rtl sort_C -istop -style xilinx -f -lang vlog -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/syn/verilog/sort_C 
+Execute       syn_report -csynth -model sort_C -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/syn/report/sort_C_csynth.rpt 
+Execute         AP::get_flow_target_display_name
+Execute           get_solution -flow_target 
+Execute       syn_report -rtlxml -model sort_C -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/syn/report/sort_C_csynth.xml 
+Execute         get_solution -flow_target
+Execute           get_solution -flow_target 
+Execute       syn_report -verbosereport -model sort_C -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/sort_C.verbose.rpt 
+Execute         AP::get_flow_target_display_name
+Execute           get_solution -flow_target 
+Command       syn_report done; 1.026 sec.
+Execute       db_write -model sort_C -f -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/sort_C.adb 
+Command       db_write done; 0.181 sec.
+Execute       db_write -model sort_C -bindview -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/design.bindinfo.xml 
+Execute       gen_tb_info sort_C -p D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/sort_C 
+Execute       export_constraint_db -f -tool general -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/sort_C.constraint.tcl 
+Execute       syn_report -designview -model sort_C -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/sort_C.design.xml 
+Command       syn_report done; 0.629 sec.
+Execute       syn_report -csynthDesign -model sort_C -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/syn/report/csynth.rpt 
+Execute         AP::get_flow_target_display_name
+Execute           get_solution -flow_target 
+Execute       get_config_rtl -disable_wave_debug 
+Execute       syn_report -wcfg -model sort_C -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/sort_C_dataflow_ana.wcfg 
+Execute       syn_report -protoinst -model sort_C -o D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/sort_C.protoinst 
+Execute       get_config_debug -directory 
+Execute       sc_get_clocks sort_C 
+Execute       get_config_export -vivado_clock 
+Execute       get_config_rtl -module_prefix 
+Execute       get_config_rtl -module_prefix 
+Execute       get_config_rtl -module_auto_prefix 
+Execute       sc_get_portdomain sort_C 
+INFO-FLOW: Model list for RTL component generation: sort_C_Pipeline_loop_diff_window_loop_diff_pe sort_C
+INFO-FLOW: Handling components in module [sort_C_Pipeline_loop_diff_window_loop_diff_pe] ... 
+Execute       source D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/sort_C_Pipeline_loop_diff_window_loop_diff_pe.compgen.tcl 
+INFO-FLOW: Found component sort_C_fpext_32ns_64_2_no_dsp_1.
+INFO-FLOW: Append model sort_C_fpext_32ns_64_2_no_dsp_1
+INFO-FLOW: Found component sort_C_flow_control_loop_pipe_sequential_init.
+INFO-FLOW: Append model sort_C_flow_control_loop_pipe_sequential_init
+INFO-FLOW: Handling components in module [sort_C] ... 
+Execute       source D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/sort_C.compgen.tcl 
+INFO-FLOW: Found component sort_C_mux_83_32_1_1.
+INFO-FLOW: Append model sort_C_mux_83_32_1_1
+INFO-FLOW: Found component sort_C_matrixC_buffer_V_0.
+INFO-FLOW: Append model sort_C_matrixC_buffer_V_0
+INFO-FLOW: Append model sort_C_Pipeline_loop_diff_window_loop_diff_pe
+INFO-FLOW: Append model sort_C
+INFO-FLOW: Generating RTL model list ...
+INFO-FLOW: All models in this session: sort_C_fpext_32ns_64_2_no_dsp_1 sort_C_flow_control_loop_pipe_sequential_init sort_C_mux_83_32_1_1 sort_C_matrixC_buffer_V_0 sort_C_Pipeline_loop_diff_window_loop_diff_pe sort_C
+INFO-FLOW: Generating D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/autopilot.rtl.models.txt file...
+INFO-FLOW: To file: write model sort_C_fpext_32ns_64_2_no_dsp_1
+INFO-FLOW: To file: write model sort_C_flow_control_loop_pipe_sequential_init
+INFO-FLOW: To file: write model sort_C_mux_83_32_1_1
+INFO-FLOW: To file: write model sort_C_matrixC_buffer_V_0
+INFO-FLOW: To file: write model sort_C_Pipeline_loop_diff_window_loop_diff_pe
+INFO-FLOW: To file: write model sort_C
+INFO-FLOW: Generating D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/autopilot.rtl.models.tcl file...
+INFO-FLOW: Finished generating RTL model list.
+
+
+INFO-FLOW: RTL Generation done.
+INFO-FLOW: CAS Generation done.
+INFO-FLOW: CBC Generation done.
+INFO-FLOW: DBG:PROC: ::AESL_AUTOMG::auto_generate_csynth_design
+Execute       get_top 
+Execute       get_config_export -ipname 
+Execute       get_config_export -xo 
+Execute       get_config_export -format 
+Execute       get_config_rtl -module_auto_prefix 
+INFO-FLOW: DBG:PUTS: read_platform_lib D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/global.setting.tcl
+Execute       source D:/Xilinx/Vitis_HLS/2021.1/common/technology/generic/autopilot/common.gen 
+Execute         source D:/Xilinx/Vitis_HLS/2021.1/common/technology/generic/autopilot/APCoreGen.gen 
+Execute       source D:/Xilinx/Vitis_HLS/2021.1/common/technology/generic/autopilot/op.gen 
+Execute       source D:/Xilinx/Vitis_HLS/2021.1/common/technology/generic/autopilot/op_simcore.gen 
+Execute       source D:/Xilinx/Vitis_HLS/2021.1/common/technology/generic/autopilot/interface.gen 
+Execute       source D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/global.setting.tcl 
+Execute       source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/common/xilinx.gen 
+Execute         source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/interface/plb46.gen 
+Execute         source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/interface/axi4.gen 
+Execute         source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute           source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/interface/saxilite.gen 
+Execute           source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/interface/maxi.gen 
+Execute         source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute         source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute         source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/ip/dds_compiler.gen 
+Execute         source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/ip/util.gen 
+Execute         source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/ip/xfft.gen 
+Command         ap_source done; 0.101 sec.
+Execute         source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/ip/xfir.gen 
+Execute         source D:/Xilinx/Vitis_HLS/2021.1/common/technology/xilinx/DSP48/dsp48.gen 
+Command       ap_source done; 0.175 sec.
+INFO-FLOW: DBG:PUTS:   using AESL_AUTOCG::g_clock_period=10 (was NA)
+INFO-FLOW: DBG:PROC: ::AESL_AUTOMG::generate_ip_cores gen_sim_model='1' gen_fp_models='0' gen_for_export='0' dstSCDir='' dstVhdlDir='D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/vhdl' dstVlogDir='D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/vlog' tclDir='D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db' modelList='sort_C_fpext_32ns_64_2_no_dsp_1
+sort_C_flow_control_loop_pipe_sequential_init
+sort_C_mux_83_32_1_1
+sort_C_matrixC_buffer_V_0
+sort_C_Pipeline_loop_diff_window_loop_diff_pe
+sort_C
+' expOnly='0'
+Execute       source D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/global.setting.tcl 
+Execute       ap_part_info -name xczu7ev-ffvc1156-2-e -data names -quiet 
+Execute       ap_part_info -name xczu7ev-ffvc1156-2-e -data info -quiet 
+Execute       source D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/global.setting.tcl 
+Execute       source D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/global.setting.tcl 
+Execute       source D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/sort_C_Pipeline_loop_diff_window_loop_diff_pe.compgen.tcl 
+Execute       source D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/sort_C.compgen.tcl 
+Execute         ap_part_info -name xczu7ev-ffvc1156-2-e -data names -quiet 
+Execute         ap_part_info -name xczu7ev-ffvc1156-2-e -data info -quiet 
+INFO: [RTMG 210-278] Implementing memory 'sort_C_matrixC_buffer_V_0_ram (RAM)' using auto RAMs.
+Execute         ap_part_info -name xczu7ev-ffvc1156-2-e -data names -quiet 
+Execute         ap_part_info -name xczu7ev-ffvc1156-2-e -data info -quiet 
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 2.719 seconds; current allocated memory: 297.847 MB.
+INFO-FLOW: DBG:PROC: ::AP::create_csynth_xml outfile=''
+INFO-FLOW: Running: create_csynth_xml read xml data
+INFO-FLOW: Done: create_csynth_xml read xml data time: 0 seconds per iteration
+INFO-FLOW: Running: create_csynth_xml bind info
+INFO-FLOW: Done: create_csynth_xml bind info time: 0 seconds per iteration
+INFO-FLOW: Running: create_csynth_xml config info
+Execute       get_config_op mul -impl 
+Execute       get_config_op mul -latency 
+Execute       get_config_op mul -precision 
+Execute       get_config_op add -impl 
+Execute       get_config_op add -latency 
+Execute       get_config_op add -precision 
+Execute       get_config_op sub -impl 
+Execute       get_config_op sub -latency 
+Execute       get_config_op sub -precision 
+Execute       get_config_op fadd -impl 
+Execute       get_config_op fadd -latency 
+Execute       get_config_op fadd -precision 
+Execute       get_config_op fsub -impl 
+Execute       get_config_op fsub -latency 
+Execute       get_config_op fsub -precision 
+Execute       get_config_op fdiv -impl 
+Execute       get_config_op fdiv -latency 
+Execute       get_config_op fdiv -precision 
+Execute       get_config_op fexp -impl 
+Execute       get_config_op fexp -latency 
+Execute       get_config_op fexp -precision 
+Execute       get_config_op flog -impl 
+Execute       get_config_op flog -latency 
+Execute       get_config_op flog -precision 
+Execute       get_config_op fmul -impl 
+Execute       get_config_op fmul -latency 
+Execute       get_config_op fmul -precision 
+Execute       get_config_op frsqrt -impl 
+Execute       get_config_op frsqrt -latency 
+Execute       get_config_op frsqrt -precision 
+Execute       get_config_op frecip -impl 
+Execute       get_config_op frecip -latency 
+Execute       get_config_op frecip -precision 
+Execute       get_config_op fsqrt -impl 
+Execute       get_config_op fsqrt -latency 
+Execute       get_config_op fsqrt -precision 
+Execute       get_config_op dadd -impl 
+Execute       get_config_op dadd -latency 
+Execute       get_config_op dadd -precision 
+Execute       get_config_op dsub -impl 
+Execute       get_config_op dsub -latency 
+Execute       get_config_op dsub -precision 
+Execute       get_config_op ddiv -impl 
+Execute       get_config_op ddiv -latency 
+Execute       get_config_op ddiv -precision 
+Execute       get_config_op dexp -impl 
+Execute       get_config_op dexp -latency 
+Execute       get_config_op dexp -precision 
+Execute       get_config_op dlog -impl 
+Execute       get_config_op dlog -latency 
+Execute       get_config_op dlog -precision 
+Execute       get_config_op dmul -impl 
+Execute       get_config_op dmul -latency 
+Execute       get_config_op dmul -precision 
+Execute       get_config_op drsqrt -impl 
+Execute       get_config_op drsqrt -latency 
+Execute       get_config_op drsqrt -precision 
+Execute       get_config_op drecip -impl 
+Execute       get_config_op drecip -latency 
+Execute       get_config_op drecip -precision 
+Execute       get_config_op dsqrt -impl 
+Execute       get_config_op dsqrt -latency 
+Execute       get_config_op dsqrt -precision 
+Execute       get_config_op hadd -impl 
+Execute       get_config_op hadd -latency 
+Execute       get_config_op hadd -precision 
+Execute       get_config_op hsub -impl 
+Execute       get_config_op hsub -latency 
+Execute       get_config_op hsub -precision 
+Execute       get_config_op hdiv -impl 
+Execute       get_config_op hdiv -latency 
+Execute       get_config_op hdiv -precision 
+Execute       get_config_op hmul -impl 
+Execute       get_config_op hmul -latency 
+Execute       get_config_op hmul -precision 
+Execute       get_config_op hsqrt -impl 
+Execute       get_config_op hsqrt -latency 
+Execute       get_config_op hsqrt -precision 
+Execute       get_config_op facc -impl 
+Execute       get_config_op facc -latency 
+Execute       get_config_op facc -precision 
+Execute       get_config_op fmacc -impl 
+Execute       get_config_op fmacc -latency 
+Execute       get_config_op fmacc -precision 
+Execute       get_config_op fmadd -impl 
+Execute       get_config_op fmadd -latency 
+Execute       get_config_op fmadd -precision 
+Execute       get_config_storage fifo -auto_srl_max_bits 
+Execute       get_config_storage fifo -auto_srl_max_depth 
+Execute       get_config_storage fifo -impl 
+Execute       get_solution -flow_target 
+Execute       get_config_array_partition -complete_threshold 
+Execute       get_config_array_partition -throughput_driven 
+Execute       get_config_compile -enable_auto_rewind 
+Execute       get_config_compile -name_max_length 
+Execute       get_config_compile -no_signed_zeros 
+Execute       get_config_compile -pipeline_loops 
+Execute       get_config_compile -pipeline_style 
+Execute       get_config_compile -pragma_strict_mode 
+Execute       get_config_compile -pre_tcl 
+Execute       get_config_compile -unsafe_math_optimizations 
+Execute       get_config_dataflow -default_channel 
+Execute       get_config_dataflow -disable_fifo_sizing_opt 
+Execute       get_config_dataflow -fifo_depth 
+Execute       get_config_dataflow -override_user_fifo_depth 
+Execute       get_config_dataflow -scalar_fifo_depth 
+Execute       get_config_dataflow -start_fifo_depth 
+Execute       get_config_dataflow -strict_mode 
+Execute       get_config_dataflow -strict_stable_sync 
+Execute       get_config_dataflow -task_level_fifo_depth 
+Execute       get_config_debug -directory 
+Execute       get_config_debug -enable 
+Execute       get_config_export -description 
+Execute       get_config_export -disable_deadlock_detection 
+Execute       get_config_export -display_name 
+Execute       get_config_export -format 
+Execute       get_config_export -ip_xdc_file 
+Execute       get_config_export -ip_xdc_ooc_file 
+Execute       get_config_export -ipname 
+Execute       get_config_export -library 
+Execute       get_config_export -output 
+Execute       get_config_export -rtl 
+Execute       get_config_export -taxonomy 
+Execute       get_config_export -vendor 
+Execute       get_config_export -version 
+Execute       get_config_export -vivado_clock 
+Execute       get_config_export -vivado_impl_strategy 
+Execute       get_config_export -vivado_max_timing_paths 
+Execute       get_config_export -vivado_optimization_level 
+Execute       get_config_export -vivado_pblock 
+Execute       get_config_export -vivado_phys_opt 
+Execute       get_config_export -vivado_report_level 
+Execute       get_config_export -vivado_synth_design_args 
+Execute       get_config_export -vivado_synth_strategy 
+Execute       get_config_interface -clock_enable 
+Execute       get_config_interface -default_slave_interface 
+Execute       get_config_interface -m_axi_addr64 
+Execute       get_config_interface -m_axi_alignment_byte_size 
+Execute       get_config_interface -m_axi_auto_max_ports 
+Execute       get_config_interface -m_axi_buffer_impl 
+Execute       get_config_interface -m_axi_conservative_mode 
+Execute       get_config_interface -m_axi_flush_mode 
+Execute       get_config_interface -m_axi_latency 
+Execute       get_config_interface -m_axi_max_bitwidth 
+Execute       get_config_interface -m_axi_max_read_burst_length 
+Execute       get_config_interface -m_axi_max_widen_bitwidth 
+Execute       get_config_interface -m_axi_max_write_burst_length 
+Execute       get_config_interface -m_axi_min_bitwidth 
+Execute       get_config_interface -m_axi_num_read_outstanding 
+Execute       get_config_interface -m_axi_num_write_outstanding 
+Execute       get_config_interface -m_axi_offset 
+Execute       get_config_interface -register_io 
+Execute       get_config_interface -s_axilite_data64 
+Execute       get_config_interface -s_axilite_mailbox 
+Execute       get_config_interface -s_axilite_status_regs 
+Execute       get_config_interface -s_axilite_sw_reset 
+Execute       get_config_rtl -header 
+Execute       get_config_rtl -kernel_profile 
+Execute       get_config_rtl -module_auto_prefix 
+Execute       get_config_rtl -module_prefix 
+Execute       get_config_rtl -mult_keep_attribute 
+Execute       get_config_rtl -register_all_io 
+Execute       get_config_rtl -register_reset_num 
+Execute       get_config_rtl -reset 
+Execute       get_config_rtl -reset_async 
+Execute       get_config_rtl -reset_level 
+Execute       get_config_schedule -enable_dsp_full_reg 
+Execute       get_config_unroll -tripcount_threshold 
+INFO-FLOW: Done: create_csynth_xml config info time: 0.1 seconds per iteration
+INFO-FLOW: Running: create_csynth_xml write xml
+INFO-FLOW: Done: create_csynth_xml write xml time: 0 seconds per iteration
+INFO-FLOW: DBG:PUTS:       create_csynth_xml wrote csynth_xml=D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/syn/report/csynth.xml
+INFO-FLOW: DBG:PROC: ::AP::DESIGN_DATA::generate_json generate_bd_files='0' generate_xo_files='0' modelList='sort_C_fpext_32ns_64_2_no_dsp_1
+sort_C_flow_control_loop_pipe_sequential_init
+sort_C_mux_83_32_1_1
+sort_C_matrixC_buffer_V_0
+sort_C_Pipeline_loop_diff_window_loop_diff_pe
+sort_C
+' rtl_lang='both' bootstrap_tcl='false' outdir='' outfilename=''
+Execute       source D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/global.setting.tcl 
+Execute       source D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/global.setting.tcl 
+Execute       get_solution -flow_target 
+Execute       get_config_export -xo 
+Execute       get_config_export -format 
+Execute       source D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/top-io-be.tcl 
+Execute       source D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/sort_C.tbgen.tcl 
+Execute       source D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/sort_C.rtl_wrap.cfg.tcl 
+Execute       source D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/sort_C.compgen.dataonly.tcl 
+Execute       get_config_export -format 
+Execute       ap_part_info -name xczu7ev-ffvc1156-2-e -data names -quiet 
+Execute       ap_part_info -name xczu7ev-ffvc1156-2-e -data info -quiet 
+Execute       source D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/sort_C_Pipeline_loop_diff_window_loop_diff_pe.tbgen.tcl 
+Execute       source D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/sort_C.tbgen.tcl 
+Execute       source D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/global.setting.tcl 
+Execute       ap_part_info -name xczu7ev-ffvc1156-2-e -data names -quiet 
+Execute       ap_part_info -name xczu7ev-ffvc1156-2-e -data info -quiet 
+Execute       get_solution -flow_target 
+Execute       get_config_rtl -kernel_profile 
+Execute       get_config_rtl -kernel_profile 
+Execute       get_config_rtl -stall_sig_gen 
+Execute       get_config_rtl -profile 
+Execute       source D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/sort_C.constraint.tcl 
+Execute       sc_get_clocks sort_C 
+Execute       source D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/.autopilot/db/global.setting.tcl 
+Execute       get_config_export -ip_xdc_file 
+Execute       get_config_export -ip_xdc_ooc_file 
+Execute       get_config_debug -directory 
+Execute       source D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/impl/misc/calc_C_fmul_32ns_32ns_32_3_max_dsp_1_ip.tcl 
+Execute       source D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/impl/misc/sort_C_fpext_32ns_64_2_no_dsp_1_ip.tcl 
+INFO-FLOW: DBG:PROC: ::AP::add_csynth_report_sections
+INFO-FLOW: DBG:PUTS:       update_csynth_reports json2reportxml
+INFO-FLOW: DBG:PUTS:       update_csynth_reports wrote xml
+INFO-FLOW: DBG:PUTS:       update_csynth_reports appended to csynth rpt file
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.959 seconds; current allocated memory: 304.087 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for sort_C.
+INFO: [VLOG 209-307] Generating Verilog RTL for sort_C.
+Execute       syn_report -model sort_C -printsummary 
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were NOT satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 137.36 MHz
+Command     autosyn done; 18.367 sec.
+Command   csynth_design done; 43.633 sec.
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 8 seconds. CPU system time: 2 seconds. Elapsed time: 43.734 seconds; current allocated memory: 304.073 MB.
+Command ap_source done; 49.591 sec.
+Execute cleanup_all 

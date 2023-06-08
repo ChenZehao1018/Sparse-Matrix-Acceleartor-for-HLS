@@ -1,0 +1,1441 @@
+{
+  "Top": "sort_C",
+  "RtlTop": "sort_C",
+  "RtlPrefix": "",
+  "RtlSubPrefix": "sort_C_",
+  "SourceLanguage": "cpp",
+  "HostMachineBits": "64",
+  "FunctionProtocol": "ap_ctrl_hs",
+  "ResetStyle": "control",
+  "Target": {
+    "Family": "zynquplus",
+    "Device": "xczu7ev",
+    "Package": "-ffvc1156",
+    "Speed": "-2-e",
+    "Triple": "fpga64-xilinx-none"
+  },
+  "Args": {
+    "lenEdgeListPtr": {
+      "index": "0",
+      "direction": "in",
+      "srcType": "int",
+      "srcSize": "32",
+      "hwRefs": [{
+          "type": "port",
+          "interface": "lenEdgeListPtr",
+          "name": "lenEdgeListPtr",
+          "usage": "data",
+          "direction": "in"
+        }]
+    },
+    "fifoEdgeListPtr_i": {
+      "index": "1",
+      "direction": "in",
+      "srcType": "stream<int, 0>&",
+      "srcSize": "32",
+      "hwRefs": [{
+          "type": "interface",
+          "interface": "fifoEdgeListPtr_i_V",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        }]
+    },
+    "fifoMatrixCIdx_i": {
+      "index": "2",
+      "direction": "in",
+      "srcType": "stream<ap_uint<16>, 0>*",
+      "srcSize": "16",
+      "hwRefs": [
+        {
+          "type": "interface",
+          "interface": "fifoMatrixCIdx_i_0_V",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "fifoMatrixCIdx_i_1_V",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "fifoMatrixCIdx_i_2_V",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "fifoMatrixCIdx_i_3_V",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "fifoMatrixCIdx_i_4_V",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "fifoMatrixCIdx_i_5_V",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "fifoMatrixCIdx_i_6_V",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "fifoMatrixCIdx_i_7_V",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        }
+      ]
+    },
+    "fifoCalcMatrixC_i": {
+      "index": "3",
+      "direction": "in",
+      "srcType": "stream<float, 0>*",
+      "srcSize": "32",
+      "hwRefs": [
+        {
+          "type": "interface",
+          "interface": "fifoCalcMatrixC_i_0_V",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "fifoCalcMatrixC_i_1_V",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "fifoCalcMatrixC_i_2_V",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "fifoCalcMatrixC_i_3_V",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "fifoCalcMatrixC_i_4_V",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "fifoCalcMatrixC_i_5_V",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "fifoCalcMatrixC_i_6_V",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        },
+        {
+          "type": "interface",
+          "interface": "fifoCalcMatrixC_i_7_V",
+          "name": "",
+          "usage": "data",
+          "direction": "in"
+        }
+      ]
+    },
+    "fifoSortMatrixC_o": {
+      "index": "4",
+      "direction": "out",
+      "srcType": "stream<float, 0>*",
+      "srcSize": "32",
+      "hwRefs": [
+        {
+          "type": "interface",
+          "interface": "fifoSortMatrixC_o_0_V",
+          "name": "",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "interface",
+          "interface": "fifoSortMatrixC_o_1_V",
+          "name": "",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "interface",
+          "interface": "fifoSortMatrixC_o_2_V",
+          "name": "",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "interface",
+          "interface": "fifoSortMatrixC_o_3_V",
+          "name": "",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "interface",
+          "interface": "fifoSortMatrixC_o_4_V",
+          "name": "",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "interface",
+          "interface": "fifoSortMatrixC_o_5_V",
+          "name": "",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "interface",
+          "interface": "fifoSortMatrixC_o_6_V",
+          "name": "",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "interface",
+          "interface": "fifoSortMatrixC_o_7_V",
+          "name": "",
+          "usage": "data",
+          "direction": "out"
+        }
+      ]
+    }
+  },
+  "HlsSolution": {
+    "FlowTarget": "vivado",
+    "ConfigTcl": [
+      "config_compile -complex-mul-dsp=0",
+      "config_compile -pipeline_loops=0",
+      "config_export -vivado_clock=10"
+    ],
+    "DirectiveTcl": ["set_directive_top sort_C -name sort_C"],
+    "ProfileOption": "0",
+    "ProfileType": "none",
+    "KernelName": "sort_C"
+  },
+  "ClockInfo": {
+    "ClockName": "ap_clk",
+    "ClockPeriod": "10",
+    "Uncertainty": "2.7",
+    "IsCombinational": "0",
+    "II": "undef",
+    "Latency": "undef"
+  },
+  "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
+  "Ipx": {
+    "Vendor": "xilinx.com",
+    "Library": "hls",
+    "Name": "sort_C",
+    "Version": "1.0",
+    "DisplayName": "Sort_c",
+    "Revision": "",
+    "Description": "An IP generated by Vitis HLS",
+    "Taxonomy": "\/VITIS_HLS_IP",
+    "AutoFamilySupport": "",
+    "ZipFile": "xilinx_com_hls_sort_C_1_0.zip"
+  },
+  "Files": {
+    "CSource": ["..\/..\/kernel.cpp"],
+    "Vhdl": [
+      "impl\/vhdl\/calc_C.vhd",
+      "impl\/vhdl\/calc_C_calc_C_Pipeline_loop_diff_window_loop_diff_pe.vhd",
+      "impl\/vhdl\/calc_C_flow_control_loop_pipe_sequential_init.vhd",
+      "impl\/vhdl\/calc_C_fmul_32ns_32ns_32_3_max_dsp_1.vhd",
+      "impl\/vhdl\/calc_C_matrixB_buffer.vhd",
+      "impl\/vhdl\/calc_C_matrixB_buffer_0.vhd",
+      "impl\/vhdl\/sort_C_flow_control_loop_pipe_sequential_init.vhd",
+      "impl\/vhdl\/sort_C_fpext_32ns_64_2_no_dsp_1.vhd",
+      "impl\/vhdl\/sort_C_matrixC_buffer_V.vhd",
+      "impl\/vhdl\/sort_C_matrixC_buffer_V_0.vhd",
+      "impl\/vhdl\/sort_C_mux_42_32_1_1.vhd",
+      "impl\/vhdl\/sort_C_mux_83_32_1_1.vhd",
+      "impl\/vhdl\/sort_C_sort_C_Pipeline_loop_diff_window_loop_diff_pe.vhd",
+      "impl\/vhdl\/sort_C.vhd"
+    ],
+    "Verilog": [
+      "impl\/verilog\/calc_C.v",
+      "impl\/verilog\/calc_C_calc_C_Pipeline_loop_diff_window_loop_diff_pe.v",
+      "impl\/verilog\/calc_C_flow_control_loop_pipe_sequential_init.v",
+      "impl\/verilog\/calc_C_fmul_32ns_32ns_32_3_max_dsp_1.v",
+      "impl\/verilog\/calc_C_matrixB_buffer.v",
+      "impl\/verilog\/calc_C_matrixB_buffer_0.v",
+      "impl\/verilog\/sort_C_flow_control_loop_pipe_sequential_init.v",
+      "impl\/verilog\/sort_C_fpext_32ns_64_2_no_dsp_1.v",
+      "impl\/verilog\/sort_C_matrixC_buffer_V.v",
+      "impl\/verilog\/sort_C_matrixC_buffer_V_0.v",
+      "impl\/verilog\/sort_C_mux_42_32_1_1.v",
+      "impl\/verilog\/sort_C_mux_83_32_1_1.v",
+      "impl\/verilog\/sort_C_sort_C_Pipeline_loop_diff_window_loop_diff_pe.v",
+      "impl\/verilog\/sort_C.v"
+    ],
+    "IpMisc": ["impl\/misc\/logo.png"],
+    "Subcore": [
+      "impl\/misc\/calc_C_fmul_32ns_32ns_32_3_max_dsp_1_ip.tcl",
+      "impl\/misc\/sort_C_fpext_32ns_64_2_no_dsp_1_ip.tcl"
+    ],
+    "CsynthXml": "syn\/report\/csynth.xml",
+    "DebugDir": ".debug",
+    "KernelXml": ".autopilot\/db\/kernel.internal.xml",
+    "Xo": "",
+    "XoHlsDir": "",
+    "ProtoInst": [
+      ".debug\/arrange_C.protoinst",
+      ".debug\/array_FIFO.protoinst",
+      ".debug\/calc_C.protoinst",
+      ".debug\/calc_C_core.protoinst",
+      ".debug\/krnl_sparse_matrix_acc.protoinst",
+      ".debug\/read_A.protoinst",
+      ".debug\/read_B.protoinst",
+      ".debug\/read_edge_list_ptr.protoinst",
+      ".debug\/sorc_C_core.protoinst",
+      ".debug\/sort_C.protoinst",
+      ".debug\/write_C.protoinst"
+    ]
+  },
+  "SubcoreInfo": {
+    "HasXpmMemory": false,
+    "HasClockedDsp": false,
+    "Ip": [
+      {
+        "Name": "calc_C_fmul_32ns_32ns_32_3_max_dsp_1_ip",
+        "Vlnv": "xilinx.com:ip:floating_point:7.1",
+        "Params": "CONFIG.a_precision_type Single CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 8 CONFIG.c_a_fraction_width 24 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 1 CONFIG.c_mult_usage Max_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 8 CONFIG.c_result_fraction_width 24 CONFIG.component_name calc_C_fmul_32ns_32ns_32_3_max_dsp_1_ip CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken true CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Multiply CONFIG.result_precision_type Single CONFIG.result_tlast_behv Null"
+      },
+      {
+        "Name": "sort_C_fpext_32ns_64_2_no_dsp_1_ip",
+        "Vlnv": "xilinx.com:ip:floating_point:7.1",
+        "Params": "CONFIG.a_precision_type Single CONFIG.a_tuser_width 1 CONFIG.add_sub_value Both CONFIG.b_tuser_width 1 CONFIG.c_a_exponent_width 8 CONFIG.c_a_fraction_width 24 CONFIG.c_compare_operation Programmable CONFIG.c_has_divide_by_zero false CONFIG.c_has_invalid_op false CONFIG.c_has_overflow false CONFIG.c_has_underflow false CONFIG.c_latency 0 CONFIG.c_mult_usage No_Usage CONFIG.c_optimization Speed_Optimized CONFIG.c_rate 1 CONFIG.c_result_exponent_width 11 CONFIG.c_result_fraction_width 53 CONFIG.component_name sort_C_fpext_32ns_64_2_no_dsp_1_ip CONFIG.flow_control NonBlocking CONFIG.has_a_tlast false CONFIG.has_a_tuser false CONFIG.has_aclken false CONFIG.has_aresetn false CONFIG.has_b_tlast false CONFIG.has_b_tuser false CONFIG.has_operation_tlast false CONFIG.has_operation_tuser false CONFIG.has_result_tready false CONFIG.maximum_latency false CONFIG.operation_tuser_width 1 CONFIG.operation_type Float_to_Float CONFIG.result_precision_type Double CONFIG.result_tlast_behv Null"
+      }
+    ]
+  },
+  "Interfaces": {
+    "ap_clk": {
+      "type": "clock",
+      "busTypeName": "clock",
+      "mode": "slave",
+      "busParams": {"ASSOCIATED_RESET": "ap_rst"},
+      "portMap": {"ap_clk": "CLK"},
+      "ports": ["ap_clk"]
+    },
+    "ap_rst": {
+      "type": "reset",
+      "busTypeName": "reset",
+      "mode": "slave",
+      "busParams": {"POLARITY": "ACTIVE_HIGH"},
+      "portMap": {"ap_rst": "RST"},
+      "ports": ["ap_rst"]
+    },
+    "ap_ctrl": {
+      "type": "ap_ctrl",
+      "busTypeName": "acc_handshake",
+      "mode": "slave",
+      "portMap": {
+        "ap_start": "start",
+        "ap_done": "done",
+        "ap_idle": "idle",
+        "ap_ready": "ready"
+      },
+      "ports": [
+        "ap_done",
+        "ap_idle",
+        "ap_ready",
+        "ap_start"
+      ]
+    },
+    "lenEdgeListPtr": {
+      "type": "data",
+      "busTypeName": "data",
+      "protocol": "ap_none",
+      "mode": "slave",
+      "dataWidth": "32",
+      "portMap": {"lenEdgeListPtr": "DATA"},
+      "ports": ["lenEdgeListPtr"],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_none",
+          "register_option": "0",
+          "argName": "lenEdgeListPtr"
+        }]
+    },
+    "fifoEdgeListPtr_i_V": {
+      "type": "ap_fifo",
+      "busTypeName": "acc_fifo_read",
+      "mode": "master",
+      "dataWidth": "32",
+      "portPrefix": "fifoEdgeListPtr_i_V_",
+      "portMap": {
+        "fifoEdgeListPtr_i_V_dout": "RD_DATA",
+        "fifoEdgeListPtr_i_V_empty_n": "EMPTY_N",
+        "fifoEdgeListPtr_i_V_read": "RD_EN"
+      },
+      "ports": [
+        "fifoEdgeListPtr_i_V_dout",
+        "fifoEdgeListPtr_i_V_empty_n",
+        "fifoEdgeListPtr_i_V_read"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_fifo",
+          "register_option": "0",
+          "argName": "fifoEdgeListPtr_i"
+        }]
+    },
+    "fifoMatrixCIdx_i_0_V": {
+      "type": "ap_fifo",
+      "busTypeName": "acc_fifo_read",
+      "mode": "master",
+      "dataWidth": "16",
+      "portPrefix": "fifoMatrixCIdx_i_0_V_",
+      "portMap": {
+        "fifoMatrixCIdx_i_0_V_dout": "RD_DATA",
+        "fifoMatrixCIdx_i_0_V_empty_n": "EMPTY_N",
+        "fifoMatrixCIdx_i_0_V_read": "RD_EN"
+      },
+      "ports": [
+        "fifoMatrixCIdx_i_0_V_dout",
+        "fifoMatrixCIdx_i_0_V_empty_n",
+        "fifoMatrixCIdx_i_0_V_read"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_fifo",
+          "register_option": "0",
+          "argName": "fifoMatrixCIdx_i"
+        }]
+    },
+    "fifoMatrixCIdx_i_1_V": {
+      "type": "ap_fifo",
+      "busTypeName": "acc_fifo_read",
+      "mode": "master",
+      "dataWidth": "16",
+      "portPrefix": "fifoMatrixCIdx_i_1_V_",
+      "portMap": {
+        "fifoMatrixCIdx_i_1_V_dout": "RD_DATA",
+        "fifoMatrixCIdx_i_1_V_empty_n": "EMPTY_N",
+        "fifoMatrixCIdx_i_1_V_read": "RD_EN"
+      },
+      "ports": [
+        "fifoMatrixCIdx_i_1_V_dout",
+        "fifoMatrixCIdx_i_1_V_empty_n",
+        "fifoMatrixCIdx_i_1_V_read"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_fifo",
+          "register_option": "0",
+          "argName": "fifoMatrixCIdx_i"
+        }]
+    },
+    "fifoMatrixCIdx_i_2_V": {
+      "type": "ap_fifo",
+      "busTypeName": "acc_fifo_read",
+      "mode": "master",
+      "dataWidth": "16",
+      "portPrefix": "fifoMatrixCIdx_i_2_V_",
+      "portMap": {
+        "fifoMatrixCIdx_i_2_V_dout": "RD_DATA",
+        "fifoMatrixCIdx_i_2_V_empty_n": "EMPTY_N",
+        "fifoMatrixCIdx_i_2_V_read": "RD_EN"
+      },
+      "ports": [
+        "fifoMatrixCIdx_i_2_V_dout",
+        "fifoMatrixCIdx_i_2_V_empty_n",
+        "fifoMatrixCIdx_i_2_V_read"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_fifo",
+          "register_option": "0",
+          "argName": "fifoMatrixCIdx_i"
+        }]
+    },
+    "fifoMatrixCIdx_i_3_V": {
+      "type": "ap_fifo",
+      "busTypeName": "acc_fifo_read",
+      "mode": "master",
+      "dataWidth": "16",
+      "portPrefix": "fifoMatrixCIdx_i_3_V_",
+      "portMap": {
+        "fifoMatrixCIdx_i_3_V_dout": "RD_DATA",
+        "fifoMatrixCIdx_i_3_V_empty_n": "EMPTY_N",
+        "fifoMatrixCIdx_i_3_V_read": "RD_EN"
+      },
+      "ports": [
+        "fifoMatrixCIdx_i_3_V_dout",
+        "fifoMatrixCIdx_i_3_V_empty_n",
+        "fifoMatrixCIdx_i_3_V_read"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_fifo",
+          "register_option": "0",
+          "argName": "fifoMatrixCIdx_i"
+        }]
+    },
+    "fifoMatrixCIdx_i_4_V": {
+      "type": "ap_fifo",
+      "busTypeName": "acc_fifo_read",
+      "mode": "master",
+      "dataWidth": "16",
+      "portPrefix": "fifoMatrixCIdx_i_4_V_",
+      "portMap": {
+        "fifoMatrixCIdx_i_4_V_dout": "RD_DATA",
+        "fifoMatrixCIdx_i_4_V_empty_n": "EMPTY_N",
+        "fifoMatrixCIdx_i_4_V_read": "RD_EN"
+      },
+      "ports": [
+        "fifoMatrixCIdx_i_4_V_dout",
+        "fifoMatrixCIdx_i_4_V_empty_n",
+        "fifoMatrixCIdx_i_4_V_read"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_fifo",
+          "register_option": "0",
+          "argName": "fifoMatrixCIdx_i"
+        }]
+    },
+    "fifoMatrixCIdx_i_5_V": {
+      "type": "ap_fifo",
+      "busTypeName": "acc_fifo_read",
+      "mode": "master",
+      "dataWidth": "16",
+      "portPrefix": "fifoMatrixCIdx_i_5_V_",
+      "portMap": {
+        "fifoMatrixCIdx_i_5_V_dout": "RD_DATA",
+        "fifoMatrixCIdx_i_5_V_empty_n": "EMPTY_N",
+        "fifoMatrixCIdx_i_5_V_read": "RD_EN"
+      },
+      "ports": [
+        "fifoMatrixCIdx_i_5_V_dout",
+        "fifoMatrixCIdx_i_5_V_empty_n",
+        "fifoMatrixCIdx_i_5_V_read"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_fifo",
+          "register_option": "0",
+          "argName": "fifoMatrixCIdx_i"
+        }]
+    },
+    "fifoMatrixCIdx_i_6_V": {
+      "type": "ap_fifo",
+      "busTypeName": "acc_fifo_read",
+      "mode": "master",
+      "dataWidth": "16",
+      "portPrefix": "fifoMatrixCIdx_i_6_V_",
+      "portMap": {
+        "fifoMatrixCIdx_i_6_V_dout": "RD_DATA",
+        "fifoMatrixCIdx_i_6_V_empty_n": "EMPTY_N",
+        "fifoMatrixCIdx_i_6_V_read": "RD_EN"
+      },
+      "ports": [
+        "fifoMatrixCIdx_i_6_V_dout",
+        "fifoMatrixCIdx_i_6_V_empty_n",
+        "fifoMatrixCIdx_i_6_V_read"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_fifo",
+          "register_option": "0",
+          "argName": "fifoMatrixCIdx_i"
+        }]
+    },
+    "fifoMatrixCIdx_i_7_V": {
+      "type": "ap_fifo",
+      "busTypeName": "acc_fifo_read",
+      "mode": "master",
+      "dataWidth": "16",
+      "portPrefix": "fifoMatrixCIdx_i_7_V_",
+      "portMap": {
+        "fifoMatrixCIdx_i_7_V_dout": "RD_DATA",
+        "fifoMatrixCIdx_i_7_V_empty_n": "EMPTY_N",
+        "fifoMatrixCIdx_i_7_V_read": "RD_EN"
+      },
+      "ports": [
+        "fifoMatrixCIdx_i_7_V_dout",
+        "fifoMatrixCIdx_i_7_V_empty_n",
+        "fifoMatrixCIdx_i_7_V_read"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_fifo",
+          "register_option": "0",
+          "argName": "fifoMatrixCIdx_i"
+        }]
+    },
+    "fifoCalcMatrixC_i_0_V": {
+      "type": "ap_fifo",
+      "busTypeName": "acc_fifo_read",
+      "mode": "master",
+      "dataWidth": "32",
+      "portPrefix": "fifoCalcMatrixC_i_0_V_",
+      "portMap": {
+        "fifoCalcMatrixC_i_0_V_dout": "RD_DATA",
+        "fifoCalcMatrixC_i_0_V_empty_n": "EMPTY_N",
+        "fifoCalcMatrixC_i_0_V_read": "RD_EN"
+      },
+      "ports": [
+        "fifoCalcMatrixC_i_0_V_dout",
+        "fifoCalcMatrixC_i_0_V_empty_n",
+        "fifoCalcMatrixC_i_0_V_read"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_fifo",
+          "register_option": "0",
+          "argName": "fifoCalcMatrixC_i"
+        }]
+    },
+    "fifoCalcMatrixC_i_1_V": {
+      "type": "ap_fifo",
+      "busTypeName": "acc_fifo_read",
+      "mode": "master",
+      "dataWidth": "32",
+      "portPrefix": "fifoCalcMatrixC_i_1_V_",
+      "portMap": {
+        "fifoCalcMatrixC_i_1_V_dout": "RD_DATA",
+        "fifoCalcMatrixC_i_1_V_empty_n": "EMPTY_N",
+        "fifoCalcMatrixC_i_1_V_read": "RD_EN"
+      },
+      "ports": [
+        "fifoCalcMatrixC_i_1_V_dout",
+        "fifoCalcMatrixC_i_1_V_empty_n",
+        "fifoCalcMatrixC_i_1_V_read"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_fifo",
+          "register_option": "0",
+          "argName": "fifoCalcMatrixC_i"
+        }]
+    },
+    "fifoCalcMatrixC_i_2_V": {
+      "type": "ap_fifo",
+      "busTypeName": "acc_fifo_read",
+      "mode": "master",
+      "dataWidth": "32",
+      "portPrefix": "fifoCalcMatrixC_i_2_V_",
+      "portMap": {
+        "fifoCalcMatrixC_i_2_V_dout": "RD_DATA",
+        "fifoCalcMatrixC_i_2_V_empty_n": "EMPTY_N",
+        "fifoCalcMatrixC_i_2_V_read": "RD_EN"
+      },
+      "ports": [
+        "fifoCalcMatrixC_i_2_V_dout",
+        "fifoCalcMatrixC_i_2_V_empty_n",
+        "fifoCalcMatrixC_i_2_V_read"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_fifo",
+          "register_option": "0",
+          "argName": "fifoCalcMatrixC_i"
+        }]
+    },
+    "fifoCalcMatrixC_i_3_V": {
+      "type": "ap_fifo",
+      "busTypeName": "acc_fifo_read",
+      "mode": "master",
+      "dataWidth": "32",
+      "portPrefix": "fifoCalcMatrixC_i_3_V_",
+      "portMap": {
+        "fifoCalcMatrixC_i_3_V_dout": "RD_DATA",
+        "fifoCalcMatrixC_i_3_V_empty_n": "EMPTY_N",
+        "fifoCalcMatrixC_i_3_V_read": "RD_EN"
+      },
+      "ports": [
+        "fifoCalcMatrixC_i_3_V_dout",
+        "fifoCalcMatrixC_i_3_V_empty_n",
+        "fifoCalcMatrixC_i_3_V_read"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_fifo",
+          "register_option": "0",
+          "argName": "fifoCalcMatrixC_i"
+        }]
+    },
+    "fifoCalcMatrixC_i_4_V": {
+      "type": "ap_fifo",
+      "busTypeName": "acc_fifo_read",
+      "mode": "master",
+      "dataWidth": "32",
+      "portPrefix": "fifoCalcMatrixC_i_4_V_",
+      "portMap": {
+        "fifoCalcMatrixC_i_4_V_dout": "RD_DATA",
+        "fifoCalcMatrixC_i_4_V_empty_n": "EMPTY_N",
+        "fifoCalcMatrixC_i_4_V_read": "RD_EN"
+      },
+      "ports": [
+        "fifoCalcMatrixC_i_4_V_dout",
+        "fifoCalcMatrixC_i_4_V_empty_n",
+        "fifoCalcMatrixC_i_4_V_read"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_fifo",
+          "register_option": "0",
+          "argName": "fifoCalcMatrixC_i"
+        }]
+    },
+    "fifoCalcMatrixC_i_5_V": {
+      "type": "ap_fifo",
+      "busTypeName": "acc_fifo_read",
+      "mode": "master",
+      "dataWidth": "32",
+      "portPrefix": "fifoCalcMatrixC_i_5_V_",
+      "portMap": {
+        "fifoCalcMatrixC_i_5_V_dout": "RD_DATA",
+        "fifoCalcMatrixC_i_5_V_empty_n": "EMPTY_N",
+        "fifoCalcMatrixC_i_5_V_read": "RD_EN"
+      },
+      "ports": [
+        "fifoCalcMatrixC_i_5_V_dout",
+        "fifoCalcMatrixC_i_5_V_empty_n",
+        "fifoCalcMatrixC_i_5_V_read"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_fifo",
+          "register_option": "0",
+          "argName": "fifoCalcMatrixC_i"
+        }]
+    },
+    "fifoCalcMatrixC_i_6_V": {
+      "type": "ap_fifo",
+      "busTypeName": "acc_fifo_read",
+      "mode": "master",
+      "dataWidth": "32",
+      "portPrefix": "fifoCalcMatrixC_i_6_V_",
+      "portMap": {
+        "fifoCalcMatrixC_i_6_V_dout": "RD_DATA",
+        "fifoCalcMatrixC_i_6_V_empty_n": "EMPTY_N",
+        "fifoCalcMatrixC_i_6_V_read": "RD_EN"
+      },
+      "ports": [
+        "fifoCalcMatrixC_i_6_V_dout",
+        "fifoCalcMatrixC_i_6_V_empty_n",
+        "fifoCalcMatrixC_i_6_V_read"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_fifo",
+          "register_option": "0",
+          "argName": "fifoCalcMatrixC_i"
+        }]
+    },
+    "fifoCalcMatrixC_i_7_V": {
+      "type": "ap_fifo",
+      "busTypeName": "acc_fifo_read",
+      "mode": "master",
+      "dataWidth": "32",
+      "portPrefix": "fifoCalcMatrixC_i_7_V_",
+      "portMap": {
+        "fifoCalcMatrixC_i_7_V_dout": "RD_DATA",
+        "fifoCalcMatrixC_i_7_V_empty_n": "EMPTY_N",
+        "fifoCalcMatrixC_i_7_V_read": "RD_EN"
+      },
+      "ports": [
+        "fifoCalcMatrixC_i_7_V_dout",
+        "fifoCalcMatrixC_i_7_V_empty_n",
+        "fifoCalcMatrixC_i_7_V_read"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_fifo",
+          "register_option": "0",
+          "argName": "fifoCalcMatrixC_i"
+        }]
+    },
+    "fifoSortMatrixC_o_0_V": {
+      "type": "ap_fifo",
+      "busTypeName": "acc_fifo_write",
+      "mode": "master",
+      "dataWidth": "32",
+      "portPrefix": "fifoSortMatrixC_o_0_V_",
+      "portMap": {
+        "fifoSortMatrixC_o_0_V_din": "WR_DATA",
+        "fifoSortMatrixC_o_0_V_full_n": "FULL_N",
+        "fifoSortMatrixC_o_0_V_write": "WR_EN"
+      },
+      "ports": [
+        "fifoSortMatrixC_o_0_V_din",
+        "fifoSortMatrixC_o_0_V_full_n",
+        "fifoSortMatrixC_o_0_V_write"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_fifo",
+          "register_option": "0",
+          "argName": "fifoSortMatrixC_o"
+        }]
+    },
+    "fifoSortMatrixC_o_1_V": {
+      "type": "ap_fifo",
+      "busTypeName": "acc_fifo_write",
+      "mode": "master",
+      "dataWidth": "32",
+      "portPrefix": "fifoSortMatrixC_o_1_V_",
+      "portMap": {
+        "fifoSortMatrixC_o_1_V_din": "WR_DATA",
+        "fifoSortMatrixC_o_1_V_full_n": "FULL_N",
+        "fifoSortMatrixC_o_1_V_write": "WR_EN"
+      },
+      "ports": [
+        "fifoSortMatrixC_o_1_V_din",
+        "fifoSortMatrixC_o_1_V_full_n",
+        "fifoSortMatrixC_o_1_V_write"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_fifo",
+          "register_option": "0",
+          "argName": "fifoSortMatrixC_o"
+        }]
+    },
+    "fifoSortMatrixC_o_2_V": {
+      "type": "ap_fifo",
+      "busTypeName": "acc_fifo_write",
+      "mode": "master",
+      "dataWidth": "32",
+      "portPrefix": "fifoSortMatrixC_o_2_V_",
+      "portMap": {
+        "fifoSortMatrixC_o_2_V_din": "WR_DATA",
+        "fifoSortMatrixC_o_2_V_full_n": "FULL_N",
+        "fifoSortMatrixC_o_2_V_write": "WR_EN"
+      },
+      "ports": [
+        "fifoSortMatrixC_o_2_V_din",
+        "fifoSortMatrixC_o_2_V_full_n",
+        "fifoSortMatrixC_o_2_V_write"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_fifo",
+          "register_option": "0",
+          "argName": "fifoSortMatrixC_o"
+        }]
+    },
+    "fifoSortMatrixC_o_3_V": {
+      "type": "ap_fifo",
+      "busTypeName": "acc_fifo_write",
+      "mode": "master",
+      "dataWidth": "32",
+      "portPrefix": "fifoSortMatrixC_o_3_V_",
+      "portMap": {
+        "fifoSortMatrixC_o_3_V_din": "WR_DATA",
+        "fifoSortMatrixC_o_3_V_full_n": "FULL_N",
+        "fifoSortMatrixC_o_3_V_write": "WR_EN"
+      },
+      "ports": [
+        "fifoSortMatrixC_o_3_V_din",
+        "fifoSortMatrixC_o_3_V_full_n",
+        "fifoSortMatrixC_o_3_V_write"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_fifo",
+          "register_option": "0",
+          "argName": "fifoSortMatrixC_o"
+        }]
+    },
+    "fifoSortMatrixC_o_4_V": {
+      "type": "ap_fifo",
+      "busTypeName": "acc_fifo_write",
+      "mode": "master",
+      "dataWidth": "32",
+      "portPrefix": "fifoSortMatrixC_o_4_V_",
+      "portMap": {
+        "fifoSortMatrixC_o_4_V_din": "WR_DATA",
+        "fifoSortMatrixC_o_4_V_full_n": "FULL_N",
+        "fifoSortMatrixC_o_4_V_write": "WR_EN"
+      },
+      "ports": [
+        "fifoSortMatrixC_o_4_V_din",
+        "fifoSortMatrixC_o_4_V_full_n",
+        "fifoSortMatrixC_o_4_V_write"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_fifo",
+          "register_option": "0",
+          "argName": "fifoSortMatrixC_o"
+        }]
+    },
+    "fifoSortMatrixC_o_5_V": {
+      "type": "ap_fifo",
+      "busTypeName": "acc_fifo_write",
+      "mode": "master",
+      "dataWidth": "32",
+      "portPrefix": "fifoSortMatrixC_o_5_V_",
+      "portMap": {
+        "fifoSortMatrixC_o_5_V_din": "WR_DATA",
+        "fifoSortMatrixC_o_5_V_full_n": "FULL_N",
+        "fifoSortMatrixC_o_5_V_write": "WR_EN"
+      },
+      "ports": [
+        "fifoSortMatrixC_o_5_V_din",
+        "fifoSortMatrixC_o_5_V_full_n",
+        "fifoSortMatrixC_o_5_V_write"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_fifo",
+          "register_option": "0",
+          "argName": "fifoSortMatrixC_o"
+        }]
+    },
+    "fifoSortMatrixC_o_6_V": {
+      "type": "ap_fifo",
+      "busTypeName": "acc_fifo_write",
+      "mode": "master",
+      "dataWidth": "32",
+      "portPrefix": "fifoSortMatrixC_o_6_V_",
+      "portMap": {
+        "fifoSortMatrixC_o_6_V_din": "WR_DATA",
+        "fifoSortMatrixC_o_6_V_full_n": "FULL_N",
+        "fifoSortMatrixC_o_6_V_write": "WR_EN"
+      },
+      "ports": [
+        "fifoSortMatrixC_o_6_V_din",
+        "fifoSortMatrixC_o_6_V_full_n",
+        "fifoSortMatrixC_o_6_V_write"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_fifo",
+          "register_option": "0",
+          "argName": "fifoSortMatrixC_o"
+        }]
+    },
+    "fifoSortMatrixC_o_7_V": {
+      "type": "ap_fifo",
+      "busTypeName": "acc_fifo_write",
+      "mode": "master",
+      "dataWidth": "32",
+      "portPrefix": "fifoSortMatrixC_o_7_V_",
+      "portMap": {
+        "fifoSortMatrixC_o_7_V_din": "WR_DATA",
+        "fifoSortMatrixC_o_7_V_full_n": "FULL_N",
+        "fifoSortMatrixC_o_7_V_write": "WR_EN"
+      },
+      "ports": [
+        "fifoSortMatrixC_o_7_V_din",
+        "fifoSortMatrixC_o_7_V_full_n",
+        "fifoSortMatrixC_o_7_V_write"
+      ],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_fifo",
+          "register_option": "0",
+          "argName": "fifoSortMatrixC_o"
+        }]
+    }
+  },
+  "RtlPorts": {
+    "ap_clk": {
+      "dir": "in",
+      "width": "1"
+    },
+    "ap_rst": {
+      "dir": "in",
+      "width": "1"
+    },
+    "ap_start": {
+      "dir": "in",
+      "width": "1"
+    },
+    "ap_done": {
+      "dir": "out",
+      "width": "1"
+    },
+    "ap_idle": {
+      "dir": "out",
+      "width": "1"
+    },
+    "ap_ready": {
+      "dir": "out",
+      "width": "1"
+    },
+    "lenEdgeListPtr": {
+      "dir": "in",
+      "width": "32"
+    },
+    "fifoEdgeListPtr_i_V_dout": {
+      "dir": "in",
+      "width": "32"
+    },
+    "fifoEdgeListPtr_i_V_empty_n": {
+      "dir": "in",
+      "width": "1"
+    },
+    "fifoEdgeListPtr_i_V_read": {
+      "dir": "out",
+      "width": "1"
+    },
+    "fifoMatrixCIdx_i_0_V_dout": {
+      "dir": "in",
+      "width": "16"
+    },
+    "fifoMatrixCIdx_i_0_V_empty_n": {
+      "dir": "in",
+      "width": "1"
+    },
+    "fifoMatrixCIdx_i_0_V_read": {
+      "dir": "out",
+      "width": "1"
+    },
+    "fifoMatrixCIdx_i_1_V_dout": {
+      "dir": "in",
+      "width": "16"
+    },
+    "fifoMatrixCIdx_i_1_V_empty_n": {
+      "dir": "in",
+      "width": "1"
+    },
+    "fifoMatrixCIdx_i_1_V_read": {
+      "dir": "out",
+      "width": "1"
+    },
+    "fifoMatrixCIdx_i_2_V_dout": {
+      "dir": "in",
+      "width": "16"
+    },
+    "fifoMatrixCIdx_i_2_V_empty_n": {
+      "dir": "in",
+      "width": "1"
+    },
+    "fifoMatrixCIdx_i_2_V_read": {
+      "dir": "out",
+      "width": "1"
+    },
+    "fifoMatrixCIdx_i_3_V_dout": {
+      "dir": "in",
+      "width": "16"
+    },
+    "fifoMatrixCIdx_i_3_V_empty_n": {
+      "dir": "in",
+      "width": "1"
+    },
+    "fifoMatrixCIdx_i_3_V_read": {
+      "dir": "out",
+      "width": "1"
+    },
+    "fifoMatrixCIdx_i_4_V_dout": {
+      "dir": "in",
+      "width": "16"
+    },
+    "fifoMatrixCIdx_i_4_V_empty_n": {
+      "dir": "in",
+      "width": "1"
+    },
+    "fifoMatrixCIdx_i_4_V_read": {
+      "dir": "out",
+      "width": "1"
+    },
+    "fifoMatrixCIdx_i_5_V_dout": {
+      "dir": "in",
+      "width": "16"
+    },
+    "fifoMatrixCIdx_i_5_V_empty_n": {
+      "dir": "in",
+      "width": "1"
+    },
+    "fifoMatrixCIdx_i_5_V_read": {
+      "dir": "out",
+      "width": "1"
+    },
+    "fifoMatrixCIdx_i_6_V_dout": {
+      "dir": "in",
+      "width": "16"
+    },
+    "fifoMatrixCIdx_i_6_V_empty_n": {
+      "dir": "in",
+      "width": "1"
+    },
+    "fifoMatrixCIdx_i_6_V_read": {
+      "dir": "out",
+      "width": "1"
+    },
+    "fifoMatrixCIdx_i_7_V_dout": {
+      "dir": "in",
+      "width": "16"
+    },
+    "fifoMatrixCIdx_i_7_V_empty_n": {
+      "dir": "in",
+      "width": "1"
+    },
+    "fifoMatrixCIdx_i_7_V_read": {
+      "dir": "out",
+      "width": "1"
+    },
+    "fifoCalcMatrixC_i_0_V_dout": {
+      "dir": "in",
+      "width": "32"
+    },
+    "fifoCalcMatrixC_i_0_V_empty_n": {
+      "dir": "in",
+      "width": "1"
+    },
+    "fifoCalcMatrixC_i_0_V_read": {
+      "dir": "out",
+      "width": "1"
+    },
+    "fifoCalcMatrixC_i_1_V_dout": {
+      "dir": "in",
+      "width": "32"
+    },
+    "fifoCalcMatrixC_i_1_V_empty_n": {
+      "dir": "in",
+      "width": "1"
+    },
+    "fifoCalcMatrixC_i_1_V_read": {
+      "dir": "out",
+      "width": "1"
+    },
+    "fifoCalcMatrixC_i_2_V_dout": {
+      "dir": "in",
+      "width": "32"
+    },
+    "fifoCalcMatrixC_i_2_V_empty_n": {
+      "dir": "in",
+      "width": "1"
+    },
+    "fifoCalcMatrixC_i_2_V_read": {
+      "dir": "out",
+      "width": "1"
+    },
+    "fifoCalcMatrixC_i_3_V_dout": {
+      "dir": "in",
+      "width": "32"
+    },
+    "fifoCalcMatrixC_i_3_V_empty_n": {
+      "dir": "in",
+      "width": "1"
+    },
+    "fifoCalcMatrixC_i_3_V_read": {
+      "dir": "out",
+      "width": "1"
+    },
+    "fifoCalcMatrixC_i_4_V_dout": {
+      "dir": "in",
+      "width": "32"
+    },
+    "fifoCalcMatrixC_i_4_V_empty_n": {
+      "dir": "in",
+      "width": "1"
+    },
+    "fifoCalcMatrixC_i_4_V_read": {
+      "dir": "out",
+      "width": "1"
+    },
+    "fifoCalcMatrixC_i_5_V_dout": {
+      "dir": "in",
+      "width": "32"
+    },
+    "fifoCalcMatrixC_i_5_V_empty_n": {
+      "dir": "in",
+      "width": "1"
+    },
+    "fifoCalcMatrixC_i_5_V_read": {
+      "dir": "out",
+      "width": "1"
+    },
+    "fifoCalcMatrixC_i_6_V_dout": {
+      "dir": "in",
+      "width": "32"
+    },
+    "fifoCalcMatrixC_i_6_V_empty_n": {
+      "dir": "in",
+      "width": "1"
+    },
+    "fifoCalcMatrixC_i_6_V_read": {
+      "dir": "out",
+      "width": "1"
+    },
+    "fifoCalcMatrixC_i_7_V_dout": {
+      "dir": "in",
+      "width": "32"
+    },
+    "fifoCalcMatrixC_i_7_V_empty_n": {
+      "dir": "in",
+      "width": "1"
+    },
+    "fifoCalcMatrixC_i_7_V_read": {
+      "dir": "out",
+      "width": "1"
+    },
+    "fifoSortMatrixC_o_0_V_din": {
+      "dir": "out",
+      "width": "32"
+    },
+    "fifoSortMatrixC_o_0_V_full_n": {
+      "dir": "in",
+      "width": "1"
+    },
+    "fifoSortMatrixC_o_0_V_write": {
+      "dir": "out",
+      "width": "1"
+    },
+    "fifoSortMatrixC_o_1_V_din": {
+      "dir": "out",
+      "width": "32"
+    },
+    "fifoSortMatrixC_o_1_V_full_n": {
+      "dir": "in",
+      "width": "1"
+    },
+    "fifoSortMatrixC_o_1_V_write": {
+      "dir": "out",
+      "width": "1"
+    },
+    "fifoSortMatrixC_o_2_V_din": {
+      "dir": "out",
+      "width": "32"
+    },
+    "fifoSortMatrixC_o_2_V_full_n": {
+      "dir": "in",
+      "width": "1"
+    },
+    "fifoSortMatrixC_o_2_V_write": {
+      "dir": "out",
+      "width": "1"
+    },
+    "fifoSortMatrixC_o_3_V_din": {
+      "dir": "out",
+      "width": "32"
+    },
+    "fifoSortMatrixC_o_3_V_full_n": {
+      "dir": "in",
+      "width": "1"
+    },
+    "fifoSortMatrixC_o_3_V_write": {
+      "dir": "out",
+      "width": "1"
+    },
+    "fifoSortMatrixC_o_4_V_din": {
+      "dir": "out",
+      "width": "32"
+    },
+    "fifoSortMatrixC_o_4_V_full_n": {
+      "dir": "in",
+      "width": "1"
+    },
+    "fifoSortMatrixC_o_4_V_write": {
+      "dir": "out",
+      "width": "1"
+    },
+    "fifoSortMatrixC_o_5_V_din": {
+      "dir": "out",
+      "width": "32"
+    },
+    "fifoSortMatrixC_o_5_V_full_n": {
+      "dir": "in",
+      "width": "1"
+    },
+    "fifoSortMatrixC_o_5_V_write": {
+      "dir": "out",
+      "width": "1"
+    },
+    "fifoSortMatrixC_o_6_V_din": {
+      "dir": "out",
+      "width": "32"
+    },
+    "fifoSortMatrixC_o_6_V_full_n": {
+      "dir": "in",
+      "width": "1"
+    },
+    "fifoSortMatrixC_o_6_V_write": {
+      "dir": "out",
+      "width": "1"
+    },
+    "fifoSortMatrixC_o_7_V_din": {
+      "dir": "out",
+      "width": "32"
+    },
+    "fifoSortMatrixC_o_7_V_full_n": {
+      "dir": "in",
+      "width": "1"
+    },
+    "fifoSortMatrixC_o_7_V_write": {
+      "dir": "out",
+      "width": "1"
+    }
+  },
+  "ModuleInfo": {
+    "Hierarchy": {
+      "ModuleName": "sort_C",
+      "Instances": [{
+          "ModuleName": "sort_C_Pipeline_loop_diff_window_loop_diff_pe",
+          "InstanceName": "grp_sort_C_Pipeline_loop_diff_window_loop_diff_pe_fu_475"
+        }]
+    },
+    "Info": {
+      "sort_C_Pipeline_loop_diff_window_loop_diff_pe": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "1",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "sort_C": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      }
+    },
+    "Metrics": {
+      "sort_C_Pipeline_loop_diff_window_loop_diff_pe": {
+        "Latency": {
+          "LatencyBest": "",
+          "LatencyAvg": "",
+          "LatencyWorst": "",
+          "PipelineII": "",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "6.670"
+        },
+        "Loops": [{
+            "Name": "loop_diff_window_loop_diff_pe",
+            "TripCount": "",
+            "Latency": "",
+            "PipelineII": "2",
+            "PipelineDepth": "5"
+          }],
+        "Area": {
+          "FF": "1306",
+          "AVAIL_FF": "460800",
+          "UTIL_FF": "~0",
+          "LUT": "6121",
+          "AVAIL_LUT": "230400",
+          "UTIL_LUT": "2",
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "624",
+          "UTIL_BRAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "1728",
+          "UTIL_DSP": "0",
+          "URAM": "0",
+          "AVAIL_URAM": "96",
+          "UTIL_URAM": "0"
+        }
+      },
+      "sort_C": {
+        "Latency": {
+          "LatencyBest": "",
+          "LatencyAvg": "",
+          "LatencyWorst": "",
+          "PipelineII": "",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "7.280"
+        },
+        "Loops": [
+          {
+            "Name": "VITIS_LOOP_135_1",
+            "TripCount": "8",
+            "Latency": "144",
+            "PipelineII": "",
+            "PipelineDepth": "18",
+            "Loops": [{
+                "Name": "VITIS_LOOP_136_2",
+                "TripCount": "8",
+                "Latency": "16",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }]
+          },
+          {
+            "Name": "loop_repeat_iter",
+            "TripCount": "",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": ""
+          },
+          {
+            "Name": "VITIS_LOOP_168_3",
+            "TripCount": "8",
+            "Latency": "152",
+            "PipelineII": "",
+            "PipelineDepth": "19",
+            "Loops": [{
+                "Name": "VITIS_LOOP_169_4",
+                "TripCount": "8",
+                "Latency": "16",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }]
+          }
+        ],
+        "Area": {
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "624",
+          "UTIL_BRAM": "0",
+          "FF": "2375",
+          "AVAIL_FF": "460800",
+          "UTIL_FF": "~0",
+          "LUT": "8469",
+          "AVAIL_LUT": "230400",
+          "UTIL_LUT": "3",
+          "URAM": "0",
+          "AVAIL_URAM": "96",
+          "UTIL_URAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "1728",
+          "UTIL_DSP": "0"
+        }
+      }
+    }
+  },
+  "GenerateBdFiles": "0",
+  "GenData": {
+    "DataVersion": "0.2",
+    "Time": "2023-06-08 15:00:09 +0200",
+    "ToolName": "vitis_hls",
+    "ToolVersion": "2021.1"
+  }
+}
