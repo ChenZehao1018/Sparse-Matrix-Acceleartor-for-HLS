@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="calc_C_calc_C,hls_ip_2021_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu7ev-ffvc1156-2-e,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=7.016000,HLS_SYN_LAT=-1,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=952,HLS_SYN_LUT=994,HLS_VERSION=2021_1}" *)
+(* CORE_GENERATION_INFO="calc_C_calc_C,hls_ip_2021_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu7ev-ffvc1156-2-e,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=7.016000,HLS_SYN_LAT=-1,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=569,HLS_SYN_LUT=683,HLS_VERSION=2021_1}" *)
 
 module calc_C (
         ap_clk,
@@ -46,13 +46,19 @@ module calc_C (
         fifoCalcMatrixC_o_1_V_write
 );
 
-parameter    ap_ST_fsm_state1 = 7'd1;
-parameter    ap_ST_fsm_state2 = 7'd2;
-parameter    ap_ST_fsm_state3 = 7'd4;
-parameter    ap_ST_fsm_state4 = 7'd8;
-parameter    ap_ST_fsm_state5 = 7'd16;
-parameter    ap_ST_fsm_state6 = 7'd32;
-parameter    ap_ST_fsm_state7 = 7'd64;
+parameter    ap_ST_fsm_state1 = 13'd1;
+parameter    ap_ST_fsm_state2 = 13'd2;
+parameter    ap_ST_fsm_state3 = 13'd4;
+parameter    ap_ST_fsm_state4 = 13'd8;
+parameter    ap_ST_fsm_state5 = 13'd16;
+parameter    ap_ST_fsm_state6 = 13'd32;
+parameter    ap_ST_fsm_state7 = 13'd64;
+parameter    ap_ST_fsm_state8 = 13'd128;
+parameter    ap_ST_fsm_state9 = 13'd256;
+parameter    ap_ST_fsm_state10 = 13'd512;
+parameter    ap_ST_fsm_state11 = 13'd1024;
+parameter    ap_ST_fsm_state12 = 13'd2048;
+parameter    ap_ST_fsm_state13 = 13'd4096;
 
 input   ap_clk;
 input   ap_rst;
@@ -102,76 +108,92 @@ reg fifoMatrixCIdx_o_1_V_write;
 reg fifoCalcMatrixC_o_0_V_write;
 reg fifoCalcMatrixC_o_1_V_write;
 
-(* fsm_encoding = "none" *) reg   [6:0] ap_CS_fsm;
+(* fsm_encoding = "none" *) reg   [12:0] ap_CS_fsm;
 wire    ap_CS_fsm_state1;
 reg    fifoEdgeListPtr_i_V_blk_n;
 wire    ap_CS_fsm_state2;
-wire   [0:0] icmp_ln71_fu_204_p2;
+wire   [0:0] icmp_ln66_fu_281_p2;
 wire    ap_CS_fsm_state5;
-wire   [0:0] icmp_ln84_fu_280_p2;
+wire   [0:0] icmp_ln79_fu_360_p2;
+reg    fifoMatrixAIdx_i_V_blk_n;
+wire    ap_CS_fsm_state7;
+wire   [0:0] icmp_ln88_fu_384_p2;
+reg    fifoMatrixA_i_V_blk_n;
 reg    fifoMatrixB_i_V_blk_n;
 wire    ap_CS_fsm_state3;
-wire   [0:0] icmp_ln72_fu_253_p2;
-wire   [0:0] tmp_nbreadreq_fu_130_p3;
+wire   [0:0] icmp_ln67_fu_330_p2;
+wire   [0:0] tmp_nbreadreq_fu_142_p3;
 reg    fifoEdgeListPtrC_o_V_blk_n;
-wire   [3:0] add_ln71_fu_210_p2;
-reg   [3:0] add_ln71_reg_348;
-wire   [31:0] add_ln84_fu_216_p2;
-reg   [31:0] add_ln84_reg_367;
-reg   [3:0] matrixB_buffer_addr_reg_372;
-wire   [1:0] add_ln72_fu_259_p2;
-reg   [1:0] add_ln72_reg_380;
-reg    ap_predicate_op62_read_state3;
+reg    fifoMatrixCIdx_o_0_V_blk_n;
+wire    ap_CS_fsm_state13;
+reg   [0:0] icmp_ln174_reg_610;
+reg    fifoMatrixCIdx_o_1_V_blk_n;
+reg    fifoCalcMatrixC_o_0_V_blk_n;
+reg    fifoCalcMatrixC_o_1_V_blk_n;
+wire   [3:0] add_ln66_fu_287_p2;
+reg   [3:0] add_ln66_reg_498;
+wire   [31:0] add_ln79_fu_293_p2;
+reg   [31:0] add_ln79_reg_517;
+reg   [3:0] matrixB_buffer_addr_reg_522;
+wire   [1:0] add_ln67_fu_336_p2;
+reg   [1:0] add_ln67_reg_530;
+reg    ap_predicate_op68_read_state3;
 reg    ap_block_state3;
-wire   [31:0] tmp_6_fu_265_p1;
-reg   [31:0] tmp_8_reg_396;
-wire   [33:0] tmp_5_fu_317_p3;
-reg   [33:0] tmp_5_reg_403;
-wire    ap_CS_fsm_state6;
+wire   [31:0] tmp_3_fu_342_p1;
+wire   [30:0] iter_2_fu_365_p2;
+reg   [30:0] iter_2_reg_549;
+reg   [31:0] tmp_8_reg_554;
+wire   [1:0] n_1_fu_390_p2;
+reg   [1:0] n_1_reg_566;
+reg    ap_block_state7;
+wire   [31:0] tmp_9_fu_396_p1;
+reg   [31:0] tmp_9_reg_571;
+wire   [15:0] tempA_row_V_fu_400_p1;
+reg   [15:0] tempA_row_V_reg_576;
+reg   [0:0] tmp_6_reg_582;
+reg   [3:0] tempA_col_V_cast_reg_587;
+wire   [31:0] i_6_fu_422_p2;
+wire    ap_CS_fsm_state8;
+wire   [1:0] add_ln96_fu_456_p2;
+reg   [1:0] add_ln96_reg_605;
+wire   [0:0] icmp_ln174_fu_462_p2;
+wire   [0:0] icmp_ln96_fu_450_p2;
+wire   [31:0] matrixB_buffer_q0;
+reg   [31:0] matrixB_buffer_load_reg_614;
+wire    ap_CS_fsm_state9;
+wire   [31:0] grp_fu_269_p2;
+reg   [31:0] temp_res_reg_619;
+wire    ap_CS_fsm_state12;
 reg   [3:0] matrixB_buffer_address0;
 reg    matrixB_buffer_ce0;
 reg    matrixB_buffer_we0;
-wire   [31:0] matrixB_buffer_q0;
-reg    matrixB_buffer_ce1;
-wire   [31:0] matrixB_buffer_q1;
-wire    grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_ap_start;
-wire    grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_ap_done;
-wire    grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_ap_idle;
-wire    grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_ap_ready;
-wire    grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_fifoMatrixA_i_V_read;
-wire    grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_fifoMatrixAIdx_i_V_read;
-wire   [31:0] grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_fifoCalcMatrixC_o_0_V_din;
-wire    grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_fifoCalcMatrixC_o_0_V_write;
-wire   [15:0] grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_fifoMatrixCIdx_o_0_V_din;
-wire    grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_fifoMatrixCIdx_o_0_V_write;
-wire   [31:0] grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_fifoCalcMatrixC_o_1_V_din;
-wire    grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_fifoCalcMatrixC_o_1_V_write;
-wire   [15:0] grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_fifoMatrixCIdx_o_1_V_din;
-wire    grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_fifoMatrixCIdx_o_1_V_write;
-wire   [3:0] grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_matrixB_buffer_address0;
-wire    grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_matrixB_buffer_ce0;
-wire   [3:0] grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_matrixB_buffer_address1;
-wire    grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_matrixB_buffer_ce1;
-reg   [1:0] j_reg_155;
+reg   [1:0] j_reg_214;
 reg    ap_block_state2;
 wire    ap_CS_fsm_state4;
-reg   [31:0] storemerge_reg_166;
-reg    grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_ap_start_reg;
-wire    ap_CS_fsm_state7;
-wire   [63:0] zext_ln74_fu_248_p1;
-reg   [3:0] i_fu_94;
-reg   [31:0] i_1_fu_102;
-reg   [30:0] iter_fu_106;
-wire   [30:0] iter_2_fu_285_p2;
+reg   [31:0] storemerge_reg_225;
+reg   [31:0] i_2_reg_237;
 reg    ap_block_state5;
-wire   [0:0] trunc_ln74_fu_231_p1;
-wire   [3:0] tmp_2_cast_fu_235_p3;
-wire   [3:0] add_ln74_fu_243_p2;
-wire   [31:0] zext_ln84_fu_276_p1;
-wire   [0:0] empty_15_fu_299_p2;
-wire   [31:0] smax1_fu_304_p3;
-wire   [31:0] sub_ln90_fu_311_p2;
-reg   [6:0] ap_NS_fsm;
+reg   [1:0] n_reg_247;
+wire    ap_CS_fsm_state6;
+wire   [0:0] icmp_ln85_fu_371_p2;
+reg   [1:0] j_1_reg_258;
+reg    ap_block_state13;
+wire   [63:0] zext_ln69_fu_325_p1;
+wire   [63:0] zext_ln48_fu_445_p1;
+reg   [3:0] i_fu_106;
+reg   [30:0] iter_fu_114;
+reg   [31:0] i_1_fu_118;
+wire   [31:0] select_ln174_fu_471_p3;
+wire    ap_CS_fsm_state10;
+wire   [0:0] trunc_ln69_fu_308_p1;
+wire   [3:0] tmp_2_cast_fu_312_p3;
+wire   [3:0] add_ln69_fu_320_p2;
+wire   [31:0] zext_ln79_fu_356_p1;
+wire   [0:0] trunc_ln48_fu_428_p1;
+wire   [3:0] tmp_8_cast_fu_432_p3;
+wire   [3:0] add_ln48_fu_440_p2;
+wire   [31:0] bitcast_ln174_fu_468_p1;
+reg   [12:0] ap_NS_fsm;
 reg    ap_ST_fsm_state1_blk;
 reg    ap_ST_fsm_state2_blk;
 reg    ap_ST_fsm_state3_blk;
@@ -179,13 +201,18 @@ wire    ap_ST_fsm_state4_blk;
 reg    ap_ST_fsm_state5_blk;
 wire    ap_ST_fsm_state6_blk;
 reg    ap_ST_fsm_state7_blk;
-reg    ap_condition_302;
+wire    ap_ST_fsm_state8_blk;
+wire    ap_ST_fsm_state9_blk;
+wire    ap_ST_fsm_state10_blk;
+wire    ap_ST_fsm_state11_blk;
+wire    ap_ST_fsm_state12_blk;
+reg    ap_ST_fsm_state13_blk;
+reg    ap_condition_427;
 wire    ap_ce_reg;
 
 // power-on initialization
 initial begin
-#0 ap_CS_fsm = 7'd1;
-#0 grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_ap_start_reg = 1'b0;
+#0 ap_CS_fsm = 13'd1;
 end
 
 calc_C_matrixB_buffer #(
@@ -198,45 +225,23 @@ matrixB_buffer_U(
     .address0(matrixB_buffer_address0),
     .ce0(matrixB_buffer_ce0),
     .we0(matrixB_buffer_we0),
-    .d0(storemerge_reg_166),
-    .q0(matrixB_buffer_q0),
-    .address1(grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_matrixB_buffer_address1),
-    .ce1(matrixB_buffer_ce1),
-    .q1(matrixB_buffer_q1)
+    .d0(storemerge_reg_225),
+    .q0(matrixB_buffer_q0)
 );
 
-calc_C_calc_C_Pipeline_loop_diff_window_loop_diff_pe grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178(
-    .ap_clk(ap_clk),
-    .ap_rst(ap_rst),
-    .ap_start(grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_ap_start),
-    .ap_done(grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_ap_done),
-    .ap_idle(grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_ap_idle),
-    .ap_ready(grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_ap_ready),
-    .fifoMatrixA_i_V_dout(fifoMatrixA_i_V_dout),
-    .fifoMatrixA_i_V_empty_n(fifoMatrixA_i_V_empty_n),
-    .fifoMatrixA_i_V_read(grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_fifoMatrixA_i_V_read),
-    .fifoMatrixAIdx_i_V_dout(fifoMatrixAIdx_i_V_dout),
-    .fifoMatrixAIdx_i_V_empty_n(fifoMatrixAIdx_i_V_empty_n),
-    .fifoMatrixAIdx_i_V_read(grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_fifoMatrixAIdx_i_V_read),
-    .fifoCalcMatrixC_o_0_V_din(grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_fifoCalcMatrixC_o_0_V_din),
-    .fifoCalcMatrixC_o_0_V_full_n(fifoCalcMatrixC_o_0_V_full_n),
-    .fifoCalcMatrixC_o_0_V_write(grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_fifoCalcMatrixC_o_0_V_write),
-    .fifoMatrixCIdx_o_0_V_din(grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_fifoMatrixCIdx_o_0_V_din),
-    .fifoMatrixCIdx_o_0_V_full_n(fifoMatrixCIdx_o_0_V_full_n),
-    .fifoMatrixCIdx_o_0_V_write(grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_fifoMatrixCIdx_o_0_V_write),
-    .fifoCalcMatrixC_o_1_V_din(grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_fifoCalcMatrixC_o_1_V_din),
-    .fifoCalcMatrixC_o_1_V_full_n(fifoCalcMatrixC_o_1_V_full_n),
-    .fifoCalcMatrixC_o_1_V_write(grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_fifoCalcMatrixC_o_1_V_write),
-    .fifoMatrixCIdx_o_1_V_din(grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_fifoMatrixCIdx_o_1_V_din),
-    .fifoMatrixCIdx_o_1_V_full_n(fifoMatrixCIdx_o_1_V_full_n),
-    .fifoMatrixCIdx_o_1_V_write(grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_fifoMatrixCIdx_o_1_V_write),
-    .zext_ln81(tmp_5_reg_403),
-    .matrixB_buffer_address0(grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_matrixB_buffer_address0),
-    .matrixB_buffer_ce0(grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_matrixB_buffer_ce0),
-    .matrixB_buffer_q0(matrixB_buffer_q0),
-    .matrixB_buffer_address1(grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_matrixB_buffer_address1),
-    .matrixB_buffer_ce1(grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_matrixB_buffer_ce1),
-    .matrixB_buffer_q1(matrixB_buffer_q1)
+calc_C_fmul_32ns_32ns_32_3_max_dsp_1 #(
+    .ID( 1 ),
+    .NUM_STAGE( 3 ),
+    .din0_WIDTH( 32 ),
+    .din1_WIDTH( 32 ),
+    .dout_WIDTH( 32 ))
+fmul_32ns_32ns_32_3_max_dsp_1_U1(
+    .clk(ap_clk),
+    .reset(ap_rst),
+    .din0(tmp_9_reg_571),
+    .din1(matrixB_buffer_load_reg_614),
+    .ce(1'b1),
+    .dout(grp_fu_269_p2)
 );
 
 always @ (posedge ap_clk) begin
@@ -248,92 +253,157 @@ always @ (posedge ap_clk) begin
 end
 
 always @ (posedge ap_clk) begin
-    if (ap_rst == 1'b1) begin
-        grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_ap_start_reg <= 1'b0;
-    end else begin
-        if ((1'b1 == ap_CS_fsm_state6)) begin
-            grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_ap_start_reg <= 1'b1;
-        end else if ((grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_ap_ready == 1'b1)) begin
-            grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_ap_start_reg <= 1'b0;
-        end
+    if ((~(((icmp_ln66_fu_281_p2 == 1'd1) & (fifoEdgeListPtrC_o_V_full_n == 1'b0)) | ((icmp_ln66_fu_281_p2 == 1'd1) & (fifoEdgeListPtr_i_V_empty_n == 1'b0))) & (icmp_ln66_fu_281_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
+        i_1_fu_118 <= fifoEdgeListPtr_i_V_dout;
+    end else if (((icmp_ln85_fu_371_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state6))) begin
+        i_1_fu_118 <= tmp_8_reg_554;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((~(((icmp_ln71_fu_204_p2 == 1'd1) & (fifoEdgeListPtrC_o_V_full_n == 1'b0)) | ((icmp_ln71_fu_204_p2 == 1'd1) & (fifoEdgeListPtr_i_V_empty_n == 1'b0))) & (icmp_ln71_fu_204_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
-        i_1_fu_102 <= fifoEdgeListPtr_i_V_dout;
-    end else if ((1'b1 == ap_CS_fsm_state6)) begin
-        i_1_fu_102 <= tmp_8_reg_396;
+    if ((~(((icmp_ln88_fu_384_p2 == 1'd0) & (fifoMatrixAIdx_i_V_empty_n == 1'b0)) | ((icmp_ln88_fu_384_p2 == 1'd0) & (fifoMatrixA_i_V_empty_n == 1'b0))) & (icmp_ln88_fu_384_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state7))) begin
+        i_2_reg_237 <= i_6_fu_422_p2;
+    end else if ((~(((icmp_ln79_fu_360_p2 == 1'd1) & (fifoEdgeListPtrC_o_V_full_n == 1'b0)) | ((icmp_ln79_fu_360_p2 == 1'd1) & (fifoEdgeListPtr_i_V_empty_n == 1'b0))) & (icmp_ln79_fu_360_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state5))) begin
+        i_2_reg_237 <= i_1_fu_118;
     end
 end
 
 always @ (posedge ap_clk) begin
     if (((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1))) begin
-        i_fu_94 <= 4'd0;
-    end else if ((~((fifoMatrixB_i_V_empty_n == 1'b0) & (ap_predicate_op62_read_state3 == 1'b1)) & (icmp_ln72_fu_253_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state3))) begin
-        i_fu_94 <= add_ln71_reg_348;
+        i_fu_106 <= 4'd0;
+    end else if ((~((fifoMatrixB_i_V_empty_n == 1'b0) & (ap_predicate_op68_read_state3 == 1'b1)) & (1'b1 == ap_CS_fsm_state3) & (icmp_ln67_fu_330_p2 == 1'd1))) begin
+        i_fu_106 <= add_ln66_reg_498;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((~(((icmp_ln71_fu_204_p2 == 1'd1) & (fifoEdgeListPtrC_o_V_full_n == 1'b0)) | ((icmp_ln71_fu_204_p2 == 1'd1) & (fifoEdgeListPtr_i_V_empty_n == 1'b0))) & (icmp_ln71_fu_204_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
-        iter_fu_106 <= 31'd0;
-    end else if ((~(((icmp_ln84_fu_280_p2 == 1'd1) & (fifoEdgeListPtrC_o_V_full_n == 1'b0)) | ((icmp_ln84_fu_280_p2 == 1'd1) & (fifoEdgeListPtr_i_V_empty_n == 1'b0))) & (icmp_ln84_fu_280_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state5))) begin
-        iter_fu_106 <= iter_2_fu_285_p2;
+    if ((~(((icmp_ln66_fu_281_p2 == 1'd1) & (fifoEdgeListPtrC_o_V_full_n == 1'b0)) | ((icmp_ln66_fu_281_p2 == 1'd1) & (fifoEdgeListPtr_i_V_empty_n == 1'b0))) & (icmp_ln66_fu_281_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
+        iter_fu_114 <= 31'd0;
+    end else if (((icmp_ln85_fu_371_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state6))) begin
+        iter_fu_114 <= iter_2_reg_549;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if ((~(((fifoMatrixCIdx_o_0_V_full_n == 1'b0) & (icmp_ln174_reg_610 == 1'd1)) | ((fifoCalcMatrixC_o_0_V_full_n == 1'b0) & (icmp_ln174_reg_610 == 1'd1)) | ((fifoMatrixCIdx_o_1_V_full_n == 1'b0) & (icmp_ln174_reg_610 == 1'd0)) | ((fifoCalcMatrixC_o_1_V_full_n == 1'b0) & (icmp_ln174_reg_610 == 1'd0))) & (1'b1 == ap_CS_fsm_state13))) begin
+        j_1_reg_258 <= add_ln96_reg_605;
+    end else if ((~(((icmp_ln88_fu_384_p2 == 1'd0) & (fifoMatrixAIdx_i_V_empty_n == 1'b0)) | ((icmp_ln88_fu_384_p2 == 1'd0) & (fifoMatrixA_i_V_empty_n == 1'b0))) & (icmp_ln88_fu_384_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state7))) begin
+        j_1_reg_258 <= 2'd0;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state4)) begin
-        j_reg_155 <= add_ln72_reg_380;
-    end else if ((~(((icmp_ln71_fu_204_p2 == 1'd1) & (fifoEdgeListPtrC_o_V_full_n == 1'b0)) | ((icmp_ln71_fu_204_p2 == 1'd1) & (fifoEdgeListPtr_i_V_empty_n == 1'b0))) & (icmp_ln71_fu_204_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
-        j_reg_155 <= 2'd0;
+        j_reg_214 <= add_ln67_reg_530;
+    end else if ((~(((icmp_ln66_fu_281_p2 == 1'd1) & (fifoEdgeListPtrC_o_V_full_n == 1'b0)) | ((icmp_ln66_fu_281_p2 == 1'd1) & (fifoEdgeListPtr_i_V_empty_n == 1'b0))) & (icmp_ln66_fu_281_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
+        j_reg_214 <= 2'd0;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_condition_302)) begin
-        if ((tmp_nbreadreq_fu_130_p3 == 1'd0)) begin
-            storemerge_reg_166 <= 32'd0;
-        end else if ((tmp_nbreadreq_fu_130_p3 == 1'd1)) begin
-            storemerge_reg_166 <= tmp_6_fu_265_p1;
+    if (((1'b1 == ap_CS_fsm_state8) & (icmp_ln96_fu_450_p2 == 1'd1))) begin
+        n_reg_247 <= n_1_reg_566;
+    end else if (((icmp_ln85_fu_371_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state6))) begin
+        n_reg_247 <= 2'd0;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if ((1'b1 == ap_condition_427)) begin
+        if ((tmp_nbreadreq_fu_142_p3 == 1'd0)) begin
+            storemerge_reg_225 <= 32'd0;
+        end else if ((tmp_nbreadreq_fu_142_p3 == 1'd1)) begin
+            storemerge_reg_225 <= tmp_3_fu_342_p1;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state2)) begin
-        add_ln71_reg_348 <= add_ln71_fu_210_p2;
+        add_ln66_reg_498 <= add_ln66_fu_287_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((~((fifoMatrixB_i_V_empty_n == 1'b0) & (ap_predicate_op62_read_state3 == 1'b1)) & (1'b1 == ap_CS_fsm_state3))) begin
-        add_ln72_reg_380 <= add_ln72_fu_259_p2;
+    if ((~((fifoMatrixB_i_V_empty_n == 1'b0) & (ap_predicate_op68_read_state3 == 1'b1)) & (1'b1 == ap_CS_fsm_state3))) begin
+        add_ln67_reg_530 <= add_ln67_fu_336_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((icmp_ln71_fu_204_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
-        add_ln84_reg_367 <= add_ln84_fu_216_p2;
+    if (((icmp_ln66_fu_281_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
+        add_ln79_reg_517 <= add_ln79_fu_293_p2;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if ((1'b1 == ap_CS_fsm_state8)) begin
+        add_ln96_reg_605 <= add_ln96_fu_456_p2;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_CS_fsm_state8) & (icmp_ln96_fu_450_p2 == 1'd0))) begin
+        icmp_ln174_reg_610 <= icmp_ln174_fu_462_p2;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if ((1'b1 == ap_CS_fsm_state5)) begin
+        iter_2_reg_549 <= iter_2_fu_365_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state3)) begin
-        matrixB_buffer_addr_reg_372 <= zext_ln74_fu_248_p1;
+        matrixB_buffer_addr_reg_522 <= zext_ln69_fu_325_p1;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state6)) begin
-        tmp_5_reg_403[33 : 2] <= tmp_5_fu_317_p3[33 : 2];
+    if (((1'b1 == ap_CS_fsm_state9) & (tmp_6_reg_582 == 1'd0))) begin
+        matrixB_buffer_load_reg_614 <= matrixB_buffer_q0;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((icmp_ln84_fu_280_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state5))) begin
-        tmp_8_reg_396 <= fifoEdgeListPtr_i_V_dout;
+    if ((~(((icmp_ln88_fu_384_p2 == 1'd0) & (fifoMatrixAIdx_i_V_empty_n == 1'b0)) | ((icmp_ln88_fu_384_p2 == 1'd0) & (fifoMatrixA_i_V_empty_n == 1'b0))) & (1'b1 == ap_CS_fsm_state7))) begin
+        n_1_reg_566 <= n_1_fu_390_p2;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((icmp_ln88_fu_384_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state7))) begin
+        tempA_col_V_cast_reg_587 <= {{fifoMatrixAIdx_i_V_dout[19:16]}};
+        tempA_row_V_reg_576 <= tempA_row_V_fu_400_p1;
+        tmp_6_reg_582 <= fifoMatrixAIdx_i_V_dout[32'd15];
+        tmp_9_reg_571 <= tmp_9_fu_396_p1;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_CS_fsm_state12) & (tmp_6_reg_582 == 1'd0))) begin
+        temp_res_reg_619 <= grp_fu_269_p2;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((icmp_ln79_fu_360_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state5))) begin
+        tmp_8_reg_554 <= fifoEdgeListPtr_i_V_dout;
+    end
+end
+
+assign ap_ST_fsm_state10_blk = 1'b0;
+
+assign ap_ST_fsm_state11_blk = 1'b0;
+
+assign ap_ST_fsm_state12_blk = 1'b0;
+
+always @ (*) begin
+    if ((((fifoMatrixCIdx_o_0_V_full_n == 1'b0) & (icmp_ln174_reg_610 == 1'd1)) | ((fifoCalcMatrixC_o_0_V_full_n == 1'b0) & (icmp_ln174_reg_610 == 1'd1)) | ((fifoMatrixCIdx_o_1_V_full_n == 1'b0) & (icmp_ln174_reg_610 == 1'd0)) | ((fifoCalcMatrixC_o_1_V_full_n == 1'b0) & (icmp_ln174_reg_610 == 1'd0)))) begin
+        ap_ST_fsm_state13_blk = 1'b1;
+    end else begin
+        ap_ST_fsm_state13_blk = 1'b0;
     end
 end
 
@@ -346,7 +416,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((((icmp_ln71_fu_204_p2 == 1'd1) & (fifoEdgeListPtrC_o_V_full_n == 1'b0)) | ((icmp_ln71_fu_204_p2 == 1'd1) & (fifoEdgeListPtr_i_V_empty_n == 1'b0)))) begin
+    if ((((icmp_ln66_fu_281_p2 == 1'd1) & (fifoEdgeListPtrC_o_V_full_n == 1'b0)) | ((icmp_ln66_fu_281_p2 == 1'd1) & (fifoEdgeListPtr_i_V_empty_n == 1'b0)))) begin
         ap_ST_fsm_state2_blk = 1'b1;
     end else begin
         ap_ST_fsm_state2_blk = 1'b0;
@@ -354,7 +424,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((fifoMatrixB_i_V_empty_n == 1'b0) & (ap_predicate_op62_read_state3 == 1'b1))) begin
+    if (((fifoMatrixB_i_V_empty_n == 1'b0) & (ap_predicate_op68_read_state3 == 1'b1))) begin
         ap_ST_fsm_state3_blk = 1'b1;
     end else begin
         ap_ST_fsm_state3_blk = 1'b0;
@@ -364,7 +434,7 @@ end
 assign ap_ST_fsm_state4_blk = 1'b0;
 
 always @ (*) begin
-    if ((((icmp_ln84_fu_280_p2 == 1'd1) & (fifoEdgeListPtrC_o_V_full_n == 1'b0)) | ((icmp_ln84_fu_280_p2 == 1'd1) & (fifoEdgeListPtr_i_V_empty_n == 1'b0)))) begin
+    if ((((icmp_ln79_fu_360_p2 == 1'd1) & (fifoEdgeListPtrC_o_V_full_n == 1'b0)) | ((icmp_ln79_fu_360_p2 == 1'd1) & (fifoEdgeListPtr_i_V_empty_n == 1'b0)))) begin
         ap_ST_fsm_state5_blk = 1'b1;
     end else begin
         ap_ST_fsm_state5_blk = 1'b0;
@@ -374,15 +444,19 @@ end
 assign ap_ST_fsm_state6_blk = 1'b0;
 
 always @ (*) begin
-    if ((grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_ap_done == 1'b0)) begin
+    if ((((icmp_ln88_fu_384_p2 == 1'd0) & (fifoMatrixAIdx_i_V_empty_n == 1'b0)) | ((icmp_ln88_fu_384_p2 == 1'd0) & (fifoMatrixA_i_V_empty_n == 1'b0)))) begin
         ap_ST_fsm_state7_blk = 1'b1;
     end else begin
         ap_ST_fsm_state7_blk = 1'b0;
     end
 end
 
+assign ap_ST_fsm_state8_blk = 1'b0;
+
+assign ap_ST_fsm_state9_blk = 1'b0;
+
 always @ (*) begin
-    if ((~(((icmp_ln84_fu_280_p2 == 1'd1) & (fifoEdgeListPtrC_o_V_full_n == 1'b0)) | ((icmp_ln84_fu_280_p2 == 1'd1) & (fifoEdgeListPtr_i_V_empty_n == 1'b0))) & (icmp_ln84_fu_280_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state5))) begin
+    if ((~(((icmp_ln79_fu_360_p2 == 1'd1) & (fifoEdgeListPtrC_o_V_full_n == 1'b0)) | ((icmp_ln79_fu_360_p2 == 1'd1) & (fifoEdgeListPtr_i_V_empty_n == 1'b0))) & (icmp_ln79_fu_360_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state5))) begin
         ap_done = 1'b1;
     end else begin
         ap_done = 1'b0;
@@ -398,7 +472,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~(((icmp_ln84_fu_280_p2 == 1'd1) & (fifoEdgeListPtrC_o_V_full_n == 1'b0)) | ((icmp_ln84_fu_280_p2 == 1'd1) & (fifoEdgeListPtr_i_V_empty_n == 1'b0))) & (icmp_ln84_fu_280_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state5))) begin
+    if ((~(((icmp_ln79_fu_360_p2 == 1'd1) & (fifoEdgeListPtrC_o_V_full_n == 1'b0)) | ((icmp_ln79_fu_360_p2 == 1'd1) & (fifoEdgeListPtr_i_V_empty_n == 1'b0))) & (icmp_ln79_fu_360_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state5))) begin
         ap_ready = 1'b1;
     end else begin
         ap_ready = 1'b0;
@@ -406,23 +480,39 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state7)) begin
-        fifoCalcMatrixC_o_0_V_write = grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_fifoCalcMatrixC_o_0_V_write;
+    if (((1'b1 == ap_CS_fsm_state13) & (icmp_ln174_reg_610 == 1'd1))) begin
+        fifoCalcMatrixC_o_0_V_blk_n = fifoCalcMatrixC_o_0_V_full_n;
+    end else begin
+        fifoCalcMatrixC_o_0_V_blk_n = 1'b1;
+    end
+end
+
+always @ (*) begin
+    if ((~(((fifoMatrixCIdx_o_0_V_full_n == 1'b0) & (icmp_ln174_reg_610 == 1'd1)) | ((fifoCalcMatrixC_o_0_V_full_n == 1'b0) & (icmp_ln174_reg_610 == 1'd1)) | ((fifoMatrixCIdx_o_1_V_full_n == 1'b0) & (icmp_ln174_reg_610 == 1'd0)) | ((fifoCalcMatrixC_o_1_V_full_n == 1'b0) & (icmp_ln174_reg_610 == 1'd0))) & (1'b1 == ap_CS_fsm_state13) & (icmp_ln174_reg_610 == 1'd1))) begin
+        fifoCalcMatrixC_o_0_V_write = 1'b1;
     end else begin
         fifoCalcMatrixC_o_0_V_write = 1'b0;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state7)) begin
-        fifoCalcMatrixC_o_1_V_write = grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_fifoCalcMatrixC_o_1_V_write;
+    if (((1'b1 == ap_CS_fsm_state13) & (icmp_ln174_reg_610 == 1'd0))) begin
+        fifoCalcMatrixC_o_1_V_blk_n = fifoCalcMatrixC_o_1_V_full_n;
+    end else begin
+        fifoCalcMatrixC_o_1_V_blk_n = 1'b1;
+    end
+end
+
+always @ (*) begin
+    if ((~(((fifoMatrixCIdx_o_0_V_full_n == 1'b0) & (icmp_ln174_reg_610 == 1'd1)) | ((fifoCalcMatrixC_o_0_V_full_n == 1'b0) & (icmp_ln174_reg_610 == 1'd1)) | ((fifoMatrixCIdx_o_1_V_full_n == 1'b0) & (icmp_ln174_reg_610 == 1'd0)) | ((fifoCalcMatrixC_o_1_V_full_n == 1'b0) & (icmp_ln174_reg_610 == 1'd0))) & (1'b1 == ap_CS_fsm_state13) & (icmp_ln174_reg_610 == 1'd0))) begin
+        fifoCalcMatrixC_o_1_V_write = 1'b1;
     end else begin
         fifoCalcMatrixC_o_1_V_write = 1'b0;
     end
 end
 
 always @ (*) begin
-    if ((((icmp_ln84_fu_280_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state5)) | ((icmp_ln71_fu_204_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2)))) begin
+    if ((((icmp_ln79_fu_360_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state5)) | ((icmp_ln66_fu_281_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2)))) begin
         fifoEdgeListPtrC_o_V_blk_n = fifoEdgeListPtrC_o_V_full_n;
     end else begin
         fifoEdgeListPtrC_o_V_blk_n = 1'b1;
@@ -430,7 +520,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((~(((icmp_ln84_fu_280_p2 == 1'd1) & (fifoEdgeListPtrC_o_V_full_n == 1'b0)) | ((icmp_ln84_fu_280_p2 == 1'd1) & (fifoEdgeListPtr_i_V_empty_n == 1'b0))) & (icmp_ln84_fu_280_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state5)) | (~(((icmp_ln71_fu_204_p2 == 1'd1) & (fifoEdgeListPtrC_o_V_full_n == 1'b0)) | ((icmp_ln71_fu_204_p2 == 1'd1) & (fifoEdgeListPtr_i_V_empty_n == 1'b0))) & (icmp_ln71_fu_204_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2)))) begin
+    if (((~(((icmp_ln79_fu_360_p2 == 1'd1) & (fifoEdgeListPtrC_o_V_full_n == 1'b0)) | ((icmp_ln79_fu_360_p2 == 1'd1) & (fifoEdgeListPtr_i_V_empty_n == 1'b0))) & (icmp_ln79_fu_360_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state5)) | (~(((icmp_ln66_fu_281_p2 == 1'd1) & (fifoEdgeListPtrC_o_V_full_n == 1'b0)) | ((icmp_ln66_fu_281_p2 == 1'd1) & (fifoEdgeListPtr_i_V_empty_n == 1'b0))) & (icmp_ln66_fu_281_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2)))) begin
         fifoEdgeListPtrC_o_V_write = 1'b1;
     end else begin
         fifoEdgeListPtrC_o_V_write = 1'b0;
@@ -438,7 +528,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((((icmp_ln84_fu_280_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state5)) | ((icmp_ln71_fu_204_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2)))) begin
+    if ((((icmp_ln79_fu_360_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state5)) | ((icmp_ln66_fu_281_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2)))) begin
         fifoEdgeListPtr_i_V_blk_n = fifoEdgeListPtr_i_V_empty_n;
     end else begin
         fifoEdgeListPtr_i_V_blk_n = 1'b1;
@@ -446,7 +536,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((~(((icmp_ln84_fu_280_p2 == 1'd1) & (fifoEdgeListPtrC_o_V_full_n == 1'b0)) | ((icmp_ln84_fu_280_p2 == 1'd1) & (fifoEdgeListPtr_i_V_empty_n == 1'b0))) & (icmp_ln84_fu_280_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state5)) | (~(((icmp_ln71_fu_204_p2 == 1'd1) & (fifoEdgeListPtrC_o_V_full_n == 1'b0)) | ((icmp_ln71_fu_204_p2 == 1'd1) & (fifoEdgeListPtr_i_V_empty_n == 1'b0))) & (icmp_ln71_fu_204_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2)))) begin
+    if (((~(((icmp_ln79_fu_360_p2 == 1'd1) & (fifoEdgeListPtrC_o_V_full_n == 1'b0)) | ((icmp_ln79_fu_360_p2 == 1'd1) & (fifoEdgeListPtr_i_V_empty_n == 1'b0))) & (icmp_ln79_fu_360_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state5)) | (~(((icmp_ln66_fu_281_p2 == 1'd1) & (fifoEdgeListPtrC_o_V_full_n == 1'b0)) | ((icmp_ln66_fu_281_p2 == 1'd1) & (fifoEdgeListPtr_i_V_empty_n == 1'b0))) & (icmp_ln66_fu_281_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2)))) begin
         fifoEdgeListPtr_i_V_read = 1'b1;
     end else begin
         fifoEdgeListPtr_i_V_read = 1'b0;
@@ -454,23 +544,39 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state7)) begin
-        fifoMatrixAIdx_i_V_read = grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_fifoMatrixAIdx_i_V_read;
+    if (((icmp_ln88_fu_384_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state7))) begin
+        fifoMatrixAIdx_i_V_blk_n = fifoMatrixAIdx_i_V_empty_n;
+    end else begin
+        fifoMatrixAIdx_i_V_blk_n = 1'b1;
+    end
+end
+
+always @ (*) begin
+    if ((~(((icmp_ln88_fu_384_p2 == 1'd0) & (fifoMatrixAIdx_i_V_empty_n == 1'b0)) | ((icmp_ln88_fu_384_p2 == 1'd0) & (fifoMatrixA_i_V_empty_n == 1'b0))) & (icmp_ln88_fu_384_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state7))) begin
+        fifoMatrixAIdx_i_V_read = 1'b1;
     end else begin
         fifoMatrixAIdx_i_V_read = 1'b0;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state7)) begin
-        fifoMatrixA_i_V_read = grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_fifoMatrixA_i_V_read;
+    if (((icmp_ln88_fu_384_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state7))) begin
+        fifoMatrixA_i_V_blk_n = fifoMatrixA_i_V_empty_n;
+    end else begin
+        fifoMatrixA_i_V_blk_n = 1'b1;
+    end
+end
+
+always @ (*) begin
+    if ((~(((icmp_ln88_fu_384_p2 == 1'd0) & (fifoMatrixAIdx_i_V_empty_n == 1'b0)) | ((icmp_ln88_fu_384_p2 == 1'd0) & (fifoMatrixA_i_V_empty_n == 1'b0))) & (icmp_ln88_fu_384_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state7))) begin
+        fifoMatrixA_i_V_read = 1'b1;
     end else begin
         fifoMatrixA_i_V_read = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((tmp_nbreadreq_fu_130_p3 == 1'd1) & (icmp_ln72_fu_253_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
+    if (((1'b1 == ap_CS_fsm_state3) & (tmp_nbreadreq_fu_142_p3 == 1'd1) & (icmp_ln67_fu_330_p2 == 1'd0))) begin
         fifoMatrixB_i_V_blk_n = fifoMatrixB_i_V_empty_n;
     end else begin
         fifoMatrixB_i_V_blk_n = 1'b1;
@@ -478,7 +584,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((fifoMatrixB_i_V_empty_n == 1'b0) & (ap_predicate_op62_read_state3 == 1'b1)) & (1'b1 == ap_CS_fsm_state3) & (ap_predicate_op62_read_state3 == 1'b1))) begin
+    if ((~((fifoMatrixB_i_V_empty_n == 1'b0) & (ap_predicate_op68_read_state3 == 1'b1)) & (1'b1 == ap_CS_fsm_state3) & (ap_predicate_op68_read_state3 == 1'b1))) begin
         fifoMatrixB_i_V_read = 1'b1;
     end else begin
         fifoMatrixB_i_V_read = 1'b0;
@@ -486,46 +592,52 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state7)) begin
-        fifoMatrixCIdx_o_0_V_write = grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_fifoMatrixCIdx_o_0_V_write;
+    if (((1'b1 == ap_CS_fsm_state13) & (icmp_ln174_reg_610 == 1'd1))) begin
+        fifoMatrixCIdx_o_0_V_blk_n = fifoMatrixCIdx_o_0_V_full_n;
+    end else begin
+        fifoMatrixCIdx_o_0_V_blk_n = 1'b1;
+    end
+end
+
+always @ (*) begin
+    if ((~(((fifoMatrixCIdx_o_0_V_full_n == 1'b0) & (icmp_ln174_reg_610 == 1'd1)) | ((fifoCalcMatrixC_o_0_V_full_n == 1'b0) & (icmp_ln174_reg_610 == 1'd1)) | ((fifoMatrixCIdx_o_1_V_full_n == 1'b0) & (icmp_ln174_reg_610 == 1'd0)) | ((fifoCalcMatrixC_o_1_V_full_n == 1'b0) & (icmp_ln174_reg_610 == 1'd0))) & (1'b1 == ap_CS_fsm_state13) & (icmp_ln174_reg_610 == 1'd1))) begin
+        fifoMatrixCIdx_o_0_V_write = 1'b1;
     end else begin
         fifoMatrixCIdx_o_0_V_write = 1'b0;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state7)) begin
-        fifoMatrixCIdx_o_1_V_write = grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_fifoMatrixCIdx_o_1_V_write;
+    if (((1'b1 == ap_CS_fsm_state13) & (icmp_ln174_reg_610 == 1'd0))) begin
+        fifoMatrixCIdx_o_1_V_blk_n = fifoMatrixCIdx_o_1_V_full_n;
+    end else begin
+        fifoMatrixCIdx_o_1_V_blk_n = 1'b1;
+    end
+end
+
+always @ (*) begin
+    if ((~(((fifoMatrixCIdx_o_0_V_full_n == 1'b0) & (icmp_ln174_reg_610 == 1'd1)) | ((fifoCalcMatrixC_o_0_V_full_n == 1'b0) & (icmp_ln174_reg_610 == 1'd1)) | ((fifoMatrixCIdx_o_1_V_full_n == 1'b0) & (icmp_ln174_reg_610 == 1'd0)) | ((fifoCalcMatrixC_o_1_V_full_n == 1'b0) & (icmp_ln174_reg_610 == 1'd0))) & (1'b1 == ap_CS_fsm_state13) & (icmp_ln174_reg_610 == 1'd0))) begin
+        fifoMatrixCIdx_o_1_V_write = 1'b1;
     end else begin
         fifoMatrixCIdx_o_1_V_write = 1'b0;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state4)) begin
-        matrixB_buffer_address0 = matrixB_buffer_addr_reg_372;
-    end else if ((1'b1 == ap_CS_fsm_state7)) begin
-        matrixB_buffer_address0 = grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_matrixB_buffer_address0;
+    if ((1'b1 == ap_CS_fsm_state8)) begin
+        matrixB_buffer_address0 = zext_ln48_fu_445_p1;
+    end else if ((1'b1 == ap_CS_fsm_state4)) begin
+        matrixB_buffer_address0 = matrixB_buffer_addr_reg_522;
     end else begin
         matrixB_buffer_address0 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state4)) begin
+    if (((1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state8))) begin
         matrixB_buffer_ce0 = 1'b1;
-    end else if ((1'b1 == ap_CS_fsm_state7)) begin
-        matrixB_buffer_ce0 = grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_matrixB_buffer_ce0;
     end else begin
         matrixB_buffer_ce0 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state7)) begin
-        matrixB_buffer_ce1 = grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_matrixB_buffer_ce1;
-    end else begin
-        matrixB_buffer_ce1 = 1'b0;
     end
 end
 
@@ -547,18 +659,18 @@ always @ (*) begin
             end
         end
         ap_ST_fsm_state2 : begin
-            if ((~(((icmp_ln71_fu_204_p2 == 1'd1) & (fifoEdgeListPtrC_o_V_full_n == 1'b0)) | ((icmp_ln71_fu_204_p2 == 1'd1) & (fifoEdgeListPtr_i_V_empty_n == 1'b0))) & (icmp_ln71_fu_204_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
+            if ((~(((icmp_ln66_fu_281_p2 == 1'd1) & (fifoEdgeListPtrC_o_V_full_n == 1'b0)) | ((icmp_ln66_fu_281_p2 == 1'd1) & (fifoEdgeListPtr_i_V_empty_n == 1'b0))) & (icmp_ln66_fu_281_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
                 ap_NS_fsm = ap_ST_fsm_state5;
-            end else if ((~(((icmp_ln71_fu_204_p2 == 1'd1) & (fifoEdgeListPtrC_o_V_full_n == 1'b0)) | ((icmp_ln71_fu_204_p2 == 1'd1) & (fifoEdgeListPtr_i_V_empty_n == 1'b0))) & (icmp_ln71_fu_204_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
+            end else if ((~(((icmp_ln66_fu_281_p2 == 1'd1) & (fifoEdgeListPtrC_o_V_full_n == 1'b0)) | ((icmp_ln66_fu_281_p2 == 1'd1) & (fifoEdgeListPtr_i_V_empty_n == 1'b0))) & (icmp_ln66_fu_281_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
                 ap_NS_fsm = ap_ST_fsm_state3;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state2;
             end
         end
         ap_ST_fsm_state3 : begin
-            if ((~((fifoMatrixB_i_V_empty_n == 1'b0) & (ap_predicate_op62_read_state3 == 1'b1)) & (icmp_ln72_fu_253_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state3))) begin
+            if ((~((fifoMatrixB_i_V_empty_n == 1'b0) & (ap_predicate_op68_read_state3 == 1'b1)) & (1'b1 == ap_CS_fsm_state3) & (icmp_ln67_fu_330_p2 == 1'd1))) begin
                 ap_NS_fsm = ap_ST_fsm_state2;
-            end else if ((~((fifoMatrixB_i_V_empty_n == 1'b0) & (ap_predicate_op62_read_state3 == 1'b1)) & (icmp_ln72_fu_253_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
+            end else if ((~((fifoMatrixB_i_V_empty_n == 1'b0) & (ap_predicate_op68_read_state3 == 1'b1)) & (1'b1 == ap_CS_fsm_state3) & (icmp_ln67_fu_330_p2 == 1'd0))) begin
                 ap_NS_fsm = ap_ST_fsm_state4;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state3;
@@ -568,22 +680,54 @@ always @ (*) begin
             ap_NS_fsm = ap_ST_fsm_state3;
         end
         ap_ST_fsm_state5 : begin
-            if ((~(((icmp_ln84_fu_280_p2 == 1'd1) & (fifoEdgeListPtrC_o_V_full_n == 1'b0)) | ((icmp_ln84_fu_280_p2 == 1'd1) & (fifoEdgeListPtr_i_V_empty_n == 1'b0))) & (icmp_ln84_fu_280_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state5))) begin
+            if ((~(((icmp_ln79_fu_360_p2 == 1'd1) & (fifoEdgeListPtrC_o_V_full_n == 1'b0)) | ((icmp_ln79_fu_360_p2 == 1'd1) & (fifoEdgeListPtr_i_V_empty_n == 1'b0))) & (icmp_ln79_fu_360_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state5))) begin
                 ap_NS_fsm = ap_ST_fsm_state1;
-            end else if ((~(((icmp_ln84_fu_280_p2 == 1'd1) & (fifoEdgeListPtrC_o_V_full_n == 1'b0)) | ((icmp_ln84_fu_280_p2 == 1'd1) & (fifoEdgeListPtr_i_V_empty_n == 1'b0))) & (icmp_ln84_fu_280_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state5))) begin
+            end else if ((~(((icmp_ln79_fu_360_p2 == 1'd1) & (fifoEdgeListPtrC_o_V_full_n == 1'b0)) | ((icmp_ln79_fu_360_p2 == 1'd1) & (fifoEdgeListPtr_i_V_empty_n == 1'b0))) & (icmp_ln79_fu_360_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state5))) begin
                 ap_NS_fsm = ap_ST_fsm_state6;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state5;
             end
         end
         ap_ST_fsm_state6 : begin
-            ap_NS_fsm = ap_ST_fsm_state7;
-        end
-        ap_ST_fsm_state7 : begin
-            if (((1'b1 == ap_CS_fsm_state7) & (grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_ap_done == 1'b1))) begin
+            if (((icmp_ln85_fu_371_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state6))) begin
                 ap_NS_fsm = ap_ST_fsm_state5;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state7;
+            end
+        end
+        ap_ST_fsm_state7 : begin
+            if ((~(((icmp_ln88_fu_384_p2 == 1'd0) & (fifoMatrixAIdx_i_V_empty_n == 1'b0)) | ((icmp_ln88_fu_384_p2 == 1'd0) & (fifoMatrixA_i_V_empty_n == 1'b0))) & (icmp_ln88_fu_384_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state7))) begin
+                ap_NS_fsm = ap_ST_fsm_state6;
+            end else if ((~(((icmp_ln88_fu_384_p2 == 1'd0) & (fifoMatrixAIdx_i_V_empty_n == 1'b0)) | ((icmp_ln88_fu_384_p2 == 1'd0) & (fifoMatrixA_i_V_empty_n == 1'b0))) & (icmp_ln88_fu_384_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state7))) begin
+                ap_NS_fsm = ap_ST_fsm_state8;
+            end else begin
+                ap_NS_fsm = ap_ST_fsm_state7;
+            end
+        end
+        ap_ST_fsm_state8 : begin
+            if (((1'b1 == ap_CS_fsm_state8) & (icmp_ln96_fu_450_p2 == 1'd1))) begin
+                ap_NS_fsm = ap_ST_fsm_state7;
+            end else begin
+                ap_NS_fsm = ap_ST_fsm_state9;
+            end
+        end
+        ap_ST_fsm_state9 : begin
+            ap_NS_fsm = ap_ST_fsm_state10;
+        end
+        ap_ST_fsm_state10 : begin
+            ap_NS_fsm = ap_ST_fsm_state11;
+        end
+        ap_ST_fsm_state11 : begin
+            ap_NS_fsm = ap_ST_fsm_state12;
+        end
+        ap_ST_fsm_state12 : begin
+            ap_NS_fsm = ap_ST_fsm_state13;
+        end
+        ap_ST_fsm_state13 : begin
+            if ((~(((fifoMatrixCIdx_o_0_V_full_n == 1'b0) & (icmp_ln174_reg_610 == 1'd1)) | ((fifoCalcMatrixC_o_0_V_full_n == 1'b0) & (icmp_ln174_reg_610 == 1'd1)) | ((fifoMatrixCIdx_o_1_V_full_n == 1'b0) & (icmp_ln174_reg_610 == 1'd0)) | ((fifoCalcMatrixC_o_1_V_full_n == 1'b0) & (icmp_ln174_reg_610 == 1'd0))) & (1'b1 == ap_CS_fsm_state13))) begin
+                ap_NS_fsm = ap_ST_fsm_state8;
+            end else begin
+                ap_NS_fsm = ap_ST_fsm_state13;
             end
         end
         default : begin
@@ -592,15 +736,25 @@ always @ (*) begin
     endcase
 end
 
-assign add_ln71_fu_210_p2 = (i_fu_94 + 4'd1);
+assign add_ln48_fu_440_p2 = (tmp_8_cast_fu_432_p3 + tempA_col_V_cast_reg_587);
 
-assign add_ln72_fu_259_p2 = (j_reg_155 + 2'd1);
+assign add_ln66_fu_287_p2 = (i_fu_106 + 4'd1);
 
-assign add_ln74_fu_243_p2 = (tmp_2_cast_fu_235_p3 + i_fu_94);
+assign add_ln67_fu_336_p2 = (j_reg_214 + 2'd1);
 
-assign add_ln84_fu_216_p2 = ($signed(lenEdgeListPtr) + $signed(32'd4294967295));
+assign add_ln69_fu_320_p2 = (tmp_2_cast_fu_312_p3 + i_fu_106);
+
+assign add_ln79_fu_293_p2 = ($signed(lenEdgeListPtr) + $signed(32'd4294967295));
+
+assign add_ln96_fu_456_p2 = (j_1_reg_258 + 2'd1);
 
 assign ap_CS_fsm_state1 = ap_CS_fsm[32'd0];
+
+assign ap_CS_fsm_state10 = ap_CS_fsm[32'd9];
+
+assign ap_CS_fsm_state12 = ap_CS_fsm[32'd11];
+
+assign ap_CS_fsm_state13 = ap_CS_fsm[32'd12];
 
 assign ap_CS_fsm_state2 = ap_CS_fsm[32'd1];
 
@@ -614,68 +768,92 @@ assign ap_CS_fsm_state6 = ap_CS_fsm[32'd5];
 
 assign ap_CS_fsm_state7 = ap_CS_fsm[32'd6];
 
+assign ap_CS_fsm_state8 = ap_CS_fsm[32'd7];
+
+assign ap_CS_fsm_state9 = ap_CS_fsm[32'd8];
+
 always @ (*) begin
-    ap_block_state2 = (((icmp_ln71_fu_204_p2 == 1'd1) & (fifoEdgeListPtrC_o_V_full_n == 1'b0)) | ((icmp_ln71_fu_204_p2 == 1'd1) & (fifoEdgeListPtr_i_V_empty_n == 1'b0)));
+    ap_block_state13 = (((fifoMatrixCIdx_o_0_V_full_n == 1'b0) & (icmp_ln174_reg_610 == 1'd1)) | ((fifoCalcMatrixC_o_0_V_full_n == 1'b0) & (icmp_ln174_reg_610 == 1'd1)) | ((fifoMatrixCIdx_o_1_V_full_n == 1'b0) & (icmp_ln174_reg_610 == 1'd0)) | ((fifoCalcMatrixC_o_1_V_full_n == 1'b0) & (icmp_ln174_reg_610 == 1'd0)));
 end
 
 always @ (*) begin
-    ap_block_state3 = ((fifoMatrixB_i_V_empty_n == 1'b0) & (ap_predicate_op62_read_state3 == 1'b1));
+    ap_block_state2 = (((icmp_ln66_fu_281_p2 == 1'd1) & (fifoEdgeListPtrC_o_V_full_n == 1'b0)) | ((icmp_ln66_fu_281_p2 == 1'd1) & (fifoEdgeListPtr_i_V_empty_n == 1'b0)));
 end
 
 always @ (*) begin
-    ap_block_state5 = (((icmp_ln84_fu_280_p2 == 1'd1) & (fifoEdgeListPtrC_o_V_full_n == 1'b0)) | ((icmp_ln84_fu_280_p2 == 1'd1) & (fifoEdgeListPtr_i_V_empty_n == 1'b0)));
+    ap_block_state3 = ((fifoMatrixB_i_V_empty_n == 1'b0) & (ap_predicate_op68_read_state3 == 1'b1));
 end
 
 always @ (*) begin
-    ap_condition_302 = (~((fifoMatrixB_i_V_empty_n == 1'b0) & (ap_predicate_op62_read_state3 == 1'b1)) & (icmp_ln72_fu_253_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state3));
+    ap_block_state5 = (((icmp_ln79_fu_360_p2 == 1'd1) & (fifoEdgeListPtrC_o_V_full_n == 1'b0)) | ((icmp_ln79_fu_360_p2 == 1'd1) & (fifoEdgeListPtr_i_V_empty_n == 1'b0)));
 end
 
 always @ (*) begin
-    ap_predicate_op62_read_state3 = ((tmp_nbreadreq_fu_130_p3 == 1'd1) & (icmp_ln72_fu_253_p2 == 1'd0));
+    ap_block_state7 = (((icmp_ln88_fu_384_p2 == 1'd0) & (fifoMatrixAIdx_i_V_empty_n == 1'b0)) | ((icmp_ln88_fu_384_p2 == 1'd0) & (fifoMatrixA_i_V_empty_n == 1'b0)));
 end
 
-assign empty_15_fu_299_p2 = (($signed(i_1_fu_102) > $signed(tmp_8_reg_396)) ? 1'b1 : 1'b0);
+always @ (*) begin
+    ap_condition_427 = (~((fifoMatrixB_i_V_empty_n == 1'b0) & (ap_predicate_op68_read_state3 == 1'b1)) & (1'b1 == ap_CS_fsm_state3) & (icmp_ln67_fu_330_p2 == 1'd0));
+end
 
-assign fifoCalcMatrixC_o_0_V_din = grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_fifoCalcMatrixC_o_0_V_din;
+always @ (*) begin
+    ap_predicate_op68_read_state3 = ((tmp_nbreadreq_fu_142_p3 == 1'd1) & (icmp_ln67_fu_330_p2 == 1'd0));
+end
 
-assign fifoCalcMatrixC_o_1_V_din = grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_fifoCalcMatrixC_o_1_V_din;
+assign bitcast_ln174_fu_468_p1 = temp_res_reg_619;
+
+assign fifoCalcMatrixC_o_0_V_din = select_ln174_fu_471_p3;
+
+assign fifoCalcMatrixC_o_1_V_din = select_ln174_fu_471_p3;
 
 assign fifoEdgeListPtrC_o_V_din = fifoEdgeListPtr_i_V_dout;
 
-assign fifoMatrixCIdx_o_0_V_din = grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_fifoMatrixCIdx_o_0_V_din;
+assign fifoMatrixCIdx_o_0_V_din = tempA_row_V_reg_576;
 
-assign fifoMatrixCIdx_o_1_V_din = grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_fifoMatrixCIdx_o_1_V_din;
+assign fifoMatrixCIdx_o_1_V_din = tempA_row_V_reg_576;
 
-assign grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_ap_start = grp_calc_C_Pipeline_loop_diff_window_loop_diff_pe_fu_178_ap_start_reg;
+assign i_6_fu_422_p2 = (i_2_reg_237 + 32'd1);
 
-assign icmp_ln71_fu_204_p2 = ((i_fu_94 == 4'd8) ? 1'b1 : 1'b0);
+assign icmp_ln174_fu_462_p2 = ((j_1_reg_258 == 2'd0) ? 1'b1 : 1'b0);
 
-assign icmp_ln72_fu_253_p2 = ((j_reg_155 == 2'd2) ? 1'b1 : 1'b0);
+assign icmp_ln66_fu_281_p2 = ((i_fu_106 == 4'd8) ? 1'b1 : 1'b0);
 
-assign icmp_ln84_fu_280_p2 = (($signed(zext_ln84_fu_276_p1) < $signed(add_ln84_reg_367)) ? 1'b1 : 1'b0);
+assign icmp_ln67_fu_330_p2 = ((j_reg_214 == 2'd2) ? 1'b1 : 1'b0);
 
-assign iter_2_fu_285_p2 = (iter_fu_106 + 31'd1);
+assign icmp_ln79_fu_360_p2 = (($signed(zext_ln79_fu_356_p1) < $signed(add_ln79_reg_517)) ? 1'b1 : 1'b0);
 
-assign smax1_fu_304_p3 = ((empty_15_fu_299_p2[0:0] == 1'b1) ? i_1_fu_102 : tmp_8_reg_396);
+assign icmp_ln85_fu_371_p2 = (($signed(i_2_reg_237) < $signed(tmp_8_reg_554)) ? 1'b1 : 1'b0);
 
-assign sub_ln90_fu_311_p2 = (smax1_fu_304_p3 - i_1_fu_102);
+assign icmp_ln88_fu_384_p2 = ((n_reg_247 == 2'd2) ? 1'b1 : 1'b0);
 
-assign tmp_2_cast_fu_235_p3 = {{trunc_ln74_fu_231_p1}, {3'd0}};
+assign icmp_ln96_fu_450_p2 = ((j_1_reg_258 == 2'd2) ? 1'b1 : 1'b0);
 
-assign tmp_5_fu_317_p3 = {{sub_ln90_fu_311_p2}, {2'd0}};
+assign iter_2_fu_365_p2 = (iter_fu_114 + 31'd1);
 
-assign tmp_6_fu_265_p1 = fifoMatrixB_i_V_dout;
+assign n_1_fu_390_p2 = (n_reg_247 + 2'd1);
 
-assign tmp_nbreadreq_fu_130_p3 = fifoMatrixB_i_V_empty_n;
+assign select_ln174_fu_471_p3 = ((tmp_6_reg_582[0:0] == 1'b1) ? 32'd0 : bitcast_ln174_fu_468_p1);
 
-assign trunc_ln74_fu_231_p1 = j_reg_155[0:0];
+assign tempA_row_V_fu_400_p1 = fifoMatrixAIdx_i_V_dout[15:0];
 
-assign zext_ln74_fu_248_p1 = add_ln74_fu_243_p2;
+assign tmp_2_cast_fu_312_p3 = {{trunc_ln69_fu_308_p1}, {3'd0}};
 
-assign zext_ln84_fu_276_p1 = iter_fu_106;
+assign tmp_3_fu_342_p1 = fifoMatrixB_i_V_dout;
 
-always @ (posedge ap_clk) begin
-    tmp_5_reg_403[1:0] <= 2'b00;
-end
+assign tmp_8_cast_fu_432_p3 = {{trunc_ln48_fu_428_p1}, {3'd0}};
+
+assign tmp_9_fu_396_p1 = fifoMatrixA_i_V_dout;
+
+assign tmp_nbreadreq_fu_142_p3 = fifoMatrixB_i_V_empty_n;
+
+assign trunc_ln48_fu_428_p1 = j_1_reg_258[0:0];
+
+assign trunc_ln69_fu_308_p1 = j_reg_214[0:0];
+
+assign zext_ln48_fu_445_p1 = add_ln48_fu_440_p2;
+
+assign zext_ln69_fu_325_p1 = add_ln69_fu_320_p2;
+
+assign zext_ln79_fu_356_p1 = iter_fu_114;
 
 endmodule //calc_C

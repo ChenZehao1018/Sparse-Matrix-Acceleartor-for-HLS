@@ -1,10 +1,10 @@
 
 
 ================================================================
-== Synthesis Summary Report of 'sort_C'
+== Synthesis Summary Report of 'krnl_sparse_matrix_acc'
 ================================================================
 + General Information: 
-    * Date:           Thu Jun  8 15:00:08 2023
+    * Date:           Fri Jun  9 10:20:01 2023
     * Version:        2021.1 (Build 3247384 on Thu Jun 10 19:36:33 MDT 2021)
     * Project:        kernel_acc
     * Solution:       solution1 (Vivado IP Flow Target)
@@ -15,120 +15,131 @@
 + Performance & Resource Estimates: 
     
     PS: '+' for module; 'o' for loop; '*' for dataflow
-    +-------------------------------------------------------------+------+------+---------+-----------+----------+---------+------+----------+------+----+------------+-----------+-----+
-    |                           Modules                           | Issue|      | Latency |  Latency  | Iteration|         | Trip |          |      |    |            |           |     |
-    |                           & Loops                           | Type | Slack| (cycles)|    (ns)   |  Latency | Interval| Count| Pipelined| BRAM | DSP|     FF     |    LUT    | URAM|
-    +-------------------------------------------------------------+------+------+---------+-----------+----------+---------+------+----------+------+----+------------+-----------+-----+
-    |+ sort_C                                                     |     -|  0.02|        -|          -|         -|        -|     -|        no|     -|   -|  2375 (~0%)|  8469 (3%)|    -|
-    | + grp_sort_C_Pipeline_loop_diff_window_loop_diff_pe_fu_475  |     -|  0.63|        -|          -|         -|        -|     -|        no|     -|   -|  1306 (~0%)|  6121 (2%)|    -|
-    |  o loop_diff_window_loop_diff_pe                            |    II|  7.30|        -|          -|         5|        2|     -|       yes|     -|   -|           -|          -|    -|
-    | o VITIS_LOOP_135_1                                          |     -|  7.30|      144|  1.440e+03|        18|        -|     8|        no|     -|   -|           -|          -|    -|
-    |  o VITIS_LOOP_136_2                                         |     -|  7.30|       16|    160.000|         2|        -|     8|        no|     -|   -|           -|          -|    -|
-    | o loop_repeat_iter                                          |     -|  7.30|        -|          -|         -|        -|     -|        no|     -|   -|           -|          -|    -|
-    | o VITIS_LOOP_168_3                                          |     -|  7.30|      152|  1.520e+03|        19|        -|     8|        no|     -|   -|           -|          -|    -|
-    |  o VITIS_LOOP_169_4                                         |     -|  7.30|       16|    160.000|         2|        -|     8|        no|     -|   -|           -|          -|    -|
-    +-------------------------------------------------------------+------+------+---------+-----------+----------+---------+------+----------+------+----+------------+-----------+-----+
+    +----------------------------------+--------+-------+---------+---------+----------+---------+------+----------+---------+---------+-----------+-----------+-----+
+    |              Modules             |  Issue |       | Latency | Latency | Iteration|         | Trip |          |         |         |           |           |     |
+    |              & Loops             |  Type  | Slack | (cycles)|   (ns)  |  Latency | Interval| Count| Pipelined|  BRAM   |   DSP   |     FF    |    LUT    | URAM|
+    +----------------------------------+--------+-------+---------+---------+----------+---------+------+----------+---------+---------+-----------+-----------+-----+
+    |+ krnl_sparse_matrix_acc*         |  Timing|  -0.00|        -|        -|         -|        -|     -|  dataflow|  20 (3%)|  9 (~0%)|  6728 (1%)|  9548 (4%)|    -|
+    | + grp_read_edge_list_ptr_fu_270  |  Timing|  -0.00|        -|        -|         -|        -|     -|        no|        -|        -|  108 (~0%)|  209 (~0%)|    -|
+    |  o ptr_rd                        |       -|   7.30|        -|        -|         3|        -|     -|        no|        -|        -|          -|          -|    -|
+    | + grp_read_A_fu_280              |  Timing|  -0.00|        -|        -|         -|        -|     -|        no|        -|        -|  199 (~0%)|  222 (~0%)|    -|
+    |  o matrixA_rd                    |       -|   7.30|        -|        -|         3|        -|     -|        no|        -|        -|          -|          -|    -|
+    | + grp_read_B_fu_293              |  Timing|  -0.00|        -|        -|         -|        -|     -|        no|        -|  3 (~0%)|  139 (~0%)|  220 (~0%)|    -|
+    |  o matrixB_rd                    |       -|   7.30|        -|        -|         3|        -|     -|        no|        -|        -|          -|          -|    -|
+    | + grp_calc_C_fu_304              |       -|   0.28|        -|        -|         -|        -|     -|        no|        -|  3 (~0%)|  603 (~0%)|  713 (~0%)|    -|
+    |  o VITIS_LOOP_66_1               |       -|   7.30|       48|  480.000|         6|        -|     8|        no|        -|        -|          -|          -|    -|
+    |   o VITIS_LOOP_67_2              |       -|   7.30|        4|   40.000|         2|        -|     2|        no|        -|        -|          -|          -|    -|
+    |  o loop_repeat_iter              |       -|   7.30|        -|        -|         -|        -|     -|        no|        -|        -|          -|          -|    -|
+    |   o loop_diff_window             |       -|   7.30|        -|        -|        30|        -|     -|        no|        -|        -|          -|          -|    -|
+    |    o loop_diff_pe                |       -|   7.30|       28|  280.000|        14|        -|     2|        no|        -|        -|          -|          -|    -|
+    |     o loop_for_col               |       -|   7.30|       12|  120.000|         6|        -|     2|        no|        -|        -|          -|          -|    -|
+    | + grp_sort_C_fu_319              |       -|   0.06|        -|        -|         -|        -|     -|        no|        -|        -|  557 (~0%)|  2499 (1%)|    -|
+    |  o VITIS_LOOP_135_1              |       -|   7.30|       32|  320.000|         4|        -|     8|        no|        -|        -|          -|          -|    -|
+    |   o VITIS_LOOP_136_2             |       -|   7.30|        2|   20.000|         1|        -|     2|        no|        -|        -|          -|          -|    -|
+    |  o loop_repeat_iter              |       -|   7.30|        -|        -|         -|        -|     -|        no|        -|        -|          -|          -|    -|
+    |   o loop_diff_window             |       -|   7.30|        -|        -|        22|        -|     -|        no|        -|        -|          -|          -|    -|
+    |    o loop_diff_pe                |       -|   7.30|       20|  200.000|        10|        -|     2|        no|        -|        -|          -|          -|    -|
+    |     o loop_for_col               |       -|   7.30|        8|   80.000|         4|        -|     2|        no|        -|        -|          -|          -|    -|
+    |  o VITIS_LOOP_168_3              |       -|   7.30|       64|  640.000|         8|        -|     8|        no|        -|        -|          -|          -|    -|
+    |   o VITIS_LOOP_169_4             |       -|   7.30|        6|   60.000|         3|        -|     2|        no|        -|        -|          -|          -|    -|
+    | + call_ret_entry_proc_fu_331     |       -|   7.30|        0|    0.000|         -|        0|     -|        no|        -|        -|   98 (~0%)|   29 (~0%)|    -|
+    | + grp_write_C_fu_337             |  Timing|  -0.00|        -|        -|         -|        -|     -|        no|        -|  3 (~0%)|  298 (~0%)|  389 (~0%)|    -|
+    |  o mem_wr                        |       -|   7.30|        -|        -|         -|        -|     -|        no|        -|        -|          -|          -|    -|
+    |   o VITIS_LOOP_184_1             |       -|   7.30|        -|        -|         2|        -|     -|        no|        -|        -|          -|          -|    -|
+    +----------------------------------+--------+-------+---------+---------+----------+---------+------+----------+---------+---------+-----------+-----------+-----+
 
 
 ================================================================
 == HW Interfaces
 ================================================================
-* AP_FIFO
-+-----------------------+------------+
-| Interface             | Data Width |
-+-----------------------+------------+
-| fifoCalcMatrixC_i_0_V | 32         |
-| fifoCalcMatrixC_i_1_V | 32         |
-| fifoCalcMatrixC_i_2_V | 32         |
-| fifoCalcMatrixC_i_3_V | 32         |
-| fifoCalcMatrixC_i_4_V | 32         |
-| fifoCalcMatrixC_i_5_V | 32         |
-| fifoCalcMatrixC_i_6_V | 32         |
-| fifoCalcMatrixC_i_7_V | 32         |
-| fifoEdgeListPtr_i_V   | 32         |
-| fifoMatrixCIdx_i_0_V  | 16         |
-| fifoMatrixCIdx_i_1_V  | 16         |
-| fifoMatrixCIdx_i_2_V  | 16         |
-| fifoMatrixCIdx_i_3_V  | 16         |
-| fifoMatrixCIdx_i_4_V  | 16         |
-| fifoMatrixCIdx_i_5_V  | 16         |
-| fifoMatrixCIdx_i_6_V  | 16         |
-| fifoMatrixCIdx_i_7_V  | 16         |
-| fifoSortMatrixC_o_0_V | 32         |
-| fifoSortMatrixC_o_1_V | 32         |
-| fifoSortMatrixC_o_2_V | 32         |
-| fifoSortMatrixC_o_3_V | 32         |
-| fifoSortMatrixC_o_4_V | 32         |
-| fifoSortMatrixC_o_5_V | 32         |
-| fifoSortMatrixC_o_6_V | 32         |
-| fifoSortMatrixC_o_7_V | 32         |
-+-----------------------+------------+
+* M_AXI
++-------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+
+| Interface   | Data Width | Address Width | Latency | Offset | Register | Max Widen | Max Read     | Max Write    | Num Read    | Num Write   |
+|             | (SW->HW)   |               |         |        |          | Bitwidth  | Burst Length | Burst Length | Outstanding | Outstanding |
++-------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+
+| m_axi_gmem0 | 32 -> 32   | 64            | 0       | slave  | 0        | 0         | 16           | 16           | 16          | 16          |
+| m_axi_gmem1 | 32 -> 32   | 64            | 0       | slave  | 0        | 0         | 16           | 16           | 16          | 16          |
+| m_axi_gmem2 | 32 -> 32   | 64            | 0       | slave  | 0        | 0         | 16           | 16           | 16          | 16          |
+| m_axi_gmem3 | 32 -> 32   | 64            | 0       | slave  | 0        | 0         | 16           | 16           | 16          | 16          |
+| m_axi_gmem4 | 32 -> 32   | 64            | 0       | slave  | 0        | 0         | 16           | 16           | 16          | 16          |
++-------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+
 
-* REGISTER
-+----------------+---------+----------+
-| Interface      | Mode    | Bitwidth |
-+----------------+---------+----------+
-| lenEdgeListPtr | ap_none | 32       |
-+----------------+---------+----------+
+* S_AXILITE
++---------------+------------+---------------+--------+----------+
+| Interface     | Data Width | Address Width | Offset | Register |
++---------------+------------+---------------+--------+----------+
+| s_axi_control | 32         | 7             | 16     | 0        |
++---------------+------------+---------------+--------+----------+
 
 * TOP LEVEL CONTROL
-+-----------+------------+-----------------------------------+
-| Interface | Type       | Ports                             |
-+-----------+------------+-----------------------------------+
-| ap_clk    | clock      | ap_clk                            |
-| ap_rst    | reset      | ap_rst                            |
-| ap_ctrl   | ap_ctrl_hs | ap_done ap_idle ap_ready ap_start |
-+-----------+------------+-----------------------------------+
++-----------+------------+-----------+
+| Interface | Type       | Ports     |
++-----------+------------+-----------+
+| ap_clk    | clock      | ap_clk    |
+| ap_rst_n  | reset      | ap_rst_n  |
+| interrupt | interrupt  | interrupt |
+| ap_ctrl   | ap_ctrl_hs |           |
++-----------+------------+-----------+
 
 
 ================================================================
 == SW I/O Information
 ================================================================
 * Top Function Arguments
-+-------------------+-----------+-------------------------+
-| Argument          | Direction | Datatype                |
-+-------------------+-----------+-------------------------+
-| lenEdgeListPtr    | in        | int                     |
-| fifoEdgeListPtr_i | in        | stream<int, 0>&         |
-| fifoMatrixCIdx_i  | in        | stream<ap_uint<16>, 0>* |
-| fifoCalcMatrixC_i | in        | stream<float, 0>*       |
-| fifoSortMatrixC_o | out       | stream<float, 0>*       |
-+-------------------+-----------+-------------------------+
++-----------------+-----------+---------------+
+| Argument        | Direction | Datatype      |
++-----------------+-----------+---------------+
+| HLSPtr_i        | in        | int*          |
+| matrixA_hls_idx | in        | unsigned int* |
+| matrixA_i       | in        | float*        |
+| matrixB_i       | in        | float*        |
+| matrixC_o       | out       | float*        |
+| lenEdgeListPtr  | in        | int           |
+| lenEdgePtr      | in        | int           |
+| M               | in        | int           |
+| K               | in        | int           |
+| N               | in        | int           |
++-----------------+-----------+---------------+
 
 * SW-to-HW Mapping
-+-------------------+-----------------------+-----------+
-| Argument          | HW Name               | HW Type   |
-+-------------------+-----------------------+-----------+
-| lenEdgeListPtr    | lenEdgeListPtr        | port      |
-| fifoEdgeListPtr_i | fifoEdgeListPtr_i_V   | interface |
-| fifoMatrixCIdx_i  | fifoMatrixCIdx_i_0_V  | interface |
-| fifoMatrixCIdx_i  | fifoMatrixCIdx_i_1_V  | interface |
-| fifoMatrixCIdx_i  | fifoMatrixCIdx_i_2_V  | interface |
-| fifoMatrixCIdx_i  | fifoMatrixCIdx_i_3_V  | interface |
-| fifoMatrixCIdx_i  | fifoMatrixCIdx_i_4_V  | interface |
-| fifoMatrixCIdx_i  | fifoMatrixCIdx_i_5_V  | interface |
-| fifoMatrixCIdx_i  | fifoMatrixCIdx_i_6_V  | interface |
-| fifoMatrixCIdx_i  | fifoMatrixCIdx_i_7_V  | interface |
-| fifoCalcMatrixC_i | fifoCalcMatrixC_i_0_V | interface |
-| fifoCalcMatrixC_i | fifoCalcMatrixC_i_1_V | interface |
-| fifoCalcMatrixC_i | fifoCalcMatrixC_i_2_V | interface |
-| fifoCalcMatrixC_i | fifoCalcMatrixC_i_3_V | interface |
-| fifoCalcMatrixC_i | fifoCalcMatrixC_i_4_V | interface |
-| fifoCalcMatrixC_i | fifoCalcMatrixC_i_5_V | interface |
-| fifoCalcMatrixC_i | fifoCalcMatrixC_i_6_V | interface |
-| fifoCalcMatrixC_i | fifoCalcMatrixC_i_7_V | interface |
-| fifoSortMatrixC_o | fifoSortMatrixC_o_0_V | interface |
-| fifoSortMatrixC_o | fifoSortMatrixC_o_1_V | interface |
-| fifoSortMatrixC_o | fifoSortMatrixC_o_2_V | interface |
-| fifoSortMatrixC_o | fifoSortMatrixC_o_3_V | interface |
-| fifoSortMatrixC_o | fifoSortMatrixC_o_4_V | interface |
-| fifoSortMatrixC_o | fifoSortMatrixC_o_5_V | interface |
-| fifoSortMatrixC_o | fifoSortMatrixC_o_6_V | interface |
-| fifoSortMatrixC_o | fifoSortMatrixC_o_7_V | interface |
-+-------------------+-----------------------+-----------+
++-----------------+---------------------------------+-----------+----------+-----------------------+
+| Argument        | HW Name                         | HW Type   | HW Usage | HW Info               |
++-----------------+---------------------------------+-----------+----------+-----------------------+
+| HLSPtr_i        | m_axi_gmem0                     | interface |          |                       |
+| HLSPtr_i        | s_axi_control HLSPtr_i_1        | register  | offset   | offset=0x10, range=32 |
+| HLSPtr_i        | s_axi_control HLSPtr_i_2        | register  | offset   | offset=0x14, range=32 |
+| matrixA_hls_idx | m_axi_gmem1                     | interface |          |                       |
+| matrixA_hls_idx | s_axi_control matrixA_hls_idx_1 | register  | offset   | offset=0x1c, range=32 |
+| matrixA_hls_idx | s_axi_control matrixA_hls_idx_2 | register  | offset   | offset=0x20, range=32 |
+| matrixA_i       | m_axi_gmem2                     | interface |          |                       |
+| matrixA_i       | s_axi_control matrixA_i_1       | register  | offset   | offset=0x28, range=32 |
+| matrixA_i       | s_axi_control matrixA_i_2       | register  | offset   | offset=0x2c, range=32 |
+| matrixB_i       | m_axi_gmem3                     | interface |          |                       |
+| matrixB_i       | s_axi_control matrixB_i_1       | register  | offset   | offset=0x34, range=32 |
+| matrixB_i       | s_axi_control matrixB_i_2       | register  | offset   | offset=0x38, range=32 |
+| matrixC_o       | m_axi_gmem4                     | interface |          |                       |
+| matrixC_o       | s_axi_control matrixC_o_1       | register  | offset   | offset=0x40, range=32 |
+| matrixC_o       | s_axi_control matrixC_o_2       | register  | offset   | offset=0x44, range=32 |
+| lenEdgeListPtr  | s_axi_control lenEdgeListPtr    | register  |          | offset=0x4c, range=32 |
+| lenEdgePtr      | s_axi_control lenEdgePtr        | register  |          | offset=0x54, range=32 |
+| M               | s_axi_control M                 | register  |          | offset=0x5c, range=32 |
+| K               | s_axi_control K                 | register  |          | offset=0x64, range=32 |
+| N               | s_axi_control N                 | register  |          | offset=0x6c, range=32 |
++-----------------+---------------------------------+-----------+----------+-----------------------+
 
 
 ================================================================
 == M_AXI Burst Information
 ================================================================
+* Burst Summary
++--------------+------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+
+| HW Interface | Loop             | Message                                                                                                                                                                                                                        | Location          |
++--------------+------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+
+| m_axi_gmem0  | ptr_rd           | Multiple burst reads of variable length and bit width 32. These bursts requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.  | kernel.cpp:12:2   |
+| m_axi_gmem1  | matrixA_rd       | Multiple burst reads of variable length and bit width 32. These bursts requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.  | kernel.cpp:25:2   |
+| m_axi_gmem2  | matrixA_rd       | Multiple burst reads of variable length and bit width 32. These bursts requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.  | kernel.cpp:25:2   |
+| m_axi_gmem3  | matrixB_rd       | Multiple burst reads of variable length and bit width 32. These bursts requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.  | kernel.cpp:38:2   |
+| m_axi_gmem4  | VITIS_LOOP_184_1 | Multiple burst writes of variable length and bit width 32. These bursts requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. | kernel.cpp:184:21 |
++--------------+------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+
+
 

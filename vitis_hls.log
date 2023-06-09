@@ -1,16 +1,16 @@
 INFO: [HLS 200-10] Running 'D:/Xilinx/Vitis_HLS/2021.1/bin/unwrapped/win64.o/vitis_hls.exe'
-INFO: [HLS 200-10] For user 'zehao' on host 'chen' (Windows NT_amd64 version 6.2) on Thu Jun 08 14:59:20 +0200 2023
+INFO: [HLS 200-10] For user 'zehao' on host 'chen' (Windows NT_amd64 version 6.2) on Fri Jun 09 10:58:59 +0200 2023
 INFO: [HLS 200-10] In directory 'D:/ProjectWork/SPARSE_MATRIX_ACC'
-Sourcing Tcl script 'D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/csynth.tcl'
+Sourcing Tcl script 'D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/csim.tcl'
 INFO: [HLS 200-1510] Running: open_project kernel_acc 
 INFO: [HLS 200-10] Opening project 'D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc'.
-INFO: [HLS 200-1510] Running: set_top sort_C 
-INFO: [HLS 200-1510] Running: add_files kernel.h 
-INFO: [HLS 200-10] Adding design file 'kernel.h' to the project
+INFO: [HLS 200-1510] Running: set_top krnl_sparse_matrix_acc 
 INFO: [HLS 200-1510] Running: add_files kernel.cpp 
 INFO: [HLS 200-10] Adding design file 'kernel.cpp' to the project
-INFO: [HLS 200-1510] Running: add_files -tb cal_C_test.cpp -cflags -Wno-unknown-pragmas -csimflags -Wno-unknown-pragmas 
-INFO: [HLS 200-10] Adding test bench file 'cal_C_test.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files kernel.h 
+INFO: [HLS 200-10] Adding design file 'kernel.h' to the project
+INFO: [HLS 200-1510] Running: add_files -tb kernel_test.cpp 
+INFO: [HLS 200-10] Adding test bench file 'kernel_test.cpp' to the project
 INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vivado 
 INFO: [HLS 200-10] Opening solution 'D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1'.
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
@@ -27,218 +27,49 @@ INFO: [HLS 200-1510] Running: create_clock -period 10 -name default
 INFO: [HLS 200-1510] Running: config_compile -pipeline_loops 0 
 INFO: [XFORM 203-1171] Pipeline the innermost loop with trip count more than 0 or its parent loop when its trip count is less than or equal 0.
 INFO: [HLS 200-1510] Running: config_export -vivado_clock 10 
-INFO: [HLS 200-1510] Running: csynth_design 
-INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 2.668 seconds; current allocated memory: 1.054 GB.
-INFO: [HLS 200-10] Analyzing design file 'kernel.cpp' ... 
-WARNING: [HLS 207-5301] unused parameter 'print': D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_base.h:792:16
-INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 1 seconds. CPU system time: 1 seconds. Elapsed time: 10.953 seconds; current allocated memory: 189.775 MB.
-INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
-INFO: [HLS 214-279] Initial Interval estimation mode is set into default.
-INFO: [HLS 214-284] Auto array partition mode is set into default.
-INFO: [HLS 214-131] Inlining function 'ap_int_base<65, true>::ap_int_base<11, false>(ap_int_base<11, false> const&)' into 'ap_int_base<11, false>::RType<64, true>::minus operator-<11, false, 64, true>(ap_int_base<11, false> const&, ap_int_base<64, true> const&)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_base.h:1526:341)
-INFO: [HLS 214-131] Inlining function 'ap_int<65>::ap_int<65, true>(ap_int_base<65, true> const&)' into 'ap_int_base<11, false>::RType<64, true>::minus operator-<11, false, 64, true>(ap_int_base<11, false> const&, ap_int_base<64, true> const&)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_base.h:1526:555)
-INFO: [HLS 214-131] Inlining function 'ap_int_base<65, true>::ap_int_base<64, true>(ap_int_base<64, true> const&)' into 'ap_int_base<11, false>::RType<64, true>::minus operator-<11, false, 64, true>(ap_int_base<11, false> const&, ap_int_base<64, true> const&)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_base.h:1526:430)
-INFO: [HLS 214-131] Inlining function 'ap_int_base<64, true>::ap_int_base(long)' into 'ap_int_base<11, false>::RType<($_0)64, true>::minus operator-<11, false>(ap_int_base<11, false> const&, long)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_base.h:1642:1548)
-INFO: [HLS 214-131] Inlining function 'ap_int_base<11, false>::RType<64, true>::minus operator-<11, false, 64, true>(ap_int_base<11, false> const&, ap_int_base<64, true> const&)' into 'ap_int_base<11, false>::RType<($_0)64, true>::minus operator-<11, false>(ap_int_base<11, false> const&, long)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_base.h:1642:1546)
-INFO: [HLS 214-131] Inlining function 'ap_int_base<55, true>::ap_int_base<1, false>(ap_int_base<1, false> const&)' into 'ap_int_base<1, false>::RType<54, true>::minus operator-<1, false, 54, true>(ap_int_base<1, false> const&, ap_int_base<54, true> const&)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_base.h:1526:341)
-INFO: [HLS 214-131] Inlining function 'ap_int<55>::ap_int<55, true>(ap_int_base<55, true> const&)' into 'ap_int_base<1, false>::RType<54, true>::minus operator-<1, false, 54, true>(ap_int_base<1, false> const&, ap_int_base<54, true> const&)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_base.h:1526:555)
-INFO: [HLS 214-131] Inlining function 'ap_int_base<55, true>::ap_int_base<54, true>(ap_int_base<54, true> const&)' into 'ap_int_base<1, false>::RType<54, true>::minus operator-<1, false, 54, true>(ap_int_base<1, false> const&, ap_int_base<54, true> const&)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_base.h:1526:430)
-INFO: [HLS 214-131] Inlining function 'ap_int_base<1, false>::ap_int_base(int)' into 'ap_int_base<54, true>::operator-() const' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_base.h:925:12)
-INFO: [HLS 214-131] Inlining function 'ap_int_base<1, false>::RType<54, true>::minus operator-<1, false, 54, true>(ap_int_base<1, false> const&, ap_int_base<54, true> const&)' into 'ap_int_base<54, true>::operator-() const' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_base.h:925:37)
-INFO: [HLS 214-131] Inlining function 'doubleToRawBits(double)' into 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed_base(double)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:565:14)
-INFO: [HLS 214-131] Inlining function 'ap_int_base<54, true>& ap_int_base<54, true>::operator=<55, true>(ap_int_base<55, true> const&)' into 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed_base(double)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:579:20)
-INFO: [HLS 214-131] Inlining function 'ap_int_base<54, true>::operator-() const' into 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed_base(double)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:579:22)
-INFO: [HLS 214-131] Inlining function 'ap_int_base<12, true>& ap_int_base<12, true>::operator=<65, true>(ap_int_base<65, true> const&)' into 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed_base(double)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:572:9)
-INFO: [HLS 214-131] Inlining function 'ap_int_base<11, false>::RType<($_0)64, true>::minus operator-<11, false>(ap_int_base<11, false> const&, long)' into 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed_base(double)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:572:19)
-INFO: [HLS 214-131] Inlining function 'hls::stream<int, 0>::read(int&)' into 'hls::stream<int, 0>::read()' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:156:9)
-INFO: [HLS 214-131] Inlining function 'hls::stream<ap_uint<16>, 0>::read(ap_uint<16>&)' into 'hls::stream<ap_uint<16>, 0>::read()' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:156:9)
-INFO: [HLS 214-131] Inlining function 'hls::stream<float, 0>::read(float&)' into 'hls::stream<float, 0>::read()' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:156:9)
-INFO: [HLS 214-131] Inlining function 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed_base(float)' into 'ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed(float)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed.h:190:61)
-INFO: [HLS 214-131] Inlining function 'ap_bit_ref<16, false>::ap_bit_ref(ap_int_base<16, false>*, int)' into 'ap_int_base<16, false>::operator[](int)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_base.h:1159:30)
-INFO: [HLS 214-131] Inlining function 'ap_bit_ref<16, false>::operator bool() const' into 'bool operator==<16, false>(ap_bit_ref<16, false> const&, int)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_ref.h:1082:365)
-INFO: [HLS 214-131] Inlining function 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator!() const' into 'ap_fixed_base<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0>& ap_fixed_base<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator=<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:707:9)
-INFO: [HLS 214-131] Inlining function 'ap_fixed_base<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0>& ap_fixed_base<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator=<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&)' into 'ap_fixed_base<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:440:5)
-INFO: [HLS 214-131] Inlining function 'ap_fixed_base<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&)' into 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::RType<32, 16, true>::plus ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator+<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&) const' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:1245:330)
-INFO: [HLS 214-131] Inlining function 'ap_fixed<33, 17, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&)' into 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::RType<32, 16, true>::plus ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator+<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&) const' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:1245:382)
-INFO: [HLS 214-131] Inlining function 'ap_fixed_base<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&)' into 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::RType<32, 16, true>::plus ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator+<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&) const' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:1245:342)
-INFO: [HLS 214-131] Inlining function 'ap_fixed_base<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator!() const' into 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>& ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator=<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:707:9)
-INFO: [HLS 214-131] Inlining function 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>& ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator=<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&)' into 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed_base<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:440:5)
-INFO: [HLS 214-131] Inlining function 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed_base<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&)' into 'ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed.h:75:9)
-INFO: [HLS 214-131] Inlining function 'ap_int_base<16, false>::operator unsigned long long() const' into 'sort_C_core(ap_uint<16>, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*)' (kernel.cpp:120:44)
-INFO: [HLS 214-131] Inlining function 'ap_int_base<16, false>::operator unsigned long long() const' into 'sort_C_core(ap_uint<16>, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*)' (kernel.cpp:122:9)
-INFO: [HLS 214-131] Inlining function 'ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<33, 17, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&)' into 'sort_C_core(ap_uint<16>, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*)' (kernel.cpp:121:26)
-INFO: [HLS 214-131] Inlining function 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::RType<32, 16, true>::plus ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator+<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&) const' into 'sort_C_core(ap_uint<16>, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*)' (kernel.cpp:121:42)
-INFO: [HLS 214-131] Inlining function 'ap_int_base<32, false>::ap_int_base(unsigned long)' into 'ap_int_base<32, false>::countLeadingZeros() const' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_base.h:1226:30)
-INFO: [HLS 214-131] Inlining function 'ap_int_base<32, false>::countLeadingZeros() const' into 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::to_float() const' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:995:17)
-INFO: [HLS 214-131] Inlining function 'rawBitsToFloat(unsigned long)' into 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::to_float() const' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:1024:12)
-INFO: [HLS 214-131] Inlining function 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::to_float() const' into 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator float() const' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:1079:73)
-INFO: [HLS 214-131] Inlining function 'ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed(double)' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (kernel.cpp:137:27)
-INFO: [HLS 214-131] Inlining function 'hls::stream<int, 0>::read()' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (kernel.cpp:141:37)
-INFO: [HLS 214-131] Inlining function 'hls::stream<float, 0>::write(float const&)' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (kernel.cpp:170:25)
-INFO: [HLS 214-131] Inlining function 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator float() const' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (kernel.cpp:170:31)
-INFO: [HLS 214-131] Inlining function 'sort_C_core(ap_uint<16>, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*)' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (kernel.cpp:159:7)
-INFO: [HLS 214-131] Inlining function 'bool operator==<16, false>(ap_bit_ref<16, false> const&, int)' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (kernel.cpp:158:18)
-INFO: [HLS 214-131] Inlining function 'ap_int_base<16, false>::operator[](int)' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (kernel.cpp:158:10)
-INFO: [HLS 214-131] Inlining function 'ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed(float)' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (kernel.cpp:157:39)
-INFO: [HLS 214-131] Inlining function 'hls::stream<int, 0>::read()' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (kernel.cpp:145:35)
-INFO: [HLS 214-131] Inlining function 'hls::stream<float, 0>::read()' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (kernel.cpp:157:60)
-INFO: [HLS 214-131] Inlining function 'hls::stream<ap_uint<16>, 0>::read()' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (kernel.cpp:156:44)
-INFO: [HLS 214-178] Inlining function 'ap_fixed_base<32, 16, true, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed_base(double)' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (kernel.cpp:131:0)
-INFO: [HLS 214-248] Applying array_partition to 'fifoMatrixCIdx_i': Complete partitioning on dimension 1. (kernel.cpp:131:0)
-INFO: [HLS 214-248] Applying array_partition to 'fifoCalcMatrixC_i': Complete partitioning on dimension 1. (kernel.cpp:131:0)
-INFO: [HLS 214-248] Applying array_partition to 'fifoSortMatrixC_o': Complete partitioning on dimension 1. (kernel.cpp:131:0)
-INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoSortMatrixC_o_7' with field bit alignment mode in 32-bits (kernel.cpp:131:0)
-INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoSortMatrixC_o_6' with field bit alignment mode in 32-bits (kernel.cpp:131:0)
-INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoSortMatrixC_o_5' with field bit alignment mode in 32-bits (kernel.cpp:131:0)
-INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoSortMatrixC_o_4' with field bit alignment mode in 32-bits (kernel.cpp:131:0)
-INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoSortMatrixC_o_3' with field bit alignment mode in 32-bits (kernel.cpp:131:0)
-INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoSortMatrixC_o_2' with field bit alignment mode in 32-bits (kernel.cpp:131:0)
-INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoSortMatrixC_o_1' with field bit alignment mode in 32-bits (kernel.cpp:131:0)
-INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoSortMatrixC_o_0' with field bit alignment mode in 32-bits (kernel.cpp:131:0)
-INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoCalcMatrixC_i_7' with field bit alignment mode in 32-bits (kernel.cpp:131:0)
-INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoCalcMatrixC_i_6' with field bit alignment mode in 32-bits (kernel.cpp:131:0)
-INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoCalcMatrixC_i_5' with field bit alignment mode in 32-bits (kernel.cpp:131:0)
-INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoCalcMatrixC_i_4' with field bit alignment mode in 32-bits (kernel.cpp:131:0)
-INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoCalcMatrixC_i_3' with field bit alignment mode in 32-bits (kernel.cpp:131:0)
-INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoCalcMatrixC_i_2' with field bit alignment mode in 32-bits (kernel.cpp:131:0)
-INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoCalcMatrixC_i_1' with field bit alignment mode in 32-bits (kernel.cpp:131:0)
-INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoCalcMatrixC_i_0' with field bit alignment mode in 32-bits (kernel.cpp:131:0)
-INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoMatrixCIdx_i_7' with field bit alignment mode in 16-bits (kernel.cpp:131:0)
-INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoMatrixCIdx_i_6' with field bit alignment mode in 16-bits (kernel.cpp:131:0)
-INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoMatrixCIdx_i_5' with field bit alignment mode in 16-bits (kernel.cpp:131:0)
-INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoMatrixCIdx_i_4' with field bit alignment mode in 16-bits (kernel.cpp:131:0)
-INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoMatrixCIdx_i_3' with field bit alignment mode in 16-bits (kernel.cpp:131:0)
-INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoMatrixCIdx_i_2' with field bit alignment mode in 16-bits (kernel.cpp:131:0)
-INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoMatrixCIdx_i_1' with field bit alignment mode in 16-bits (kernel.cpp:131:0)
-INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fifoMatrixCIdx_i_0' with field bit alignment mode in 16-bits (kernel.cpp:131:0)
-INFO: [HLS 214-270] Starting automatic array partition analysis...
-INFO: [HLS 214-270] Inferring complete partitioning for array 'matrixC_buffer' on dimension 1 (kernel.cpp:134:19)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i16.s_struct.ssdm_ints' into '_llvm.fpga.unpack.bits.s_struct.ap_uints.i16.1'
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.s_struct.ap_uints.i16.1' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.bits.i32.f32' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174:9)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.bits.i32.f32' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174:9)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.bits.i32.f32' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174:9)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.bits.i32.f32' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174:9)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.bits.i32.f32' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174:9)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.bits.i32.f32' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174:9)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.bits.i32.f32' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174:9)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.bits.i32.f32' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174:9)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.f32.i32' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.f32.i32' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.s_struct.ap_uints.i16.1' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.f32.i32' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.s_struct.ap_uints.i16.1' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.f32.i32' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.s_struct.ap_uints.i16.1' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.f32.i32' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.s_struct.ap_uints.i16.1' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.f32.i32' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.s_struct.ap_uints.i16.1' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.f32.i32' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.s_struct.ap_uints.i16.1' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.f32.i32' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9)
-INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.s_struct.ap_uints.i16.1' into 'sort_C(int, hls::stream<int, 0>&, hls::stream<ap_uint<16>, 0>*, hls::stream<float, 0>*, hls::stream<float, 0>*)' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9)
-INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 8.016 seconds; current allocated memory: 192.431 MB.
-INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.077 seconds; current allocated memory: 192.431 MB.
-INFO: [HLS 200-10] Starting code transformations ...
-INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.281 seconds; current allocated memory: 205.163 MB.
-INFO: [HLS 200-10] Checking synthesizability ...
-WARNING: [SYNCHK 200-23] D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_fixed_base.h:1000: variable-indexed range selection may cause suboptimal QoR.
-INFO: [SYNCHK 200-10] 0 error(s), 1 warning(s).
-INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.394 seconds; current allocated memory: 222.956 MB.
-INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'loop_diff_pe' (kernel.cpp:151) in function 'sort_C' for pipelining.
-INFO: [HLS 200-489] Unrolling loop 'loop_for_col' (kernel.cpp:154) in function 'sort_C' completely with a factor of 8.
-INFO: [XFORM 203-101] Partitioning array 'matrixC_buffer.V' (kernel.cpp:134) in dimension 1 completely.
-INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (kernel.cpp:151:13) to (kernel.cpp:158:10) in function 'sort_C'... converting 9 basic blocks.
-INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9) to (kernel.cpp:158:10) in function 'sort_C'... converting 9 basic blocks.
-INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9) to (kernel.cpp:158:10) in function 'sort_C'... converting 9 basic blocks.
-INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9) to (kernel.cpp:158:10) in function 'sort_C'... converting 9 basic blocks.
-INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9) to (kernel.cpp:158:10) in function 'sort_C'... converting 9 basic blocks.
-INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9) to (kernel.cpp:158:10) in function 'sort_C'... converting 9 basic blocks.
-INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9) to (kernel.cpp:158:10) in function 'sort_C'... converting 9 basic blocks.
-INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145:9) to (kernel.cpp:158:10) in function 'sort_C'... converting 9 basic blocks.
-INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (kernel.cpp:169:30) to (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174:9) in function 'sort_C'... converting 10 basic blocks.
-INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 1.477 seconds; current allocated memory: 264.709 MB.
-INFO: [XFORM 203-541] Flattening a loop nest 'loop_diff_window' (kernel.cpp:148:12) in function 'sort_C'.
-INFO: [HLS 200-472] Inferring partial write operation for 'matrixC_buffer.V[0]' (kernel.cpp:137:25)
-INFO: [HLS 200-472] Inferring partial write operation for 'matrixC_buffer.V[0]' (kernel.cpp:122:16)
-INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.904 seconds; current allocated memory: 278.374 MB.
-INFO: [HLS 200-10] Starting hardware synthesis ...
-INFO: [HLS 200-10] Synthesizing 'sort_C' ...
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'sort_C_Pipeline_loop_diff_window_loop_diff_pe' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-61] Pipelining loop 'loop_diff_window_loop_diff_pe'.
-WARNING: [HLS 200-880] The II Violation in module 'sort_C_Pipeline_loop_diff_window_loop_diff_pe' (loop 'loop_diff_window_loop_diff_pe'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between 'store' operation ('matrixC_buffer_V_0_addr_write_ln122', kernel.cpp:122) of variable 'add_ln712' on array 'matrixC_buffer_V_0' and 'load' operation ('matrixC_buffer_V_0_load', kernel.cpp:120) on array 'matrixC_buffer_V_0'.
-Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2021.1;t=hls+guidance;d=200-880.html
-INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 2, Depth = 6, loop 'loop_diff_window_loop_diff_pe'
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 1.287 seconds; current allocated memory: 279.883 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.805 seconds; current allocated memory: 281.473 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'sort_C' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.507 seconds; current allocated memory: 282.057 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.071 seconds; current allocated memory: 282.996 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'sort_C_Pipeline_loop_diff_window_loop_diff_pe' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'sort_C_Pipeline_loop_diff_window_loop_diff_pe' pipeline 'loop_diff_window_loop_diff_pe' pipeline type 'loop pipeline'
-INFO: [RTGEN 206-100] Generating core module 'fpext_32ns_64_2_no_dsp_1': 4 instance(s).
-INFO: [RTGEN 206-100] Finished creating RTL model for 'sort_C_Pipeline_loop_diff_window_loop_diff_pe'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 2.969 seconds; current allocated memory: 285.870 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-10] -- Generating RTL for module 'sort_C' 
-INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/lenEdgeListPtr' to 'ap_none'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoEdgeListPtr_i_V' to 'ap_fifo'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoMatrixCIdx_i_0_V' to 'ap_fifo'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoMatrixCIdx_i_1_V' to 'ap_fifo'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoMatrixCIdx_i_2_V' to 'ap_fifo'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoMatrixCIdx_i_3_V' to 'ap_fifo'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoMatrixCIdx_i_4_V' to 'ap_fifo'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoMatrixCIdx_i_5_V' to 'ap_fifo'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoMatrixCIdx_i_6_V' to 'ap_fifo'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoMatrixCIdx_i_7_V' to 'ap_fifo'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoCalcMatrixC_i_0_V' to 'ap_fifo'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoCalcMatrixC_i_1_V' to 'ap_fifo'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoCalcMatrixC_i_2_V' to 'ap_fifo'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoCalcMatrixC_i_3_V' to 'ap_fifo'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoCalcMatrixC_i_4_V' to 'ap_fifo'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoCalcMatrixC_i_5_V' to 'ap_fifo'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoCalcMatrixC_i_6_V' to 'ap_fifo'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoCalcMatrixC_i_7_V' to 'ap_fifo'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoSortMatrixC_o_0_V' to 'ap_fifo'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoSortMatrixC_o_1_V' to 'ap_fifo'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoSortMatrixC_o_2_V' to 'ap_fifo'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoSortMatrixC_o_3_V' to 'ap_fifo'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoSortMatrixC_o_4_V' to 'ap_fifo'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoSortMatrixC_o_5_V' to 'ap_fifo'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoSortMatrixC_o_6_V' to 'ap_fifo'.
-INFO: [RTGEN 206-500] Setting interface mode on port 'sort_C/fifoSortMatrixC_o_7_V' to 'ap_fifo'.
-INFO: [RTGEN 206-500] Setting interface mode on function 'sort_C' to 'ap_ctrl_hs'.
-INFO: [RTGEN 206-100] Generating core module 'mux_83_32_1_1': 1 instance(s).
-INFO: [RTGEN 206-100] Finished creating RTL model for 'sort_C'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 2 seconds. CPU system time: 0 seconds. Elapsed time: 7.415 seconds; current allocated memory: 293.454 MB.
-INFO: [RTMG 210-278] Implementing memory 'sort_C_matrixC_buffer_V_0_ram (RAM)' using auto RAMs.
-INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 2.719 seconds; current allocated memory: 297.847 MB.
-INFO: [HLS 200-111] Finished Updating report files: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.959 seconds; current allocated memory: 304.087 MB.
-INFO: [VHDL 208-304] Generating VHDL RTL for sort_C.
-INFO: [VLOG 209-307] Generating Verilog RTL for sort_C.
-INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were NOT satisfied.
-INFO: [HLS 200-789] **** Estimated Fmax: 137.36 MHz
-INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 8 seconds. CPU system time: 2 seconds. Elapsed time: 43.734 seconds; current allocated memory: 304.073 MB.
-INFO: [HLS 200-112] Total CPU user time: 9 seconds. Total CPU system time: 3 seconds. Total elapsed time: 50.187 seconds; peak allocated memory: 1.054 GB.
+INFO: [HLS 200-1510] Running: set_directive_top -name krnl_sparse_matrix_acc krnl_sparse_matrix_acc 
+INFO: [HLS 200-1510] Running: csim_design -quiet 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../kernel_test.cpp in debug mode
+   Generating csim.exe
+In file included from D:/Xilinx/Vitis_HLS/2021.1/include/floating_point_v7_0_bitacc_cmodel.h:144:0,
+                 from D:/Xilinx/Vitis_HLS/2021.1/include/hls_fpo.h:189,
+                 from D:/Xilinx/Vitis_HLS/2021.1/include/hls_half_fpo.h:64,
+                 from D:/Xilinx/Vitis_HLS/2021.1/include/hls_half.h:71,
+                 from D:/Xilinx/Vitis_HLS/2021.1/include/etc/ap_private.h:91,
+                 from D:/Xilinx/Vitis_HLS/2021.1/include/ap_common.h:653,
+                 from D:/Xilinx/Vitis_HLS/2021.1/include/ap_int.h:55,
+                 from ../../../../kernel_test.cpp:2:
+D:/Xilinx/Vitis_HLS/2021.1/include/gmp.h:63:0: warning: "__GMP_LIBGMP_DLL" redefined
+ #define __GMP_LIBGMP_DLL  0
+ 
+In file included from D:/Xilinx/Vitis_HLS/2021.1/include/hls_fpo.h:189:0,
+                 from D:/Xilinx/Vitis_HLS/2021.1/include/hls_half_fpo.h:64,
+                 from D:/Xilinx/Vitis_HLS/2021.1/include/hls_half.h:71,
+                 from D:/Xilinx/Vitis_HLS/2021.1/include/etc/ap_private.h:91,
+                 from D:/Xilinx/Vitis_HLS/2021.1/include/ap_common.h:653,
+                 from D:/Xilinx/Vitis_HLS/2021.1/include/ap_int.h:55,
+                 from ../../../../kernel_test.cpp:2:
+D:/Xilinx/Vitis_HLS/2021.1/include/floating_point_v7_0_bitacc_cmodel.h:136:0: note: this is the location of the previous definition
+ #define __GMP_LIBGMP_DLL 1
+ 
+matrixC_o: 81
+matrixC_o: 11
+matrixC_o: 126
+matrixC_o: 26
+matrixC_o: 2
+matrixC_o: 2
+matrixC_o: 3
+matrixC_o: 3
+matrixC_o: 4
+matrixC_o: 4
+matrixC_o: 5
+matrixC_o: 5
+matrixC_o: 6
+matrixC_o: 6
+matrixC_o: 159
+matrixC_o: 21
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 4.213 seconds; current allocated memory: 188.344 MB.

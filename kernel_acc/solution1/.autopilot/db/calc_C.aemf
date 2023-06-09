@@ -1,0 +1,1641 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cdfg:DBCdfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdfg="http://www.autoesl.com/DBCdfg" timeStamp="1686298799855">
+  <ports id="1" name="lenEdgeListPtr" type="PortType" coreName="FIFO_SRL" coreId="539765310" bitwidth="32" iftype="IfTypeRom">
+    <dataOutputObjs>read</dataOutputObjs>
+  </ports>
+  <ports id="2" name="fifoEdgeListPtr11" type="PortType" coreName="FIFO_SRL" coreId="1953391988" bitwidth="32" iftype="IfTypeRom">
+    <dataOutputObjs>read</dataOutputObjs>
+    <dataOutputObjs>read</dataOutputObjs>
+  </ports>
+  <ports id="3" name="fifoMatrixAIdx12" type="PortType" coreName="FIFO_SRL" coreId="1953391988" bitwidth="32" iftype="IfTypeRom">
+    <dataOutputObjs>read</dataOutputObjs>
+  </ports>
+  <ports id="4" name="fifoMatrixA13" type="PortType" coreName="FIFO_SRL" coreId="1953391988" bitwidth="32" iftype="IfTypeRom">
+    <dataOutputObjs>read</dataOutputObjs>
+  </ports>
+  <ports id="5" name="fifoMatrixB14" type="PortType" coreName="FIFO_SRL" coreId="1953391988" bitwidth="32" iftype="IfTypeRom">
+    <dataOutputObjs>nbreadreq</dataOutputObjs>
+    <dataOutputObjs>read</dataOutputObjs>
+  </ports>
+  <ports id="6" name="fifoEdgeListPtr_calC15" type="PortType" coreName="FIFO_SRL" coreId="1936025972" bitwidth="32" direction="DirOut" iftype="IfTypeRom">
+    <dataInputObjs>write</dataInputObjs>
+    <dataInputObjs>write</dataInputObjs>
+  </ports>
+  <ports id="7" name="fifoMatrixCIdx_o_0_0_0_0" type="PortType" coreName="FIFO_SRL" coreId="1953391988" bitwidth="16" direction="DirOut" iftype="IfTypeRom">
+    <dataInputObjs>write</dataInputObjs>
+  </ports>
+  <ports id="8" name="fifoMatrixCIdx_o_0_0_0_01" type="PortType" coreName="FIFO_SRL" coreId="1953391988" bitwidth="16" direction="DirOut" iftype="IfTypeRom">
+    <dataInputObjs>write</dataInputObjs>
+  </ports>
+  <ports id="9" name="fifoCalcMatrixC_o_0" type="PortType" coreName="FIFO_SRL" coreId="539437354" bitwidth="32" direction="DirOut" iftype="IfTypeRom">
+    <dataInputObjs>write</dataInputObjs>
+  </ports>
+  <ports id="10" name="fifoCalcMatrixC_o_02" type="PortType" coreName="FIFO_SRL" coreId="1953391988" bitwidth="32" direction="DirOut" iftype="IfTypeRom">
+    <dataInputObjs>write</dataInputObjs>
+  </ports>
+  <ports id="11" name="lenEdgeListPtr_c" type="PortType" coreName="FIFO_SRL" coreId="0" bitwidth="32" direction="DirOut" iftype="IfTypeRom">
+    <dataInputObjs>write</dataInputObjs>
+  </ports>
+  <edges id="156" source_obj="//@ports.0" sink_obj="//@blocks.0/@node_objs.1"/>
+  <edges id="159" source_obj="//@blocks.0/@node_objs.2" sink_obj="//@ports.10"/>
+  <edges id="160" source_obj="//@blocks.0/@node_objs.1" sink_obj="//@blocks.0/@node_objs.2"/>
+  <edges id="165" source_obj="//@blocks.0/@node_objs.0" sink_obj="//@blocks.0/@node_objs.4"/>
+  <edges id="166" edge_type="CtrlEdge" source_obj="//@blocks.1" sink_obj="//@blocks.0/@node_objs.5"/>
+  <edges id="167" source_obj="//@blocks.0/@node_objs.0" sink_obj="//@blocks.1/@node_objs.0"/>
+  <edges id="168" source_obj="//@blocks.1/@node_objs.0" sink_obj="//@blocks.1/@node_objs.1"/>
+  <edges id="171" source_obj="//@blocks.1/@node_objs.0" sink_obj="//@blocks.1/@node_objs.2"/>
+  <edges id="174" source_obj="//@blocks.1/@node_objs.1" sink_obj="//@blocks.1/@node_objs.3"/>
+  <edges id="175" edge_type="CtrlEdge" source_obj="//@blocks.2" sink_obj="//@blocks.1/@node_objs.3"/>
+  <edges id="176" edge_type="CtrlEdge" source_obj="//@blocks.8" sink_obj="//@blocks.1/@node_objs.3"/>
+  <edges id="177" edge_type="CtrlEdge" source_obj="//@blocks.3" sink_obj="//@blocks.2/@node_objs.0"/>
+  <edges id="180" edge_type="CtrlEdge" source_obj="//@blocks.2" sink_obj="//@blocks.3/@node_objs.0"/>
+  <edges id="181" source_obj="//@blocks.3/@node_objs.7" sink_obj="//@blocks.3/@node_objs.0" is_back_edge="1"/>
+  <edges id="182" edge_type="CtrlEdge" source_obj="//@blocks.6" sink_obj="//@blocks.3/@node_objs.0" is_back_edge="1"/>
+  <edges id="183" source_obj="//@blocks.3/@node_objs.0" sink_obj="//@blocks.3/@node_objs.1"/>
+  <edges id="186" source_obj="//@blocks.3/@node_objs.1" sink_obj="//@blocks.3/@node_objs.2"/>
+  <edges id="189" source_obj="//@blocks.3/@node_objs.2" sink_obj="//@blocks.3/@node_objs.3"/>
+  <edges id="190" source_obj="//@blocks.1/@node_objs.0" sink_obj="//@blocks.3/@node_objs.3"/>
+  <edges id="191" source_obj="//@blocks.3/@node_objs.3" sink_obj="//@blocks.3/@node_objs.4"/>
+  <edges id="192" source_obj="//@blocks.0/@node_objs.3" sink_obj="//@blocks.3/@node_objs.5"/>
+  <edges id="195" source_obj="//@blocks.3/@node_objs.4" sink_obj="//@blocks.3/@node_objs.5"/>
+  <edges id="196" source_obj="//@blocks.3/@node_objs.0" sink_obj="//@blocks.3/@node_objs.6"/>
+  <edges id="199" source_obj="//@blocks.3/@node_objs.0" sink_obj="//@blocks.3/@node_objs.7"/>
+  <edges id="202" source_obj="//@blocks.3/@node_objs.6" sink_obj="//@blocks.3/@node_objs.8"/>
+  <edges id="203" edge_type="CtrlEdge" source_obj="//@blocks.4" sink_obj="//@blocks.3/@node_objs.8"/>
+  <edges id="204" edge_type="CtrlEdge" source_obj="//@blocks.7" sink_obj="//@blocks.3/@node_objs.8"/>
+  <edges id="207" source_obj="//@ports.4" sink_obj="//@blocks.4/@node_objs.0"/>
+  <edges id="209" source_obj="//@blocks.4/@node_objs.0" sink_obj="//@blocks.4/@node_objs.1"/>
+  <edges id="210" edge_type="CtrlEdge" source_obj="//@blocks.6" sink_obj="//@blocks.4/@node_objs.1"/>
+  <edges id="211" edge_type="CtrlEdge" source_obj="//@blocks.5" sink_obj="//@blocks.4/@node_objs.1"/>
+  <edges id="214" source_obj="//@ports.4" sink_obj="//@blocks.5/@node_objs.0"/>
+  <edges id="215" source_obj="//@blocks.5/@node_objs.0" sink_obj="//@blocks.5/@node_objs.1"/>
+  <edges id="216" edge_type="CtrlEdge" source_obj="//@blocks.6" sink_obj="//@blocks.5/@node_objs.2"/>
+  <edges id="217" source_obj="//@blocks.5/@node_objs.1" sink_obj="//@blocks.6/@node_objs.0"/>
+  <edges id="218" edge_type="CtrlEdge" source_obj="//@blocks.5" sink_obj="//@blocks.6/@node_objs.0"/>
+  <edges id="221" edge_type="CtrlEdge" source_obj="//@blocks.4" sink_obj="//@blocks.6/@node_objs.0"/>
+  <edges id="222" source_obj="//@blocks.6/@node_objs.0" sink_obj="//@blocks.6/@node_objs.1"/>
+  <edges id="223" source_obj="//@blocks.3/@node_objs.5" sink_obj="//@blocks.6/@node_objs.1"/>
+  <edges id="224" edge_type="CtrlEdge" source_obj="//@blocks.3" sink_obj="//@blocks.6/@node_objs.2"/>
+  <edges id="225" source_obj="//@blocks.1/@node_objs.2" sink_obj="//@blocks.7/@node_objs.0"/>
+  <edges id="226" source_obj="//@blocks.0/@node_objs.0" sink_obj="//@blocks.7/@node_objs.0"/>
+  <edges id="227" edge_type="CtrlEdge" source_obj="//@blocks.1" sink_obj="//@blocks.7/@node_objs.1"/>
+  <edges id="231" source_obj="//@ports.1" sink_obj="//@blocks.8/@node_objs.2"/>
+  <edges id="234" source_obj="//@blocks.8/@node_objs.3" sink_obj="//@ports.5"/>
+  <edges id="235" source_obj="//@blocks.8/@node_objs.2" sink_obj="//@blocks.8/@node_objs.3"/>
+  <edges id="236" source_obj="//@blocks.0/@node_objs.1" sink_obj="//@blocks.8/@node_objs.4"/>
+  <edges id="239" source_obj="//@blocks.8/@node_objs.2" sink_obj="//@blocks.8/@node_objs.5"/>
+  <edges id="240" source_obj="//@blocks.8/@node_objs.1" sink_obj="//@blocks.8/@node_objs.5"/>
+  <edges id="243" source_obj="//@blocks.8/@node_objs.0" sink_obj="//@blocks.8/@node_objs.6"/>
+  <edges id="244" edge_type="CtrlEdge" source_obj="//@blocks.9" sink_obj="//@blocks.8/@node_objs.7"/>
+  <edges id="245" source_obj="//@blocks.8/@node_objs.0" sink_obj="//@blocks.9/@node_objs.0"/>
+  <edges id="246" source_obj="//@blocks.8/@node_objs.1" sink_obj="//@blocks.9/@node_objs.1"/>
+  <edges id="247" source_obj="//@blocks.9/@node_objs.0" sink_obj="//@blocks.9/@node_objs.2"/>
+  <edges id="248" source_obj="//@blocks.9/@node_objs.2" sink_obj="//@blocks.9/@node_objs.3"/>
+  <edges id="249" source_obj="//@blocks.8/@node_objs.4" sink_obj="//@blocks.9/@node_objs.3"/>
+  <edges id="250" source_obj="//@blocks.9/@node_objs.0" sink_obj="//@blocks.9/@node_objs.4"/>
+  <edges id="253" source_obj="//@blocks.9/@node_objs.3" sink_obj="//@blocks.9/@node_objs.5"/>
+  <edges id="254" edge_type="CtrlEdge" source_obj="//@blocks.26" sink_obj="//@blocks.9/@node_objs.5"/>
+  <edges id="255" edge_type="CtrlEdge" source_obj="//@blocks.10" sink_obj="//@blocks.9/@node_objs.5"/>
+  <edges id="257" source_obj="//@ports.1" sink_obj="//@blocks.10/@node_objs.0"/>
+  <edges id="259" source_obj="//@blocks.10/@node_objs.1" sink_obj="//@ports.5"/>
+  <edges id="260" source_obj="//@blocks.10/@node_objs.0" sink_obj="//@blocks.10/@node_objs.1"/>
+  <edges id="261" edge_type="CtrlEdge" source_obj="//@blocks.11" sink_obj="//@blocks.10/@node_objs.2"/>
+  <edges id="262" source_obj="//@blocks.9/@node_objs.1" sink_obj="//@blocks.11/@node_objs.0"/>
+  <edges id="263" edge_type="CtrlEdge" source_obj="//@blocks.10" sink_obj="//@blocks.11/@node_objs.0"/>
+  <edges id="264" source_obj="//@blocks.24/@node_objs.0" sink_obj="//@blocks.11/@node_objs.0" is_back_edge="1"/>
+  <edges id="265" edge_type="CtrlEdge" source_obj="//@blocks.24" sink_obj="//@blocks.11/@node_objs.0" is_back_edge="1"/>
+  <edges id="266" source_obj="//@blocks.11/@node_objs.0" sink_obj="//@blocks.11/@node_objs.1"/>
+  <edges id="267" source_obj="//@blocks.10/@node_objs.0" sink_obj="//@blocks.11/@node_objs.1"/>
+  <edges id="268" source_obj="//@blocks.11/@node_objs.1" sink_obj="//@blocks.11/@node_objs.2"/>
+  <edges id="269" edge_type="CtrlEdge" source_obj="//@blocks.25" sink_obj="//@blocks.11/@node_objs.2"/>
+  <edges id="270" edge_type="CtrlEdge" source_obj="//@blocks.12" sink_obj="//@blocks.11/@node_objs.2"/>
+  <edges id="271" edge_type="CtrlEdge" source_obj="//@blocks.13" sink_obj="//@blocks.12/@node_objs.0"/>
+  <edges id="273" edge_type="CtrlEdge" source_obj="//@blocks.12" sink_obj="//@blocks.13/@node_objs.0"/>
+  <edges id="274" source_obj="//@blocks.13/@node_objs.2" sink_obj="//@blocks.13/@node_objs.0" is_back_edge="1"/>
+  <edges id="275" edge_type="CtrlEdge" source_obj="//@blocks.23" sink_obj="//@blocks.13/@node_objs.0" is_back_edge="1"/>
+  <edges id="276" source_obj="//@blocks.13/@node_objs.0" sink_obj="//@blocks.13/@node_objs.1"/>
+  <edges id="278" source_obj="//@blocks.13/@node_objs.0" sink_obj="//@blocks.13/@node_objs.2"/>
+  <edges id="280" source_obj="//@blocks.13/@node_objs.1" sink_obj="//@blocks.13/@node_objs.3"/>
+  <edges id="281" edge_type="CtrlEdge" source_obj="//@blocks.14" sink_obj="//@blocks.13/@node_objs.3"/>
+  <edges id="282" edge_type="CtrlEdge" source_obj="//@blocks.24" sink_obj="//@blocks.13/@node_objs.3"/>
+  <edges id="284" source_obj="//@ports.3" sink_obj="//@blocks.14/@node_objs.0"/>
+  <edges id="285" source_obj="//@blocks.14/@node_objs.0" sink_obj="//@blocks.14/@node_objs.1"/>
+  <edges id="287" source_obj="//@ports.2" sink_obj="//@blocks.14/@node_objs.2"/>
+  <edges id="288" source_obj="//@blocks.14/@node_objs.2" sink_obj="//@blocks.14/@node_objs.3"/>
+  <edges id="291" source_obj="//@blocks.14/@node_objs.2" sink_obj="//@blocks.14/@node_objs.4"/>
+  <edges id="296" source_obj="//@blocks.14/@node_objs.2" sink_obj="//@blocks.14/@node_objs.5"/>
+  <edges id="301" edge_type="CtrlEdge" source_obj="//@blocks.15" sink_obj="//@blocks.14/@node_objs.6"/>
+  <edges id="303" edge_type="CtrlEdge" source_obj="//@blocks.14" sink_obj="//@blocks.15/@node_objs.0"/>
+  <edges id="304" source_obj="//@blocks.15/@node_objs.7" sink_obj="//@blocks.15/@node_objs.0" is_back_edge="1"/>
+  <edges id="305" edge_type="CtrlEdge" source_obj="//@blocks.22" sink_obj="//@blocks.15/@node_objs.0" is_back_edge="1"/>
+  <edges id="306" source_obj="//@blocks.15/@node_objs.0" sink_obj="//@blocks.15/@node_objs.1"/>
+  <edges id="308" source_obj="//@blocks.15/@node_objs.1" sink_obj="//@blocks.15/@node_objs.2"/>
+  <edges id="310" source_obj="//@blocks.15/@node_objs.2" sink_obj="//@blocks.15/@node_objs.3"/>
+  <edges id="311" source_obj="//@blocks.14/@node_objs.5" sink_obj="//@blocks.15/@node_objs.3"/>
+  <edges id="312" source_obj="//@blocks.15/@node_objs.3" sink_obj="//@blocks.15/@node_objs.4"/>
+  <edges id="313" source_obj="//@blocks.0/@node_objs.3" sink_obj="//@blocks.15/@node_objs.5"/>
+  <edges id="315" source_obj="//@blocks.15/@node_objs.4" sink_obj="//@blocks.15/@node_objs.5"/>
+  <edges id="316" source_obj="//@blocks.15/@node_objs.0" sink_obj="//@blocks.15/@node_objs.6"/>
+  <edges id="318" source_obj="//@blocks.15/@node_objs.0" sink_obj="//@blocks.15/@node_objs.7"/>
+  <edges id="320" source_obj="//@blocks.15/@node_objs.6" sink_obj="//@blocks.15/@node_objs.8"/>
+  <edges id="321" edge_type="CtrlEdge" source_obj="//@blocks.16" sink_obj="//@blocks.15/@node_objs.8"/>
+  <edges id="322" edge_type="CtrlEdge" source_obj="//@blocks.23" sink_obj="//@blocks.15/@node_objs.8"/>
+  <edges id="323" source_obj="//@blocks.15/@node_objs.5" sink_obj="//@blocks.16/@node_objs.0"/>
+  <edges id="324" source_obj="//@blocks.14/@node_objs.1" sink_obj="//@blocks.16/@node_objs.1"/>
+  <edges id="325" source_obj="//@blocks.16/@node_objs.0" sink_obj="//@blocks.16/@node_objs.1"/>
+  <edges id="326" source_obj="//@blocks.14/@node_objs.4" sink_obj="//@blocks.16/@node_objs.2"/>
+  <edges id="328" source_obj="//@blocks.16/@node_objs.1" sink_obj="//@blocks.16/@node_objs.2"/>
+  <edges id="329" source_obj="//@blocks.15/@node_objs.1" sink_obj="//@blocks.16/@node_objs.3"/>
+  <edges id="330" edge_type="CtrlEdge" source_obj="//@blocks.17" sink_obj="//@blocks.16/@node_objs.3"/>
+  <edges id="331" edge_type="CtrlEdge" source_obj="//@blocks.18" sink_obj="//@blocks.16/@node_objs.3"/>
+  <edges id="332" source_obj="//@blocks.15/@node_objs.1" sink_obj="//@blocks.19/@node_objs.0"/>
+  <edges id="333" edge_type="CtrlEdge" source_obj="//@blocks.20" sink_obj="//@blocks.19/@node_objs.0"/>
+  <edges id="334" edge_type="CtrlEdge" source_obj="//@blocks.21" sink_obj="//@blocks.19/@node_objs.0"/>
+  <edges id="335" edge_type="CtrlEdge" source_obj="//@blocks.15" sink_obj="//@blocks.22/@node_objs.0"/>
+  <edges id="336" edge_type="CtrlEdge" source_obj="//@blocks.13" sink_obj="//@blocks.23/@node_objs.0"/>
+  <edges id="337" source_obj="//@blocks.11/@node_objs.0" sink_obj="//@blocks.24/@node_objs.0"/>
+  <edges id="339" edge_type="CtrlEdge" source_obj="//@blocks.11" sink_obj="//@blocks.24/@node_objs.1"/>
+  <edges id="340" source_obj="//@blocks.10/@node_objs.0" sink_obj="//@blocks.25/@node_objs.0"/>
+  <edges id="341" source_obj="//@blocks.8/@node_objs.1" sink_obj="//@blocks.25/@node_objs.0"/>
+  <edges id="342" source_obj="//@blocks.9/@node_objs.4" sink_obj="//@blocks.25/@node_objs.1"/>
+  <edges id="343" source_obj="//@blocks.8/@node_objs.0" sink_obj="//@blocks.25/@node_objs.1"/>
+  <edges id="344" edge_type="CtrlEdge" source_obj="//@blocks.9" sink_obj="//@blocks.25/@node_objs.2"/>
+  <edges id="347" source_obj="//@blocks.20/@node_objs.0" sink_obj="//@ports.6"/>
+  <edges id="348" source_obj="//@blocks.14/@node_objs.3" sink_obj="//@blocks.20/@node_objs.0"/>
+  <edges id="349" edge_type="CtrlEdge" source_obj="//@blocks.22" sink_obj="//@blocks.20/@node_objs.1"/>
+  <edges id="351" source_obj="//@blocks.21/@node_objs.0" sink_obj="//@ports.7"/>
+  <edges id="352" source_obj="//@blocks.14/@node_objs.3" sink_obj="//@blocks.21/@node_objs.0"/>
+  <edges id="353" edge_type="CtrlEdge" source_obj="//@blocks.22" sink_obj="//@blocks.21/@node_objs.1"/>
+  <edges id="356" source_obj="//@blocks.17/@node_objs.0" sink_obj="//@ports.8"/>
+  <edges id="357" source_obj="//@blocks.16/@node_objs.2" sink_obj="//@blocks.17/@node_objs.0"/>
+  <edges id="358" edge_type="CtrlEdge" source_obj="//@blocks.19" sink_obj="//@blocks.17/@node_objs.1"/>
+  <edges id="360" source_obj="//@blocks.18/@node_objs.0" sink_obj="//@ports.9"/>
+  <edges id="361" source_obj="//@blocks.16/@node_objs.2" sink_obj="//@blocks.18/@node_objs.0"/>
+  <edges id="362" edge_type="CtrlEdge" source_obj="//@blocks.19" sink_obj="//@blocks.18/@node_objs.1"/>
+  <edges id="596" edge_type="CtrlEdge" source_obj="//@blocks.0" sink_obj="//@blocks.1"/>
+  <edges id="597" edge_type="CtrlEdge" source_obj="//@blocks.1" sink_obj="//@blocks.8"/>
+  <edges id="598" edge_type="CtrlEdge" source_obj="//@blocks.1" sink_obj="//@blocks.2"/>
+  <edges id="599" edge_type="CtrlEdge" source_obj="//@blocks.2" sink_obj="//@blocks.3"/>
+  <edges id="600" edge_type="CtrlEdge" source_obj="//@blocks.3" sink_obj="//@blocks.7"/>
+  <edges id="601" edge_type="CtrlEdge" source_obj="//@blocks.3" sink_obj="//@blocks.4"/>
+  <edges id="602" edge_type="CtrlEdge" source_obj="//@blocks.4" sink_obj="//@blocks.5"/>
+  <edges id="603" edge_type="CtrlEdge" source_obj="//@blocks.4" sink_obj="//@blocks.6"/>
+  <edges id="604" edge_type="CtrlEdge" source_obj="//@blocks.5" sink_obj="//@blocks.6"/>
+  <edges id="605" edge_type="CtrlEdge" source_obj="//@blocks.6" sink_obj="//@blocks.3" is_back_edge="1"/>
+  <edges id="606" edge_type="CtrlEdge" source_obj="//@blocks.7" sink_obj="//@blocks.1" is_back_edge="1"/>
+  <edges id="607" edge_type="CtrlEdge" source_obj="//@blocks.8" sink_obj="//@blocks.9"/>
+  <edges id="608" edge_type="CtrlEdge" source_obj="//@blocks.9" sink_obj="//@blocks.10"/>
+  <edges id="609" edge_type="CtrlEdge" source_obj="//@blocks.9" sink_obj="//@blocks.26"/>
+  <edges id="610" edge_type="CtrlEdge" source_obj="//@blocks.10" sink_obj="//@blocks.11"/>
+  <edges id="611" edge_type="CtrlEdge" source_obj="//@blocks.11" sink_obj="//@blocks.12"/>
+  <edges id="612" edge_type="CtrlEdge" source_obj="//@blocks.11" sink_obj="//@blocks.25"/>
+  <edges id="613" edge_type="CtrlEdge" source_obj="//@blocks.12" sink_obj="//@blocks.13"/>
+  <edges id="614" edge_type="CtrlEdge" source_obj="//@blocks.13" sink_obj="//@blocks.24"/>
+  <edges id="615" edge_type="CtrlEdge" source_obj="//@blocks.13" sink_obj="//@blocks.14"/>
+  <edges id="616" edge_type="CtrlEdge" source_obj="//@blocks.14" sink_obj="//@blocks.15"/>
+  <edges id="617" edge_type="CtrlEdge" source_obj="//@blocks.15" sink_obj="//@blocks.23"/>
+  <edges id="618" edge_type="CtrlEdge" source_obj="//@blocks.15" sink_obj="//@blocks.16"/>
+  <edges id="619" edge_type="CtrlEdge" source_obj="//@blocks.16" sink_obj="//@blocks.18"/>
+  <edges id="620" edge_type="CtrlEdge" source_obj="//@blocks.16" sink_obj="//@blocks.17"/>
+  <edges id="621" edge_type="CtrlEdge" source_obj="//@blocks.17" sink_obj="//@blocks.19"/>
+  <edges id="622" edge_type="CtrlEdge" source_obj="//@blocks.18" sink_obj="//@blocks.19"/>
+  <edges id="623" edge_type="CtrlEdge" source_obj="//@blocks.19" sink_obj="//@blocks.21"/>
+  <edges id="624" edge_type="CtrlEdge" source_obj="//@blocks.19" sink_obj="//@blocks.20"/>
+  <edges id="625" edge_type="CtrlEdge" source_obj="//@blocks.20" sink_obj="//@blocks.22"/>
+  <edges id="626" edge_type="CtrlEdge" source_obj="//@blocks.21" sink_obj="//@blocks.22"/>
+  <edges id="627" edge_type="CtrlEdge" source_obj="//@blocks.22" sink_obj="//@blocks.15" is_back_edge="1"/>
+  <edges id="628" edge_type="CtrlEdge" source_obj="//@blocks.23" sink_obj="//@blocks.13" is_back_edge="1"/>
+  <edges id="629" edge_type="CtrlEdge" source_obj="//@blocks.24" sink_obj="//@blocks.11" is_back_edge="1"/>
+  <edges id="630" edge_type="CtrlEdge" source_obj="//@blocks.25" sink_obj="//@blocks.9" is_back_edge="1"/>
+  <edges id="631" edge_type="VirtEdge" source_obj="//@blocks.0/@node_objs.4" sink_obj="//@blocks.1/@node_objs.0"/>
+  <edges id="632" edge_type="VirtEdge" source_obj="//@blocks.0/@node_objs.4" sink_obj="//@blocks.7/@node_objs.0"/>
+  <edges id="633" edge_type="VirtEdge" source_obj="//@blocks.1/@node_objs.0" sink_obj="//@blocks.7/@node_objs.0"/>
+  <edges id="634" edge_type="VirtEdge" source_obj="//@blocks.4/@node_objs.0" sink_obj="//@blocks.5/@node_objs.0"/>
+  <edges id="635" edge_type="VirtEdge" source_obj="//@blocks.8/@node_objs.5" sink_obj="//@blocks.9/@node_objs.1"/>
+  <edges id="636" edge_type="VirtEdge" source_obj="//@blocks.8/@node_objs.6" sink_obj="//@blocks.9/@node_objs.0"/>
+  <edges id="637" edge_type="VirtEdge" source_obj="//@blocks.8/@node_objs.2" sink_obj="//@blocks.10/@node_objs.0"/>
+  <edges id="638" edge_type="VirtEdge" source_obj="//@blocks.8/@node_objs.3" sink_obj="//@blocks.10/@node_objs.1"/>
+  <edges id="639" edge_type="VirtEdge" source_obj="//@blocks.8/@node_objs.5" sink_obj="//@blocks.25/@node_objs.0"/>
+  <edges id="640" edge_type="VirtEdge" source_obj="//@blocks.8/@node_objs.6" sink_obj="//@blocks.25/@node_objs.1"/>
+  <edges id="641" edge_type="VirtEdge" source_obj="//@blocks.9/@node_objs.0" sink_obj="//@blocks.25/@node_objs.1"/>
+  <edges id="642" edge_type="VirtEdge" source_obj="//@blocks.9/@node_objs.1" sink_obj="//@blocks.25/@node_objs.0"/>
+  <blocks id="29" name="block_29" type="BlockType">
+    <controlOutputObjs>block_35</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="12" name="i" originalName="i" coreId="741552956" bitwidth="4" opcode="alloca" m_display="0" m_topoIndex="1" m_clusterGroupNumber="-1">
+      <dataOutputObjs>store</dataOutputObjs>
+      <dataOutputObjs>load</dataOutputObjs>
+      <dataOutputObjs>store</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="14" name="lenEdgeListPtr_read" coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" bitwidth="32" opcode="read" m_display="0" m_delay="1.83" m_topoIndex="2" m_clusterGroupNumber="-1">
+      <dataInputObjs>lenEdgeListPtr</dataInputObjs>
+      <dataOutputObjs>write</dataOutputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="16" name="lenEdgeListPtr_c_write_ln0" coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" opcode="write" m_display="0" m_delay="1.83" m_topoIndex="3" m_clusterGroupNumber="-1">
+      <dataInputObjs>read</dataInputObjs>
+      <dataOutputObjs>lenEdgeListPtr_c</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="26" name="matrixB_buffer" lineNumber="64" originalName="matrixB_buffer" fileName="kernel.cpp" fileDirectory=".." rtlName="matrixB_buffer_U" coreName="RAM" implIndex="auto" control="no" opType="ram_1p" coreId="83" contextFuncName="calc_C" bitwidth="32" opcode="alloca" m_display="0" m_topoIndex="4" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="64" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataOutputObjs>getelementptr</dataOutputObjs>
+      <dataOutputObjs>getelementptr</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="27" name="i_write_ln66" lineNumber="66" fileName="kernel.cpp" fileDirectory=".." coreId="741487420" contextFuncName="calc_C" opcode="store" m_display="0" m_delay="0.42" m_topoIndex="5" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="66" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataInputObjs>alloca</dataInputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="28" name="br_ln66" lineNumber="66" fileName="kernel.cpp" fileDirectory=".." coreId="741552956" contextFuncName="calc_C" opcode="br" m_display="0" m_topoIndex="6" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="66" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <controlInputObjs>block_35</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="kernel.cpp">
+      <validLinenumbers>64</validLinenumbers>
+      <validLinenumbers>66</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="35" name="block_35" type="BlockType">
+    <controlInputObjs>block_29</controlInputObjs>
+    <controlInputObjs>block_64</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>.lr.ph66</controlOutputObjs>
+    <controlOutputObjs>.split11</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="30" name="i_14" lineNumber="69" originalName="i" fileName="kernel.cpp" fileDirectory=".." coreId="741487420" contextFuncName="calc_C" bitwidth="4" opcode="load" nodeLabel="1.0" m_display="0" m_topoIndex="7" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="69" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataInputObjs>alloca</dataInputObjs>
+      <dataOutputObjs>icmp</dataOutputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="31" name="icmp_ln66" lineNumber="66" fileName="kernel.cpp" fileDirectory=".." rtlName="icmp_ln66_fu_295_p2" coreName="Cmp" implIndex="auto" control="no" opType="icmp" coreId="9" contextFuncName="calc_C" bitwidth="1" opcode="icmp" nodeLabel="1.0" m_display="0" m_delay="0.72" m_topoIndex="8" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="66" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataInputObjs>load</dataInputObjs>
+      <dataOutputObjs>br</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="33" name="add_ln66" lineNumber="66" fileName="kernel.cpp" fileDirectory=".." rtlName="add_ln66_fu_301_p2" coreName="Adder" implIndex="fabric" control="no" opType="add" coreId="1" contextFuncName="calc_C" bitwidth="4" opcode="add" nodeLabel="1.0" m_display="0" m_delay="0.79" m_topoIndex="9" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="66" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataInputObjs>load</dataInputObjs>
+      <dataOutputObjs>store</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="34" name="br_ln66" lineNumber="66" fileName="kernel.cpp" fileDirectory=".." coreId="741487420" contextFuncName="calc_C" opcode="br" nodeLabel="1.0" m_display="0" m_topoIndex="10" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="66" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataInputObjs>icmp</dataInputObjs>
+      <controlInputObjs>.split11</controlInputObjs>
+      <controlInputObjs>.lr.ph66</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="kernel.cpp">
+      <validLinenumbers>69</validLinenumbers>
+      <validLinenumbers>66</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="38" name=".split11" type="BlockType">
+    <controlInputObjs>block_35</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>phi</controlOutputObjs>
+    <controlOutputObjs>block_49</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="37" name="br_ln67" lineNumber="67" fileName="kernel.cpp" fileDirectory=".." coreId="6" contextFuncName="calc_C" opcode="br" nodeLabel="1.0" m_display="0" m_delay="0.42" m_topoIndex="11" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="67" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <controlInputObjs>block_49</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="kernel.cpp">
+      <validLinenumbers>67</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="49" name="block_49" type="BlockType">
+    <controlInputObjs>.split11</controlInputObjs>
+    <controlInputObjs>block_61</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>block_64</controlOutputObjs>
+    <controlOutputObjs>.split9</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="39" name="j" lineNumber="67" originalName="j" fileName="kernel.cpp" fileDirectory=".." coreId="439" contextFuncName="calc_C" bitwidth="2" opcode="phi" nodeLabel="2.0" m_display="0" m_topoIndex="20" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="67" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataInputObjs>add</dataInputObjs>
+      <dataOutputObjs>trunc</dataOutputObjs>
+      <dataOutputObjs>icmp</dataOutputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+      <controlInputObjs>.split11</controlInputObjs>
+      <controlInputObjs>block_61</controlInputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="40" name="trunc_ln69" lineNumber="69" fileName="kernel.cpp" fileDirectory=".." rtlName="trunc_ln69_fu_322_p1" coreId="741487420" contextFuncName="calc_C" bitwidth="1" opcode="trunc" nodeLabel="2.0" m_display="0" m_topoIndex="21" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="69" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataInputObjs>phi</dataInputObjs>
+      <dataOutputObjs>bitconcatenate</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="41" name="tmp_11_cast" lineNumber="69" fileName="kernel.cpp" fileDirectory=".." rtlName="tmp_11_cast_fu_326_p3" coreId="1713384502" contextFuncName="calc_C" bitwidth="4" opcode="bitconcatenate" nodeLabel="2.0" m_display="0" m_topoIndex="22" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="69" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataInputObjs>trunc</dataInputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="42" name="add_ln69" lineNumber="69" fileName="kernel.cpp" fileDirectory=".." rtlName="add_ln69_fu_334_p2" coreName="Adder" implIndex="fabric" control="no" opType="add" coreId="1" contextFuncName="calc_C" bitwidth="4" opcode="add" nodeLabel="2.0" m_display="0" m_delay="0.79" m_topoIndex="23" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="69" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataInputObjs>bitconcatenate</dataInputObjs>
+      <dataInputObjs>load</dataInputObjs>
+      <dataOutputObjs>zext</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="43" name="zext_ln69" lineNumber="69" fileName="kernel.cpp" fileDirectory=".." rtlName="zext_ln69_fu_339_p1" coreId="1920234298" contextFuncName="calc_C" bitwidth="64" opcode="zext" nodeLabel="2.0" m_display="0" m_topoIndex="24" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="69" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataInputObjs>add</dataInputObjs>
+      <dataOutputObjs>getelementptr</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="44" name="matrixB_buffer_addr" lineNumber="69" fileName="kernel.cpp" fileDirectory=".." coreId="997484326" contextFuncName="calc_C" bitwidth="4" opcode="getelementptr" nodeLabel="2.0" m_display="0" m_topoIndex="25" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="69" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataInputObjs>alloca</dataInputObjs>
+      <dataInputObjs>zext</dataInputObjs>
+      <dataOutputObjs>store</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="45" name="icmp_ln67" lineNumber="67" fileName="kernel.cpp" fileDirectory=".." rtlName="icmp_ln67_fu_344_p2" coreName="Cmp" implIndex="auto" control="no" opType="icmp" coreId="9" contextFuncName="calc_C" bitwidth="1" opcode="icmp" nodeLabel="2.0" m_display="0" m_delay="0.44" m_topoIndex="26" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="67" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataInputObjs>phi</dataInputObjs>
+      <dataOutputObjs>br</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="47" name="add_ln67" lineNumber="67" fileName="kernel.cpp" fileDirectory=".." rtlName="add_ln67_fu_350_p2" coreName="Adder" implIndex="fabric" control="no" opType="add" coreId="1" contextFuncName="calc_C" bitwidth="2" opcode="add" nodeLabel="2.0" m_display="0" m_delay="0.54" m_topoIndex="27" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="67" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataInputObjs>phi</dataInputObjs>
+      <dataOutputObjs>phi</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="48" name="br_ln67" lineNumber="67" fileName="kernel.cpp" fileDirectory=".." coreId="1869635878" contextFuncName="calc_C" opcode="br" nodeLabel="2.0" m_display="0" m_topoIndex="28" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="67" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataInputObjs>icmp</dataInputObjs>
+      <controlInputObjs>.split9</controlInputObjs>
+      <controlInputObjs>block_64</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="kernel.cpp">
+      <validLinenumbers>67</validLinenumbers>
+      <validLinenumbers>69</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="53" name=".split9" type="BlockType">
+    <controlInputObjs>block_49</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>phi</controlOutputObjs>
+    <controlOutputObjs>block_57</controlOutputObjs>
+    <controlOutputObjs>block_61</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="51" name="tmp" lineNumber="136" fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" fileDirectory=".." coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" contextFuncName="empty" bitwidth="1" opcode="nbreadreq" nodeLabel="2.0" m_display="0" m_topoIndex="29" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" linenumber="136" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="empty"/>
+      <dataInputObjs>fifoMatrixB14</dataInputObjs>
+      <dataOutputObjs>br</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="52" name="br_ln68" lineNumber="68" fileName="kernel.cpp" fileDirectory=".." coreId="1953708602" contextFuncName="calc_C" opcode="br" nodeLabel="2.0" m_display="0" m_delay="0.42" m_topoIndex="30" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="68" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataInputObjs>nbreadreq</dataInputObjs>
+      <controlInputObjs>block_61</controlInputObjs>
+      <controlInputObjs>block_57</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="kernel.cpp">
+      <validLinenumbers>68</validLinenumbers>
+    </fileValidLineNumbers>
+    <fileValidLineNumbers fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h">
+      <validLinenumbers>136</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="57" name="block_57" type="BlockType">
+    <controlInputObjs>.split9</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>phi</controlOutputObjs>
+    <controlOutputObjs>block_61</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="54" name="fifoMatrixB14_read" lineNumber="145" fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" fileDirectory=".." coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" contextFuncName="read" bitwidth="32" opcode="read" nodeLabel="2.0" m_display="0" m_delay="1.63" m_topoIndex="31" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" linenumber="145" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="read"/>
+      <dataInputObjs>fifoMatrixB14</dataInputObjs>
+      <dataOutputObjs>bitcast</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="55" name="tmp_16" lineNumber="145" originalName="tmp" fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" fileDirectory=".." rtlName="tmp_16_fu_356_p1" coreId="1885414953" contextFuncName="read" bitwidth="32" opcode="bitcast" nodeLabel="2.0" m_display="0" m_topoIndex="32" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" linenumber="145" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="read"/>
+      <dataInputObjs>read</dataInputObjs>
+      <dataOutputObjs>phi</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="56" name="br_ln70" lineNumber="70" fileName="kernel.cpp" fileDirectory=".." coreId="543649385" contextFuncName="calc_C" opcode="br" nodeLabel="2.0" m_display="0" m_delay="0.42" m_topoIndex="33" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="70" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <controlInputObjs>block_61</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="kernel.cpp">
+      <validLinenumbers>70</validLinenumbers>
+    </fileValidLineNumbers>
+    <fileValidLineNumbers fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h">
+      <validLinenumbers>145</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="61" name="block_61" type="BlockType">
+    <controlInputObjs>.split9</controlInputObjs>
+    <controlInputObjs>block_57</controlInputObjs>
+    <controlOutputObjs>phi</controlOutputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>block_49</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="58" name="storemerge" originalName="tmp" coreId="1853187616" bitwidth="32" opcode="phi" nodeLabel="3.0" m_display="0" m_topoIndex="36" m_clusterGroupNumber="-1">
+      <dataInputObjs>bitcast</dataInputObjs>
+      <dataOutputObjs>store</dataOutputObjs>
+      <controlInputObjs>block_57</controlInputObjs>
+      <controlInputObjs>.split9</controlInputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="59" name="matrixB_buffer_addr_write_ln69" lineNumber="69" fileName="kernel.cpp" fileDirectory=".." coreName="RAM" implIndex="auto" control="no" opType="ram" coreId="83" contextFuncName="calc_C" opcode="store" nodeLabel="3.0" m_display="0" m_delay="0.67" m_topoIndex="37" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="69" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataInputObjs>phi</dataInputObjs>
+      <dataInputObjs>getelementptr</dataInputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="60" name="br_ln0" coreId="540767087" opcode="br" nodeLabel="3.0" m_display="0" m_topoIndex="38" m_clusterGroupNumber="-1">
+      <controlInputObjs>block_49</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="kernel.cpp">
+      <validLinenumbers>69</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="64" name="block_64" type="BlockType">
+    <controlInputObjs>block_49</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>block_35</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="62" name="i_write_ln66" lineNumber="66" fileName="kernel.cpp" fileDirectory=".." coreId="773864307" contextFuncName="calc_C" opcode="store" nodeLabel="2.0" m_display="0" m_delay="0.42" m_topoIndex="34" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="66" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataInputObjs>add</dataInputObjs>
+      <dataInputObjs>alloca</dataInputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="63" name="br_ln0" coreId="1936683105" opcode="br" nodeLabel="2.0" m_display="0" m_topoIndex="35" m_clusterGroupNumber="-1">
+      <controlInputObjs>block_35</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="kernel.cpp">
+      <validLinenumbers>66</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="73" name=".lr.ph66" type="BlockType">
+    <controlInputObjs>block_35</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>block_80</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="65" name="iter" originalName="iter" coreId="1701519394" bitwidth="31" opcode="alloca" nodeLabel="1.0" m_display="0" m_topoIndex="12" m_clusterGroupNumber="-1">
+      <dataOutputObjs>store</dataOutputObjs>
+      <dataOutputObjs>load</dataOutputObjs>
+      <dataOutputObjs>store</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="66" name="i_13" originalName="i" coreId="1814459502" bitwidth="32" opcode="alloca" nodeLabel="1.0" m_display="0" m_topoIndex="13" m_clusterGroupNumber="-1">
+      <dataOutputObjs>store</dataOutputObjs>
+      <dataOutputObjs>load</dataOutputObjs>
+      <dataOutputObjs>store</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="67" name="tmp_20" lineNumber="145" originalName="tmp" fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" fileDirectory=".." coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" contextFuncName="read" bitwidth="32" opcode="read" nodeLabel="1.0" m_display="0" m_delay="1.63" m_topoIndex="14" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" linenumber="145" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="read"/>
+      <dataInputObjs>fifoEdgeListPtr11</dataInputObjs>
+      <dataOutputObjs>write</dataOutputObjs>
+      <dataOutputObjs>store</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="68" name="fifoEdgeListPtr_calC15_write_ln174" lineNumber="174" fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" fileDirectory=".." coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" contextFuncName="write" opcode="write" nodeLabel="1.0" m_display="0" m_delay="1.63" m_topoIndex="15" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" linenumber="174" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="write"/>
+      <dataInputObjs>read</dataInputObjs>
+      <dataOutputObjs>fifoEdgeListPtr_calC15</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="69" name="add_ln79" lineNumber="79" fileName="kernel.cpp" fileDirectory=".." rtlName="add_ln79_fu_307_p2" coreName="Adder" implIndex="fabric" control="no" opType="add" coreId="1" contextFuncName="calc_C" bitwidth="32" opcode="add" nodeLabel="1.0" m_display="0" m_delay="1.01" m_topoIndex="16" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="79" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataInputObjs>read</dataInputObjs>
+      <dataOutputObjs>icmp</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="70" name="i_13_write_ln79" lineNumber="79" fileName="kernel.cpp" fileDirectory=".." coreId="1818770291" contextFuncName="calc_C" opcode="store" nodeLabel="1.0" m_display="0" m_delay="0.42" m_topoIndex="17" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="79" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataInputObjs>read</dataInputObjs>
+      <dataInputObjs>alloca</dataInputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="71" name="iter_write_ln79" lineNumber="79" fileName="kernel.cpp" fileDirectory=".." coreId="1330007625" contextFuncName="calc_C" opcode="store" nodeLabel="1.0" m_display="0" m_delay="0.42" m_topoIndex="18" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="79" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataInputObjs>alloca</dataInputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="72" name="br_ln79" lineNumber="79" fileName="kernel.cpp" fileDirectory=".." coreId="1701867296" contextFuncName="calc_C" opcode="br" nodeLabel="1.0" m_display="0" m_topoIndex="19" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="79" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <controlInputObjs>block_80</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="kernel.cpp">
+      <validLinenumbers>79</validLinenumbers>
+    </fileValidLineNumbers>
+    <fileValidLineNumbers fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h">
+      <validLinenumbers>145</validLinenumbers>
+      <validLinenumbers>174</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="80" name="block_80" type="BlockType">
+    <controlInputObjs>.lr.ph66</controlInputObjs>
+    <controlInputObjs>._crit_edge.loopexit</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>.split7</controlOutputObjs>
+    <controlOutputObjs>._crit_edge67.loopexit</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="74" name="iter_3" lineNumber="79" originalName="iter" fileName="kernel.cpp" fileDirectory=".." coreId="644182892" contextFuncName="calc_C" bitwidth="31" opcode="load" nodeLabel="4.0" m_display="0" m_topoIndex="39" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="79" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataInputObjs>alloca</dataInputObjs>
+      <dataOutputObjs>zext</dataOutputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="75" name="start_addr" originalName="start_addr" coreId="1919968626" bitwidth="32" opcode="load" nodeLabel="4.0" m_display="0" m_topoIndex="40" m_clusterGroupNumber="-1">
+      <dataInputObjs>alloca</dataInputObjs>
+      <dataOutputObjs>phi</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="76" name="zext_ln79" lineNumber="79" fileName="kernel.cpp" fileDirectory=".." rtlName="zext_ln79_fu_370_p1" coreId="1918988320" contextFuncName="calc_C" bitwidth="32" opcode="zext" nodeLabel="4.0" m_display="0" m_topoIndex="41" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="79" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataInputObjs>load</dataInputObjs>
+      <dataOutputObjs>icmp</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="77" name="icmp_ln79" lineNumber="79" fileName="kernel.cpp" fileDirectory=".." rtlName="icmp_ln79_fu_374_p2" coreName="Cmp" implIndex="auto" control="no" opType="icmp" coreId="9" contextFuncName="calc_C" bitwidth="1" opcode="icmp" nodeLabel="4.0" m_display="0" m_delay="0.99" m_topoIndex="42" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="79" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataInputObjs>zext</dataInputObjs>
+      <dataInputObjs>add</dataInputObjs>
+      <dataOutputObjs>br</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="78" name="iter_4" lineNumber="79" originalName="iter" fileName="kernel.cpp" fileDirectory=".." rtlName="iter_4_fu_379_p2" coreName="Adder" implIndex="fabric" control="no" opType="add" coreId="1" contextFuncName="calc_C" bitwidth="31" opcode="add" nodeLabel="4.0" m_display="0" m_delay="1.0" m_topoIndex="43" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="79" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataInputObjs>load</dataInputObjs>
+      <dataOutputObjs>store</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="79" name="br_ln79" lineNumber="79" fileName="kernel.cpp" fileDirectory=".." coreId="1835888483" contextFuncName="calc_C" opcode="br" nodeLabel="4.0" m_display="0" m_topoIndex="44" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="79" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataInputObjs>icmp</dataInputObjs>
+      <controlInputObjs>._crit_edge67.loopexit</controlInputObjs>
+      <controlInputObjs>.split7</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="kernel.cpp">
+      <validLinenumbers>79</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="85" name=".split7" type="BlockType">
+    <controlInputObjs>block_80</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>phi</controlOutputObjs>
+    <controlOutputObjs>block_89</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="82" name="tmp_21" lineNumber="145" originalName="tmp" fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" fileDirectory=".." coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" contextFuncName="read" bitwidth="32" opcode="read" nodeLabel="4.0" m_display="0" m_delay="1.63" m_topoIndex="45" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" linenumber="145" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="read"/>
+      <dataInputObjs>fifoEdgeListPtr11</dataInputObjs>
+      <dataOutputObjs>write</dataOutputObjs>
+      <dataOutputObjs>icmp</dataOutputObjs>
+      <dataOutputObjs>store</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="83" name="fifoEdgeListPtr_calC15_write_ln174" lineNumber="174" fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" fileDirectory=".." coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" contextFuncName="write" opcode="write" nodeLabel="4.0" m_display="0" m_delay="1.63" m_topoIndex="46" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" linenumber="174" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="write"/>
+      <dataInputObjs>read</dataInputObjs>
+      <dataOutputObjs>fifoEdgeListPtr_calC15</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="84" name="br_ln85" lineNumber="85" fileName="kernel.cpp" fileDirectory=".." coreId="976895589" contextFuncName="calc_C" opcode="br" nodeLabel="4.0" m_display="0" m_delay="0.42" m_topoIndex="47" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="85" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <controlInputObjs>block_89</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="kernel.cpp">
+      <validLinenumbers>85</validLinenumbers>
+    </fileValidLineNumbers>
+    <fileValidLineNumbers fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h">
+      <validLinenumbers>145</validLinenumbers>
+      <validLinenumbers>174</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="89" name="block_89" type="BlockType">
+    <controlInputObjs>.split7</controlInputObjs>
+    <controlInputObjs>block_145</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>.split5</controlOutputObjs>
+    <controlOutputObjs>._crit_edge.loopexit</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="86" name="i_6" originalName="i" coreId="1702063201" bitwidth="32" opcode="phi" nodeLabel="5.0" m_display="0" m_topoIndex="49" m_clusterGroupNumber="-1">
+      <dataInputObjs>load</dataInputObjs>
+      <dataInputObjs>add</dataInputObjs>
+      <dataOutputObjs>icmp</dataOutputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+      <controlInputObjs>.split7</controlInputObjs>
+      <controlInputObjs>block_145</controlInputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="87" name="icmp_ln85" lineNumber="85" fileName="kernel.cpp" fileDirectory=".." rtlName="icmp_ln85_fu_385_p2" coreName="Cmp" implIndex="auto" control="no" opType="icmp" coreId="9" contextFuncName="calc_C" bitwidth="1" opcode="icmp" nodeLabel="5.0" m_display="0" m_delay="0.99" m_topoIndex="50" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="85" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataInputObjs>phi</dataInputObjs>
+      <dataInputObjs>read</dataInputObjs>
+      <dataOutputObjs>br</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="88" name="br_ln85" lineNumber="85" fileName="kernel.cpp" fileDirectory=".." coreId="1918988320" contextFuncName="calc_C" opcode="br" nodeLabel="5.0" m_display="0" m_topoIndex="51" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="85" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataInputObjs>icmp</dataInputObjs>
+      <controlInputObjs>._crit_edge.loopexit</controlInputObjs>
+      <controlInputObjs>.split5</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="kernel.cpp">
+      <validLinenumbers>85</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="92" name=".split5" type="BlockType">
+    <controlInputObjs>block_89</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>phi</controlOutputObjs>
+    <controlOutputObjs>block_98</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="91" name="br_ln88" lineNumber="88" fileName="kernel.cpp" fileDirectory=".." coreId="1885415486" contextFuncName="calc_C" opcode="br" nodeLabel="5.0" m_display="0" m_delay="0.42" m_topoIndex="52" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="88" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <controlInputObjs>block_98</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="kernel.cpp">
+      <validLinenumbers>88</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="98" name="block_98" type="BlockType">
+    <controlInputObjs>.split5</controlInputObjs>
+    <controlInputObjs>block_142</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>block_145</controlOutputObjs>
+    <controlOutputObjs>.split3</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="93" name="n" originalName="n" coreId="1852990827" bitwidth="2" opcode="phi" nodeLabel="6.0" m_display="0" m_topoIndex="56" m_clusterGroupNumber="-1">
+      <dataInputObjs>add</dataInputObjs>
+      <dataOutputObjs>icmp</dataOutputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+      <controlInputObjs>.split5</controlInputObjs>
+      <controlInputObjs>block_142</controlInputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="94" name="icmp_ln88" lineNumber="88" fileName="kernel.cpp" fileDirectory=".." rtlName="icmp_ln88_fu_398_p2" coreName="Cmp" implIndex="auto" control="no" opType="icmp" coreId="9" contextFuncName="calc_C" bitwidth="1" opcode="icmp" nodeLabel="6.0" m_display="0" m_delay="0.44" m_topoIndex="57" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="88" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataInputObjs>phi</dataInputObjs>
+      <dataOutputObjs>br</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="96" name="n_2" lineNumber="88" originalName="n" fileName="kernel.cpp" fileDirectory=".." rtlName="n_2_fu_404_p2" coreName="Adder" implIndex="fabric" control="no" opType="add" coreId="1" contextFuncName="calc_C" bitwidth="2" opcode="add" nodeLabel="6.0" m_display="0" m_delay="0.54" m_topoIndex="58" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="88" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataInputObjs>phi</dataInputObjs>
+      <dataOutputObjs>phi</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="97" name="br_ln88" lineNumber="88" fileName="kernel.cpp" fileDirectory=".." coreId="1853187616" contextFuncName="calc_C" opcode="br" nodeLabel="6.0" m_display="0" m_topoIndex="59" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="88" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataInputObjs>icmp</dataInputObjs>
+      <controlInputObjs>.split3</controlInputObjs>
+      <controlInputObjs>block_145</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="kernel.cpp">
+      <validLinenumbers>88</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="107" name=".split3" type="BlockType">
+    <controlInputObjs>block_98</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>phi</controlOutputObjs>
+    <controlOutputObjs>block_118</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="100" name="fifoMatrixA13_read" lineNumber="145" fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" fileDirectory=".." coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" contextFuncName="read" bitwidth="32" opcode="read" nodeLabel="6.0" m_display="0" m_delay="1.63" m_topoIndex="60" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" linenumber="145" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="read"/>
+      <dataInputObjs>fifoMatrixA13</dataInputObjs>
+      <dataOutputObjs>bitcast</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="101" name="tmp_22" lineNumber="145" originalName="tmp" fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" fileDirectory=".." rtlName="tmp_22_fu_410_p1" coreId="1953708602" contextFuncName="read" bitwidth="32" opcode="bitcast" nodeLabel="6.0" m_display="0" m_topoIndex="61" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" linenumber="145" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="read"/>
+      <dataInputObjs>read</dataInputObjs>
+      <dataOutputObjs>fmul</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="102" name="tmp_23" lineNumber="145" originalName="tmp" fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" fileDirectory=".." coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" contextFuncName="read" bitwidth="32" opcode="read" nodeLabel="6.0" m_display="0" m_delay="1.63" m_topoIndex="62" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" linenumber="145" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="read"/>
+      <dataInputObjs>fifoMatrixAIdx12</dataInputObjs>
+      <dataOutputObjs>trunc</dataOutputObjs>
+      <dataOutputObjs>bitselect</dataOutputObjs>
+      <dataOutputObjs>partselect</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="103" name="tempA_row_V" lineNumber="674" originalName="tempA_row.V" fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_ref.h" fileDirectory=".." rtlName="tempA_row_V_fu_414_p1" coreId="1852796269" contextFuncName="get" bitwidth="16" opcode="trunc" nodeLabel="6.0" m_display="0" m_topoIndex="63" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_ref.h" linenumber="674" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="get"/>
+      <dataInputObjs>read</dataInputObjs>
+      <dataOutputObjs>write</dataOutputObjs>
+      <dataOutputObjs>write</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="104" name="tmp_19" lineNumber="145" fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" fileDirectory=".." rtlName="tmp_19_reg_586" coreId="1601200423" contextFuncName="read" bitwidth="1" opcode="bitselect" nodeLabel="6.0" m_display="0" m_topoIndex="64" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" linenumber="145" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="read"/>
+      <dataInputObjs>read</dataInputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="105" name="tempA_col_V_cast" lineNumber="96" fileName="kernel.cpp" fileDirectory=".." rtlName="tempA_col_V_cast_reg_591" coreId="1966894433" contextFuncName="calc_C" bitwidth="4" opcode="partselect" nodeLabel="6.0" m_display="0" m_topoIndex="65" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="96" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataInputObjs>read</dataInputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="106" name="br_ln96" lineNumber="96" fileName="kernel.cpp" fileDirectory=".." coreId="980642920" contextFuncName="calc_C" opcode="br" nodeLabel="6.0" m_display="0" m_delay="0.42" m_topoIndex="66" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="96" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <controlInputObjs>block_118</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="kernel.cpp">
+      <validLinenumbers>96</validLinenumbers>
+    </fileValidLineNumbers>
+    <fileValidLineNumbers fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h">
+      <validLinenumbers>145</validLinenumbers>
+    </fileValidLineNumbers>
+    <fileValidLineNumbers fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot\ap_int_ref.h">
+      <validLinenumbers>674</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="118" name="block_118" type="BlockType">
+    <controlInputObjs>.split3</controlInputObjs>
+    <controlInputObjs>.split._crit_edge4</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>block_142</controlOutputObjs>
+    <controlOutputObjs>.split_ifconv</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="108" name="j_3" lineNumber="96" originalName="j" fileName="kernel.cpp" fileDirectory=".." coreId="1919968626" contextFuncName="calc_C" bitwidth="2" opcode="phi" nodeLabel="7.0" m_display="0" m_topoIndex="69" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="96" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataInputObjs>add</dataInputObjs>
+      <dataOutputObjs>trunc</dataOutputObjs>
+      <dataOutputObjs>icmp</dataOutputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+      <controlInputObjs>.split3</controlInputObjs>
+      <controlInputObjs>.split._crit_edge4</controlInputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="109" name="trunc_ln48" lineNumber="48" fileName="kernel.cpp" fileDirectory=".." rtlName="trunc_ln48_fu_442_p1" coreId="645164649" contextFuncName="calc_C_core" bitwidth="1" opcode="trunc" nodeLabel="7.0" m_display="0" m_topoIndex="70" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="48" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C_core"/>
+      <dataInputObjs>phi</dataInputObjs>
+      <dataOutputObjs>bitconcatenate</dataOutputObjs>
+      <dataOutputObjs>br</dataOutputObjs>
+      <dataOutputObjs>br</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="110" name="tmp_16_cast" lineNumber="48" fileName="kernel.cpp" fileDirectory=".." rtlName="tmp_16_cast_fu_446_p3" coreId="1818639469" contextFuncName="calc_C_core" bitwidth="4" opcode="bitconcatenate" nodeLabel="7.0" m_display="0" m_topoIndex="71" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="48" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C_core"/>
+      <dataInputObjs>trunc</dataInputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="111" name="add_ln48" lineNumber="48" fileName="kernel.cpp" fileDirectory=".." rtlName="add_ln48_fu_454_p2" coreName="Adder" implIndex="fabric" control="no" opType="add" coreId="1" contextFuncName="calc_C_core" bitwidth="4" opcode="add" nodeLabel="7.0" m_display="0" m_delay="0.79" m_topoIndex="72" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="48" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C_core"/>
+      <dataInputObjs>bitconcatenate</dataInputObjs>
+      <dataInputObjs>partselect</dataInputObjs>
+      <dataOutputObjs>zext</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="112" name="zext_ln48" lineNumber="48" fileName="kernel.cpp" fileDirectory=".." rtlName="zext_ln48_fu_459_p1" coreId="1814459502" contextFuncName="calc_C_core" bitwidth="64" opcode="zext" nodeLabel="7.0" m_display="0" m_topoIndex="73" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="48" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C_core"/>
+      <dataInputObjs>add</dataInputObjs>
+      <dataOutputObjs>getelementptr</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="113" name="matrixB_buffer_addr_1" lineNumber="48" fileName="kernel.cpp" fileDirectory=".." coreId="1214215017" contextFuncName="calc_C_core" bitwidth="4" opcode="getelementptr" nodeLabel="7.0" m_display="0" m_topoIndex="74" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="48" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C_core"/>
+      <dataInputObjs>alloca</dataInputObjs>
+      <dataInputObjs>zext</dataInputObjs>
+      <dataOutputObjs>load</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="114" name="icmp_ln96" lineNumber="96" fileName="kernel.cpp" fileDirectory=".." rtlName="icmp_ln96_fu_464_p2" coreName="Cmp" implIndex="auto" control="no" opType="icmp" coreId="9" contextFuncName="calc_C" bitwidth="1" opcode="icmp" nodeLabel="7.0" m_display="0" m_delay="0.44" m_topoIndex="75" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="96" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataInputObjs>phi</dataInputObjs>
+      <dataOutputObjs>br</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="116" name="add_ln96" lineNumber="96" fileName="kernel.cpp" fileDirectory=".." rtlName="add_ln96_fu_470_p2" coreName="Adder" implIndex="fabric" control="no" opType="add" coreId="1" contextFuncName="calc_C" bitwidth="2" opcode="add" nodeLabel="7.0" m_display="0" m_delay="0.54" m_topoIndex="76" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="96" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataInputObjs>phi</dataInputObjs>
+      <dataOutputObjs>phi</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="117" name="br_ln96" lineNumber="96" fileName="kernel.cpp" fileDirectory=".." coreId="773864307" contextFuncName="calc_C" opcode="br" nodeLabel="7.0" m_display="0" m_topoIndex="77" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="96" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataInputObjs>icmp</dataInputObjs>
+      <controlInputObjs>.split_ifconv</controlInputObjs>
+      <controlInputObjs>block_142</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="kernel.cpp">
+      <validLinenumbers>96</validLinenumbers>
+      <validLinenumbers>48</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="124" name=".split_ifconv" type="BlockType">
+    <controlInputObjs>block_118</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>branch3</controlOutputObjs>
+    <controlOutputObjs>branch2</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="120" name="matrixB_buffer_load" lineNumber="48" fileName="kernel.cpp" fileDirectory=".." coreName="RAM" implIndex="auto" control="no" opType="ram" coreId="83" contextFuncName="calc_C_core" bitwidth="32" opcode="load" nodeLabel="7.0" nodeLatency="1" m_display="0" m_delay="0.67" m_topoIndex="78" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="48" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C_core"/>
+      <dataInputObjs>getelementptr</dataInputObjs>
+      <dataOutputObjs>fmul</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="121" name="temp_res" lineNumber="48" originalName="temp_res" fileName="kernel.cpp" fileDirectory=".." rtlName="fmul_32ns_32ns_32_3_max_dsp_1_U23" coreName="FMul_maxdsp" implIndex="maxdsp" control="no" opType="fmul" coreId="30" contextFuncName="calc_C_core" bitwidth="32" opcode="fmul" nodeLabel="9.0" nodeLatency="2" m_display="0" m_delay="7.01" m_topoIndex="80" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="48" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C_core"/>
+      <dataInputObjs>bitcast</dataInputObjs>
+      <dataInputObjs>load</dataInputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="122" name="empty_83" lineNumber="145" fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" fileDirectory=".." rtlName="empty_83_fu_476_p3" coreName="Sel" implIndex="auto_sel" control="no" opType="select" coreId="73" contextFuncName="read" bitwidth="32" opcode="select" nodeLabel="12.0" m_display="0" m_delay="0.44" m_topoIndex="81" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" linenumber="145" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="read"/>
+      <dataInputObjs>bitselect</dataInputObjs>
+      <dataInputObjs>fmul</dataInputObjs>
+      <dataOutputObjs>write</dataOutputObjs>
+      <dataOutputObjs>write</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="123" name="br_ln174" lineNumber="174" fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" fileDirectory=".." coreId="1937075817" contextFuncName="write" opcode="br" nodeLabel="12.0" m_display="0" m_topoIndex="82" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" linenumber="174" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="write"/>
+      <dataInputObjs>trunc</dataInputObjs>
+      <controlInputObjs>branch2</controlInputObjs>
+      <controlInputObjs>branch3</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="kernel.cpp">
+      <validLinenumbers>48</validLinenumbers>
+    </fileValidLineNumbers>
+    <fileValidLineNumbers fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h">
+      <validLinenumbers>145</validLinenumbers>
+      <validLinenumbers>174</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="127" name="branch2" type="BlockType">
+    <controlInputObjs>.split_ifconv</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>.split._crit_edge8</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="125" name="fifoCalcMatrixC_o_0_write_ln174" lineNumber="174" fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" fileDirectory=".." coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" contextFuncName="write" opcode="write" nodeLabel="12.0" m_display="0" m_delay="1.63" m_topoIndex="83" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" linenumber="174" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="write"/>
+      <dataInputObjs>select</dataInputObjs>
+      <dataOutputObjs>fifoCalcMatrixC_o_0</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="126" name="br_ln174" lineNumber="174" fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" fileDirectory=".." coreId="1013281633" contextFuncName="write" opcode="br" nodeLabel="12.0" m_display="0" m_topoIndex="84" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" linenumber="174" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="write"/>
+      <controlInputObjs>.split._crit_edge8</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h">
+      <validLinenumbers>174</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="130" name="branch3" type="BlockType">
+    <controlInputObjs>.split_ifconv</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>.split._crit_edge8</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="128" name="fifoCalcMatrixC_o_02_write_ln174" lineNumber="174" fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" fileDirectory=".." coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" contextFuncName="write" opcode="write" nodeLabel="12.0" m_display="0" m_delay="1.63" m_topoIndex="85" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" linenumber="174" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="write"/>
+      <dataInputObjs>select</dataInputObjs>
+      <dataOutputObjs>fifoCalcMatrixC_o_02</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="129" name="br_ln174" lineNumber="174" fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" fileDirectory=".." coreId="825046065" contextFuncName="write" opcode="br" nodeLabel="12.0" m_display="0" m_topoIndex="86" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" linenumber="174" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="write"/>
+      <controlInputObjs>.split._crit_edge8</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h">
+      <validLinenumbers>174</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="132" name=".split._crit_edge8" type="BlockType">
+    <controlInputObjs>branch2</controlInputObjs>
+    <controlInputObjs>branch3</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>branch1</controlOutputObjs>
+    <controlOutputObjs>branch0</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="131" name="br_ln174" lineNumber="174" fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" fileDirectory=".." coreId="842087525" contextFuncName="write" opcode="br" nodeLabel="12.0" m_display="0" m_topoIndex="87" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" linenumber="174" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="write"/>
+      <dataInputObjs>trunc</dataInputObjs>
+      <controlInputObjs>branch0</controlInputObjs>
+      <controlInputObjs>branch1</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h">
+      <validLinenumbers>174</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="135" name="branch0" type="BlockType">
+    <controlInputObjs>.split._crit_edge8</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>.split._crit_edge4</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="133" name="fifoMatrixCIdx_o_0_0_0_0_write_ln174" lineNumber="174" fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" fileDirectory=".." coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" contextFuncName="write" opcode="write" nodeLabel="12.0" m_display="0" m_delay="1.63" m_topoIndex="88" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" linenumber="174" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="write"/>
+      <dataInputObjs>trunc</dataInputObjs>
+      <dataOutputObjs>fifoMatrixCIdx_o_0_0_0_0</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="134" name="br_ln174" lineNumber="174" fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" fileDirectory=".." coreId="1663052072" contextFuncName="write" opcode="br" nodeLabel="12.0" m_display="0" m_topoIndex="89" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" linenumber="174" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="write"/>
+      <controlInputObjs>.split._crit_edge4</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h">
+      <validLinenumbers>174</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="138" name="branch1" type="BlockType">
+    <controlInputObjs>.split._crit_edge8</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>.split._crit_edge4</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="136" name="fifoMatrixCIdx_o_0_0_0_01_write_ln174" lineNumber="174" fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" fileDirectory=".." coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" contextFuncName="write" opcode="write" nodeLabel="12.0" m_display="0" m_delay="1.63" m_topoIndex="90" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" linenumber="174" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="write"/>
+      <dataInputObjs>trunc</dataInputObjs>
+      <dataOutputObjs>fifoMatrixCIdx_o_0_0_0_01</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="137" name="br_ln174" lineNumber="174" fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" fileDirectory=".." coreId="536894769" contextFuncName="write" opcode="br" nodeLabel="12.0" m_display="0" m_topoIndex="91" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" linenumber="174" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="write"/>
+      <controlInputObjs>.split._crit_edge4</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h">
+      <validLinenumbers>174</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="140" name=".split._crit_edge4" type="BlockType">
+    <controlInputObjs>branch0</controlInputObjs>
+    <controlInputObjs>branch1</controlInputObjs>
+    <controlOutputObjs>phi</controlOutputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>block_118</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="139" name="br_ln0" coreId="1630019628" opcode="br" nodeLabel="12.0" m_display="0" m_topoIndex="92" m_clusterGroupNumber="-1">
+      <controlInputObjs>block_118</controlInputObjs>
+    </node_objs>
+  </blocks>
+  <blocks id="142" name="block_142" type="BlockType">
+    <controlInputObjs>block_118</controlInputObjs>
+    <controlOutputObjs>phi</controlOutputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>block_98</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="141" name="br_ln0" coreId="1702060386" opcode="br" nodeLabel="7.0" m_display="0" m_topoIndex="79" m_clusterGroupNumber="-1">
+      <controlInputObjs>block_98</controlInputObjs>
+    </node_objs>
+  </blocks>
+  <blocks id="145" name="block_145" type="BlockType">
+    <controlInputObjs>block_98</controlInputObjs>
+    <controlOutputObjs>phi</controlOutputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>block_89</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="143" name="i_16" lineNumber="85" originalName="i" fileName="kernel.cpp" fileDirectory=".." rtlName="i_16_fu_436_p2" coreName="Adder" implIndex="fabric" control="no" opType="add" coreId="1" contextFuncName="calc_C" bitwidth="32" opcode="add" nodeLabel="6.0" m_display="0" m_delay="1.01" m_topoIndex="67" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="85" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataInputObjs>phi</dataInputObjs>
+      <dataOutputObjs>phi</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="144" name="br_ln0" coreId="1701080941" opcode="br" nodeLabel="6.0" m_display="0" m_topoIndex="68" m_clusterGroupNumber="-1">
+      <controlInputObjs>block_89</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="kernel.cpp">
+      <validLinenumbers>85</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="149" name="._crit_edge.loopexit" type="BlockType">
+    <controlInputObjs>block_89</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>block_80</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="146" name="i_13_write_ln145" lineNumber="145" fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" fileDirectory=".." coreId="1701080941" contextFuncName="read" opcode="store" nodeLabel="5.0" m_display="0" m_delay="0.42" m_topoIndex="53" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h" linenumber="145" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="read"/>
+      <dataInputObjs>read</dataInputObjs>
+      <dataInputObjs>alloca</dataInputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="147" name="iter_write_ln79" lineNumber="79" fileName="kernel.cpp" fileDirectory=".." coreId="1667593263" contextFuncName="calc_C" opcode="store" nodeLabel="5.0" m_display="0" m_delay="0.42" m_topoIndex="54" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="79" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+      <dataInputObjs>add</dataInputObjs>
+      <dataInputObjs>alloca</dataInputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="148" name="br_ln0" coreId="1919950848" opcode="br" nodeLabel="5.0" m_display="0" m_topoIndex="55" m_clusterGroupNumber="-1">
+      <controlInputObjs>block_80</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="kernel.cpp">
+      <validLinenumbers>79</validLinenumbers>
+    </fileValidLineNumbers>
+    <fileValidLineNumbers fileName="D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h">
+      <validLinenumbers>145</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="151" name="._crit_edge67.loopexit" type="BlockType">
+    <controlInputObjs>block_80</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="150" name="_ln113" lineNumber="113" fileName="kernel.cpp" fileDirectory=".." coreId="1214215017" contextFuncName="calc_C" opcode="ret" nodeLabel="4.0" m_display="0" m_topoIndex="48" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="kernel.cpp" linenumber="113" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="calc_C"/>
+    </node_objs>
+    <fileValidLineNumbers fileName="kernel.cpp">
+      <validLinenumbers>113</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <ScheduleInfo time="0"/>
+  <ScheduleInfo time="1"/>
+  <ScheduleInfo time="2"/>
+  <ScheduleInfo time="3"/>
+  <ScheduleInfo time="4"/>
+  <ScheduleInfo time="5"/>
+  <ScheduleInfo time="6"/>
+  <ScheduleInfo time="7"/>
+  <ScheduleInfo time="8"/>
+  <ScheduleInfo time="9"/>
+  <ScheduleInfo time="10"/>
+  <ScheduleInfo time="11"/>
+  <ScheduleInfo time="12"/>
+  <regnodes realName="i_6_reg_251">
+    <nodeIds>86</nodeIds>
+  </regnodes>
+  <regnodes realName="iter_4_reg_553">
+    <nodeIds>78</nodeIds>
+  </regnodes>
+  <regnodes realName="matrixB_buffer_addr_1_reg_605">
+    <nodeIds>113</nodeIds>
+  </regnodes>
+  <regnodes realName="add_ln66_reg_502">
+    <nodeIds>33</nodeIds>
+  </regnodes>
+  <regnodes realName="tmp_21_reg_558">
+    <nodeIds>82</nodeIds>
+  </regnodes>
+  <regnodes realName="tmp_22_reg_575">
+    <nodeIds>101</nodeIds>
+  </regnodes>
+  <regnodes realName="i_13_reg_514">
+    <nodeIds>66</nodeIds>
+  </regnodes>
+  <regnodes realName="matrixB_buffer_load_reg_618">
+    <nodeIds>120</nodeIds>
+  </regnodes>
+  <regnodes realName="iter_reg_507">
+    <nodeIds>65</nodeIds>
+  </regnodes>
+  <regnodes realName="j_3_reg_272">
+    <nodeIds>108</nodeIds>
+  </regnodes>
+  <regnodes realName="lenEdgeListPtr_read_reg_491">
+    <nodeIds>14</nodeIds>
+  </regnodes>
+  <regnodes realName="n_reg_261">
+    <nodeIds>93</nodeIds>
+  </regnodes>
+  <regnodes realName="tempA_col_V_cast_reg_591">
+    <nodeIds>105</nodeIds>
+  </regnodes>
+  <regnodes realName="i_16_reg_596">
+    <nodeIds>143</nodeIds>
+  </regnodes>
+  <regnodes realName="j_reg_228">
+    <nodeIds>39</nodeIds>
+  </regnodes>
+  <regnodes realName="storemerge_reg_239">
+    <nodeIds>58</nodeIds>
+  </regnodes>
+  <regnodes realName="add_ln67_reg_534">
+    <nodeIds>47</nodeIds>
+  </regnodes>
+  <regnodes realName="add_ln96_reg_613">
+    <nodeIds>116</nodeIds>
+  </regnodes>
+  <regnodes realName="tmp_19_reg_586">
+    <nodeIds>104</nodeIds>
+  </regnodes>
+  <regnodes realName="n_2_reg_570">
+    <nodeIds>96</nodeIds>
+  </regnodes>
+  <regnodes realName="temp_res_reg_623">
+    <nodeIds>121</nodeIds>
+  </regnodes>
+  <regnodes realName="trunc_ln48_reg_601">
+    <nodeIds>109</nodeIds>
+  </regnodes>
+  <regnodes realName="add_ln79_reg_521">
+    <nodeIds>69</nodeIds>
+  </regnodes>
+  <regnodes realName="matrixB_buffer_addr_reg_526">
+    <nodeIds>44</nodeIds>
+  </regnodes>
+  <regnodes realName="tmp_16_reg_542">
+    <nodeIds>55</nodeIds>
+  </regnodes>
+  <regnodes realName="i_reg_484">
+    <nodeIds>12</nodeIds>
+  </regnodes>
+  <regnodes realName="tempA_row_V_reg_580">
+    <nodeIds>103</nodeIds>
+  </regnodes>
+  <expressionNodes realName="icmp_ln79_fu_374">
+    <nodeIds>77</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="tmp_16_cast_fu_446">
+    <nodeIds>110</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="icmp_ln88_fu_398">
+    <nodeIds>94</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="zext_ln69_fu_339">
+    <nodeIds>43</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="icmp_ln66_fu_295">
+    <nodeIds>31</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="zext_ln48_fu_459">
+    <nodeIds>112</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="matrixB_buffer_alloca_fu_116">
+    <nodeIds>26</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="matrixB_buffer_addr_gep_fu_210">
+    <nodeIds>44</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="i_fu_112">
+    <nodeIds>12</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="tmp_19_fu_418">
+    <nodeIds>104</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="tmp_16_fu_356">
+    <nodeIds>55</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="tmp_11_cast_fu_326">
+    <nodeIds>41</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="add_ln69_fu_334">
+    <nodeIds>42</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="n_phi_fu_265">
+    <nodeIds>93</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="add_ln96_fu_470">
+    <nodeIds>116</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="icmp_ln96_fu_464">
+    <nodeIds>114</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="matrixB_buffer_addr_1_gep_fu_221">
+    <nodeIds>113</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="tmp_22_fu_410">
+    <nodeIds>101</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="add_ln67_fu_350">
+    <nodeIds>47</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="i_16_fu_436">
+    <nodeIds>143</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="icmp_ln85_fu_385">
+    <nodeIds>87</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="icmp_ln67_fu_344">
+    <nodeIds>45</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="j_3_phi_fu_276">
+    <nodeIds>108</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="zext_ln79_fu_370">
+    <nodeIds>76</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="trunc_ln48_fu_442">
+    <nodeIds>109</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="empty_83_fu_476">
+    <nodeIds>122</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="n_2_fu_404">
+    <nodeIds>96</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="add_ln48_fu_454">
+    <nodeIds>111</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="tempA_row_V_fu_414">
+    <nodeIds>103</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="iter_fu_120">
+    <nodeIds>65</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="i_13_fu_124">
+    <nodeIds>66</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="j_phi_fu_232">
+    <nodeIds>39</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="add_ln66_fu_301">
+    <nodeIds>33</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="trunc_ln69_fu_322">
+    <nodeIds>40</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="add_ln79_fu_307">
+    <nodeIds>69</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="tempA_col_V_cast_fu_426">
+    <nodeIds>105</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="i_6_phi_fu_254">
+    <nodeIds>86</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="iter_4_fu_379">
+    <nodeIds>78</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="storemerge_phi_fu_243">
+    <nodeIds>58</nodeIds>
+  </expressionNodes>
+  <moduleNodes realName="grp_fu_283">
+    <nodeIds>121</nodeIds>
+  </moduleNodes>
+  <ioNodes realName="start_addr_load_fu_367">
+    <nodeIds>75</nodeIds>
+  </ioNodes>
+  <ioNodes realName="tmp_23_read_fu_176">
+    <nodeIds>102</nodeIds>
+  </ioNodes>
+  <ioNodes realName="i_14_load_fu_292">
+    <nodeIds>30</nodeIds>
+  </ioNodes>
+  <ioNodes realName="write_ln174_write_fu_182">
+    <nodeIds>125</nodeIds>
+  </ioNodes>
+  <ioNodes realName="store_ln66_store_fu_360">
+    <nodeIds>62</nodeIds>
+  </ioNodes>
+  <ioNodes realName="tmp_nbreadreq_fu_156">
+    <nodeIds>51</nodeIds>
+  </ioNodes>
+  <ioNodes realName="store_ln66_store_fu_287">
+    <nodeIds>27</nodeIds>
+  </ioNodes>
+  <ioNodes realName="fifoMatrixA13_read_read_fu_170">
+    <nodeIds>100</nodeIds>
+  </ioNodes>
+  <ioNodes realName="store_ln79_store_fu_317">
+    <nodeIds>71</nodeIds>
+  </ioNodes>
+  <ioNodes realName="write_ln0_write_fu_134">
+    <nodeIds>16</nodeIds>
+  </ioNodes>
+  <ioNodes realName="iter_3_load_fu_364">
+    <nodeIds>74</nodeIds>
+  </ioNodes>
+  <ioNodes realName="lenEdgeListPtr_read_read_fu_128">
+    <nodeIds>14</nodeIds>
+  </ioNodes>
+  <ioNodes realName="store_ln79_store_fu_312">
+    <nodeIds>70</nodeIds>
+  </ioNodes>
+  <ioNodes realName="grp_write_fu_148">
+    <nodeIds>68</nodeIds>
+    <nodeIds>83</nodeIds>
+  </ioNodes>
+  <ioNodes realName="grp_read_fu_142">
+    <nodeIds>67</nodeIds>
+    <nodeIds>82</nodeIds>
+  </ioNodes>
+  <ioNodes realName="store_ln79_store_fu_394">
+    <nodeIds>147</nodeIds>
+  </ioNodes>
+  <ioNodes realName="write_ln174_write_fu_203">
+    <nodeIds>136</nodeIds>
+  </ioNodes>
+  <ioNodes realName="fifoMatrixB14_read_read_fu_164">
+    <nodeIds>54</nodeIds>
+  </ioNodes>
+  <ioNodes realName="write_ln174_write_fu_189">
+    <nodeIds>128</nodeIds>
+  </ioNodes>
+  <ioNodes realName="store_ln145_store_fu_390">
+    <nodeIds>146</nodeIds>
+  </ioNodes>
+  <ioNodes realName="write_ln174_write_fu_196">
+    <nodeIds>133</nodeIds>
+  </ioNodes>
+  <memoryPorts dataString="matrixB_buffer">
+    <nodeIds>59</nodeIds>
+    <nodeIds>120</nodeIds>
+  </memoryPorts>
+  <ioPorts name="fifoCalcMatrixC_o_0">
+    <contents name="write">
+      <nodeIds>125</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="fifoCalcMatrixC_o_02">
+    <contents name="write">
+      <nodeIds>128</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="fifoEdgeListPtr11">
+    <contents name="read">
+      <nodeIds>67</nodeIds>
+      <nodeIds>82</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="fifoEdgeListPtr_calC15">
+    <contents name="write">
+      <nodeIds>68</nodeIds>
+      <nodeIds>83</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="fifoMatrixA13">
+    <contents name="read">
+      <nodeIds>100</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="fifoMatrixAIdx12">
+    <contents name="read">
+      <nodeIds>102</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="fifoMatrixB14">
+    <contents name="nbreadreq">
+      <nodeIds>51</nodeIds>
+    </contents>
+    <contents name="read">
+      <nodeIds>54</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="fifoMatrixCIdx_o_0_0_0_0">
+    <contents name="write">
+      <nodeIds>133</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="fifoMatrixCIdx_o_0_0_0_01">
+    <contents name="write">
+      <nodeIds>136</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="lenEdgeListPtr">
+    <contents name="read">
+      <nodeIds>14</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="lenEdgeListPtr_c">
+    <contents name="write">
+      <nodeIds>16</nodeIds>
+    </contents>
+  </ioPorts>
+  <fsm>
+    <states id="1">
+      <operations id="12" stage="1" latency="1"/>
+      <operations id="13" stage="1" latency="1"/>
+      <operations id="14" stage="1" latency="1"/>
+      <operations id="15" stage="1" latency="1"/>
+      <operations id="16" stage="1" latency="1"/>
+      <operations id="17" stage="1" latency="1"/>
+      <operations id="18" stage="1" latency="1"/>
+      <operations id="19" stage="1" latency="1"/>
+      <operations id="20" stage="1" latency="1"/>
+      <operations id="21" stage="1" latency="1"/>
+      <operations id="22" stage="1" latency="1"/>
+      <operations id="23" stage="1" latency="1"/>
+      <operations id="24" stage="1" latency="1"/>
+      <operations id="25" stage="1" latency="1"/>
+      <operations id="26" stage="1" latency="1"/>
+      <operations id="27" stage="1" latency="1"/>
+      <operations id="28" stage="1" latency="1"/>
+    </states>
+    <states id="2">
+      <operations id="30" stage="1" latency="1"/>
+      <operations id="31" stage="1" latency="1"/>
+      <operations id="32" stage="1" latency="1"/>
+      <operations id="33" stage="1" latency="1"/>
+      <operations id="34" stage="1" latency="1"/>
+      <operations id="36" stage="1" latency="1"/>
+      <operations id="37" stage="1" latency="1"/>
+      <operations id="65" stage="1" latency="1"/>
+      <operations id="66" stage="1" latency="1"/>
+      <operations id="67" stage="1" latency="1"/>
+      <operations id="68" stage="1" latency="1"/>
+      <operations id="69" stage="1" latency="1"/>
+      <operations id="70" stage="1" latency="1"/>
+      <operations id="71" stage="1" latency="1"/>
+      <operations id="72" stage="1" latency="1"/>
+    </states>
+    <states id="3">
+      <operations id="39" stage="1" latency="1"/>
+      <operations id="40" stage="1" latency="1"/>
+      <operations id="41" stage="1" latency="1"/>
+      <operations id="42" stage="1" latency="1"/>
+      <operations id="43" stage="1" latency="1"/>
+      <operations id="44" stage="1" latency="1"/>
+      <operations id="45" stage="1" latency="1"/>
+      <operations id="46" stage="1" latency="1"/>
+      <operations id="47" stage="1" latency="1"/>
+      <operations id="48" stage="1" latency="1"/>
+      <operations id="50" stage="1" latency="1"/>
+      <operations id="51" stage="1" latency="1"/>
+      <operations id="52" stage="1" latency="1"/>
+      <operations id="54" stage="1" latency="1"/>
+      <operations id="55" stage="1" latency="1"/>
+      <operations id="56" stage="1" latency="1"/>
+      <operations id="62" stage="1" latency="1"/>
+      <operations id="63" stage="1" latency="1"/>
+    </states>
+    <states id="4">
+      <operations id="58" stage="1" latency="1"/>
+      <operations id="59" stage="1" latency="1"/>
+      <operations id="60" stage="1" latency="1"/>
+    </states>
+    <states id="5">
+      <operations id="74" stage="1" latency="1"/>
+      <operations id="75" stage="1" latency="1"/>
+      <operations id="76" stage="1" latency="1"/>
+      <operations id="77" stage="1" latency="1"/>
+      <operations id="78" stage="1" latency="1"/>
+      <operations id="79" stage="1" latency="1"/>
+      <operations id="81" stage="1" latency="1"/>
+      <operations id="82" stage="1" latency="1"/>
+      <operations id="83" stage="1" latency="1"/>
+      <operations id="84" stage="1" latency="1"/>
+      <operations id="150" stage="1" latency="1"/>
+    </states>
+    <states id="6">
+      <operations id="86" stage="1" latency="1"/>
+      <operations id="87" stage="1" latency="1"/>
+      <operations id="88" stage="1" latency="1"/>
+      <operations id="90" stage="1" latency="1"/>
+      <operations id="91" stage="1" latency="1"/>
+      <operations id="146" stage="1" latency="1"/>
+      <operations id="147" stage="1" latency="1"/>
+      <operations id="148" stage="1" latency="1"/>
+    </states>
+    <states id="7">
+      <operations id="93" stage="1" latency="1"/>
+      <operations id="94" stage="1" latency="1"/>
+      <operations id="95" stage="1" latency="1"/>
+      <operations id="96" stage="1" latency="1"/>
+      <operations id="97" stage="1" latency="1"/>
+      <operations id="99" stage="1" latency="1"/>
+      <operations id="100" stage="1" latency="1"/>
+      <operations id="101" stage="1" latency="1"/>
+      <operations id="102" stage="1" latency="1"/>
+      <operations id="103" stage="1" latency="1"/>
+      <operations id="104" stage="1" latency="1"/>
+      <operations id="105" stage="1" latency="1"/>
+      <operations id="106" stage="1" latency="1"/>
+      <operations id="143" stage="1" latency="1"/>
+      <operations id="144" stage="1" latency="1"/>
+    </states>
+    <states id="8">
+      <operations id="108" stage="1" latency="1"/>
+      <operations id="109" stage="1" latency="1"/>
+      <operations id="110" stage="1" latency="1"/>
+      <operations id="111" stage="1" latency="1"/>
+      <operations id="112" stage="1" latency="1"/>
+      <operations id="113" stage="1" latency="1"/>
+      <operations id="114" stage="1" latency="1"/>
+      <operations id="115" stage="1" latency="1"/>
+      <operations id="116" stage="1" latency="1"/>
+      <operations id="117" stage="1" latency="1"/>
+      <operations id="120" stage="2" latency="2"/>
+      <operations id="141" stage="1" latency="1"/>
+    </states>
+    <states id="9">
+      <operations id="120" stage="1" latency="2"/>
+    </states>
+    <states id="10">
+      <operations id="121" stage="3" latency="3"/>
+    </states>
+    <states id="11">
+      <operations id="121" stage="2" latency="3"/>
+    </states>
+    <states id="12">
+      <operations id="121" stage="1" latency="3"/>
+    </states>
+    <states id="13">
+      <operations id="119" stage="1" latency="1"/>
+      <operations id="122" stage="1" latency="1"/>
+      <operations id="123" stage="1" latency="1"/>
+      <operations id="125" stage="1" latency="1"/>
+      <operations id="126" stage="1" latency="1"/>
+      <operations id="128" stage="1" latency="1"/>
+      <operations id="129" stage="1" latency="1"/>
+      <operations id="131" stage="1" latency="1"/>
+      <operations id="133" stage="1" latency="1"/>
+      <operations id="134" stage="1" latency="1"/>
+      <operations id="136" stage="1" latency="1"/>
+      <operations id="137" stage="1" latency="1"/>
+      <operations id="139" stage="1" latency="1"/>
+    </states>
+    <transitions inState="1" outState="2">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="2" outState="3">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="3" outState="4">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="4" outState="3">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="3" outState="2">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="2" outState="5">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="5" outState="6">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="6" outState="7">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="7" outState="8">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="8" outState="9">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="9" outState="10">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="10" outState="11">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="11" outState="12">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="12" outState="13">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="13" outState="8">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="8" outState="7">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="7" outState="6">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="6" outState="5">
+      <condition id="-1"/>
+    </transitions>
+  </fsm>
+  <CFGRegionsRoot>
+    <cfgRegions mId="1" mTag="calc_C" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1" mMinLatency="-1" mMaxLatency="-1">
+      <subRegions>2</subRegions>
+      <subRegions>3</subRegions>
+      <subRegions>7</subRegions>
+      <subRegions>8</subRegions>
+      <subRegions>18</subRegions>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="2" mTag="Entry" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1">
+      <basicBlocks>29</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="3" mTag="VITIS_LOOP_66_1" mII="-1" mDepth="-1" mMinTripCount="8" mMaxTripCount="8" mMinLatency="48" mMaxLatency="48" mType="1">
+      <subRegions>4</subRegions>
+      <subRegions>5</subRegions>
+      <subRegions>6</subRegions>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="4" mTag="Region 1" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1">
+      <basicBlocks>35</basicBlocks>
+      <basicBlocks>38</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="5" mTag="VITIS_LOOP_67_2" mII="-1" mDepth="-1" mMinTripCount="2" mMaxTripCount="2" mMinLatency="4" mMaxLatency="4" mType="1">
+      <basicBlocks>49</basicBlocks>
+      <basicBlocks>53</basicBlocks>
+      <basicBlocks>57</basicBlocks>
+      <basicBlocks>61</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="6" mTag="Region 2" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1">
+      <basicBlocks>64</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="7" mTag="Region 3" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1">
+      <basicBlocks>73</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="8" mTag="loop_repeat_iter" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1" mMinLatency="-1" mMaxLatency="-1" mType="1">
+      <subRegions>9</subRegions>
+      <subRegions>10</subRegions>
+      <subRegions>17</subRegions>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="9" mTag="Region 4" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1">
+      <basicBlocks>80</basicBlocks>
+      <basicBlocks>85</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="10" mTag="loop_diff_window" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1" mMinLatency="-1" mMaxLatency="-1" mType="1">
+      <subRegions>11</subRegions>
+      <subRegions>12</subRegions>
+      <subRegions>16</subRegions>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="11" mTag="Region 5" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1">
+      <basicBlocks>89</basicBlocks>
+      <basicBlocks>92</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="12" mTag="loop_diff_pe" mII="-1" mDepth="-1" mMinTripCount="2" mMaxTripCount="2" mMinLatency="28" mMaxLatency="28" mType="1">
+      <subRegions>13</subRegions>
+      <subRegions>14</subRegions>
+      <subRegions>15</subRegions>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="13" mTag="Region 6" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1">
+      <basicBlocks>98</basicBlocks>
+      <basicBlocks>107</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="14" mTag="loop_for_col" mII="-1" mDepth="-1" mMinTripCount="2" mMaxTripCount="2" mMinLatency="12" mMaxLatency="12" mType="1">
+      <basicBlocks>118</basicBlocks>
+      <basicBlocks>124</basicBlocks>
+      <basicBlocks>127</basicBlocks>
+      <basicBlocks>130</basicBlocks>
+      <basicBlocks>132</basicBlocks>
+      <basicBlocks>135</basicBlocks>
+      <basicBlocks>138</basicBlocks>
+      <basicBlocks>140</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="15" mTag="Region 7" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1">
+      <basicBlocks>142</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="16" mTag="Region 8" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1">
+      <basicBlocks>145</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="17" mTag="Region 9" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1">
+      <basicBlocks>149</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="18" mTag="Return" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1">
+      <basicBlocks>151</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+  </CFGRegionsRoot>
+</cdfg:DBCdfg>

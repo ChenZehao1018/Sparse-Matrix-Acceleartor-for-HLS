@@ -1,14 +1,14 @@
 {"sourceFile": [{
       "name": "",
       "directive": [{
-          "functionName": "sort_C",
+          "functionName": "krnl_sparse_matrix_acc",
           "label": "",
           "functionLabel": "",
           "pragma": {
             "name": "TOP",
             "option": [{
                 "name": "name",
-                "value": "sort_C"
+                "value": "krnl_sparse_matrix_acc"
               }]
           }
         }]

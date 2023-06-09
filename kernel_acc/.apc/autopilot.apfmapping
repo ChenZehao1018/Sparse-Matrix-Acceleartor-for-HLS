@@ -5,6 +5,6 @@
     <originFiles name="kernel.cpp" path="D:\ProjectWork\SPARSE_MATRIX_ACC\kernel.cpp"/>
   </source>
   <testbench>
-    <originFiles name="cal_C_test.cpp" path="D:\ProjectWork\SPARSE_MATRIX_ACC\cal_C_test.cpp"/>
+    <originFiles name="kernel_test.cpp" path="D:\ProjectWork\SPARSE_MATRIX_ACC\kernel_test.cpp"/>
   </testbench>
 </autopilotfilemapping:AutoPilotFileMapping>

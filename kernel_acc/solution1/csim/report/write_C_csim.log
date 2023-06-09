@@ -1,0 +1,23 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../write_C_test.cpp in debug mode
+   Compiling ../../../../kernel.cpp in debug mode
+   Generating csim.exe
+matrixC_o: 81
+matrixC_o: 11
+matrixC_o: 126
+matrixC_o: 26
+matrixC_o: 2
+matrixC_o: 2
+matrixC_o: 3
+matrixC_o: 3
+matrixC_o: 4
+matrixC_o: 4
+matrixC_o: 5
+matrixC_o: 5
+matrixC_o: 6
+matrixC_o: 6
+matrixC_o: 159
+matrixC_o: 21
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

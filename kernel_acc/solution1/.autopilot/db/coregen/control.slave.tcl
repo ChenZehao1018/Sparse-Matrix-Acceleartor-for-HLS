@@ -1,0 +1,2 @@
+dict set slaves control {ports {HLSPtr_i {type i_ap_none width 64} matrixA_hls_idx {type i_ap_none width 64} matrixA_i {type i_ap_none width 64} matrixB_i {type i_ap_none width 64} matrixC_o {type i_ap_none width 64} lenEdgeListPtr {type i_ap_none width 32} lenEdgePtr {type i_ap_none width 32} M {type i_ap_none width 32} K {type i_ap_none width 32} N {type i_ap_none width 32} ap_start {type ap_ctrl width 1} ap_done {type ap_ctrl width 1} ap_ready {type ap_ctrl width 1} ap_idle {type ap_ctrl width 1}} mems {} has_ctrl 1}
+set datawidth 32

@@ -2,21 +2,7 @@ INFO: [SIM 2] *************** CSIM start ***************
 INFO: [SIM 4] CSIM will launch GCC as the compiler.
    Compiling ../../../../sort_C_test.cpp in debug mode
    Generating csim.exe
-81
-11
-126
-26
-2
-2
-3
-3
-4
-4
-5
-5
-6
-6
-159
-21
+Output_data[0]: 81, 126, 2, 3, 4, 5, 6, 159, 
+Output_data[1]: 11, 26, 2, 3, 4, 5, 6, 21, 
 INFO: [SIM 1] CSim done with 0 errors.
 INFO: [SIM 3] *************** CSIM finish ***************

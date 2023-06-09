@@ -16,7 +16,7 @@ __SIM_DDS__ = 1
 
 ObjDir = obj
 
-HLS_SOURCES = ../../../../cal_C_test.cpp ../../../../kernel.cpp
+HLS_SOURCES = ../../../../kernel_test.cpp ../../../../kernel.cpp
 
 override TARGET := csim.exe
 
@@ -68,11 +68,11 @@ all: $(TARGET)
 
 
 
-$(ObjDir)/cal_C_test.o: ../../../../cal_C_test.cpp $(ObjDir)/.dir
-	$(Echo) "   Compiling ../../../../cal_C_test.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+$(ObjDir)/kernel_test.o: ../../../../kernel_test.cpp $(ObjDir)/.dir
+	$(Echo) "   Compiling ../../../../kernel_test.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
 	$(Verb)  $(CC) ${CCFLAG} -c -MMD -Wno-unknown-pragmas -Wno-unknown-pragmas  $(IFLAG) $(DFLAG) $< -o $@ ; \
 
--include $(ObjDir)/cal_C_test.d
+-include $(ObjDir)/kernel_test.d
 
 $(ObjDir)/kernel.o: ../../../../kernel.cpp $(ObjDir)/.dir
 	$(Echo) "   Compiling ../../../../kernel.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)

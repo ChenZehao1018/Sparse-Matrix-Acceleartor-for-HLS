@@ -1,0 +1,978 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cdfg:DBCdfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdfg="http://www.autoesl.com/DBCdfg" timeStamp="1686298801919">
+  <ports id="1" name="gmem0" type="PortType" coreId="1953391988" bitwidth="32" iftype="IfTypeFifo">
+    <dataOutputObjs>call</dataOutputObjs>
+  </ports>
+  <ports id="2" name="gmem1" type="PortType" coreId="149" bitwidth="32" iftype="IfTypeFifo">
+    <dataOutputObjs>call</dataOutputObjs>
+  </ports>
+  <ports id="3" name="gmem2" type="PortType" coreId="544826222" bitwidth="32" iftype="IfTypeFifo">
+    <dataOutputObjs>call</dataOutputObjs>
+  </ports>
+  <ports id="4" name="gmem3" type="PortType" coreId="3315004656" bitwidth="32" iftype="IfTypeFifo">
+    <dataOutputObjs>call</dataOutputObjs>
+  </ports>
+  <ports id="5" name="gmem4" type="PortType" coreId="1953391988" bitwidth="32" direction="DirOut" iftype="IfTypeFifo">
+    <dataInputObjs>call</dataInputObjs>
+  </ports>
+  <ports id="6" name="HLSPtr_i" type="PortType" originalName="HLSPtr_i" coreId="0" bitwidth="64">
+    <dataOutputObjs>read</dataOutputObjs>
+  </ports>
+  <ports id="7" name="matrixA_hls_idx" type="PortType" originalName="matrixA_hls_idx" coreId="1953264973" bitwidth="64">
+    <dataOutputObjs>read</dataOutputObjs>
+  </ports>
+  <ports id="8" name="matrixA_i" type="PortType" originalName="matrixA_i" coreId="1953391988" bitwidth="64">
+    <dataOutputObjs>read</dataOutputObjs>
+  </ports>
+  <ports id="9" name="matrixB_i" type="PortType" originalName="matrixB_i" coreId="1935762015" bitwidth="64">
+    <dataOutputObjs>read</dataOutputObjs>
+  </ports>
+  <ports id="10" name="matrixC_o" type="PortType" originalName="matrixC_o" coreId="640688172" bitwidth="64">
+    <dataOutputObjs>read</dataOutputObjs>
+  </ports>
+  <ports id="11" name="lenEdgeListPtr" type="PortType" originalName="lenEdgeListPtr" coreId="1902080097" bitwidth="32">
+    <dataOutputObjs>read</dataOutputObjs>
+  </ports>
+  <ports id="12" name="lenEdgePtr" type="PortType" originalName="lenEdgePtr" coreId="745824623" bitwidth="32">
+    <dataOutputObjs>read</dataOutputObjs>
+  </ports>
+  <ports id="13" name="M" type="PortType" originalName="M" coreId="1952542572" bitwidth="32">
+    <dataOutputObjs>read</dataOutputObjs>
+  </ports>
+  <ports id="14" name="K" type="PortType" originalName="K" coreId="544041330" bitwidth="32">
+    <dataOutputObjs>read</dataOutputObjs>
+  </ports>
+  <ports id="15" name="N" type="PortType" originalName="N" coreId="1834971487" bitwidth="32">
+    <dataOutputObjs>read</dataOutputObjs>
+  </ports>
+  <edges id="119" source_obj="//@ports.14" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.0"/>
+  <edges id="121" source_obj="//@ports.13" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.1"/>
+  <edges id="123" source_obj="//@ports.12" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.2"/>
+  <edges id="125" source_obj="//@ports.11" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.3"/>
+  <edges id="127" source_obj="//@ports.10" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.4"/>
+  <edges id="130" source_obj="//@ports.9" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.5"/>
+  <edges id="132" source_obj="//@ports.8" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.6"/>
+  <edges id="134" source_obj="//@ports.7" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.7"/>
+  <edges id="136" source_obj="//@ports.6" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.8"/>
+  <edges id="138" source_obj="//@ports.5" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.9"/>
+  <edges id="156" source_obj="//@regions.0/@basic_blocks.0/@node_objs.5" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.24"/>
+  <edges id="157" source_obj="//@regions.0/@basic_blocks.0/@node_objs.2" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.24"/>
+  <edges id="158" source_obj="//@regions.0/@basic_blocks.0/@node_objs.24" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.25"/>
+  <edges id="159" source_obj="//@regions.0/@basic_blocks.0/@node_objs.24" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.26"/>
+  <edges id="162" source_obj="//@regions.0/@basic_blocks.0/@node_objs.4" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.27"/>
+  <edges id="163" source_obj="//@ports.0" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.27"/>
+  <edges id="164" source_obj="//@regions.0/@basic_blocks.0/@node_objs.9" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.27"/>
+  <edges id="165" source_obj="//@regions.0/@basic_blocks.0/@node_objs.13" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.27"/>
+  <edges id="166" source_obj="//@regions.0/@basic_blocks.0/@node_objs.11" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.27"/>
+  <edges id="169" source_obj="//@regions.0/@basic_blocks.0/@node_objs.3" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.28"/>
+  <edges id="170" source_obj="//@ports.1" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.28"/>
+  <edges id="171" source_obj="//@regions.0/@basic_blocks.0/@node_objs.8" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.28"/>
+  <edges id="172" source_obj="//@ports.2" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.28"/>
+  <edges id="173" source_obj="//@regions.0/@basic_blocks.0/@node_objs.7" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.28"/>
+  <edges id="174" source_obj="//@regions.0/@basic_blocks.0/@node_objs.14" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.28"/>
+  <edges id="175" source_obj="//@regions.0/@basic_blocks.0/@node_objs.15" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.28"/>
+  <edges id="178" source_obj="//@regions.0/@basic_blocks.0/@node_objs.1" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.29"/>
+  <edges id="179" source_obj="//@regions.0/@basic_blocks.0/@node_objs.0" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.29"/>
+  <edges id="180" source_obj="//@ports.3" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.29"/>
+  <edges id="181" source_obj="//@regions.0/@basic_blocks.0/@node_objs.6" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.29"/>
+  <edges id="182" source_obj="//@regions.0/@basic_blocks.0/@node_objs.16" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.29"/>
+  <edges id="183" source_obj="//@regions.0/@basic_blocks.0/@node_objs.10" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.29"/>
+  <edges id="186" source_obj="//@regions.0/@basic_blocks.0/@node_objs.11" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.30"/>
+  <edges id="187" source_obj="//@regions.0/@basic_blocks.0/@node_objs.13" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.30"/>
+  <edges id="188" source_obj="//@regions.0/@basic_blocks.0/@node_objs.14" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.30"/>
+  <edges id="189" source_obj="//@regions.0/@basic_blocks.0/@node_objs.15" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.30"/>
+  <edges id="190" source_obj="//@regions.0/@basic_blocks.0/@node_objs.16" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.30"/>
+  <edges id="191" source_obj="//@regions.0/@basic_blocks.0/@node_objs.17" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.30"/>
+  <edges id="192" source_obj="//@regions.0/@basic_blocks.0/@node_objs.18" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.30"/>
+  <edges id="193" source_obj="//@regions.0/@basic_blocks.0/@node_objs.19" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.30"/>
+  <edges id="194" source_obj="//@regions.0/@basic_blocks.0/@node_objs.20" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.30"/>
+  <edges id="195" source_obj="//@regions.0/@basic_blocks.0/@node_objs.21" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.30"/>
+  <edges id="196" source_obj="//@regions.0/@basic_blocks.0/@node_objs.12" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.30"/>
+  <edges id="199" source_obj="//@regions.0/@basic_blocks.0/@node_objs.12" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.31"/>
+  <edges id="200" source_obj="//@regions.0/@basic_blocks.0/@node_objs.17" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.31"/>
+  <edges id="201" source_obj="//@regions.0/@basic_blocks.0/@node_objs.18" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.31"/>
+  <edges id="202" source_obj="//@regions.0/@basic_blocks.0/@node_objs.19" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.31"/>
+  <edges id="203" source_obj="//@regions.0/@basic_blocks.0/@node_objs.20" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.31"/>
+  <edges id="204" source_obj="//@regions.0/@basic_blocks.0/@node_objs.21" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.31"/>
+  <edges id="205" source_obj="//@regions.0/@basic_blocks.0/@node_objs.22" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.31"/>
+  <edges id="206" source_obj="//@regions.0/@basic_blocks.0/@node_objs.23" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.31"/>
+  <edges id="209" source_obj="//@regions.0/@basic_blocks.0/@node_objs.26" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.32"/>
+  <edges id="210" source_obj="//@regions.0/@basic_blocks.0/@node_objs.10" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.32"/>
+  <edges id="211" source_obj="//@regions.0/@basic_blocks.0/@node_objs.22" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.32"/>
+  <edges id="212" source_obj="//@regions.0/@basic_blocks.0/@node_objs.23" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.32"/>
+  <edges id="213" source_obj="//@regions.0/@basic_blocks.0/@node_objs.32" sink_obj="//@ports.4"/>
+  <edges id="214" source_obj="//@regions.0/@basic_blocks.0/@node_objs.25" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.32"/>
+  <edges id="1099" edge_type="VirtEdge" source_obj="//@regions.0/@basic_blocks.0/@node_objs.31" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.32"/>
+  <edges id="1100" edge_type="VirtEdge" source_obj="//@regions.0/@basic_blocks.0/@node_objs.30" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.31"/>
+  <edges id="1101" edge_type="VirtEdge" source_obj="//@regions.0/@basic_blocks.0/@node_objs.29" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.30"/>
+  <edges id="1102" edge_type="VirtEdge" source_obj="//@regions.0/@basic_blocks.0/@node_objs.28" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.30"/>
+  <edges id="1103" edge_type="VirtEdge" source_obj="//@regions.0/@basic_blocks.0/@node_objs.27" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.30"/>
+  <regions anchor_node="-1" region_type="16" typeName="Dataflow" iiViolation="" id="408" RegionName="krnl_sparse_matrix_acc">
+    <basic_blocks id="116" name="krnl_sparse_matrix_acc" type="BlockType">
+      <node_objs xsi:type="cdfg:CdfgNode" id="16" name="N_read" originalName="N" coreName="s_axilite" implIndex="UNSUPPORTED" control="no" coreId="122" bitwidth="32" opcode="read" m_display="0" m_delay="1.0" m_topoIndex="1" m_clusterGroupNumber="-1">
+        <dataInputObjs>N</dataInputObjs>
+        <dataOutputObjs>call</dataOutputObjs>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="17" name="K_read" originalName="K" coreName="s_axilite" implIndex="UNSUPPORTED" control="no" coreId="122" bitwidth="32" opcode="read" m_display="0" m_delay="1.0" m_topoIndex="2" m_clusterGroupNumber="-1">
+        <dataInputObjs>K</dataInputObjs>
+        <dataOutputObjs>call</dataOutputObjs>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="18" name="M_read" originalName="M" coreName="s_axilite" implIndex="UNSUPPORTED" control="no" coreId="122" bitwidth="32" opcode="read" m_display="0" m_delay="1.0" m_topoIndex="3" m_clusterGroupNumber="-1">
+        <dataInputObjs>M</dataInputObjs>
+        <dataOutputObjs>call</dataOutputObjs>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="19" name="lenEdgePtr_read" originalName="lenEdgePtr" coreName="s_axilite" implIndex="UNSUPPORTED" control="no" coreId="122" bitwidth="32" opcode="read" m_display="0" m_delay="1.0" m_topoIndex="4" m_clusterGroupNumber="-1">
+        <dataInputObjs>lenEdgePtr</dataInputObjs>
+        <dataOutputObjs>call</dataOutputObjs>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="20" name="lenEdgeListPtr_read" originalName="lenEdgeListPtr" coreName="s_axilite" implIndex="UNSUPPORTED" control="no" coreId="122" bitwidth="32" opcode="read" m_display="0" m_delay="1.0" m_topoIndex="5" m_clusterGroupNumber="-1">
+        <dataInputObjs>lenEdgeListPtr</dataInputObjs>
+        <dataOutputObjs>call</dataOutputObjs>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="21" name="matrixC_o_read" originalName="matrixC_o" coreName="s_axilite" implIndex="UNSUPPORTED" control="no" coreId="122" bitwidth="64" opcode="read" m_display="0" m_delay="1.0" m_topoIndex="6" m_clusterGroupNumber="-1">
+        <dataInputObjs>matrixC_o</dataInputObjs>
+        <dataOutputObjs>call</dataOutputObjs>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="22" name="matrixB_i_read" originalName="matrixB_i" coreName="s_axilite" implIndex="UNSUPPORTED" control="no" coreId="122" bitwidth="64" opcode="read" m_display="0" m_delay="1.0" m_topoIndex="7" m_clusterGroupNumber="-1">
+        <dataInputObjs>matrixB_i</dataInputObjs>
+        <dataOutputObjs>call</dataOutputObjs>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="23" name="matrixA_i_read" originalName="matrixA_i" coreName="s_axilite" implIndex="UNSUPPORTED" control="no" coreId="122" bitwidth="64" opcode="read" m_display="0" m_delay="1.0" m_topoIndex="8" m_clusterGroupNumber="-1">
+        <dataInputObjs>matrixA_i</dataInputObjs>
+        <dataOutputObjs>call</dataOutputObjs>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="24" name="matrixA_hls_idx_read" originalName="matrixA_hls_idx" coreName="s_axilite" implIndex="UNSUPPORTED" control="no" coreId="122" bitwidth="64" opcode="read" m_display="0" m_delay="1.0" m_topoIndex="9" m_clusterGroupNumber="-1">
+        <dataInputObjs>matrixA_hls_idx</dataInputObjs>
+        <dataOutputObjs>call</dataOutputObjs>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="25" name="HLSPtr_i_read" originalName="HLSPtr_i" coreName="s_axilite" implIndex="UNSUPPORTED" control="no" coreId="122" bitwidth="64" opcode="read" m_display="0" m_delay="1.0" m_topoIndex="10" m_clusterGroupNumber="-1">
+        <dataInputObjs>HLSPtr_i</dataInputObjs>
+        <dataOutputObjs>call</dataOutputObjs>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="26" name="N_c" rtlName="N_c_U" coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" bitwidth="32" opcode="alloca" m_display="0" m_topoIndex="11" m_clusterGroupNumber="-1">
+        <dataOutputObjs>call</dataOutputObjs>
+        <dataOutputObjs>call</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="29" name="lenEdgeListPtr_c27" rtlName="lenEdgeListPtr_c27_U" coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" bitwidth="32" opcode="alloca" m_display="0" m_topoIndex="12" m_clusterGroupNumber="-1">
+        <dataOutputObjs>call</dataOutputObjs>
+        <dataOutputObjs>call</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="32" name="lenEdgeListPtr_c" rtlName="lenEdgeListPtr_c_U" coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" bitwidth="32" opcode="alloca" m_display="0" m_topoIndex="13" m_clusterGroupNumber="-1">
+        <dataOutputObjs>call</dataOutputObjs>
+        <dataOutputObjs>call</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="73" name="fifoEdgeListPtr" lineNumber="220" originalName="fifoEdgeListPtr" fileName="kernel.cpp" fileDirectory=".." rtlName="fifoEdgeListPtr_U" coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" contextFuncName="krnl_sparse_matrix_acc" bitwidth="32" opcode="alloca" m_display="0" m_topoIndex="14" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="kernel.cpp" linenumber="220" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="krnl_sparse_matrix_acc"/>
+        <dataOutputObjs>call</dataOutputObjs>
+        <dataOutputObjs>call</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="76" name="fifoMatrixAIdx" lineNumber="222" originalName="fifoMatrixAIdx" fileName="kernel.cpp" fileDirectory=".." rtlName="fifoMatrixAIdx_U" coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" contextFuncName="krnl_sparse_matrix_acc" bitwidth="32" opcode="alloca" m_display="0" m_topoIndex="15" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="kernel.cpp" linenumber="222" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="krnl_sparse_matrix_acc"/>
+        <dataOutputObjs>call</dataOutputObjs>
+        <dataOutputObjs>call</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="79" name="fifoMatrixA" lineNumber="224" originalName="fifoMatrixA" fileName="kernel.cpp" fileDirectory=".." rtlName="fifoMatrixA_U" coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" contextFuncName="krnl_sparse_matrix_acc" bitwidth="32" opcode="alloca" m_display="0" m_topoIndex="16" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="kernel.cpp" linenumber="224" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="krnl_sparse_matrix_acc"/>
+        <dataOutputObjs>call</dataOutputObjs>
+        <dataOutputObjs>call</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="82" name="fifoMatrixB" lineNumber="226" originalName="fifoMatrixB" fileName="kernel.cpp" fileDirectory=".." rtlName="fifoMatrixB_U" coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" contextFuncName="krnl_sparse_matrix_acc" bitwidth="32" opcode="alloca" m_display="0" m_topoIndex="17" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="kernel.cpp" linenumber="226" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="krnl_sparse_matrix_acc"/>
+        <dataOutputObjs>call</dataOutputObjs>
+        <dataOutputObjs>call</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="85" name="fifoEdgeListPtr_calC" lineNumber="228" originalName="fifoEdgeListPtr_calC" fileName="kernel.cpp" fileDirectory=".." rtlName="fifoEdgeListPtr_calC_U" coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" contextFuncName="krnl_sparse_matrix_acc" bitwidth="32" opcode="alloca" m_display="0" m_topoIndex="18" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="kernel.cpp" linenumber="228" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="krnl_sparse_matrix_acc"/>
+        <dataOutputObjs>call</dataOutputObjs>
+        <dataOutputObjs>call</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="88" name="fifoMatrixCIdxArray_V_V_0" rtlName="fifoMatrixCIdxArray_V_V_0_U" coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" bitwidth="16" opcode="alloca" m_display="0" m_topoIndex="19" m_clusterGroupNumber="-1">
+        <dataOutputObjs>call</dataOutputObjs>
+        <dataOutputObjs>call</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="91" name="fifoMatrixCIdxArray_V_V_1" rtlName="fifoMatrixCIdxArray_V_V_1_U" coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" bitwidth="16" opcode="alloca" m_display="0" m_topoIndex="20" m_clusterGroupNumber="-1">
+        <dataOutputObjs>call</dataOutputObjs>
+        <dataOutputObjs>call</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="94" name="fifoCalcMatrixCArray_V_0" rtlName="fifoCalcMatrixCArray_V_0_U" coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" bitwidth="32" opcode="alloca" m_display="0" m_topoIndex="21" m_clusterGroupNumber="-1">
+        <dataOutputObjs>call</dataOutputObjs>
+        <dataOutputObjs>call</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="97" name="fifoCalcMatrixCArray_V_1" rtlName="fifoCalcMatrixCArray_V_1_U" coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" bitwidth="32" opcode="alloca" m_display="0" m_topoIndex="22" m_clusterGroupNumber="-1">
+        <dataOutputObjs>call</dataOutputObjs>
+        <dataOutputObjs>call</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="100" name="fifoSortMatrixCArray_V_0" rtlName="fifoSortMatrixCArray_V_0_U" coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" bitwidth="32" opcode="alloca" m_display="0" m_topoIndex="23" m_clusterGroupNumber="-1">
+        <dataOutputObjs>call</dataOutputObjs>
+        <dataOutputObjs>call</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="103" name="fifoSortMatrixCArray_V_1" rtlName="fifoSortMatrixCArray_V_1_U" coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" bitwidth="32" opcode="alloca" m_display="0" m_topoIndex="24" m_clusterGroupNumber="-1">
+        <dataOutputObjs>call</dataOutputObjs>
+        <dataOutputObjs>call</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="106" name="call_ret" rtlName="entry_proc_U0" coreId="1313415741" bitwidth="96" opcode="call" nodeLabel="7.0" m_display="0" m_topoIndex="30" m_clusterGroupNumber="-1">
+        <dataInputObjs>read</dataInputObjs>
+        <dataInputObjs>read</dataInputObjs>
+        <dataOutputObjs>extractvalue</dataOutputObjs>
+        <dataOutputObjs>extractvalue</dataOutputObjs>
+        <constName>entry_proc</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="107" name="matrixC_o_c_channel" rtlName="matrixC_o_c_channel_U" coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" bitwidth="64" opcode="extractvalue" nodeLabel="7.0" m_display="0" m_topoIndex="31" m_clusterGroupNumber="-1">
+        <dataInputObjs>call</dataInputObjs>
+        <dataOutputObjs>call</dataOutputObjs>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="108" name="M_c_channel" rtlName="M_c_channel_U" coreName="FIFO_SRL" implIndex="srl" control="no" opType="fifo" coreId="81" bitwidth="32" opcode="extractvalue" nodeLabel="7.0" m_display="0" m_topoIndex="32" m_clusterGroupNumber="-1">
+        <dataInputObjs>call</dataInputObjs>
+        <dataOutputObjs>call</dataOutputObjs>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="109" name="_ln239" lineNumber="239" fileName="kernel.cpp" fileDirectory=".." rtlName="read_edge_list_ptr_U0" coreId="997485606" contextFuncName="krnl_sparse_matrix_acc" opcode="call" nodeLabel="1.0" nodeLatency="1" m_display="0" m_delay="7.3" m_topoIndex="25" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="kernel.cpp" linenumber="239" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="krnl_sparse_matrix_acc"/>
+        <dataInputObjs>read</dataInputObjs>
+        <dataInputObjs>gmem0</dataInputObjs>
+        <dataInputObjs>read</dataInputObjs>
+        <dataInputObjs>alloca</dataInputObjs>
+        <dataInputObjs>alloca</dataInputObjs>
+        <constName>read_edge_list_ptr</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="110" name="_ln240" lineNumber="240" fileName="kernel.cpp" fileDirectory=".." rtlName="read_A_U0" coreId="1702043749" contextFuncName="krnl_sparse_matrix_acc" opcode="call" nodeLabel="1.0" nodeLatency="1" m_display="0" m_delay="7.3" m_topoIndex="26" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="kernel.cpp" linenumber="240" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="krnl_sparse_matrix_acc"/>
+        <dataInputObjs>read</dataInputObjs>
+        <dataInputObjs>gmem1</dataInputObjs>
+        <dataInputObjs>read</dataInputObjs>
+        <dataInputObjs>gmem2</dataInputObjs>
+        <dataInputObjs>read</dataInputObjs>
+        <dataInputObjs>alloca</dataInputObjs>
+        <dataInputObjs>alloca</dataInputObjs>
+        <constName>read_A</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="111" name="_ln241" lineNumber="241" fileName="kernel.cpp" fileDirectory=".." rtlName="read_B_U0" coreId="1952917040" contextFuncName="krnl_sparse_matrix_acc" opcode="call" nodeLabel="1.0" nodeLatency="1" m_display="0" m_delay="7.3" m_topoIndex="27" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="kernel.cpp" linenumber="241" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="krnl_sparse_matrix_acc"/>
+        <dataInputObjs>read</dataInputObjs>
+        <dataInputObjs>read</dataInputObjs>
+        <dataInputObjs>gmem3</dataInputObjs>
+        <dataInputObjs>read</dataInputObjs>
+        <dataInputObjs>alloca</dataInputObjs>
+        <dataInputObjs>alloca</dataInputObjs>
+        <constName>read_B</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="112" name="_ln242" lineNumber="242" fileName="kernel.cpp" fileDirectory=".." rtlName="calc_C_U0" coreId="1852403305" contextFuncName="krnl_sparse_matrix_acc" opcode="call" nodeLabel="3.0" nodeLatency="1" m_display="0" m_topoIndex="28" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="kernel.cpp" linenumber="242" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="krnl_sparse_matrix_acc"/>
+        <dataInputObjs>alloca</dataInputObjs>
+        <dataInputObjs>alloca</dataInputObjs>
+        <dataInputObjs>alloca</dataInputObjs>
+        <dataInputObjs>alloca</dataInputObjs>
+        <dataInputObjs>alloca</dataInputObjs>
+        <dataInputObjs>alloca</dataInputObjs>
+        <dataInputObjs>alloca</dataInputObjs>
+        <dataInputObjs>alloca</dataInputObjs>
+        <dataInputObjs>alloca</dataInputObjs>
+        <dataInputObjs>alloca</dataInputObjs>
+        <dataInputObjs>alloca</dataInputObjs>
+        <constName>calc_C</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="113" name="_ln243" lineNumber="243" fileName="kernel.cpp" fileDirectory=".." rtlName="sort_C_U0" coreId="542329928" contextFuncName="krnl_sparse_matrix_acc" opcode="call" nodeLabel="5.0" nodeLatency="1" m_display="0" m_topoIndex="29" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="kernel.cpp" linenumber="243" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="krnl_sparse_matrix_acc"/>
+        <dataInputObjs>alloca</dataInputObjs>
+        <dataInputObjs>alloca</dataInputObjs>
+        <dataInputObjs>alloca</dataInputObjs>
+        <dataInputObjs>alloca</dataInputObjs>
+        <dataInputObjs>alloca</dataInputObjs>
+        <dataInputObjs>alloca</dataInputObjs>
+        <dataInputObjs>alloca</dataInputObjs>
+        <dataInputObjs>alloca</dataInputObjs>
+        <constName>sort_C</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="114" name="_ln244" lineNumber="244" fileName="kernel.cpp" fileDirectory=".." rtlName="write_C_U0" coreId="1445951598" contextFuncName="krnl_sparse_matrix_acc" opcode="call" nodeLabel="7.0" nodeLatency="1" m_display="0" m_topoIndex="33" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="kernel.cpp" linenumber="244" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="krnl_sparse_matrix_acc"/>
+        <dataInputObjs>extractvalue</dataInputObjs>
+        <dataInputObjs>alloca</dataInputObjs>
+        <dataInputObjs>alloca</dataInputObjs>
+        <dataInputObjs>alloca</dataInputObjs>
+        <dataInputObjs>extractvalue</dataInputObjs>
+        <dataOutputObjs>gmem4</dataOutputObjs>
+        <constName>write_C</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="115" name="_ln245" lineNumber="245" fileName="kernel.cpp" fileDirectory=".." coreId="1952917040" contextFuncName="krnl_sparse_matrix_acc" opcode="ret" nodeLabel="8.0" m_display="0" m_topoIndex="34" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="kernel.cpp" linenumber="245" fileDirectory="D:\ProjectWork\SPARSE_MATRIX_ACC" functionName="krnl_sparse_matrix_acc"/>
+      </node_objs>
+      <fileValidLineNumbers fileName="kernel.cpp">
+        <validLinenumbers>220</validLinenumbers>
+        <validLinenumbers>222</validLinenumbers>
+        <validLinenumbers>224</validLinenumbers>
+        <validLinenumbers>226</validLinenumbers>
+        <validLinenumbers>228</validLinenumbers>
+        <validLinenumbers>239</validLinenumbers>
+        <validLinenumbers>240</validLinenumbers>
+        <validLinenumbers>241</validLinenumbers>
+        <validLinenumbers>242</validLinenumbers>
+        <validLinenumbers>243</validLinenumbers>
+        <validLinenumbers>244</validLinenumbers>
+        <validLinenumbers>245</validLinenumbers>
+      </fileValidLineNumbers>
+    </basic_blocks>
+  </regions>
+  <ScheduleInfo time="0"/>
+  <ScheduleInfo time="1"/>
+  <ScheduleInfo time="2"/>
+  <ScheduleInfo time="3"/>
+  <ScheduleInfo time="4"/>
+  <ScheduleInfo time="5"/>
+  <ScheduleInfo time="6"/>
+  <ScheduleInfo time="7"/>
+  <ScheduleInfo time="8"/>
+  <regnodes realName="matrixA_hls_idx_read_reg_398">
+    <nodeIds>24</nodeIds>
+  </regnodes>
+  <regnodes realName="matrixA_i_read_reg_393">
+    <nodeIds>23</nodeIds>
+  </regnodes>
+  <regnodes realName="matrixB_i_read_reg_388">
+    <nodeIds>22</nodeIds>
+  </regnodes>
+  <regnodes realName="N_read_reg_358">
+    <nodeIds>16</nodeIds>
+  </regnodes>
+  <regnodes realName="fifoEdgeListPtr_calC_reg_450">
+    <nodeIds>85</nodeIds>
+  </regnodes>
+  <regnodes realName="fifoSortMatrixCArray_V_1_reg_486">
+    <nodeIds>103</nodeIds>
+  </regnodes>
+  <regnodes realName="M_read_reg_368">
+    <nodeIds>18</nodeIds>
+  </regnodes>
+  <regnodes realName="K_read_reg_363">
+    <nodeIds>17</nodeIds>
+  </regnodes>
+  <regnodes realName="M_c_channel_reg_497">
+    <nodeIds>108</nodeIds>
+  </regnodes>
+  <regnodes realName="HLSPtr_i_read_reg_403">
+    <nodeIds>25</nodeIds>
+  </regnodes>
+  <regnodes realName="fifoMatrixCIdxArray_V_V_0_reg_456">
+    <nodeIds>88</nodeIds>
+  </regnodes>
+  <regnodes realName="lenEdgeListPtr_c_reg_420">
+    <nodeIds>32</nodeIds>
+  </regnodes>
+  <regnodes realName="fifoCalcMatrixCArray_V_1_reg_474">
+    <nodeIds>97</nodeIds>
+  </regnodes>
+  <regnodes realName="lenEdgeListPtr_c27_reg_414">
+    <nodeIds>29</nodeIds>
+  </regnodes>
+  <regnodes realName="lenEdgePtr_read_reg_373">
+    <nodeIds>19</nodeIds>
+  </regnodes>
+  <regnodes realName="lenEdgeListPtr_read_reg_378">
+    <nodeIds>20</nodeIds>
+  </regnodes>
+  <regnodes realName="fifoEdgeListPtr_reg_426">
+    <nodeIds>73</nodeIds>
+  </regnodes>
+  <regnodes realName="N_c_reg_408">
+    <nodeIds>26</nodeIds>
+  </regnodes>
+  <regnodes realName="fifoMatrixA_reg_438">
+    <nodeIds>79</nodeIds>
+  </regnodes>
+  <regnodes realName="matrixC_o_c_channel_reg_492">
+    <nodeIds>107</nodeIds>
+  </regnodes>
+  <regnodes realName="fifoMatrixB_reg_444">
+    <nodeIds>82</nodeIds>
+  </regnodes>
+  <regnodes realName="fifoMatrixCIdxArray_V_V_1_reg_462">
+    <nodeIds>91</nodeIds>
+  </regnodes>
+  <regnodes realName="fifoSortMatrixCArray_V_0_reg_480">
+    <nodeIds>100</nodeIds>
+  </regnodes>
+  <regnodes realName="matrixC_o_read_reg_383">
+    <nodeIds>21</nodeIds>
+  </regnodes>
+  <regnodes realName="fifoMatrixAIdx_reg_432">
+    <nodeIds>76</nodeIds>
+  </regnodes>
+  <regnodes realName="fifoCalcMatrixCArray_V_0_reg_468">
+    <nodeIds>94</nodeIds>
+  </regnodes>
+  <expressionNodes realName="fifoSortMatrixCArray_V_1_fu_206">
+    <nodeIds>103</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="fifoSortMatrixCArray_V_0_fu_202">
+    <nodeIds>100</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="fifoEdgeListPtr_fu_166">
+    <nodeIds>73</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="matrixC_o_c_channel_fu_348">
+    <nodeIds>107</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="fifoMatrixA_fu_174">
+    <nodeIds>79</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="fifoMatrixCIdxArray_V_V_0_fu_186">
+    <nodeIds>88</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="M_c_channel_fu_353">
+    <nodeIds>108</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="fifoMatrixB_fu_178">
+    <nodeIds>82</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="lenEdgeListPtr_c27_fu_158">
+    <nodeIds>29</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="N_c_fu_154">
+    <nodeIds>26</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="fifoCalcMatrixCArray_V_1_fu_198">
+    <nodeIds>97</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="fifoMatrixAIdx_fu_170">
+    <nodeIds>76</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="lenEdgeListPtr_c_fu_162">
+    <nodeIds>32</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="fifoCalcMatrixCArray_V_0_fu_194">
+    <nodeIds>94</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="fifoEdgeListPtr_calC_fu_182">
+    <nodeIds>85</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="fifoMatrixCIdxArray_V_V_1_fu_190">
+    <nodeIds>91</nodeIds>
+  </expressionNodes>
+  <moduleNodes realName="grp_write_C_fu_337">
+    <nodeIds>114</nodeIds>
+  </moduleNodes>
+  <moduleNodes realName="grp_read_edge_list_ptr_fu_270">
+    <nodeIds>109</nodeIds>
+  </moduleNodes>
+  <moduleNodes realName="grp_calc_C_fu_304">
+    <nodeIds>112</nodeIds>
+  </moduleNodes>
+  <moduleNodes realName="grp_read_B_fu_293">
+    <nodeIds>111</nodeIds>
+  </moduleNodes>
+  <moduleNodes realName="grp_sort_C_fu_319">
+    <nodeIds>113</nodeIds>
+  </moduleNodes>
+  <moduleNodes realName="grp_read_A_fu_280">
+    <nodeIds>110</nodeIds>
+  </moduleNodes>
+  <moduleNodes realName="call_ret_entry_proc_fu_331">
+    <nodeIds>106</nodeIds>
+  </moduleNodes>
+  <ioNodes realName="M_read_read_fu_222">
+    <nodeIds>18</nodeIds>
+  </ioNodes>
+  <ioNodes realName="matrixB_i_read_read_fu_246">
+    <nodeIds>22</nodeIds>
+  </ioNodes>
+  <ioNodes realName="matrixA_i_read_read_fu_252">
+    <nodeIds>23</nodeIds>
+  </ioNodes>
+  <ioNodes realName="N_read_read_fu_210">
+    <nodeIds>16</nodeIds>
+  </ioNodes>
+  <ioNodes realName="matrixA_hls_idx_read_read_fu_258">
+    <nodeIds>24</nodeIds>
+  </ioNodes>
+  <ioNodes realName="HLSPtr_i_read_read_fu_264">
+    <nodeIds>25</nodeIds>
+  </ioNodes>
+  <ioNodes realName="K_read_read_fu_216">
+    <nodeIds>17</nodeIds>
+  </ioNodes>
+  <ioNodes realName="matrixC_o_read_read_fu_240">
+    <nodeIds>21</nodeIds>
+  </ioNodes>
+  <ioNodes realName="lenEdgeListPtr_read_read_fu_234">
+    <nodeIds>20</nodeIds>
+  </ioNodes>
+  <ioNodes realName="lenEdgePtr_read_read_fu_228">
+    <nodeIds>19</nodeIds>
+  </ioNodes>
+  <ioPorts name="HLSPtr_i">
+    <contents name="read">
+      <nodeIds>25</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="K">
+    <contents name="read">
+      <nodeIds>17</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="M">
+    <contents name="read">
+      <nodeIds>18</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="N">
+    <contents name="read">
+      <nodeIds>16</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="gmem0">
+    <contents name="call">
+      <nodeIds>109</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="gmem1">
+    <contents name="call">
+      <nodeIds>110</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="gmem2">
+    <contents name="call">
+      <nodeIds>110</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="gmem3">
+    <contents name="call">
+      <nodeIds>111</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="gmem4">
+    <contents name="call">
+      <nodeIds>114</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="lenEdgeListPtr">
+    <contents name="read">
+      <nodeIds>20</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="lenEdgePtr">
+    <contents name="read">
+      <nodeIds>19</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="matrixA_hls_idx">
+    <contents name="read">
+      <nodeIds>24</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="matrixA_i">
+    <contents name="read">
+      <nodeIds>23</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="matrixB_i">
+    <contents name="read">
+      <nodeIds>22</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="matrixC_o">
+    <contents name="read">
+      <nodeIds>21</nodeIds>
+    </contents>
+  </ioPorts>
+  <fsm>
+    <states id="1">
+      <operations id="16" stage="1" latency="1"/>
+      <operations id="17" stage="1" latency="1"/>
+      <operations id="18" stage="1" latency="1"/>
+      <operations id="19" stage="1" latency="1"/>
+      <operations id="20" stage="1" latency="1"/>
+      <operations id="21" stage="1" latency="1"/>
+      <operations id="22" stage="1" latency="1"/>
+      <operations id="23" stage="1" latency="1"/>
+      <operations id="24" stage="1" latency="1"/>
+      <operations id="25" stage="1" latency="1"/>
+      <operations id="26" stage="1" latency="1"/>
+      <operations id="29" stage="1" latency="1"/>
+      <operations id="32" stage="1" latency="1"/>
+      <operations id="73" stage="1" latency="1"/>
+      <operations id="76" stage="1" latency="1"/>
+      <operations id="79" stage="1" latency="1"/>
+      <operations id="82" stage="1" latency="1"/>
+      <operations id="85" stage="1" latency="1"/>
+      <operations id="88" stage="1" latency="1"/>
+      <operations id="91" stage="1" latency="1"/>
+      <operations id="94" stage="1" latency="1"/>
+      <operations id="97" stage="1" latency="1"/>
+      <operations id="100" stage="1" latency="1"/>
+      <operations id="103" stage="1" latency="1"/>
+    </states>
+    <states id="2">
+      <operations id="109" stage="2" latency="2"/>
+      <operations id="110" stage="2" latency="2"/>
+      <operations id="111" stage="2" latency="2"/>
+    </states>
+    <states id="3">
+      <operations id="109" stage="1" latency="2"/>
+      <operations id="110" stage="1" latency="2"/>
+      <operations id="111" stage="1" latency="2"/>
+    </states>
+    <states id="4">
+      <operations id="112" stage="2" latency="2"/>
+    </states>
+    <states id="5">
+      <operations id="112" stage="1" latency="2"/>
+    </states>
+    <states id="6">
+      <operations id="113" stage="2" latency="2"/>
+    </states>
+    <states id="7">
+      <operations id="113" stage="1" latency="2"/>
+    </states>
+    <states id="8">
+      <operations id="106" stage="1" latency="1"/>
+      <operations id="107" stage="1" latency="1"/>
+      <operations id="108" stage="1" latency="1"/>
+      <operations id="114" stage="2" latency="2"/>
+    </states>
+    <states id="9">
+      <operations id="27" stage="1" latency="1"/>
+      <operations id="28" stage="1" latency="1"/>
+      <operations id="30" stage="1" latency="1"/>
+      <operations id="31" stage="1" latency="1"/>
+      <operations id="33" stage="1" latency="1"/>
+      <operations id="34" stage="1" latency="1"/>
+      <operations id="35" stage="1" latency="1"/>
+      <operations id="36" stage="1" latency="1"/>
+      <operations id="37" stage="1" latency="1"/>
+      <operations id="38" stage="1" latency="1"/>
+      <operations id="39" stage="1" latency="1"/>
+      <operations id="40" stage="1" latency="1"/>
+      <operations id="41" stage="1" latency="1"/>
+      <operations id="42" stage="1" latency="1"/>
+      <operations id="43" stage="1" latency="1"/>
+      <operations id="44" stage="1" latency="1"/>
+      <operations id="45" stage="1" latency="1"/>
+      <operations id="46" stage="1" latency="1"/>
+      <operations id="47" stage="1" latency="1"/>
+      <operations id="48" stage="1" latency="1"/>
+      <operations id="49" stage="1" latency="1"/>
+      <operations id="50" stage="1" latency="1"/>
+      <operations id="51" stage="1" latency="1"/>
+      <operations id="52" stage="1" latency="1"/>
+      <operations id="53" stage="1" latency="1"/>
+      <operations id="54" stage="1" latency="1"/>
+      <operations id="55" stage="1" latency="1"/>
+      <operations id="56" stage="1" latency="1"/>
+      <operations id="57" stage="1" latency="1"/>
+      <operations id="58" stage="1" latency="1"/>
+      <operations id="59" stage="1" latency="1"/>
+      <operations id="60" stage="1" latency="1"/>
+      <operations id="61" stage="1" latency="1"/>
+      <operations id="62" stage="1" latency="1"/>
+      <operations id="63" stage="1" latency="1"/>
+      <operations id="64" stage="1" latency="1"/>
+      <operations id="65" stage="1" latency="1"/>
+      <operations id="66" stage="1" latency="1"/>
+      <operations id="67" stage="1" latency="1"/>
+      <operations id="68" stage="1" latency="1"/>
+      <operations id="69" stage="1" latency="1"/>
+      <operations id="70" stage="1" latency="1"/>
+      <operations id="71" stage="1" latency="1"/>
+      <operations id="72" stage="1" latency="1"/>
+      <operations id="74" stage="1" latency="1"/>
+      <operations id="75" stage="1" latency="1"/>
+      <operations id="77" stage="1" latency="1"/>
+      <operations id="78" stage="1" latency="1"/>
+      <operations id="80" stage="1" latency="1"/>
+      <operations id="81" stage="1" latency="1"/>
+      <operations id="83" stage="1" latency="1"/>
+      <operations id="84" stage="1" latency="1"/>
+      <operations id="86" stage="1" latency="1"/>
+      <operations id="87" stage="1" latency="1"/>
+      <operations id="89" stage="1" latency="1"/>
+      <operations id="90" stage="1" latency="1"/>
+      <operations id="92" stage="1" latency="1"/>
+      <operations id="93" stage="1" latency="1"/>
+      <operations id="95" stage="1" latency="1"/>
+      <operations id="96" stage="1" latency="1"/>
+      <operations id="98" stage="1" latency="1"/>
+      <operations id="99" stage="1" latency="1"/>
+      <operations id="101" stage="1" latency="1"/>
+      <operations id="102" stage="1" latency="1"/>
+      <operations id="104" stage="1" latency="1"/>
+      <operations id="105" stage="1" latency="1"/>
+      <operations id="114" stage="1" latency="2"/>
+      <operations id="115" stage="1" latency="1"/>
+    </states>
+    <transitions inState="1" outState="2">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="2" outState="3">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="3" outState="4">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="4" outState="5">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="5" outState="6">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="6" outState="7">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="7" outState="8">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="8" outState="9">
+      <condition id="-1"/>
+    </transitions>
+  </fsm>
+  <CFGRegionsRoot>
+    <cfgRegions mId="1" mTag="krnl_sparse_matrix_acc" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1" mMinLatency="-1" mMaxLatency="-1" mIsDfPipe="true">
+      <basicBlocks>116</basicBlocks>
+      <mDfPipe allPipePinInst="//@CFGRegionsRoot/@cfgRegions.0/@mDfPipe/@processe_list.0/@pins.0/@inst //@CFGRegionsRoot/@cfgRegions.0/@mDfPipe/@processe_list.1/@pins.0/@inst //@CFGRegionsRoot/@cfgRegions.0/@mDfPipe/@processe_list.2/@pins.0/@inst //@CFGRegionsRoot/@cfgRegions.0/@mDfPipe/@processe_list.3/@pins.0/@inst //@CFGRegionsRoot/@cfgRegions.0/@mDfPipe/@processe_list.6/@pins.0/@inst //@CFGRegionsRoot/@cfgRegions.0/@mDfPipe/@channel_list.2/@sink/@inst //@CFGRegionsRoot/@cfgRegions.0/@mDfPipe/@channel_list.8/@sink/@inst">
+        <processe_list name="entry_proc_U0" ssdmobj_id="106">
+          <pins>
+            <port name="matrixC_o" type="SIOType" need_hs="true" top_port_object_id="" top_port_object_id_reference="_153" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="entry_proc_U0" ssdmobj_id="106" object_id="_162"/>
+          </pins>
+          <pins>
+            <port name="M" type="SIOType" need_hs="true" top_port_object_id="" top_port_object_id_reference="_156" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="entry_proc_U0" ssdmobj_id="106" object_id="_162"/>
+          </pins>
+        </processe_list>
+        <processe_list name="read_edge_list_ptr_U0" ssdmobj_id="109">
+          <pins>
+            <port name="lenEdgeListPtr" type="SIOType" need_hs="true" top_port_object_id="" top_port_object_id_reference="_154" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="read_edge_list_ptr_U0" ssdmobj_id="109" object_id="_168"/>
+          </pins>
+          <pins>
+            <port name="gmem0" type="BUSType" need_hs="true" top_port_object_id="" top_port_object_id_reference="_144" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="read_edge_list_ptr_U0" ssdmobj_id="109" object_id="_168"/>
+          </pins>
+          <pins>
+            <port name="HLSPtr_i" type="SIOType" need_hs="true" top_port_object_id="" top_port_object_id_reference="_149" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="read_edge_list_ptr_U0" ssdmobj_id="109" object_id="_168"/>
+          </pins>
+        </processe_list>
+        <processe_list name="read_A_U0" ssdmobj_id="110">
+          <pins>
+            <port name="lenEdgePtr" type="SIOType" need_hs="true" top_port_object_id="" top_port_object_id_reference="_155" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="read_A_U0" ssdmobj_id="110" object_id="_176"/>
+          </pins>
+          <pins>
+            <port name="gmem1" type="BUSType" need_hs="true" top_port_object_id="" top_port_object_id_reference="_145" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="read_A_U0" ssdmobj_id="110" object_id="_176"/>
+          </pins>
+          <pins>
+            <port name="matrixA_hls_idx" type="SIOType" need_hs="true" top_port_object_id="" top_port_object_id_reference="_150" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="read_A_U0" ssdmobj_id="110" object_id="_176"/>
+          </pins>
+          <pins>
+            <port name="gmem2" type="BUSType" need_hs="true" top_port_object_id="" top_port_object_id_reference="_146" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="read_A_U0" ssdmobj_id="110" object_id="_176"/>
+          </pins>
+          <pins>
+            <port name="matrixA_i" type="SIOType" need_hs="true" top_port_object_id="" top_port_object_id_reference="_151" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="read_A_U0" ssdmobj_id="110" object_id="_176"/>
+          </pins>
+        </processe_list>
+        <processe_list name="read_B_U0" ssdmobj_id="111">
+          <pins>
+            <port name="K" type="SIOType" need_hs="true" top_port_object_id="" top_port_object_id_reference="_157" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="read_B_U0" ssdmobj_id="111" object_id="_188"/>
+          </pins>
+          <pins>
+            <port name="N" type="SIOType" need_hs="true" top_port_object_id="" top_port_object_id_reference="_158" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="read_B_U0" ssdmobj_id="111" object_id="_188"/>
+          </pins>
+          <pins>
+            <port name="gmem3" type="BUSType" need_hs="true" top_port_object_id="" top_port_object_id_reference="_147" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="read_B_U0" ssdmobj_id="111" object_id="_188"/>
+          </pins>
+          <pins>
+            <port name="matrixB_i" type="SIOType" need_hs="true" top_port_object_id="" top_port_object_id_reference="_152" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="read_B_U0" ssdmobj_id="111" object_id="_188"/>
+          </pins>
+        </processe_list>
+        <processe_list name="calc_C_U0" ssdmobj_id="112"/>
+        <processe_list name="sort_C_U0" ssdmobj_id="113"/>
+        <processe_list name="write_C_U0" ssdmobj_id="114">
+          <pins>
+            <port name="gmem4" dir="DirOut" type="BUSType" need_hs="true" top_port_object_id="" top_port_object_id_reference="_148" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="write_C_U0" ssdmobj_id="114" object_id="_200"/>
+          </pins>
+        </processe_list>
+        <channel_list depth="4" bitwidth="64" suggested_type="1" suggested_depth="4" name="matrixC_o_c_channel" ssdmobj_id="107">
+          <source>
+            <port name="in" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="entry_proc_U0" ssdmobj_id="106" object_id="_162"/>
+          </source>
+          <sink>
+            <port name="out" dir="DirOut" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="write_C_U0" ssdmobj_id="114" object_id="_200"/>
+          </sink>
+        </channel_list>
+        <channel_list depth="4" bitwidth="32" suggested_type="1" suggested_depth="4" name="M_c_channel" ssdmobj_id="108">
+          <source>
+            <port name="in" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="entry_proc_U0" ssdmobj_id="106" object_id="_162"/>
+          </source>
+          <sink>
+            <port name="out" dir="DirOut" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="write_C_U0" ssdmobj_id="114" object_id="_200"/>
+          </sink>
+        </channel_list>
+        <channel_list depth="32" bitwidth="32" suggested_type="0" suggested_depth="32" name="fifoEdgeListPtr" ssdmobj_id="73">
+          <source>
+            <port name="in" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="read_edge_list_ptr_U0" ssdmobj_id="109" object_id="_168"/>
+          </source>
+          <sink>
+            <port name="out" dir="DirOut" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="calc_C_U0" ssdmobj_id="112" object_id="_216"/>
+          </sink>
+        </channel_list>
+        <channel_list depth="2" bitwidth="32" suggested_type="2" suggested_depth="2" name="lenEdgeListPtr_c27" ssdmobj_id="29">
+          <source>
+            <port name="in" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="read_edge_list_ptr_U0" ssdmobj_id="109" object_id="_168"/>
+          </source>
+          <sink>
+            <port name="out" dir="DirOut" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="calc_C_U0" ssdmobj_id="112" object_id="_216"/>
+          </sink>
+        </channel_list>
+        <channel_list depth="32" bitwidth="32" suggested_type="0" suggested_depth="32" name="fifoMatrixAIdx" ssdmobj_id="76">
+          <source>
+            <port name="in" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="read_A_U0" ssdmobj_id="110" object_id="_176"/>
+          </source>
+          <sink>
+            <port name="out" dir="DirOut" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="calc_C_U0" ssdmobj_id="112" object_id="_216"/>
+          </sink>
+        </channel_list>
+        <channel_list depth="32" bitwidth="32" suggested_type="0" suggested_depth="32" name="fifoMatrixA" ssdmobj_id="79">
+          <source>
+            <port name="in" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="read_A_U0" ssdmobj_id="110" object_id="_176"/>
+          </source>
+          <sink>
+            <port name="out" dir="DirOut" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="calc_C_U0" ssdmobj_id="112" object_id="_216"/>
+          </sink>
+        </channel_list>
+        <channel_list depth="32" bitwidth="32" suggested_type="0" suggested_depth="32" name="fifoMatrixB" ssdmobj_id="82">
+          <source>
+            <port name="in" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="read_B_U0" ssdmobj_id="111" object_id="_188"/>
+          </source>
+          <sink>
+            <port name="out" dir="DirOut" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="calc_C_U0" ssdmobj_id="112" object_id="_216"/>
+          </sink>
+        </channel_list>
+        <channel_list depth="4" bitwidth="32" suggested_type="2" suggested_depth="4" name="N_c" ssdmobj_id="26">
+          <source>
+            <port name="in" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="read_B_U0" ssdmobj_id="111" object_id="_188"/>
+          </source>
+          <sink>
+            <port name="out" dir="DirOut" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="write_C_U0" ssdmobj_id="114" object_id="_200"/>
+          </sink>
+        </channel_list>
+        <channel_list depth="32" bitwidth="32" suggested_type="0" suggested_depth="32" name="fifoEdgeListPtr_calC" ssdmobj_id="85">
+          <source>
+            <port name="in" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="calc_C_U0" ssdmobj_id="112" object_id="_216"/>
+          </source>
+          <sink>
+            <port name="out" dir="DirOut" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="sort_C_U0" ssdmobj_id="113" object_id="_247"/>
+          </sink>
+        </channel_list>
+        <channel_list depth="32" bitwidth="16" suggested_type="0" suggested_depth="32" name="fifoMatrixCIdxArray_V_V_0" ssdmobj_id="88">
+          <source>
+            <port name="in" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="calc_C_U0" ssdmobj_id="112" object_id="_216"/>
+          </source>
+          <sink>
+            <port name="out" dir="DirOut" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="sort_C_U0" ssdmobj_id="113" object_id="_247"/>
+          </sink>
+        </channel_list>
+        <channel_list depth="32" bitwidth="16" suggested_type="0" suggested_depth="32" name="fifoMatrixCIdxArray_V_V_1" ssdmobj_id="91">
+          <source>
+            <port name="in" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="calc_C_U0" ssdmobj_id="112" object_id="_216"/>
+          </source>
+          <sink>
+            <port name="out" dir="DirOut" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="sort_C_U0" ssdmobj_id="113" object_id="_247"/>
+          </sink>
+        </channel_list>
+        <channel_list depth="32" bitwidth="32" suggested_type="0" suggested_depth="32" name="fifoCalcMatrixCArray_V_0" ssdmobj_id="94">
+          <source>
+            <port name="in" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="calc_C_U0" ssdmobj_id="112" object_id="_216"/>
+          </source>
+          <sink>
+            <port name="out" dir="DirOut" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="sort_C_U0" ssdmobj_id="113" object_id="_247"/>
+          </sink>
+        </channel_list>
+        <channel_list depth="32" bitwidth="32" suggested_type="0" suggested_depth="32" name="fifoCalcMatrixCArray_V_1" ssdmobj_id="97">
+          <source>
+            <port name="in" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="calc_C_U0" ssdmobj_id="112" object_id="_216"/>
+          </source>
+          <sink>
+            <port name="out" dir="DirOut" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="sort_C_U0" ssdmobj_id="113" object_id="_247"/>
+          </sink>
+        </channel_list>
+        <channel_list depth="2" bitwidth="32" suggested_type="2" suggested_depth="2" name="lenEdgeListPtr_c" ssdmobj_id="32">
+          <source>
+            <port name="in" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="calc_C_U0" ssdmobj_id="112" object_id="_216"/>
+          </source>
+          <sink>
+            <port name="out" dir="DirOut" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="sort_C_U0" ssdmobj_id="113" object_id="_247"/>
+          </sink>
+        </channel_list>
+        <channel_list depth="32" bitwidth="32" suggested_type="0" suggested_depth="32" name="fifoSortMatrixCArray_V_0" ssdmobj_id="100">
+          <source>
+            <port name="in" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="sort_C_U0" ssdmobj_id="113" object_id="_247"/>
+          </source>
+          <sink>
+            <port name="out" dir="DirOut" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="write_C_U0" ssdmobj_id="114" object_id="_200"/>
+          </sink>
+        </channel_list>
+        <channel_list depth="32" bitwidth="32" suggested_type="0" suggested_depth="32" name="fifoSortMatrixCArray_V_1" ssdmobj_id="103">
+          <source>
+            <port name="in" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="sort_C_U0" ssdmobj_id="113" object_id="_247"/>
+          </source>
+          <sink>
+            <port name="out" dir="DirOut" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="write_C_U0" ssdmobj_id="114" object_id="_200"/>
+          </sink>
+        </channel_list>
+      </mDfPipe>
+    </cfgRegions>
+  </CFGRegionsRoot>
+</cdfg:DBCdfg>

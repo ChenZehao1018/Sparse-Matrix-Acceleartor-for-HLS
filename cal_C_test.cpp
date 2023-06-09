@@ -33,30 +33,32 @@ int main() {
 	hls::stream<float> fifoMatrixC_o[N0];
 
 
-//	int edgeListPtrData[] = {0, 11};
-//
-//	uint32_t matrixAIdx[] = {0, 3, 2, 5, 4, 65537, 6, 393223,
-//							 458752, 65535, 65535, 65535, 65535, 131073, 65535, 458759,
-//							 65535, 65535, 65535, 65535, 65535, 458753};
-//	float matrixAData[] = {1, 3, 2, 5, 4, 7, 6, 9,
-//						   10, 0, 0, 0, 0, 8, 0, 12,
-//						   0, 0, 0, 0, 0, 11};
-//
-//	float matrixBData[] = {1, 1, 2, 1, 3, 1, 4, 1,
-//						   5, 1, 6, 1, 7, 1, 8, 1};
-	int edgeListPtrData[] = {0, 10};
+	int edgeListPtrData[] = {0, 11};
 
-	uint32_t matrixAIdx[] = {0, 5, 2, 3, 4, 65537, 6, 393223, 65535, 65535,
-							 65535, 65535, 65535, 65535, 65535, 65535, 458752, 65535, 65535, 65535,
-							 65535, 131073, 65535, 458759, 65535, 65535, 65535, 65535, 65535, 65535,
-							 65535, 65535, 65535, 65535, 65535, 65535, 65535, 458753, 65535, 65535};
-	float matrixAData[] = {1, 5, 2, 3, 4, 7, 6, 9, 0, 0,
-						   0, 0, 0, 0, 0, 0, 10, 0, 0, 0,
-						   0, 8, 0, 12, 0, 0, 0, 0, 0, 0,
-						   0, 0, 0, 0, 0, 0, 0, 11, 0, 0};
+	uint32_t matrixAIdx[] = {0, 3, 2, 5, 4, 65537, 6, 393223,
+							 458752, 65535, 65535, 65535, 65535, 131073, 65535, 458759,
+							 65535, 65535, 65535, 65535, 65535, 458753};
+	float matrixAData[] = {1, 3, 2, 5, 4, 7, 6, 9,
+						   10, 0, 0, 0, 0, 8, 0, 12,
+						   0, 0, 0, 0, 0, 11};
 
 	float matrixBData[] = {1, 1, 2, 1, 3, 1, 4, 1,
 						   5, 1, 6, 1, 7, 1, 8, 1};
+
+
+//	int edgeListPtrData[] = {0, 10};
+//
+//	uint32_t matrixAIdx[] = {0, 5, 2, 3, 4, 65537, 6, 393223, 65535, 65535,
+//							 65535, 65535, 65535, 65535, 65535, 65535, 458752, 65535, 65535, 65535,
+//							 65535, 131073, 65535, 458759, 65535, 65535, 65535, 65535, 65535, 65535,
+//							 65535, 65535, 65535, 65535, 65535, 65535, 65535, 458753, 65535, 65535};
+//	float matrixAData[] = {1, 5, 2, 3, 4, 7, 6, 9, 0, 0,
+//						   0, 0, 0, 0, 0, 0, 10, 0, 0, 0,
+//						   0, 8, 0, 12, 0, 0, 0, 0, 0, 0,
+//						   0, 0, 0, 0, 0, 0, 0, 11, 0, 0};
+//
+//	float matrixBData[] = {1, 1, 2, 1, 3, 1, 4, 1,
+//						   5, 1, 6, 1, 7, 1, 8, 1};
 
 
 
@@ -82,27 +84,32 @@ int main() {
 	}
 
 
-	int i = 0;
+	std::cout << "Output_Idx[0]: ";
 	while(!fifoMatrixCIdx_o[0].empty()){
 		ap_uint<16> result_idx = fifoMatrixCIdx_o[0].read();
-		i = i + 1;
-		std::cout << "Output_Idx[0]: " << result_idx << std::endl;
+		std::cout << result_idx << ", ";
 	}
+	std::cout << std::endl;
 
-	std::cout << "number: " << i << std::endl;
 
+	std::cout << "Output_Idx[1]: ";
 	while(!fifoMatrixCIdx_o[1].empty()){
 			ap_uint<16> result_idx = fifoMatrixCIdx_o[1].read();
-			std::cout << "Output_Idx[1]: " << result_idx << std::endl;
+			std::cout << result_idx << ", ";
 	}
+	std::cout << std::endl;
 
+	std::cout << "Output_data[0]: ";
 	while(!fifoMatrixC_o[0].empty()){
 		float result_data = fifoMatrixC_o[0].read();
-		std::cout << std::fixed << std::setprecision(0) << "Output_data[0]: " << result_data << std::endl;
+		std::cout << std::fixed << std::setprecision(0) << result_data << ", ";
 	}
-	while(!fifoMatrixC_o[1].empty()){
-			float result_data = fifoMatrixC_o[1].read();
-			std::cout << std::fixed << std::setprecision(0) << "Output_data[1]: " << result_data << std::endl;
-	}
+	std::cout << std::endl;
 
+	std::cout << "Output_data[1]: ";
+	while(!fifoMatrixC_o[1].empty()){
+		float result_data = fifoMatrixC_o[1].read();
+		std::cout << std::fixed << std::setprecision(0) << result_data << ", ";
+	}
+	std::cout << std::endl;
 }

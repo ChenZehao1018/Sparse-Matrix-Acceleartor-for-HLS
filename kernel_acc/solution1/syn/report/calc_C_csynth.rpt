@@ -1,0 +1,253 @@
+
+
+================================================================
+== Vitis HLS Report for 'calc_C'
+================================================================
+* Date:           Fri Jun  9 10:19:59 2023
+
+* Version:        2021.1 (Build 3247384 on Thu Jun 10 19:36:33 MDT 2021)
+* Project:        kernel_acc
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynquplus
+* Target device:  xczu7ev-ffvc1156-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  7.016 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +---------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                     |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |      Loop Name      |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +---------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_66_1    |       48|       48|         6|          -|          -|     8|        no|
+        | + VITIS_LOOP_67_2   |        4|        4|         2|          -|          -|     2|        no|
+        |- loop_repeat_iter   |        ?|        ?|         ?|          -|          -|     ?|        no|
+        | + loop_diff_window  |        ?|        ?|        30|          -|          -|     ?|        no|
+        |  ++ loop_diff_pe    |       28|       28|        14|          -|          -|     2|        no|
+        |   +++ loop_for_col  |       12|       12|         6|          -|          -|     2|        no|
+        +---------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+------+--------+--------+-----+
+|       Name      | BRAM_18K|  DSP |   FF   |   LUT  | URAM|
++-----------------+---------+------+--------+--------+-----+
+|DSP              |        -|     -|       -|       -|    -|
+|Expression       |        -|     -|       0|     302|    -|
+|FIFO             |        -|     -|       -|       -|    -|
+|Instance         |        -|     3|     128|     135|    -|
+|Memory           |        0|     -|      64|       8|    0|
+|Multiplexer      |        -|     -|       -|     268|    -|
+|Register         |        -|     -|     411|       -|    -|
++-----------------+---------+------+--------+--------+-----+
+|Total            |        0|     3|     603|     713|    0|
++-----------------+---------+------+--------+--------+-----+
+|Available        |      624|  1728|  460800|  230400|   96|
++-----------------+---------+------+--------+--------+-----+
+|Utilization (%)  |        0|    ~0|      ~0|      ~0|    0|
++-----------------+---------+------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +-----------------------------------+-------------------------------+---------+----+-----+-----+-----+
+    |              Instance             |             Module            | BRAM_18K| DSP|  FF | LUT | URAM|
+    +-----------------------------------+-------------------------------+---------+----+-----+-----+-----+
+    |fmul_32ns_32ns_32_3_max_dsp_1_U23  |fmul_32ns_32ns_32_3_max_dsp_1  |        0|   3|  128|  135|    0|
+    +-----------------------------------+-------------------------------+---------+----+-----+-----+-----+
+    |Total                              |                               |        0|   3|  128|  135|    0|
+    +-----------------------------------+-------------------------------+---------+----+-----+-----+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    +------------------+-----------------------+---------+----+----+-----+------+-----+------+-------------+
+    |      Memory      |         Module        | BRAM_18K| FF | LUT| URAM| Words| Bits| Banks| W*Bits*Banks|
+    +------------------+-----------------------+---------+----+----+-----+------+-----+------+-------------+
+    |matrixB_buffer_U  |calc_C_matrixB_buffer  |        0|  64|   8|    0|    16|   32|     1|          512|
+    +------------------+-----------------------+---------+----+----+-----+------+-----+------+-------------+
+    |Total             |                       |        0|  64|   8|    0|    16|   32|     1|          512|
+    +------------------+-----------------------+---------+----+----+-----+------+-----+------+-------------+
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-------------------------------+----------+----+---+----+------------+------------+
+    |         Variable Name         | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-------------------------------+----------+----+---+----+------------+------------+
+    |add_ln48_fu_454_p2             |         +|   0|  0|  12|           4|           4|
+    |add_ln66_fu_301_p2             |         +|   0|  0|  12|           4|           1|
+    |add_ln67_fu_350_p2             |         +|   0|  0|   9|           2|           1|
+    |add_ln69_fu_334_p2             |         +|   0|  0|  12|           4|           4|
+    |add_ln79_fu_307_p2             |         +|   0|  0|  39|          32|           2|
+    |add_ln96_fu_470_p2             |         +|   0|  0|   9|           2|           1|
+    |i_16_fu_436_p2                 |         +|   0|  0|  39|          32|           1|
+    |iter_4_fu_379_p2               |         +|   0|  0|  38|          31|           1|
+    |n_2_fu_404_p2                  |         +|   0|  0|   9|           2|           1|
+    |ap_block_state3                |       and|   0|  0|   2|           1|           1|
+    |ap_condition_453               |       and|   0|  0|   2|           1|           1|
+    |ap_predicate_op59_read_state3  |       and|   0|  0|   2|           1|           1|
+    |tmp_nbreadreq_fu_156_p3        |       and|   0|  0|   2|           1|           0|
+    |icmp_ln66_fu_295_p2            |      icmp|   0|  0|   9|           4|           5|
+    |icmp_ln67_fu_344_p2            |      icmp|   0|  0|   8|           2|           3|
+    |icmp_ln79_fu_374_p2            |      icmp|   0|  0|  20|          32|          32|
+    |icmp_ln85_fu_385_p2            |      icmp|   0|  0|  20|          32|          32|
+    |icmp_ln88_fu_398_p2            |      icmp|   0|  0|   8|           2|           3|
+    |icmp_ln96_fu_464_p2            |      icmp|   0|  0|   8|           2|           3|
+    |ap_block_state1                |        or|   0|  0|   2|           1|           1|
+    |ap_block_state13               |        or|   0|  0|   2|           1|           1|
+    |ap_block_state2                |        or|   0|  0|   2|           1|           1|
+    |ap_block_state5                |        or|   0|  0|   2|           1|           1|
+    |ap_block_state7                |        or|   0|  0|   2|           1|           1|
+    |empty_83_fu_476_p3             |    select|   0|  0|  32|           1|           1|
+    +-------------------------------+----------+----+---+----+------------+------------+
+    |Total                          |          |   0|  0| 302|         197|         103|
+    +-------------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +---------------------------------+----+-----------+-----+-----------+
+    |               Name              | LUT| Input Size| Bits| Total Bits|
+    +---------------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                        |  65|         14|    1|         14|
+    |ap_done                          |   9|          2|    1|          2|
+    |fifoCalcMatrixC_o_02_blk_n       |   9|          2|    1|          2|
+    |fifoCalcMatrixC_o_0_blk_n        |   9|          2|    1|          2|
+    |fifoEdgeListPtr11_blk_n          |   9|          2|    1|          2|
+    |fifoEdgeListPtr_calC15_blk_n     |   9|          2|    1|          2|
+    |fifoMatrixA13_blk_n              |   9|          2|    1|          2|
+    |fifoMatrixAIdx12_blk_n           |   9|          2|    1|          2|
+    |fifoMatrixB14_blk_n              |   9|          2|    1|          2|
+    |fifoMatrixCIdx_o_0_0_0_01_blk_n  |   9|          2|    1|          2|
+    |fifoMatrixCIdx_o_0_0_0_0_blk_n   |   9|          2|    1|          2|
+    |i_13_fu_124                      |   9|          2|   32|         64|
+    |i_6_reg_251                      |   9|          2|   32|         64|
+    |i_fu_112                         |   9|          2|    4|          8|
+    |iter_fu_120                      |   9|          2|   31|         62|
+    |j_3_reg_272                      |   9|          2|    2|          4|
+    |j_reg_228                        |   9|          2|    2|          4|
+    |lenEdgeListPtr_blk_n             |   9|          2|    1|          2|
+    |lenEdgeListPtr_c_blk_n           |   9|          2|    1|          2|
+    |matrixB_buffer_address0          |  14|          3|    4|         12|
+    |n_reg_261                        |   9|          2|    2|          4|
+    |real_start                       |   9|          2|    1|          2|
+    |storemerge_reg_239               |   9|          2|   32|         64|
+    +---------------------------------+----+-----------+-----+-----------+
+    |Total                            | 268|         59|  155|        326|
+    +---------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-----------------------------+----+----+-----+-----------+
+    |             Name            | FF | LUT| Bits| Const Bits|
+    +-----------------------------+----+----+-----+-----------+
+    |add_ln66_reg_502             |   4|   0|    4|          0|
+    |add_ln67_reg_534             |   2|   0|    2|          0|
+    |add_ln79_reg_521             |  32|   0|   32|          0|
+    |add_ln96_reg_613             |   2|   0|    2|          0|
+    |ap_CS_fsm                    |  13|   0|   13|          0|
+    |ap_done_reg                  |   1|   0|    1|          0|
+    |i_13_fu_124                  |  32|   0|   32|          0|
+    |i_6_reg_251                  |  32|   0|   32|          0|
+    |i_fu_112                     |   4|   0|    4|          0|
+    |iter_4_reg_553               |  31|   0|   31|          0|
+    |iter_fu_120                  |  31|   0|   31|          0|
+    |j_3_reg_272                  |   2|   0|    2|          0|
+    |j_reg_228                    |   2|   0|    2|          0|
+    |lenEdgeListPtr_read_reg_491  |  32|   0|   32|          0|
+    |matrixB_buffer_addr_reg_526  |   4|   0|    4|          0|
+    |matrixB_buffer_load_reg_618  |  32|   0|   32|          0|
+    |n_2_reg_570                  |   2|   0|    2|          0|
+    |n_reg_261                    |   2|   0|    2|          0|
+    |start_once_reg               |   1|   0|    1|          0|
+    |storemerge_reg_239           |  32|   0|   32|          0|
+    |tempA_col_V_cast_reg_591     |   4|   0|    4|          0|
+    |tempA_row_V_reg_580          |  16|   0|   16|          0|
+    |temp_res_reg_623             |  32|   0|   32|          0|
+    |tmp_19_reg_586               |   1|   0|    1|          0|
+    |tmp_21_reg_558               |  32|   0|   32|          0|
+    |tmp_22_reg_575               |  32|   0|   32|          0|
+    |trunc_ln48_reg_601           |   1|   0|    1|          0|
+    +-----------------------------+----+----+-----+-----------+
+    |Total                        | 411|   0|  411|          0|
+    +-----------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------------------------+-----+-----+------------+---------------------------+--------------+
+|             RTL Ports            | Dir | Bits|  Protocol  |       Source Object       |    C Type    |
++----------------------------------+-----+-----+------------+---------------------------+--------------+
+|ap_clk                            |   in|    1|  ap_ctrl_hs|                     calc_C|  return value|
+|ap_rst                            |   in|    1|  ap_ctrl_hs|                     calc_C|  return value|
+|ap_start                          |   in|    1|  ap_ctrl_hs|                     calc_C|  return value|
+|start_full_n                      |   in|    1|  ap_ctrl_hs|                     calc_C|  return value|
+|ap_done                           |  out|    1|  ap_ctrl_hs|                     calc_C|  return value|
+|ap_continue                       |   in|    1|  ap_ctrl_hs|                     calc_C|  return value|
+|ap_idle                           |  out|    1|  ap_ctrl_hs|                     calc_C|  return value|
+|ap_ready                          |  out|    1|  ap_ctrl_hs|                     calc_C|  return value|
+|start_out                         |  out|    1|  ap_ctrl_hs|                     calc_C|  return value|
+|start_write                       |  out|    1|  ap_ctrl_hs|                     calc_C|  return value|
+|lenEdgeListPtr_dout               |   in|   32|     ap_fifo|             lenEdgeListPtr|       pointer|
+|lenEdgeListPtr_empty_n            |   in|    1|     ap_fifo|             lenEdgeListPtr|       pointer|
+|lenEdgeListPtr_read               |  out|    1|     ap_fifo|             lenEdgeListPtr|       pointer|
+|fifoEdgeListPtr11_dout            |   in|   32|     ap_fifo|          fifoEdgeListPtr11|       pointer|
+|fifoEdgeListPtr11_empty_n         |   in|    1|     ap_fifo|          fifoEdgeListPtr11|       pointer|
+|fifoEdgeListPtr11_read            |  out|    1|     ap_fifo|          fifoEdgeListPtr11|       pointer|
+|fifoMatrixAIdx12_dout             |   in|   32|     ap_fifo|           fifoMatrixAIdx12|       pointer|
+|fifoMatrixAIdx12_empty_n          |   in|    1|     ap_fifo|           fifoMatrixAIdx12|       pointer|
+|fifoMatrixAIdx12_read             |  out|    1|     ap_fifo|           fifoMatrixAIdx12|       pointer|
+|fifoMatrixA13_dout                |   in|   32|     ap_fifo|              fifoMatrixA13|       pointer|
+|fifoMatrixA13_empty_n             |   in|    1|     ap_fifo|              fifoMatrixA13|       pointer|
+|fifoMatrixA13_read                |  out|    1|     ap_fifo|              fifoMatrixA13|       pointer|
+|fifoMatrixB14_dout                |   in|   32|     ap_fifo|              fifoMatrixB14|       pointer|
+|fifoMatrixB14_empty_n             |   in|    1|     ap_fifo|              fifoMatrixB14|       pointer|
+|fifoMatrixB14_read                |  out|    1|     ap_fifo|              fifoMatrixB14|       pointer|
+|fifoEdgeListPtr_calC15_din        |  out|   32|     ap_fifo|     fifoEdgeListPtr_calC15|       pointer|
+|fifoEdgeListPtr_calC15_full_n     |   in|    1|     ap_fifo|     fifoEdgeListPtr_calC15|       pointer|
+|fifoEdgeListPtr_calC15_write      |  out|    1|     ap_fifo|     fifoEdgeListPtr_calC15|       pointer|
+|fifoMatrixCIdx_o_0_0_0_0_din      |  out|   16|     ap_fifo|   fifoMatrixCIdx_o_0_0_0_0|       pointer|
+|fifoMatrixCIdx_o_0_0_0_0_full_n   |   in|    1|     ap_fifo|   fifoMatrixCIdx_o_0_0_0_0|       pointer|
+|fifoMatrixCIdx_o_0_0_0_0_write    |  out|    1|     ap_fifo|   fifoMatrixCIdx_o_0_0_0_0|       pointer|
+|fifoMatrixCIdx_o_0_0_0_01_din     |  out|   16|     ap_fifo|  fifoMatrixCIdx_o_0_0_0_01|       pointer|
+|fifoMatrixCIdx_o_0_0_0_01_full_n  |   in|    1|     ap_fifo|  fifoMatrixCIdx_o_0_0_0_01|       pointer|
+|fifoMatrixCIdx_o_0_0_0_01_write   |  out|    1|     ap_fifo|  fifoMatrixCIdx_o_0_0_0_01|       pointer|
+|fifoCalcMatrixC_o_0_din           |  out|   32|     ap_fifo|        fifoCalcMatrixC_o_0|       pointer|
+|fifoCalcMatrixC_o_0_full_n        |   in|    1|     ap_fifo|        fifoCalcMatrixC_o_0|       pointer|
+|fifoCalcMatrixC_o_0_write         |  out|    1|     ap_fifo|        fifoCalcMatrixC_o_0|       pointer|
+|fifoCalcMatrixC_o_02_din          |  out|   32|     ap_fifo|       fifoCalcMatrixC_o_02|       pointer|
+|fifoCalcMatrixC_o_02_full_n       |   in|    1|     ap_fifo|       fifoCalcMatrixC_o_02|       pointer|
+|fifoCalcMatrixC_o_02_write        |  out|    1|     ap_fifo|       fifoCalcMatrixC_o_02|       pointer|
+|lenEdgeListPtr_c_din              |  out|   32|     ap_fifo|           lenEdgeListPtr_c|       pointer|
+|lenEdgeListPtr_c_full_n           |   in|    1|     ap_fifo|           lenEdgeListPtr_c|       pointer|
+|lenEdgeListPtr_c_write            |  out|    1|     ap_fifo|           lenEdgeListPtr_c|       pointer|
++----------------------------------+-----+-----+------------+---------------------------+--------------+
+

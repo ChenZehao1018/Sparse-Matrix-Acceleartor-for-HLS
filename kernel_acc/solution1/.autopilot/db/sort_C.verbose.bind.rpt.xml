@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'sort_C'" level="0">
-<item name = "Date">Thu Jun  8 14:59:56 2023
+<item name = "Date">Fri Jun  9 10:19:57 2023
 </item>
 <item name = "Version">2021.1 (Build 3247384 on Thu Jun 10 19:36:33 MDT 2021)</item>
 <item name = "Project">kernel_acc</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 7.280 ns, 2.70 ns</column>
+<column name="ap_clk">10.00 ns, 7.236 ns, 2.70 ns</column>
 </table>
 </item>
 </section>
@@ -31,16 +31,18 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_sort_C_Pipeline_loop_diff_window_loop_diff_pe_fu_475">sort_C_Pipeline_loop_diff_window_loop_diff_pe, ?, ?, ?, ?, ?, ?, no</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- VITIS_LOOP_135_1">144, 144, 18, -, -, 8, no</column>
-<column name=" + VITIS_LOOP_136_2">16, 16, 2, -, -, 8, no</column>
+<column name="- VITIS_LOOP_135_1">32, 32, 4, -, -, 8, no</column>
+<column name=" + VITIS_LOOP_136_2">2, 2, 1, -, -, 2, no</column>
 <column name="- loop_repeat_iter">?, ?, ?, -, -, ?, no</column>
-<column name="- VITIS_LOOP_168_3">152, 152, 19, -, -, 8, no</column>
-<column name=" + VITIS_LOOP_169_4">16, 16, 2, -, -, 8, no</column>
+<column name=" + loop_diff_window">?, ?, 22, -, -, ?, no</column>
+<column name="  ++ loop_diff_pe">20, 20, 10, -, -, 2, no</column>
+<column name="   +++ loop_for_col">8, 8, 4, -, -, 2, no</column>
+<column name="- VITIS_LOOP_168_3">64, 64, 8, -, -, 8, no</column>
+<column name=" + VITIS_LOOP_169_4">6, 6, 3, -, -, 2, no</column>
 </table>
 </item>
 </section>

@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'sort_C'
 ================================================================
-* Date:           Thu Jun  8 14:59:55 2023
+* Date:           Fri Jun  9 10:19:57 2023
 
 * Version:        2021.1 (Build 3247384 on Thu Jun 10 19:36:33 MDT 2021)
 * Project:        kernel_acc
@@ -20,7 +20,7 @@
     +--------+----------+----------+------------+
     |  Clock |  Target  | Estimated| Uncertainty|
     +--------+----------+----------+------------+
-    |ap_clk  |  10.00 ns|  7.280 ns|     2.70 ns|
+    |ap_clk  |  10.00 ns|  7.236 ns|     2.70 ns|
     +--------+----------+----------+------------+
 
 + Latency: 
@@ -41,11 +41,14 @@
         |                     |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
         |      Loop Name      |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
         +---------------------+---------+---------+----------+-----------+-----------+------+----------+
-        |- VITIS_LOOP_135_1   |      144|      144|        18|          -|          -|     8|        no|
-        | + VITIS_LOOP_136_2  |       16|       16|         2|          -|          -|     8|        no|
+        |- VITIS_LOOP_135_1   |       32|       32|         4|          -|          -|     8|        no|
+        | + VITIS_LOOP_136_2  |        2|        2|         1|          -|          -|     2|        no|
         |- loop_repeat_iter   |        ?|        ?|         ?|          -|          -|     ?|        no|
-        |- VITIS_LOOP_168_3   |      152|      152|        19|          -|          -|     8|        no|
-        | + VITIS_LOOP_169_4  |       16|       16|         2|          -|          -|     8|        no|
+        | + loop_diff_window  |        ?|        ?|        22|          -|          -|     ?|        no|
+        |  ++ loop_diff_pe    |       20|       20|        10|          -|          -|     2|        no|
+        |   +++ loop_for_col  |        8|        8|         4|          -|          -|     2|        no|
+        |- VITIS_LOOP_168_3   |       64|       64|         8|          -|          -|     8|        no|
+        | + VITIS_LOOP_169_4  |        6|        6|         3|          -|          -|     2|        no|
         +---------------------+---------+---------+----------+-----------+-----------+------+----------+
 
 ============================================================
@@ -56,9 +59,9 @@ ExposeGlobal: 0
 ============================================================
 + Verbose Summary: CDFG Model
 ============================================================
-IsTopModel: 1
+IsTopModel: 0
 ResetActiveHigh: 1
-IsCombinational: 0
+IsCombinational: 2
 IsDatapathOnly: 0
 HasWiredReturn: 1
 HasMFsm: 0
@@ -74,298 +77,276 @@ IsGatedGlobalClock: 0
 ============================================================
 + Verbose Summary: Schedule
 ============================================================
-* Number of FSM states : 11
+* Number of FSM states : 14
 * Pipeline : 0
 * Dataflow Pipeline: 0
 
 * FSM state transitions: 
 1 --> 2 
-2 --> 3 5 
-3 --> 4 2 
-4 --> 3 
-5 --> 6 8 
-6 --> 7 
-7 --> 5 
+2 --> 3 4 
+3 --> 3 2 
+4 --> 5 11 
+5 --> 6 4 
+6 --> 7 5 
+7 --> 8 6 
 8 --> 9 
 9 --> 10 
-10 --> 11 8 
-11 --> 10 
+10 --> 7 
+11 --> 12 
+12 --> 13 11 
+13 --> 14 
+14 --> 12 
 
 * FSM state operations: 
 
-State 1 <SV = 0> <Delay = 0.42>
-ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%i = alloca i32 1"   --->   Operation 12 'alloca' 'i' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%spectopmodule_ln0 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_2"   --->   Operation 13 'spectopmodule' 'spectopmodule_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%lenEdgeListPtr_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %lenEdgeListPtr"   --->   Operation 14 'read' 'lenEdgeListPtr_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %lenEdgeListPtr"   --->   Operation 15 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %lenEdgeListPtr, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 16 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fifoEdgeListPtr_i_V, void @empty_1, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 17 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %fifoEdgeListPtr_i_V"   --->   Operation 18 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %fifoMatrixCIdx_i_0_V, void @empty_1, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 19 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %fifoMatrixCIdx_i_0_V"   --->   Operation 20 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %fifoMatrixCIdx_i_1_V, void @empty_1, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 21 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %fifoMatrixCIdx_i_1_V"   --->   Operation 22 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %fifoMatrixCIdx_i_2_V, void @empty_1, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 23 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %fifoMatrixCIdx_i_2_V"   --->   Operation 24 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %fifoMatrixCIdx_i_3_V, void @empty_1, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 25 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %fifoMatrixCIdx_i_3_V"   --->   Operation 26 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %fifoMatrixCIdx_i_4_V, void @empty_1, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 27 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %fifoMatrixCIdx_i_4_V"   --->   Operation 28 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %fifoMatrixCIdx_i_5_V, void @empty_1, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 29 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %fifoMatrixCIdx_i_5_V"   --->   Operation 30 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %fifoMatrixCIdx_i_6_V, void @empty_1, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 31 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 32 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %fifoMatrixCIdx_i_6_V"   --->   Operation 32 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %fifoMatrixCIdx_i_7_V, void @empty_1, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 33 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 34 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %fifoMatrixCIdx_i_7_V"   --->   Operation 34 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 35 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fifoCalcMatrixC_i_0_V, void @empty_1, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 35 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 36 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %fifoCalcMatrixC_i_0_V"   --->   Operation 36 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 37 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fifoCalcMatrixC_i_1_V, void @empty_1, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 37 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 38 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %fifoCalcMatrixC_i_1_V"   --->   Operation 38 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 39 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fifoCalcMatrixC_i_2_V, void @empty_1, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 39 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 40 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %fifoCalcMatrixC_i_2_V"   --->   Operation 40 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 41 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fifoCalcMatrixC_i_3_V, void @empty_1, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 41 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 42 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %fifoCalcMatrixC_i_3_V"   --->   Operation 42 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 43 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fifoCalcMatrixC_i_4_V, void @empty_1, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 43 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 44 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %fifoCalcMatrixC_i_4_V"   --->   Operation 44 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 45 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fifoCalcMatrixC_i_5_V, void @empty_1, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 45 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 46 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %fifoCalcMatrixC_i_5_V"   --->   Operation 46 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 47 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fifoCalcMatrixC_i_6_V, void @empty_1, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 47 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 48 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %fifoCalcMatrixC_i_6_V"   --->   Operation 48 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 49 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fifoCalcMatrixC_i_7_V, void @empty_1, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 49 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 50 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %fifoCalcMatrixC_i_7_V"   --->   Operation 50 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 51 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fifoSortMatrixC_o_0_V, void @empty_1, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 51 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 52 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %fifoSortMatrixC_o_0_V"   --->   Operation 52 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 53 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fifoSortMatrixC_o_1_V, void @empty_1, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 53 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 54 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %fifoSortMatrixC_o_1_V"   --->   Operation 54 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 55 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fifoSortMatrixC_o_2_V, void @empty_1, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 55 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 56 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %fifoSortMatrixC_o_2_V"   --->   Operation 56 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 57 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fifoSortMatrixC_o_3_V, void @empty_1, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 57 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 58 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %fifoSortMatrixC_o_3_V"   --->   Operation 58 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 59 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fifoSortMatrixC_o_4_V, void @empty_1, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 59 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 60 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %fifoSortMatrixC_o_4_V"   --->   Operation 60 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 61 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fifoSortMatrixC_o_5_V, void @empty_1, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 61 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 62 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %fifoSortMatrixC_o_5_V"   --->   Operation 62 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 63 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fifoSortMatrixC_o_6_V, void @empty_1, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 63 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 64 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %fifoSortMatrixC_o_6_V"   --->   Operation 64 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 65 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fifoSortMatrixC_o_7_V, void @empty_1, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 65 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 66 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %fifoSortMatrixC_o_7_V"   --->   Operation 66 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 67 [1/1] (0.00ns)   --->   "%matrixC_buffer_V_0 = alloca i64 1" [kernel.cpp:134]   --->   Operation 67 'alloca' 'matrixC_buffer_V_0' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
-ST_1 : Operation 68 [1/1] (0.00ns)   --->   "%matrixC_buffer_V_1 = alloca i64 1" [kernel.cpp:134]   --->   Operation 68 'alloca' 'matrixC_buffer_V_1' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
-ST_1 : Operation 69 [1/1] (0.00ns)   --->   "%matrixC_buffer_V_2 = alloca i64 1" [kernel.cpp:134]   --->   Operation 69 'alloca' 'matrixC_buffer_V_2' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
-ST_1 : Operation 70 [1/1] (0.00ns)   --->   "%matrixC_buffer_V_3 = alloca i64 1" [kernel.cpp:134]   --->   Operation 70 'alloca' 'matrixC_buffer_V_3' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
-ST_1 : Operation 71 [1/1] (0.00ns)   --->   "%matrixC_buffer_V_4 = alloca i64 1" [kernel.cpp:134]   --->   Operation 71 'alloca' 'matrixC_buffer_V_4' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
-ST_1 : Operation 72 [1/1] (0.00ns)   --->   "%matrixC_buffer_V_5 = alloca i64 1" [kernel.cpp:134]   --->   Operation 72 'alloca' 'matrixC_buffer_V_5' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
-ST_1 : Operation 73 [1/1] (0.00ns)   --->   "%matrixC_buffer_V_6 = alloca i64 1" [kernel.cpp:134]   --->   Operation 73 'alloca' 'matrixC_buffer_V_6' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
-ST_1 : Operation 74 [1/1] (0.00ns)   --->   "%matrixC_buffer_V_7 = alloca i64 1" [kernel.cpp:134]   --->   Operation 74 'alloca' 'matrixC_buffer_V_7' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
-ST_1 : Operation 75 [1/1] (0.42ns)   --->   "%store_ln135 = store i4 0, i4 %i" [kernel.cpp:135]   --->   Operation 75 'store' 'store_ln135' <Predicate = true> <Delay = 0.42>
-ST_1 : Operation 76 [1/1] (0.00ns)   --->   "%br_ln135 = br void" [kernel.cpp:135]   --->   Operation 76 'br' 'br_ln135' <Predicate = true> <Delay = 0.00>
+State 1 <SV = 0> <Delay = 1.83>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%i = alloca i32 1"   --->   Operation 15 'alloca' 'i' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %lenEdgeListPtr, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @ScalarProp_str"   --->   Operation 16 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (1.83ns)   --->   "%lenEdgeListPtr_read = read i32 @_ssdm_op_Read.ap_fifo.i32P0A, i32 %lenEdgeListPtr"   --->   Operation 17 'read' 'lenEdgeListPtr_read' <Predicate = true> <Delay = 1.83> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fifoSortMatrixC_o_03, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @p_str"   --->   Operation 18 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fifoSortMatrixC_o_0, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @p_str"   --->   Operation 19 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fifoCalcMatrixC_i_02, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @p_str"   --->   Operation 20 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fifoCalcMatrixC_i_0, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @p_str"   --->   Operation 21 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %fifoMatrixCIdx_i_0_0_0_01, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @p_str"   --->   Operation 22 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %fifoMatrixCIdx_i_0_0_0_0, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @p_str"   --->   Operation 23 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fifoEdgeListPtr_calC15, void @empty_2, i32 0, i32 0, void @empty_20, i32 0, i32 0, void @empty_20, void @empty_20, void @empty_20, i32 0, i32 0, i32 0, i32 0, void @empty_20, void @empty_20"   --->   Operation 24 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%matrixC_buffer_V = alloca i64 1" [kernel.cpp:134]   --->   Operation 25 'alloca' 'matrixC_buffer_V' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_1 : Operation 26 [1/1] (0.42ns)   --->   "%store_ln135 = store i4 0, i4 %i" [kernel.cpp:135]   --->   Operation 26 'store' 'store_ln135' <Predicate = true> <Delay = 0.42>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%br_ln135 = br void" [kernel.cpp:135]   --->   Operation 27 'br' 'br_ln135' <Predicate = true> <Delay = 0.00>
 
 State 2 <SV = 1> <Delay = 2.35>
-ST_2 : Operation 77 [1/1] (0.00ns)   --->   "%i_3 = load i4 %i" [kernel.cpp:135]   --->   Operation 77 'load' 'i_3' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 78 [1/1] (0.00ns)   --->   "%zext_ln135 = zext i4 %i_3" [kernel.cpp:135]   --->   Operation 78 'zext' 'zext_ln135' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 79 [1/1] (0.72ns)   --->   "%icmp_ln135 = icmp_eq  i4 %i_3, i4 8" [kernel.cpp:135]   --->   Operation 79 'icmp' 'icmp_ln135' <Predicate = true> <Delay = 0.72> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 80 [1/1] (0.00ns)   --->   "%empty = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 8, i64 8, i64 8"   --->   Operation 80 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 81 [1/1] (0.79ns)   --->   "%add_ln135 = add i4 %i_3, i4 1" [kernel.cpp:135]   --->   Operation 81 'add' 'add_ln135' <Predicate = true> <Delay = 0.79> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 82 [1/1] (0.00ns)   --->   "%br_ln135 = br i1 %icmp_ln135, void %.split24, void %.lr.ph134" [kernel.cpp:135]   --->   Operation 82 'br' 'br_ln135' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 83 [1/1] (0.00ns)   --->   "%specloopname_ln135 = specloopname void @_ssdm_op_SpecLoopName, void @empty_8" [kernel.cpp:135]   --->   Operation 83 'specloopname' 'specloopname_ln135' <Predicate = (!icmp_ln135)> <Delay = 0.00>
-ST_2 : Operation 84 [1/1] (0.00ns)   --->   "%matrixC_buffer_V_0_addr = getelementptr i32 %matrixC_buffer_V_0, i64 0, i64 %zext_ln135" [kernel.cpp:137]   --->   Operation 84 'getelementptr' 'matrixC_buffer_V_0_addr' <Predicate = (!icmp_ln135)> <Delay = 0.00>
-ST_2 : Operation 85 [1/1] (0.00ns)   --->   "%matrixC_buffer_V_1_addr = getelementptr i32 %matrixC_buffer_V_1, i64 0, i64 %zext_ln135" [kernel.cpp:137]   --->   Operation 85 'getelementptr' 'matrixC_buffer_V_1_addr' <Predicate = (!icmp_ln135)> <Delay = 0.00>
-ST_2 : Operation 86 [1/1] (0.00ns)   --->   "%matrixC_buffer_V_2_addr = getelementptr i32 %matrixC_buffer_V_2, i64 0, i64 %zext_ln135" [kernel.cpp:137]   --->   Operation 86 'getelementptr' 'matrixC_buffer_V_2_addr' <Predicate = (!icmp_ln135)> <Delay = 0.00>
-ST_2 : Operation 87 [1/1] (0.00ns)   --->   "%matrixC_buffer_V_3_addr = getelementptr i32 %matrixC_buffer_V_3, i64 0, i64 %zext_ln135" [kernel.cpp:137]   --->   Operation 87 'getelementptr' 'matrixC_buffer_V_3_addr' <Predicate = (!icmp_ln135)> <Delay = 0.00>
-ST_2 : Operation 88 [1/1] (0.00ns)   --->   "%matrixC_buffer_V_4_addr = getelementptr i32 %matrixC_buffer_V_4, i64 0, i64 %zext_ln135" [kernel.cpp:137]   --->   Operation 88 'getelementptr' 'matrixC_buffer_V_4_addr' <Predicate = (!icmp_ln135)> <Delay = 0.00>
-ST_2 : Operation 89 [1/1] (0.00ns)   --->   "%matrixC_buffer_V_5_addr = getelementptr i32 %matrixC_buffer_V_5, i64 0, i64 %zext_ln135" [kernel.cpp:137]   --->   Operation 89 'getelementptr' 'matrixC_buffer_V_5_addr' <Predicate = (!icmp_ln135)> <Delay = 0.00>
-ST_2 : Operation 90 [1/1] (0.00ns)   --->   "%matrixC_buffer_V_6_addr = getelementptr i32 %matrixC_buffer_V_6, i64 0, i64 %zext_ln135" [kernel.cpp:137]   --->   Operation 90 'getelementptr' 'matrixC_buffer_V_6_addr' <Predicate = (!icmp_ln135)> <Delay = 0.00>
-ST_2 : Operation 91 [1/1] (0.00ns)   --->   "%matrixC_buffer_V_7_addr = getelementptr i32 %matrixC_buffer_V_7, i64 0, i64 %zext_ln135" [kernel.cpp:137]   --->   Operation 91 'getelementptr' 'matrixC_buffer_V_7_addr' <Predicate = (!icmp_ln135)> <Delay = 0.00>
-ST_2 : Operation 92 [1/1] (0.42ns)   --->   "%br_ln136 = br void" [kernel.cpp:136]   --->   Operation 92 'br' 'br_ln136' <Predicate = (!icmp_ln135)> <Delay = 0.42>
-ST_2 : Operation 93 [1/1] (0.00ns)   --->   "%iter = alloca i32 1"   --->   Operation 93 'alloca' 'iter' <Predicate = (icmp_ln135)> <Delay = 0.00>
-ST_2 : Operation 94 [1/1] (0.00ns)   --->   "%i_1 = alloca i32 1"   --->   Operation 94 'alloca' 'i_1' <Predicate = (icmp_ln135)> <Delay = 0.00>
-ST_2 : Operation 95 [1/1] (1.63ns)   --->   "%tmp_46 = read i32 @_ssdm_op_Read.ap_fifo.volatile.i32P0A, i32 %fifoEdgeListPtr_i_V" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145]   --->   Operation 95 'read' 'tmp_46' <Predicate = (icmp_ln135)> <Delay = 1.63> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = -1> <FIFO>
-ST_2 : Operation 96 [1/1] (1.01ns)   --->   "%add_ln143 = add i32 %lenEdgeListPtr_read, i32 4294967295" [kernel.cpp:143]   --->   Operation 96 'add' 'add_ln143' <Predicate = (icmp_ln135)> <Delay = 1.01> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 97 [1/1] (0.42ns)   --->   "%store_ln143 = store i32 %tmp_46, i32 %i_1" [kernel.cpp:143]   --->   Operation 97 'store' 'store_ln143' <Predicate = (icmp_ln135)> <Delay = 0.42>
-ST_2 : Operation 98 [1/1] (0.42ns)   --->   "%store_ln143 = store i31 0, i31 %iter" [kernel.cpp:143]   --->   Operation 98 'store' 'store_ln143' <Predicate = (icmp_ln135)> <Delay = 0.42>
-ST_2 : Operation 99 [1/1] (0.00ns)   --->   "%br_ln143 = br void" [kernel.cpp:143]   --->   Operation 99 'br' 'br_ln143' <Predicate = (icmp_ln135)> <Delay = 0.00>
+ST_2 : Operation 28 [1/1] (0.00ns)   --->   "%i_6 = load i4 %i" [kernel.cpp:137]   --->   Operation 28 'load' 'i_6' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 29 [1/1] (0.72ns)   --->   "%icmp_ln135 = icmp_eq  i4 %i_6, i4 8" [kernel.cpp:135]   --->   Operation 29 'icmp' 'icmp_ln135' <Predicate = true> <Delay = 0.72> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 30 [1/1] (0.00ns)   --->   "%empty = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 8, i64 8, i64 8"   --->   Operation 30 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 31 [1/1] (0.79ns)   --->   "%add_ln135 = add i4 %i_6, i4 1" [kernel.cpp:135]   --->   Operation 31 'add' 'add_ln135' <Predicate = true> <Delay = 0.79> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 32 [1/1] (0.00ns)   --->   "%br_ln135 = br i1 %icmp_ln135, void %.split27, void %.lr.ph134" [kernel.cpp:135]   --->   Operation 32 'br' 'br_ln135' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 33 [1/1] (0.00ns)   --->   "%specloopname_ln135 = specloopname void @_ssdm_op_SpecLoopName, void @empty_16" [kernel.cpp:135]   --->   Operation 33 'specloopname' 'specloopname_ln135' <Predicate = (!icmp_ln135)> <Delay = 0.00>
+ST_2 : Operation 34 [1/1] (0.42ns)   --->   "%br_ln136 = br void" [kernel.cpp:136]   --->   Operation 34 'br' 'br_ln136' <Predicate = (!icmp_ln135)> <Delay = 0.42>
+ST_2 : Operation 35 [1/1] (0.00ns)   --->   "%iter = alloca i32 1"   --->   Operation 35 'alloca' 'iter' <Predicate = (icmp_ln135)> <Delay = 0.00>
+ST_2 : Operation 36 [1/1] (0.00ns)   --->   "%i_5 = alloca i32 1"   --->   Operation 36 'alloca' 'i_5' <Predicate = (icmp_ln135)> <Delay = 0.00>
+ST_2 : Operation 37 [1/1] (1.63ns)   --->   "%tmp_12 = read i32 @_ssdm_op_Read.ap_fifo.volatile.i32P0A, i32 %fifoEdgeListPtr_calC15" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145]   --->   Operation 37 'read' 'tmp_12' <Predicate = (icmp_ln135)> <Delay = 1.63> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 32> <FIFO>
+ST_2 : Operation 38 [1/1] (1.01ns)   --->   "%add_ln143 = add i32 %lenEdgeListPtr_read, i32 4294967295" [kernel.cpp:143]   --->   Operation 38 'add' 'add_ln143' <Predicate = (icmp_ln135)> <Delay = 1.01> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 39 [1/1] (0.42ns)   --->   "%store_ln143 = store i32 %tmp_12, i32 %i_5" [kernel.cpp:143]   --->   Operation 39 'store' 'store_ln143' <Predicate = (icmp_ln135)> <Delay = 0.42>
+ST_2 : Operation 40 [1/1] (0.42ns)   --->   "%store_ln143 = store i31 0, i31 %iter" [kernel.cpp:143]   --->   Operation 40 'store' 'store_ln143' <Predicate = (icmp_ln135)> <Delay = 0.42>
+ST_2 : Operation 41 [1/1] (0.00ns)   --->   "%br_ln143 = br void" [kernel.cpp:143]   --->   Operation 41 'br' 'br_ln143' <Predicate = (icmp_ln135)> <Delay = 0.00>
 
-State 3 <SV = 2> <Delay = 1.39>
-ST_3 : Operation 100 [1/1] (0.00ns)   --->   "%j = phi i4 %add_ln136, void %.split2289, i4 0, void %.split24" [kernel.cpp:136]   --->   Operation 100 'phi' 'j' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 101 [1/1] (0.72ns)   --->   "%icmp_ln136 = icmp_eq  i4 %j, i4 8" [kernel.cpp:136]   --->   Operation 101 'icmp' 'icmp_ln136' <Predicate = true> <Delay = 0.72> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 102 [1/1] (0.00ns)   --->   "%empty_23 = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 8, i64 8, i64 8"   --->   Operation 102 'speclooptripcount' 'empty_23' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 103 [1/1] (0.79ns)   --->   "%add_ln136 = add i4 %j, i4 1" [kernel.cpp:136]   --->   Operation 103 'add' 'add_ln136' <Predicate = true> <Delay = 0.79> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 104 [1/1] (0.00ns)   --->   "%br_ln136 = br i1 %icmp_ln136, void %.split22, void" [kernel.cpp:136]   --->   Operation 104 'br' 'br_ln136' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 105 [1/1] (0.00ns)   --->   "%specloopname_ln136 = specloopname void @_ssdm_op_SpecLoopName, void @empty_7" [kernel.cpp:136]   --->   Operation 105 'specloopname' 'specloopname_ln136' <Predicate = (!icmp_ln136)> <Delay = 0.00>
-ST_3 : Operation 106 [1/1] (0.00ns)   --->   "%trunc_ln137 = trunc i4 %j" [kernel.cpp:137]   --->   Operation 106 'trunc' 'trunc_ln137' <Predicate = (!icmp_ln136)> <Delay = 0.00>
-ST_3 : Operation 107 [1/1] (0.75ns)   --->   "%switch_ln137 = switch i3 %trunc_ln137, void %branch7, i3 0, void %branch0, i3 1, void %branch1, i3 2, void %branch2, i3 3, void %branch3, i3 4, void %branch4, i3 5, void %branch5, i3 6, void %branch6" [kernel.cpp:137]   --->   Operation 107 'switch' 'switch_ln137' <Predicate = (!icmp_ln136)> <Delay = 0.75>
-ST_3 : Operation 108 [1/1] (0.67ns)   --->   "%store_ln137 = store i32 0, i3 %matrixC_buffer_V_6_addr" [kernel.cpp:137]   --->   Operation 108 'store' 'store_ln137' <Predicate = (!icmp_ln136 & trunc_ln137 == 6)> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
-ST_3 : Operation 109 [1/1] (0.00ns)   --->   "%br_ln137 = br void %.split2289" [kernel.cpp:137]   --->   Operation 109 'br' 'br_ln137' <Predicate = (!icmp_ln136 & trunc_ln137 == 6)> <Delay = 0.00>
-ST_3 : Operation 110 [1/1] (0.67ns)   --->   "%store_ln137 = store i32 0, i3 %matrixC_buffer_V_5_addr" [kernel.cpp:137]   --->   Operation 110 'store' 'store_ln137' <Predicate = (!icmp_ln136 & trunc_ln137 == 5)> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
-ST_3 : Operation 111 [1/1] (0.00ns)   --->   "%br_ln137 = br void %.split2289" [kernel.cpp:137]   --->   Operation 111 'br' 'br_ln137' <Predicate = (!icmp_ln136 & trunc_ln137 == 5)> <Delay = 0.00>
-ST_3 : Operation 112 [1/1] (0.67ns)   --->   "%store_ln137 = store i32 0, i3 %matrixC_buffer_V_4_addr" [kernel.cpp:137]   --->   Operation 112 'store' 'store_ln137' <Predicate = (!icmp_ln136 & trunc_ln137 == 4)> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
-ST_3 : Operation 113 [1/1] (0.00ns)   --->   "%br_ln137 = br void %.split2289" [kernel.cpp:137]   --->   Operation 113 'br' 'br_ln137' <Predicate = (!icmp_ln136 & trunc_ln137 == 4)> <Delay = 0.00>
-ST_3 : Operation 114 [1/1] (0.67ns)   --->   "%store_ln137 = store i32 0, i3 %matrixC_buffer_V_3_addr" [kernel.cpp:137]   --->   Operation 114 'store' 'store_ln137' <Predicate = (!icmp_ln136 & trunc_ln137 == 3)> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
-ST_3 : Operation 115 [1/1] (0.00ns)   --->   "%br_ln137 = br void %.split2289" [kernel.cpp:137]   --->   Operation 115 'br' 'br_ln137' <Predicate = (!icmp_ln136 & trunc_ln137 == 3)> <Delay = 0.00>
-ST_3 : Operation 116 [1/1] (0.67ns)   --->   "%store_ln137 = store i32 0, i3 %matrixC_buffer_V_2_addr" [kernel.cpp:137]   --->   Operation 116 'store' 'store_ln137' <Predicate = (!icmp_ln136 & trunc_ln137 == 2)> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
-ST_3 : Operation 117 [1/1] (0.00ns)   --->   "%br_ln137 = br void %.split2289" [kernel.cpp:137]   --->   Operation 117 'br' 'br_ln137' <Predicate = (!icmp_ln136 & trunc_ln137 == 2)> <Delay = 0.00>
-ST_3 : Operation 118 [1/1] (0.67ns)   --->   "%store_ln137 = store i32 0, i3 %matrixC_buffer_V_1_addr" [kernel.cpp:137]   --->   Operation 118 'store' 'store_ln137' <Predicate = (!icmp_ln136 & trunc_ln137 == 1)> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
-ST_3 : Operation 119 [1/1] (0.00ns)   --->   "%br_ln137 = br void %.split2289" [kernel.cpp:137]   --->   Operation 119 'br' 'br_ln137' <Predicate = (!icmp_ln136 & trunc_ln137 == 1)> <Delay = 0.00>
-ST_3 : Operation 120 [1/1] (0.67ns)   --->   "%store_ln137 = store i32 0, i3 %matrixC_buffer_V_0_addr" [kernel.cpp:137]   --->   Operation 120 'store' 'store_ln137' <Predicate = (!icmp_ln136 & trunc_ln137 == 0)> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
-ST_3 : Operation 121 [1/1] (0.00ns)   --->   "%br_ln137 = br void %.split2289" [kernel.cpp:137]   --->   Operation 121 'br' 'br_ln137' <Predicate = (!icmp_ln136 & trunc_ln137 == 0)> <Delay = 0.00>
-ST_3 : Operation 122 [1/1] (0.67ns)   --->   "%store_ln137 = store i32 0, i3 %matrixC_buffer_V_7_addr" [kernel.cpp:137]   --->   Operation 122 'store' 'store_ln137' <Predicate = (!icmp_ln136 & trunc_ln137 == 7)> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
-ST_3 : Operation 123 [1/1] (0.00ns)   --->   "%br_ln137 = br void %.split2289" [kernel.cpp:137]   --->   Operation 123 'br' 'br_ln137' <Predicate = (!icmp_ln136 & trunc_ln137 == 7)> <Delay = 0.00>
-ST_3 : Operation 124 [1/1] (0.42ns)   --->   "%store_ln135 = store i4 %add_ln135, i4 %i" [kernel.cpp:135]   --->   Operation 124 'store' 'store_ln135' <Predicate = (icmp_ln136)> <Delay = 0.42>
-ST_3 : Operation 125 [1/1] (0.00ns)   --->   "%br_ln0 = br void"   --->   Operation 125 'br' 'br_ln0' <Predicate = (icmp_ln136)> <Delay = 0.00>
+State 3 <SV = 2> <Delay = 1.47>
+ST_3 : Operation 42 [1/1] (0.00ns)   --->   "%j = phi i2 %add_ln136, void %.split25, i2 0, void %.split27" [kernel.cpp:136]   --->   Operation 42 'phi' 'j' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 43 [1/1] (0.00ns)   --->   "%trunc_ln137 = trunc i2 %j" [kernel.cpp:137]   --->   Operation 43 'trunc' 'trunc_ln137' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 44 [1/1] (0.00ns)   --->   "%tmp_3_cast = bitconcatenate i4 @_ssdm_op_BitConcatenate.i4.i1.i3, i1 %trunc_ln137, i3 0" [kernel.cpp:137]   --->   Operation 44 'bitconcatenate' 'tmp_3_cast' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 45 [1/1] (0.79ns)   --->   "%add_ln137 = add i4 %tmp_3_cast, i4 %i_6" [kernel.cpp:137]   --->   Operation 45 'add' 'add_ln137' <Predicate = true> <Delay = 0.79> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 46 [1/1] (0.00ns)   --->   "%zext_ln137 = zext i4 %add_ln137" [kernel.cpp:137]   --->   Operation 46 'zext' 'zext_ln137' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 47 [1/1] (0.00ns)   --->   "%matrixC_buffer_V_addr = getelementptr i32 %matrixC_buffer_V, i64 0, i64 %zext_ln137" [kernel.cpp:137]   --->   Operation 47 'getelementptr' 'matrixC_buffer_V_addr' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 48 [1/1] (0.44ns)   --->   "%icmp_ln136 = icmp_eq  i2 %j, i2 2" [kernel.cpp:136]   --->   Operation 48 'icmp' 'icmp_ln136' <Predicate = true> <Delay = 0.44> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 49 [1/1] (0.00ns)   --->   "%empty_58 = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 2, i64 2, i64 2"   --->   Operation 49 'speclooptripcount' 'empty_58' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 50 [1/1] (0.54ns)   --->   "%add_ln136 = add i2 %j, i2 1" [kernel.cpp:136]   --->   Operation 50 'add' 'add_ln136' <Predicate = true> <Delay = 0.54> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 51 [1/1] (0.00ns)   --->   "%br_ln136 = br i1 %icmp_ln136, void %.split25, void" [kernel.cpp:136]   --->   Operation 51 'br' 'br_ln136' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 52 [1/1] (0.00ns)   --->   "%specloopname_ln136 = specloopname void @_ssdm_op_SpecLoopName, void @empty_15" [kernel.cpp:136]   --->   Operation 52 'specloopname' 'specloopname_ln136' <Predicate = (!icmp_ln136)> <Delay = 0.00>
+ST_3 : Operation 53 [1/1] (0.67ns)   --->   "%store_ln137 = store i32 0, i4 %matrixC_buffer_V_addr" [kernel.cpp:137]   --->   Operation 53 'store' 'store_ln137' <Predicate = (!icmp_ln136)> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_3 : Operation 54 [1/1] (0.00ns)   --->   "%br_ln0 = br void"   --->   Operation 54 'br' 'br_ln0' <Predicate = (!icmp_ln136)> <Delay = 0.00>
+ST_3 : Operation 55 [1/1] (0.42ns)   --->   "%store_ln135 = store i4 %add_ln135, i4 %i" [kernel.cpp:135]   --->   Operation 55 'store' 'store_ln135' <Predicate = (icmp_ln136)> <Delay = 0.42>
+ST_3 : Operation 56 [1/1] (0.00ns)   --->   "%br_ln0 = br void"   --->   Operation 56 'br' 'br_ln0' <Predicate = (icmp_ln136)> <Delay = 0.00>
 
-State 4 <SV = 3> <Delay = 0.00>
-ST_4 : Operation 126 [1/1] (0.00ns)   --->   "%br_ln0 = br void"   --->   Operation 126 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+State 4 <SV = 2> <Delay = 2.62>
+ST_4 : Operation 57 [1/1] (0.00ns)   --->   "%iter_1 = load i31 %iter" [kernel.cpp:143]   --->   Operation 57 'load' 'iter_1' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 58 [1/1] (0.00ns)   --->   "%start_addr = load i32 %i_5"   --->   Operation 58 'load' 'start_addr' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 59 [1/1] (0.00ns)   --->   "%zext_ln143 = zext i31 %iter_1" [kernel.cpp:143]   --->   Operation 59 'zext' 'zext_ln143' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 60 [1/1] (0.99ns)   --->   "%icmp_ln143 = icmp_slt  i32 %zext_ln143, i32 %add_ln143" [kernel.cpp:143]   --->   Operation 60 'icmp' 'icmp_ln143' <Predicate = true> <Delay = 0.99> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 61 [1/1] (1.00ns)   --->   "%iter_2 = add i31 %iter_1, i31 1" [kernel.cpp:143]   --->   Operation 61 'add' 'iter_2' <Predicate = true> <Delay = 1.00> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 62 [1/1] (0.00ns)   --->   "%br_ln143 = br i1 %icmp_ln143, void %._crit_edge135.loopexit.preheader, void %.split23" [kernel.cpp:143]   --->   Operation 62 'br' 'br_ln143' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 63 [1/1] (0.00ns)   --->   "%specloopname_ln143 = specloopname void @_ssdm_op_SpecLoopName, void @empty_10" [kernel.cpp:143]   --->   Operation 63 'specloopname' 'specloopname_ln143' <Predicate = (icmp_ln143)> <Delay = 0.00>
+ST_4 : Operation 64 [1/1] (1.63ns)   --->   "%tmp_13 = read i32 @_ssdm_op_Read.ap_fifo.volatile.i32P0A, i32 %fifoEdgeListPtr_calC15" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145]   --->   Operation 64 'read' 'tmp_13' <Predicate = (icmp_ln143)> <Delay = 1.63> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 32> <FIFO>
+ST_4 : Operation 65 [1/1] (0.42ns)   --->   "%br_ln148 = br void" [kernel.cpp:148]   --->   Operation 65 'br' 'br_ln148' <Predicate = (icmp_ln143)> <Delay = 0.42>
+ST_4 : Operation 66 [1/1] (0.00ns)   --->   "%i_3 = alloca i32 1"   --->   Operation 66 'alloca' 'i_3' <Predicate = (!icmp_ln143)> <Delay = 0.00>
+ST_4 : Operation 67 [1/1] (0.42ns)   --->   "%store_ln168 = store i4 0, i4 %i_3" [kernel.cpp:168]   --->   Operation 67 'store' 'store_ln168' <Predicate = (!icmp_ln143)> <Delay = 0.42>
+ST_4 : Operation 68 [1/1] (0.00ns)   --->   "%br_ln168 = br void %._crit_edge135.loopexit" [kernel.cpp:168]   --->   Operation 68 'br' 'br_ln168' <Predicate = (!icmp_ln143)> <Delay = 0.00>
 
-State 5 <SV = 2> <Delay = 2.62>
-ST_5 : Operation 127 [1/1] (0.00ns)   --->   "%iter_1 = load i31 %iter" [kernel.cpp:143]   --->   Operation 127 'load' 'iter_1' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 128 [1/1] (0.00ns)   --->   "%zext_ln143 = zext i31 %iter_1" [kernel.cpp:143]   --->   Operation 128 'zext' 'zext_ln143' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 129 [1/1] (0.99ns)   --->   "%icmp_ln143 = icmp_slt  i32 %zext_ln143, i32 %add_ln143" [kernel.cpp:143]   --->   Operation 129 'icmp' 'icmp_ln143' <Predicate = true> <Delay = 0.99> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_5 : Operation 130 [1/1] (1.00ns)   --->   "%iter_2 = add i31 %iter_1, i31 1" [kernel.cpp:143]   --->   Operation 130 'add' 'iter_2' <Predicate = true> <Delay = 1.00> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_5 : Operation 131 [1/1] (0.00ns)   --->   "%br_ln143 = br i1 %icmp_ln143, void %._crit_edge135.loopexit.preheader, void %.split20" [kernel.cpp:143]   --->   Operation 131 'br' 'br_ln143' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 132 [1/1] (1.63ns)   --->   "%tmp_47 = read i32 @_ssdm_op_Read.ap_fifo.volatile.i32P0A, i32 %fifoEdgeListPtr_i_V" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145]   --->   Operation 132 'read' 'tmp_47' <Predicate = (icmp_ln143)> <Delay = 1.63> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = -1> <FIFO>
-ST_5 : Operation 133 [1/1] (0.42ns)   --->   "%store_ln143 = store i31 %iter_2, i31 %iter" [kernel.cpp:143]   --->   Operation 133 'store' 'store_ln143' <Predicate = (icmp_ln143)> <Delay = 0.42>
-ST_5 : Operation 134 [1/1] (0.00ns)   --->   "%i_2 = alloca i32 1"   --->   Operation 134 'alloca' 'i_2' <Predicate = (!icmp_ln143)> <Delay = 0.00>
-ST_5 : Operation 135 [1/1] (0.42ns)   --->   "%store_ln168 = store i4 0, i4 %i_2" [kernel.cpp:168]   --->   Operation 135 'store' 'store_ln168' <Predicate = (!icmp_ln143)> <Delay = 0.42>
-ST_5 : Operation 136 [1/1] (0.00ns)   --->   "%br_ln168 = br void %._crit_edge135.loopexit" [kernel.cpp:168]   --->   Operation 136 'br' 'br_ln168' <Predicate = (!icmp_ln143)> <Delay = 0.00>
+State 5 <SV = 3> <Delay = 1.41>
+ST_5 : Operation 69 [1/1] (0.00ns)   --->   "%i_2 = phi i32 %start_addr, void %.split23, i32 %i_9, void"   --->   Operation 69 'phi' 'i_2' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 70 [1/1] (0.99ns)   --->   "%icmp_ln148 = icmp_slt  i32 %i_2, i32 %tmp_13" [kernel.cpp:148]   --->   Operation 70 'icmp' 'icmp_ln148' <Predicate = true> <Delay = 0.99> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 71 [1/1] (0.00ns)   --->   "%br_ln148 = br i1 %icmp_ln148, void %._crit_edge.loopexit, void %.split21" [kernel.cpp:148]   --->   Operation 71 'br' 'br_ln148' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 72 [1/1] (0.00ns)   --->   "%specloopname_ln148 = specloopname void @_ssdm_op_SpecLoopName, void @empty_9" [kernel.cpp:148]   --->   Operation 72 'specloopname' 'specloopname_ln148' <Predicate = (icmp_ln148)> <Delay = 0.00>
+ST_5 : Operation 73 [1/1] (0.42ns)   --->   "%br_ln151 = br void" [kernel.cpp:151]   --->   Operation 73 'br' 'br_ln151' <Predicate = (icmp_ln148)> <Delay = 0.42>
+ST_5 : Operation 74 [1/1] (0.42ns)   --->   "%store_ln145 = store i32 %tmp_13, i32 %i_5" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145]   --->   Operation 74 'store' 'store_ln145' <Predicate = (!icmp_ln148)> <Delay = 0.42>
+ST_5 : Operation 75 [1/1] (0.42ns)   --->   "%store_ln143 = store i31 %iter_2, i31 %iter" [kernel.cpp:143]   --->   Operation 75 'store' 'store_ln143' <Predicate = (!icmp_ln148)> <Delay = 0.42>
+ST_5 : Operation 76 [1/1] (0.00ns)   --->   "%br_ln0 = br void"   --->   Operation 76 'br' 'br_ln0' <Predicate = (!icmp_ln148)> <Delay = 0.00>
 
-State 6 <SV = 3> <Delay = 2.00>
-ST_6 : Operation 137 [1/1] (0.00ns)   --->   "%i_1_load = load i32 %i_1" [kernel.cpp:148]   --->   Operation 137 'load' 'i_1_load' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 138 [1/1] (0.99ns)   --->   "%empty_24 = icmp_sgt  i32 %i_1_load, i32 %tmp_47" [kernel.cpp:148]   --->   Operation 138 'icmp' 'empty_24' <Predicate = true> <Delay = 0.99> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_6 : Operation 139 [1/1] (0.00ns) (grouped into LUT with out node sub_ln148)   --->   "%smax = select i1 %empty_24, i32 %i_1_load, i32 %tmp_47" [kernel.cpp:148]   --->   Operation 139 'select' 'smax' <Predicate = true> <Delay = 0.00> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.44> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_6 : Operation 140 [1/1] (1.01ns) (out node of the LUT)   --->   "%sub_ln148 = sub i32 %smax, i32 %i_1_load" [kernel.cpp:148]   --->   Operation 140 'sub' 'sub_ln148' <Predicate = true> <Delay = 1.01> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_6 : Operation 141 [1/1] (0.00ns)   --->   "%tmp_s = bitconcatenate i34 @_ssdm_op_BitConcatenate.i34.i32.i2, i32 %sub_ln148, i2 0" [kernel.cpp:143]   --->   Operation 141 'bitconcatenate' 'tmp_s' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 142 [1/1] (0.00ns)   --->   "%empty_25 = wait i32 @_ssdm_op_Wait"   --->   Operation 142 'wait' 'empty_25' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 143 [2/2] (0.00ns)   --->   "%call_ln143 = call void @sort_C_Pipeline_loop_diff_window_loop_diff_pe, i34 %tmp_s, i16 %fifoMatrixCIdx_i_7_V, i32 %fifoCalcMatrixC_i_7_V, i16 %fifoMatrixCIdx_i_6_V, i32 %fifoCalcMatrixC_i_6_V, i16 %fifoMatrixCIdx_i_5_V, i32 %fifoCalcMatrixC_i_5_V, i16 %fifoMatrixCIdx_i_4_V, i32 %fifoCalcMatrixC_i_4_V, i16 %fifoMatrixCIdx_i_3_V, i32 %fifoCalcMatrixC_i_3_V, i16 %fifoMatrixCIdx_i_2_V, i32 %fifoCalcMatrixC_i_2_V, i16 %fifoMatrixCIdx_i_1_V, i32 %fifoCalcMatrixC_i_1_V, i16 %fifoMatrixCIdx_i_0_V, i32 %fifoCalcMatrixC_i_0_V, i32 %matrixC_buffer_V_0, i32 %matrixC_buffer_V_1, i32 %matrixC_buffer_V_2, i32 %matrixC_buffer_V_3, i32 %matrixC_buffer_V_4, i32 %matrixC_buffer_V_5, i32 %matrixC_buffer_V_6, i32 %matrixC_buffer_V_7" [kernel.cpp:143]   --->   Operation 143 'call' 'call_ln143' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_6 : Operation 144 [1/1] (0.42ns)   --->   "%store_ln145 = store i32 %tmp_47, i32 %i_1" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145]   --->   Operation 144 'store' 'store_ln145' <Predicate = true> <Delay = 0.42>
+State 6 <SV = 4> <Delay = 1.01>
+ST_6 : Operation 77 [1/1] (0.00ns)   --->   "%n = phi i2 0, void %.split21, i2 %n_1, void"   --->   Operation 77 'phi' 'n' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 78 [1/1] (0.44ns)   --->   "%icmp_ln151 = icmp_eq  i2 %n, i2 2" [kernel.cpp:151]   --->   Operation 78 'icmp' 'icmp_ln151' <Predicate = true> <Delay = 0.44> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 79 [1/1] (0.00ns)   --->   "%empty_59 = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 2, i64 2, i64 2"   --->   Operation 79 'speclooptripcount' 'empty_59' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 80 [1/1] (0.54ns)   --->   "%n_1 = add i2 %n, i2 1" [kernel.cpp:151]   --->   Operation 80 'add' 'n_1' <Predicate = true> <Delay = 0.54> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 81 [1/1] (0.00ns)   --->   "%br_ln151 = br i1 %icmp_ln151, void %.split19, void" [kernel.cpp:151]   --->   Operation 81 'br' 'br_ln151' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 82 [1/1] (0.00ns)   --->   "%specloopname_ln151 = specloopname void @_ssdm_op_SpecLoopName, void @empty_30" [kernel.cpp:151]   --->   Operation 82 'specloopname' 'specloopname_ln151' <Predicate = (!icmp_ln151)> <Delay = 0.00>
+ST_6 : Operation 83 [1/1] (0.42ns)   --->   "%br_ln154 = br void" [kernel.cpp:154]   --->   Operation 83 'br' 'br_ln154' <Predicate = (!icmp_ln151)> <Delay = 0.42>
+ST_6 : Operation 84 [1/1] (1.01ns)   --->   "%i_9 = add i32 %i_2, i32 1" [kernel.cpp:148]   --->   Operation 84 'add' 'i_9' <Predicate = (icmp_ln151)> <Delay = 1.01> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 85 [1/1] (0.00ns)   --->   "%br_ln0 = br void"   --->   Operation 85 'br' 'br_ln0' <Predicate = (icmp_ln151)> <Delay = 0.00>
 
-State 7 <SV = 4> <Delay = 0.00>
-ST_7 : Operation 145 [1/1] (0.00ns)   --->   "%specloopname_ln143 = specloopname void @_ssdm_op_SpecLoopName, void @empty_6" [kernel.cpp:143]   --->   Operation 145 'specloopname' 'specloopname_ln143' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 146 [1/2] (0.00ns)   --->   "%call_ln143 = call void @sort_C_Pipeline_loop_diff_window_loop_diff_pe, i34 %tmp_s, i16 %fifoMatrixCIdx_i_7_V, i32 %fifoCalcMatrixC_i_7_V, i16 %fifoMatrixCIdx_i_6_V, i32 %fifoCalcMatrixC_i_6_V, i16 %fifoMatrixCIdx_i_5_V, i32 %fifoCalcMatrixC_i_5_V, i16 %fifoMatrixCIdx_i_4_V, i32 %fifoCalcMatrixC_i_4_V, i16 %fifoMatrixCIdx_i_3_V, i32 %fifoCalcMatrixC_i_3_V, i16 %fifoMatrixCIdx_i_2_V, i32 %fifoCalcMatrixC_i_2_V, i16 %fifoMatrixCIdx_i_1_V, i32 %fifoCalcMatrixC_i_1_V, i16 %fifoMatrixCIdx_i_0_V, i32 %fifoCalcMatrixC_i_0_V, i32 %matrixC_buffer_V_0, i32 %matrixC_buffer_V_1, i32 %matrixC_buffer_V_2, i32 %matrixC_buffer_V_3, i32 %matrixC_buffer_V_4, i32 %matrixC_buffer_V_5, i32 %matrixC_buffer_V_6, i32 %matrixC_buffer_V_7" [kernel.cpp:143]   --->   Operation 146 'call' 'call_ln143' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_7 : Operation 147 [1/1] (0.00ns)   --->   "%br_ln0 = br void"   --->   Operation 147 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+State 7 <SV = 5> <Delay = 4.36>
+ST_7 : Operation 86 [1/1] (0.00ns)   --->   "%j_2 = phi i2 0, void %.split19, i2 %add_ln154, void %_ZN13ap_fixed_baseILi32ELi16ELb1EL9ap_q_mode5EL9ap_o_mode3ELi0EEC2Ed.exit._crit_edge" [kernel.cpp:154]   --->   Operation 86 'phi' 'j_2' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 87 [1/1] (0.00ns)   --->   "%trunc_ln120 = trunc i2 %j_2" [kernel.cpp:120]   --->   Operation 87 'trunc' 'trunc_ln120' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 88 [1/1] (0.00ns)   --->   "%tmp_7_cast = bitconcatenate i4 @_ssdm_op_BitConcatenate.i4.i1.i3, i1 %trunc_ln120, i3 0" [kernel.cpp:154]   --->   Operation 88 'bitconcatenate' 'tmp_7_cast' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 89 [1/1] (0.44ns)   --->   "%icmp_ln154 = icmp_eq  i2 %j_2, i2 2" [kernel.cpp:154]   --->   Operation 89 'icmp' 'icmp_ln154' <Predicate = true> <Delay = 0.44> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 90 [1/1] (0.00ns)   --->   "%empty_60 = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 2, i64 2, i64 2"   --->   Operation 90 'speclooptripcount' 'empty_60' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 91 [1/1] (0.54ns)   --->   "%add_ln154 = add i2 %j_2, i2 1" [kernel.cpp:154]   --->   Operation 91 'add' 'add_ln154' <Predicate = true> <Delay = 0.54> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 92 [1/1] (0.00ns)   --->   "%br_ln154 = br i1 %icmp_ln154, void %.split17, void" [kernel.cpp:154]   --->   Operation 92 'br' 'br_ln154' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 93 [1/1] (0.00ns)   --->   "%specloopname_ln154 = specloopname void @_ssdm_op_SpecLoopName, void @empty_7" [kernel.cpp:154]   --->   Operation 93 'specloopname' 'specloopname_ln154' <Predicate = (!icmp_ln154)> <Delay = 0.00>
+ST_7 : Operation 94 [1/1] (0.00ns)   --->   "%br_ln145 = br i1 %trunc_ln120, void %branch0, void %branch1" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145]   --->   Operation 94 'br' 'br_ln145' <Predicate = (!icmp_ln154)> <Delay = 0.00>
+ST_7 : Operation 95 [1/1] (1.63ns)   --->   "%fifoMatrixCIdx_i_0_0_0_0_read = read i16 @_ssdm_op_Read.ap_fifo.volatile.i16P0A, i16 %fifoMatrixCIdx_i_0_0_0_0" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145]   --->   Operation 95 'read' 'fifoMatrixCIdx_i_0_0_0_0_read' <Predicate = (!icmp_ln154 & !trunc_ln120)> <Delay = 1.63> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 16> <Depth = 32> <FIFO>
+ST_7 : Operation 96 [1/1] (0.42ns)   --->   "%br_ln145 = br void %.split175" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145]   --->   Operation 96 'br' 'br_ln145' <Predicate = (!icmp_ln154 & !trunc_ln120)> <Delay = 0.42>
+ST_7 : Operation 97 [1/1] (1.63ns)   --->   "%fifoMatrixCIdx_i_0_0_0_01_read = read i16 @_ssdm_op_Read.ap_fifo.volatile.i16P0A, i16 %fifoMatrixCIdx_i_0_0_0_01" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145]   --->   Operation 97 'read' 'fifoMatrixCIdx_i_0_0_0_01_read' <Predicate = (!icmp_ln154 & trunc_ln120)> <Delay = 1.63> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 16> <Depth = 32> <FIFO>
+ST_7 : Operation 98 [1/1] (0.42ns)   --->   "%br_ln145 = br void %.split175" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145]   --->   Operation 98 'br' 'br_ln145' <Predicate = (!icmp_ln154 & trunc_ln120)> <Delay = 0.42>
+ST_7 : Operation 99 [1/1] (0.00ns)   --->   "%row_V = phi i16 %fifoMatrixCIdx_i_0_0_0_01_read, void %branch1, i16 %fifoMatrixCIdx_i_0_0_0_0_read, void %branch0" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145]   --->   Operation 99 'phi' 'row_V' <Predicate = (!icmp_ln154)> <Delay = 0.00>
+ST_7 : Operation 100 [1/1] (0.00ns)   --->   "%br_ln145 = br i1 %trunc_ln120, void %branch2, void %branch3" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145]   --->   Operation 100 'br' 'br_ln145' <Predicate = (!icmp_ln154)> <Delay = 0.00>
+ST_7 : Operation 101 [1/1] (1.63ns)   --->   "%fifoCalcMatrixC_i_0_read = read i32 @_ssdm_op_Read.ap_fifo.volatile.floatP0A, i32 %fifoCalcMatrixC_i_0" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145]   --->   Operation 101 'read' 'fifoCalcMatrixC_i_0_read' <Predicate = (!icmp_ln154 & !trunc_ln120)> <Delay = 1.63> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 32> <FIFO>
+ST_7 : Operation 102 [1/1] (0.42ns)   --->   "%br_ln145 = br void %.split1759_ifconv" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145]   --->   Operation 102 'br' 'br_ln145' <Predicate = (!icmp_ln154 & !trunc_ln120)> <Delay = 0.42>
+ST_7 : Operation 103 [1/1] (1.63ns)   --->   "%fifoCalcMatrixC_i_02_read = read i32 @_ssdm_op_Read.ap_fifo.volatile.floatP0A, i32 %fifoCalcMatrixC_i_02" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145]   --->   Operation 103 'read' 'fifoCalcMatrixC_i_02_read' <Predicate = (!icmp_ln154 & trunc_ln120)> <Delay = 1.63> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 32> <FIFO>
+ST_7 : Operation 104 [1/1] (0.42ns)   --->   "%br_ln145 = br void %.split1759_ifconv" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145]   --->   Operation 104 'br' 'br_ln145' <Predicate = (!icmp_ln154 & trunc_ln120)> <Delay = 0.42>
+ST_7 : Operation 105 [1/1] (0.00ns)   --->   "%tmp_6 = phi i32 %fifoCalcMatrixC_i_02_read, void %branch3, i32 %fifoCalcMatrixC_i_0_read, void %branch2" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145]   --->   Operation 105 'phi' 'tmp_6' <Predicate = (!icmp_ln154)> <Delay = 0.00>
+ST_7 : Operation 106 [2/2] (2.30ns)   --->   "%d = fpext i32 %tmp_6"   --->   Operation 106 'fpext' 'd' <Predicate = (!icmp_ln154)> <Delay = 2.30> <CoreInst = "Float2Double">   --->   Core 64 'Float2Double' <Latency = 1> <II = 1> <Delay = 2.30> <FuncUnit> <Opcode : 'fpext'> <InPorts = 1> <OutPorts = 1>
+ST_7 : Operation 107 [1/1] (0.00ns)   --->   "%br_ln0 = br void"   --->   Operation 107 'br' 'br_ln0' <Predicate = (icmp_ln154)> <Delay = 0.00>
 
-State 8 <SV = 3> <Delay = 0.79>
-ST_8 : Operation 148 [1/1] (0.00ns)   --->   "%i_4 = load i4 %i_2" [kernel.cpp:168]   --->   Operation 148 'load' 'i_4' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 149 [1/1] (0.00ns)   --->   "%zext_ln168 = zext i4 %i_4" [kernel.cpp:168]   --->   Operation 149 'zext' 'zext_ln168' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 150 [1/1] (0.72ns)   --->   "%icmp_ln168 = icmp_eq  i4 %i_4, i4 8" [kernel.cpp:168]   --->   Operation 150 'icmp' 'icmp_ln168' <Predicate = true> <Delay = 0.72> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_8 : Operation 151 [1/1] (0.00ns)   --->   "%empty_26 = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 8, i64 8, i64 8"   --->   Operation 151 'speclooptripcount' 'empty_26' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 152 [1/1] (0.79ns)   --->   "%add_ln168 = add i4 %i_4, i4 1" [kernel.cpp:168]   --->   Operation 152 'add' 'add_ln168' <Predicate = true> <Delay = 0.79> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_8 : Operation 153 [1/1] (0.00ns)   --->   "%br_ln168 = br i1 %icmp_ln168, void %.split12, void" [kernel.cpp:168]   --->   Operation 153 'br' 'br_ln168' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 154 [1/1] (0.00ns)   --->   "%matrixC_buffer_V_0_addr_1 = getelementptr i32 %matrixC_buffer_V_0, i64 0, i64 %zext_ln168"   --->   Operation 154 'getelementptr' 'matrixC_buffer_V_0_addr_1' <Predicate = (!icmp_ln168)> <Delay = 0.00>
-ST_8 : Operation 155 [2/2] (0.67ns)   --->   "%matrixC_buffer_V_0_load = load i3 %matrixC_buffer_V_0_addr_1"   --->   Operation 155 'load' 'matrixC_buffer_V_0_load' <Predicate = (!icmp_ln168)> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
-ST_8 : Operation 156 [1/1] (0.00ns)   --->   "%matrixC_buffer_V_1_addr_1 = getelementptr i32 %matrixC_buffer_V_1, i64 0, i64 %zext_ln168"   --->   Operation 156 'getelementptr' 'matrixC_buffer_V_1_addr_1' <Predicate = (!icmp_ln168)> <Delay = 0.00>
-ST_8 : Operation 157 [2/2] (0.67ns)   --->   "%matrixC_buffer_V_1_load = load i3 %matrixC_buffer_V_1_addr_1"   --->   Operation 157 'load' 'matrixC_buffer_V_1_load' <Predicate = (!icmp_ln168)> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
-ST_8 : Operation 158 [1/1] (0.00ns)   --->   "%matrixC_buffer_V_2_addr_1 = getelementptr i32 %matrixC_buffer_V_2, i64 0, i64 %zext_ln168"   --->   Operation 158 'getelementptr' 'matrixC_buffer_V_2_addr_1' <Predicate = (!icmp_ln168)> <Delay = 0.00>
-ST_8 : Operation 159 [2/2] (0.67ns)   --->   "%matrixC_buffer_V_2_load = load i3 %matrixC_buffer_V_2_addr_1"   --->   Operation 159 'load' 'matrixC_buffer_V_2_load' <Predicate = (!icmp_ln168)> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
-ST_8 : Operation 160 [1/1] (0.00ns)   --->   "%matrixC_buffer_V_3_addr_1 = getelementptr i32 %matrixC_buffer_V_3, i64 0, i64 %zext_ln168"   --->   Operation 160 'getelementptr' 'matrixC_buffer_V_3_addr_1' <Predicate = (!icmp_ln168)> <Delay = 0.00>
-ST_8 : Operation 161 [2/2] (0.67ns)   --->   "%matrixC_buffer_V_3_load = load i3 %matrixC_buffer_V_3_addr_1"   --->   Operation 161 'load' 'matrixC_buffer_V_3_load' <Predicate = (!icmp_ln168)> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
-ST_8 : Operation 162 [1/1] (0.00ns)   --->   "%matrixC_buffer_V_4_addr_1 = getelementptr i32 %matrixC_buffer_V_4, i64 0, i64 %zext_ln168"   --->   Operation 162 'getelementptr' 'matrixC_buffer_V_4_addr_1' <Predicate = (!icmp_ln168)> <Delay = 0.00>
-ST_8 : Operation 163 [2/2] (0.67ns)   --->   "%matrixC_buffer_V_4_load = load i3 %matrixC_buffer_V_4_addr_1"   --->   Operation 163 'load' 'matrixC_buffer_V_4_load' <Predicate = (!icmp_ln168)> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
-ST_8 : Operation 164 [1/1] (0.00ns)   --->   "%matrixC_buffer_V_5_addr_1 = getelementptr i32 %matrixC_buffer_V_5, i64 0, i64 %zext_ln168"   --->   Operation 164 'getelementptr' 'matrixC_buffer_V_5_addr_1' <Predicate = (!icmp_ln168)> <Delay = 0.00>
-ST_8 : Operation 165 [2/2] (0.67ns)   --->   "%matrixC_buffer_V_5_load = load i3 %matrixC_buffer_V_5_addr_1"   --->   Operation 165 'load' 'matrixC_buffer_V_5_load' <Predicate = (!icmp_ln168)> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
-ST_8 : Operation 166 [1/1] (0.00ns)   --->   "%matrixC_buffer_V_6_addr_1 = getelementptr i32 %matrixC_buffer_V_6, i64 0, i64 %zext_ln168"   --->   Operation 166 'getelementptr' 'matrixC_buffer_V_6_addr_1' <Predicate = (!icmp_ln168)> <Delay = 0.00>
-ST_8 : Operation 167 [2/2] (0.67ns)   --->   "%matrixC_buffer_V_6_load = load i3 %matrixC_buffer_V_6_addr_1"   --->   Operation 167 'load' 'matrixC_buffer_V_6_load' <Predicate = (!icmp_ln168)> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
-ST_8 : Operation 168 [1/1] (0.00ns)   --->   "%matrixC_buffer_V_7_addr_1 = getelementptr i32 %matrixC_buffer_V_7, i64 0, i64 %zext_ln168"   --->   Operation 168 'getelementptr' 'matrixC_buffer_V_7_addr_1' <Predicate = (!icmp_ln168)> <Delay = 0.00>
-ST_8 : Operation 169 [2/2] (0.67ns)   --->   "%matrixC_buffer_V_7_load = load i3 %matrixC_buffer_V_7_addr_1"   --->   Operation 169 'load' 'matrixC_buffer_V_7_load' <Predicate = (!icmp_ln168)> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
-ST_8 : Operation 170 [1/1] (0.00ns)   --->   "%ret_ln174 = ret" [kernel.cpp:174]   --->   Operation 170 'ret' 'ret_ln174' <Predicate = (icmp_ln168)> <Delay = 0.00>
+State 8 <SV = 6> <Delay = 3.43>
+ST_8 : Operation 108 [1/2] (2.30ns)   --->   "%d = fpext i32 %tmp_6"   --->   Operation 108 'fpext' 'd' <Predicate = true> <Delay = 2.30> <CoreInst = "Float2Double">   --->   Core 64 'Float2Double' <Latency = 1> <II = 1> <Delay = 2.30> <FuncUnit> <Opcode : 'fpext'> <InPorts = 1> <OutPorts = 1>
+ST_8 : Operation 109 [1/1] (0.00ns)   --->   "%ireg = bitcast i64 %d"   --->   Operation 109 'bitcast' 'ireg' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 110 [1/1] (0.00ns)   --->   "%trunc_ln564 = trunc i64 %ireg"   --->   Operation 110 'trunc' 'trunc_ln564' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 111 [1/1] (0.00ns)   --->   "%p_Result_4 = bitselect i1 @_ssdm_op_BitSelect.i1.i64.i32, i64 %ireg, i32 63"   --->   Operation 111 'bitselect' 'p_Result_4' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 112 [1/1] (0.00ns)   --->   "%exp_tmp = partselect i11 @_ssdm_op_PartSelect.i11.i64.i32.i32, i64 %ireg, i32 52, i32 62"   --->   Operation 112 'partselect' 'exp_tmp' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 113 [1/1] (0.00ns)   --->   "%trunc_ln574 = trunc i64 %ireg"   --->   Operation 113 'trunc' 'trunc_ln574' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 114 [1/1] (1.13ns)   --->   "%icmp_ln580 = icmp_eq  i63 %trunc_ln564, i63 0"   --->   Operation 114 'icmp' 'icmp_ln580' <Predicate = true> <Delay = 1.13> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
 
-State 9 <SV = 4> <Delay = 0.67>
-ST_9 : Operation 171 [1/1] (0.00ns)   --->   "%specloopname_ln168 = specloopname void @_ssdm_op_SpecLoopName, void @empty_4" [kernel.cpp:168]   --->   Operation 171 'specloopname' 'specloopname_ln168' <Predicate = true> <Delay = 0.00>
-ST_9 : Operation 172 [1/2] (0.67ns)   --->   "%matrixC_buffer_V_0_load = load i3 %matrixC_buffer_V_0_addr_1"   --->   Operation 172 'load' 'matrixC_buffer_V_0_load' <Predicate = true> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
-ST_9 : Operation 173 [1/2] (0.67ns)   --->   "%matrixC_buffer_V_1_load = load i3 %matrixC_buffer_V_1_addr_1"   --->   Operation 173 'load' 'matrixC_buffer_V_1_load' <Predicate = true> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
-ST_9 : Operation 174 [1/2] (0.67ns)   --->   "%matrixC_buffer_V_2_load = load i3 %matrixC_buffer_V_2_addr_1"   --->   Operation 174 'load' 'matrixC_buffer_V_2_load' <Predicate = true> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
-ST_9 : Operation 175 [1/2] (0.67ns)   --->   "%matrixC_buffer_V_3_load = load i3 %matrixC_buffer_V_3_addr_1"   --->   Operation 175 'load' 'matrixC_buffer_V_3_load' <Predicate = true> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
-ST_9 : Operation 176 [1/2] (0.67ns)   --->   "%matrixC_buffer_V_4_load = load i3 %matrixC_buffer_V_4_addr_1"   --->   Operation 176 'load' 'matrixC_buffer_V_4_load' <Predicate = true> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
-ST_9 : Operation 177 [1/2] (0.67ns)   --->   "%matrixC_buffer_V_5_load = load i3 %matrixC_buffer_V_5_addr_1"   --->   Operation 177 'load' 'matrixC_buffer_V_5_load' <Predicate = true> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
-ST_9 : Operation 178 [1/2] (0.67ns)   --->   "%matrixC_buffer_V_6_load = load i3 %matrixC_buffer_V_6_addr_1"   --->   Operation 178 'load' 'matrixC_buffer_V_6_load' <Predicate = true> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
-ST_9 : Operation 179 [1/2] (0.67ns)   --->   "%matrixC_buffer_V_7_load = load i3 %matrixC_buffer_V_7_addr_1"   --->   Operation 179 'load' 'matrixC_buffer_V_7_load' <Predicate = true> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
-ST_9 : Operation 180 [1/1] (0.42ns)   --->   "%br_ln169 = br void" [kernel.cpp:169]   --->   Operation 180 'br' 'br_ln169' <Predicate = true> <Delay = 0.42>
+State 9 <SV = 7> <Delay = 6.31>
+ST_9 : Operation 115 [1/1] (0.00ns)   --->   "%zext_ln494 = zext i11 %exp_tmp"   --->   Operation 115 'zext' 'zext_ln494' <Predicate = (!icmp_ln580)> <Delay = 0.00>
+ST_9 : Operation 116 [1/1] (0.00ns)   --->   "%p_Result_5 = bitconcatenate i53 @_ssdm_op_BitConcatenate.i53.i1.i52, i1 1, i52 %trunc_ln574"   --->   Operation 116 'bitconcatenate' 'p_Result_5' <Predicate = (!icmp_ln580)> <Delay = 0.00>
+ST_9 : Operation 117 [1/1] (0.00ns)   --->   "%zext_ln578 = zext i53 %p_Result_5"   --->   Operation 117 'zext' 'zext_ln578' <Predicate = (!icmp_ln580)> <Delay = 0.00>
+ST_9 : Operation 118 [1/1] (1.10ns)   --->   "%man_V_1 = sub i54 0, i54 %zext_ln578"   --->   Operation 118 'sub' 'man_V_1' <Predicate = (p_Result_4 & !icmp_ln580)> <Delay = 1.10> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 119 [1/1] (0.40ns)   --->   "%man_V_2 = select i1 %p_Result_4, i54 %man_V_1, i54 %zext_ln578"   --->   Operation 119 'select' 'man_V_2' <Predicate = (!icmp_ln580)> <Delay = 0.40> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.44> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_9 : Operation 120 [1/1] (0.80ns)   --->   "%F2 = sub i12 1075, i12 %zext_ln494"   --->   Operation 120 'sub' 'F2' <Predicate = (!icmp_ln580)> <Delay = 0.80> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 121 [1/1] (0.97ns)   --->   "%icmp_ln590 = icmp_sgt  i12 %F2, i12 16"   --->   Operation 121 'icmp' 'icmp_ln590' <Predicate = (!icmp_ln580)> <Delay = 0.97> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 122 [1/1] (0.80ns)   --->   "%add_ln590 = add i12 %F2, i12 4080"   --->   Operation 122 'add' 'add_ln590' <Predicate = (!icmp_ln580)> <Delay = 0.80> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 123 [1/1] (0.80ns)   --->   "%sub_ln590 = sub i12 16, i12 %F2"   --->   Operation 123 'sub' 'sub_ln590' <Predicate = (!icmp_ln580)> <Delay = 0.80> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 124 [1/1] (0.37ns)   --->   "%sh_amt = select i1 %icmp_ln590, i12 %add_ln590, i12 %sub_ln590"   --->   Operation 124 'select' 'sh_amt' <Predicate = (!icmp_ln580)> <Delay = 0.37> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.44> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_9 : Operation 125 [1/1] (0.00ns)   --->   "%sext_ln590 = sext i12 %sh_amt"   --->   Operation 125 'sext' 'sext_ln590' <Predicate = (!icmp_ln580)> <Delay = 0.00>
+ST_9 : Operation 126 [1/1] (0.97ns)   --->   "%icmp_ln591 = icmp_eq  i12 %F2, i12 16"   --->   Operation 126 'icmp' 'icmp_ln591' <Predicate = (!icmp_ln580)> <Delay = 0.97> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 127 [1/1] (0.00ns)   --->   "%trunc_ln592 = trunc i54 %man_V_2"   --->   Operation 127 'trunc' 'trunc_ln592' <Predicate = (!icmp_ln580)> <Delay = 0.00>
+ST_9 : Operation 128 [1/1] (0.97ns)   --->   "%icmp_ln594 = icmp_ult  i12 %sh_amt, i12 54"   --->   Operation 128 'icmp' 'icmp_ln594' <Predicate = (!icmp_ln580)> <Delay = 0.97> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 129 [1/1] (0.00ns) (grouped into LUT with out node select_ln590)   --->   "%zext_ln595 = zext i32 %sext_ln590"   --->   Operation 129 'zext' 'zext_ln595' <Predicate = (!icmp_ln580)> <Delay = 0.00>
+ST_9 : Operation 130 [1/1] (0.00ns) (grouped into LUT with out node select_ln590)   --->   "%ashr_ln595 = ashr i54 %man_V_2, i54 %zext_ln595"   --->   Operation 130 'ashr' 'ashr_ln595' <Predicate = (!icmp_ln580)> <Delay = 0.00> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 1.38> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 131 [1/1] (0.00ns) (grouped into LUT with out node select_ln590)   --->   "%trunc_ln595 = trunc i54 %ashr_ln595"   --->   Operation 131 'trunc' 'trunc_ln595' <Predicate = (!icmp_ln580)> <Delay = 0.00>
+ST_9 : Operation 132 [1/1] (0.00ns) (grouped into LUT with out node select_ln590)   --->   "%bitcast_ln709 = bitcast i32 %tmp_6"   --->   Operation 132 'bitcast' 'bitcast_ln709' <Predicate = (!icmp_ln580)> <Delay = 0.00>
+ST_9 : Operation 133 [1/1] (0.00ns) (grouped into LUT with out node select_ln590)   --->   "%tmp_9 = bitselect i1 @_ssdm_op_BitSelect.i1.i32.i32, i32 %bitcast_ln709, i32 31"   --->   Operation 133 'bitselect' 'tmp_9' <Predicate = (!icmp_ln580)> <Delay = 0.00>
+ST_9 : Operation 134 [1/1] (0.00ns) (grouped into LUT with out node select_ln590)   --->   "%select_ln597 = select i1 %tmp_9, i32 4294967295, i32 0"   --->   Operation 134 'select' 'select_ln597' <Predicate = (!icmp_ln580)> <Delay = 0.00> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.44> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_9 : Operation 135 [1/1] (0.00ns) (grouped into LUT with out node select_ln590)   --->   "%select_ln594 = select i1 %icmp_ln594, i32 %trunc_ln595, i32 %select_ln597"   --->   Operation 135 'select' 'select_ln594' <Predicate = (!icmp_ln580)> <Delay = 0.00> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.44> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_9 : Operation 136 [1/1] (0.00ns)   --->   "%tmp_10 = partselect i7 @_ssdm_op_PartSelect.i7.i12.i32.i32, i12 %sh_amt, i32 5, i32 11"   --->   Operation 136 'partselect' 'tmp_10' <Predicate = (!icmp_ln580)> <Delay = 0.00>
+ST_9 : Operation 137 [1/1] (0.81ns)   --->   "%icmp_ln612 = icmp_eq  i7 %tmp_10, i7 0"   --->   Operation 137 'icmp' 'icmp_ln612' <Predicate = (!icmp_ln580)> <Delay = 0.81> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 138 [1/1] (0.00ns) (grouped into LUT with out node select_ln591)   --->   "%shl_ln613 = shl i32 %trunc_ln592, i32 %sext_ln590"   --->   Operation 138 'shl' 'shl_ln613' <Predicate = (!icmp_ln580)> <Delay = 0.00> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 1.38> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 139 [1/1] (0.00ns) (grouped into LUT with out node select_ln591)   --->   "%select_ln612 = select i1 %icmp_ln612, i32 %shl_ln613, i32 0"   --->   Operation 139 'select' 'select_ln612' <Predicate = (!icmp_ln580)> <Delay = 0.00> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.44> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_9 : Operation 140 [1/1] (0.00ns) (grouped into LUT with out node select_ln591)   --->   "%xor_ln580 = xor i1 %icmp_ln580, i1 1"   --->   Operation 140 'xor' 'xor_ln580' <Predicate = (!icmp_ln580)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 141 [1/1] (0.00ns) (grouped into LUT with out node select_ln591)   --->   "%and_ln591 = and i1 %icmp_ln591, i1 %xor_ln580"   --->   Operation 141 'and' 'and_ln591' <Predicate = (!icmp_ln580)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 142 [1/1] (1.38ns) (out node of the LUT)   --->   "%select_ln591 = select i1 %and_ln591, i32 %trunc_ln592, i32 %select_ln612"   --->   Operation 142 'select' 'select_ln591' <Predicate = (!icmp_ln580)> <Delay = 1.38> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.44> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_9 : Operation 143 [1/1] (0.00ns) (grouped into LUT with out node and_ln590)   --->   "%or_ln591 = or i1 %icmp_ln580, i1 %icmp_ln591"   --->   Operation 143 'or' 'or_ln591' <Predicate = (!icmp_ln580)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 144 [1/1] (0.00ns) (grouped into LUT with out node and_ln590)   --->   "%xor_ln591 = xor i1 %or_ln591, i1 1"   --->   Operation 144 'xor' 'xor_ln591' <Predicate = (!icmp_ln580)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 145 [1/1] (0.28ns) (out node of the LUT)   --->   "%and_ln590 = and i1 %icmp_ln590, i1 %xor_ln591"   --->   Operation 145 'and' 'and_ln590' <Predicate = (!icmp_ln580)> <Delay = 0.28> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 146 [1/1] (1.50ns) (out node of the LUT)   --->   "%select_ln590 = select i1 %and_ln590, i32 %select_ln594, i32 %select_ln591"   --->   Operation 146 'select' 'select_ln590' <Predicate = (!icmp_ln580)> <Delay = 1.50> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.44> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_9 : Operation 147 [1/1] (0.44ns) (out node of the LUT)   --->   "%matrixC_val_i_V = select i1 %icmp_ln580, i32 0, i32 %select_ln590"   --->   Operation 147 'select' 'matrixC_val_i_V' <Predicate = true> <Delay = 0.44> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.44> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_9 : Operation 148 [1/1] (0.00ns)   --->   "%tmp_11 = bitselect i1 @_ssdm_op_BitSelect.i1.i16.i32, i16 %row_V, i32 15"   --->   Operation 148 'bitselect' 'tmp_11' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 149 [1/1] (0.00ns)   --->   "%br_ln158 = br i1 %tmp_11, void %_ZN13ap_fixed_baseILi33ELi17ELb1EL9ap_q_mode5EL9ap_o_mode3ELi0EEC2ILi32ELi16ELb1ELS0_5ELS1_3ELi0EEERKS_IXT_EXT0_EXT1_EXT2_EXT3_EXT4_EE.exit.i.i, void %_ZN13ap_fixed_baseILi32ELi16ELb1EL9ap_q_mode5EL9ap_o_mode3ELi0EEC2Ed.exit._crit_edge" [kernel.cpp:158]   --->   Operation 149 'br' 'br_ln158' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 150 [1/1] (0.00ns)   --->   "%trunc_ln120_1 = trunc i16 %row_V" [kernel.cpp:120]   --->   Operation 150 'trunc' 'trunc_ln120_1' <Predicate = (!tmp_11)> <Delay = 0.00>
+ST_9 : Operation 151 [1/1] (0.79ns)   --->   "%add_ln120 = add i4 %tmp_7_cast, i4 %trunc_ln120_1" [kernel.cpp:120]   --->   Operation 151 'add' 'add_ln120' <Predicate = (!tmp_11)> <Delay = 0.79> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 152 [1/1] (0.00ns)   --->   "%zext_ln120 = zext i4 %add_ln120" [kernel.cpp:120]   --->   Operation 152 'zext' 'zext_ln120' <Predicate = (!tmp_11)> <Delay = 0.00>
+ST_9 : Operation 153 [1/1] (0.00ns)   --->   "%matrixC_buffer_V_addr_2 = getelementptr i32 %matrixC_buffer_V, i64 0, i64 %zext_ln120" [kernel.cpp:120]   --->   Operation 153 'getelementptr' 'matrixC_buffer_V_addr_2' <Predicate = (!tmp_11)> <Delay = 0.00>
+ST_9 : Operation 154 [2/2] (0.67ns)   --->   "%matrixC_val_old_V = load i4 %matrixC_buffer_V_addr_2" [kernel.cpp:120]   --->   Operation 154 'load' 'matrixC_val_old_V' <Predicate = (!tmp_11)> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
 
-State 10 <SV = 5> <Delay = 7.28>
-ST_10 : Operation 181 [1/1] (0.00ns)   --->   "%j_1 = phi i4 0, void %.split12, i4 %add_ln169, void %V.i211.exit" [kernel.cpp:169]   --->   Operation 181 'phi' 'j_1' <Predicate = true> <Delay = 0.00>
-ST_10 : Operation 182 [1/1] (0.72ns)   --->   "%icmp_ln169 = icmp_eq  i4 %j_1, i4 8" [kernel.cpp:169]   --->   Operation 182 'icmp' 'icmp_ln169' <Predicate = true> <Delay = 0.72> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_10 : Operation 183 [1/1] (0.00ns)   --->   "%empty_27 = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 8, i64 8, i64 8"   --->   Operation 183 'speclooptripcount' 'empty_27' <Predicate = true> <Delay = 0.00>
-ST_10 : Operation 184 [1/1] (0.79ns)   --->   "%add_ln169 = add i4 %j_1, i4 1" [kernel.cpp:169]   --->   Operation 184 'add' 'add_ln169' <Predicate = true> <Delay = 0.79> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_10 : Operation 185 [1/1] (0.00ns)   --->   "%br_ln169 = br i1 %icmp_ln169, void %.split_ifconv, void" [kernel.cpp:169]   --->   Operation 185 'br' 'br_ln169' <Predicate = true> <Delay = 0.00>
-ST_10 : Operation 186 [1/1] (0.00ns)   --->   "%trunc_ln988 = trunc i4 %j_1"   --->   Operation 186 'trunc' 'trunc_ln988' <Predicate = (!icmp_ln169)> <Delay = 0.00>
-ST_10 : Operation 187 [1/1] (0.72ns)   --->   "%p_Val2_s = mux i32 @_ssdm_op_Mux.ap_auto.8i32.i3, i32 %matrixC_buffer_V_0_load, i32 %matrixC_buffer_V_1_load, i32 %matrixC_buffer_V_2_load, i32 %matrixC_buffer_V_3_load, i32 %matrixC_buffer_V_4_load, i32 %matrixC_buffer_V_5_load, i32 %matrixC_buffer_V_6_load, i32 %matrixC_buffer_V_7_load, i3 %trunc_ln988"   --->   Operation 187 'mux' 'p_Val2_s' <Predicate = (!icmp_ln169)> <Delay = 0.72> <CoreInst = "Multiplexer">   --->   Core 76 'Multiplexer' <Latency = 0> <II = 1> <Delay = 0.72> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
-ST_10 : Operation 188 [1/1] (0.99ns)   --->   "%icmp_ln988 = icmp_eq  i32 %p_Val2_s, i32 0"   --->   Operation 188 'icmp' 'icmp_ln988' <Predicate = (!icmp_ln169)> <Delay = 0.99> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_10 : Operation 189 [1/1] (0.00ns)   --->   "%p_Result_2 = bitselect i1 @_ssdm_op_BitSelect.i1.i32.i32, i32 %p_Val2_s, i32 31"   --->   Operation 189 'bitselect' 'p_Result_2' <Predicate = (!icmp_ln169)> <Delay = 0.00>
-ST_10 : Operation 190 [1/1] (1.01ns)   --->   "%tmp_V = sub i32 0, i32 %p_Val2_s"   --->   Operation 190 'sub' 'tmp_V' <Predicate = (!icmp_ln169)> <Delay = 1.01> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_10 : Operation 191 [1/1] (0.44ns)   --->   "%tmp_V_2 = select i1 %p_Result_2, i32 %tmp_V, i32 %p_Val2_s"   --->   Operation 191 'select' 'tmp_V_2' <Predicate = (!icmp_ln169)> <Delay = 0.44> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.44> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_10 : Operation 192 [1/1] (0.00ns)   --->   "%p_Result_3 = partselect i32 @_ssdm_op_PartSelect.i32.i32.i32.i32, i32 %tmp_V_2, i32 31, i32 0"   --->   Operation 192 'partselect' 'p_Result_3' <Predicate = (!icmp_ln169)> <Delay = 0.00>
-ST_10 : Operation 193 [1/1] (0.00ns)   --->   "%l = cttz i32 @llvm.cttz.i32, i32 %p_Result_3, i1 1"   --->   Operation 193 'cttz' 'l' <Predicate = (!icmp_ln169)> <Delay = 0.00>
-ST_10 : Operation 194 [1/1] (1.01ns)   --->   "%sub_ln997 = sub i32 32, i32 %l"   --->   Operation 194 'sub' 'sub_ln997' <Predicate = (!icmp_ln169)> <Delay = 1.01> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_10 : Operation 195 [1/1] (1.01ns)   --->   "%lsb_index = add i32 %sub_ln997, i32 4294967272"   --->   Operation 195 'add' 'lsb_index' <Predicate = (!icmp_ln169)> <Delay = 1.01> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_10 : Operation 196 [1/1] (0.00ns)   --->   "%tmp_43 = partselect i31 @_ssdm_op_PartSelect.i31.i32.i32.i32, i32 %lsb_index, i32 1, i32 31"   --->   Operation 196 'partselect' 'tmp_43' <Predicate = (!icmp_ln169)> <Delay = 0.00>
-ST_10 : Operation 197 [1/1] (0.99ns)   --->   "%icmp_ln999 = icmp_sgt  i31 %tmp_43, i31 0"   --->   Operation 197 'icmp' 'icmp_ln999' <Predicate = (!icmp_ln169)> <Delay = 0.99> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_10 : Operation 198 [1/1] (0.00ns)   --->   "%trunc_ln1000 = trunc i32 %sub_ln997"   --->   Operation 198 'trunc' 'trunc_ln1000' <Predicate = (!icmp_ln169)> <Delay = 0.00>
-ST_10 : Operation 199 [1/1] (0.78ns)   --->   "%sub_ln1000 = sub i6 57, i6 %trunc_ln1000"   --->   Operation 199 'sub' 'sub_ln1000' <Predicate = (!icmp_ln169)> <Delay = 0.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_10 : Operation 200 [1/1] (0.00ns) (grouped into LUT with out node icmp_ln1002)   --->   "%zext_ln1000 = zext i6 %sub_ln1000"   --->   Operation 200 'zext' 'zext_ln1000' <Predicate = (!icmp_ln169)> <Delay = 0.00>
-ST_10 : Operation 201 [1/1] (0.00ns) (grouped into LUT with out node icmp_ln1002)   --->   "%lshr_ln1000 = lshr i32 4294967295, i32 %zext_ln1000"   --->   Operation 201 'lshr' 'lshr_ln1000' <Predicate = (!icmp_ln169)> <Delay = 0.00> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 1.38> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
-ST_10 : Operation 202 [1/1] (0.00ns) (grouped into LUT with out node icmp_ln1002)   --->   "%shl_ln1002 = shl i32 1, i32 %lsb_index"   --->   Operation 202 'shl' 'shl_ln1002' <Predicate = (!icmp_ln169)> <Delay = 0.00> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 1.38> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
-ST_10 : Operation 203 [1/1] (0.00ns) (grouped into LUT with out node icmp_ln1002)   --->   "%or_ln1002_1 = or i32 %lshr_ln1000, i32 %shl_ln1002"   --->   Operation 203 'or' 'or_ln1002_1' <Predicate = (!icmp_ln169)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_10 : Operation 204 [1/1] (0.00ns) (grouped into LUT with out node icmp_ln1002)   --->   "%and_ln1002 = and i32 %tmp_V_2, i32 %or_ln1002_1"   --->   Operation 204 'and' 'and_ln1002' <Predicate = (!icmp_ln169)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_10 : Operation 205 [1/1] (1.38ns) (out node of the LUT)   --->   "%icmp_ln1002 = icmp_ne  i32 %and_ln1002, i32 0"   --->   Operation 205 'icmp' 'icmp_ln1002' <Predicate = (!icmp_ln169)> <Delay = 1.38> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_10 : Operation 206 [1/1] (0.00ns)   --->   "%zext_ln1010 = zext i32 %tmp_V_2"   --->   Operation 206 'zext' 'zext_ln1010' <Predicate = (!icmp_ln169)> <Delay = 0.00>
-ST_10 : Operation 207 [1/1] (0.00ns) (grouped into LUT with out node select_ln1011)   --->   "%tmp_44 = bitselect i1 @_ssdm_op_BitSelect.i1.i32.i32, i32 %lsb_index, i32 31"   --->   Operation 207 'bitselect' 'tmp_44' <Predicate = (!icmp_ln169)> <Delay = 0.00>
-ST_10 : Operation 208 [1/1] (0.00ns) (grouped into LUT with out node select_ln1011)   --->   "%xor_ln1002 = xor i1 %tmp_44, i1 1"   --->   Operation 208 'xor' 'xor_ln1002' <Predicate = (!icmp_ln169)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_10 : Operation 209 [1/1] (0.00ns)   --->   "%p_Result_4 = bitselect i1 @_ssdm_op_BitSelect.i1.i32.i32, i32 %tmp_V_2, i32 %lsb_index"   --->   Operation 209 'bitselect' 'p_Result_4' <Predicate = (!icmp_ln169)> <Delay = 0.00>
-ST_10 : Operation 210 [1/1] (0.99ns)   --->   "%icmp_ln1011 = icmp_sgt  i32 %lsb_index, i32 0"   --->   Operation 210 'icmp' 'icmp_ln1011' <Predicate = (!icmp_ln169)> <Delay = 0.99> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_10 : Operation 211 [1/1] (0.00ns) (grouped into LUT with out node select_ln1011)   --->   "%select_ln999 = select i1 %icmp_ln999, i1 %icmp_ln1002, i1 %p_Result_4"   --->   Operation 211 'select' 'select_ln999' <Predicate = (!icmp_ln169)> <Delay = 0.00> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.44> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_10 : Operation 212 [1/1] (1.01ns)   --->   "%add_ln1011 = add i32 %sub_ln997, i32 4294967271"   --->   Operation 212 'add' 'add_ln1011' <Predicate = (!icmp_ln169)> <Delay = 1.01> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_10 : Operation 213 [1/1] (0.00ns) (grouped into LUT with out node m_3)   --->   "%zext_ln1011 = zext i32 %add_ln1011"   --->   Operation 213 'zext' 'zext_ln1011' <Predicate = (!icmp_ln169)> <Delay = 0.00>
-ST_10 : Operation 214 [1/1] (0.00ns) (grouped into LUT with out node m_3)   --->   "%lshr_ln1011 = lshr i64 %zext_ln1010, i64 %zext_ln1011"   --->   Operation 214 'lshr' 'lshr_ln1011' <Predicate = (!icmp_ln169)> <Delay = 0.00> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 1.38> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
-ST_10 : Operation 215 [1/1] (0.00ns) (grouped into LUT with out node select_ln1011)   --->   "%and_ln1002_1 = and i1 %p_Result_4, i1 %xor_ln1002"   --->   Operation 215 'and' 'and_ln1002_1' <Predicate = (!icmp_ln169)> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_10 : Operation 216 [1/1] (1.01ns)   --->   "%sub_ln1012 = sub i32 25, i32 %sub_ln997"   --->   Operation 216 'sub' 'sub_ln1012' <Predicate = (!icmp_ln169)> <Delay = 1.01> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_10 : Operation 217 [1/1] (0.00ns) (grouped into LUT with out node m_3)   --->   "%zext_ln1012 = zext i32 %sub_ln1012"   --->   Operation 217 'zext' 'zext_ln1012' <Predicate = (!icmp_ln169)> <Delay = 0.00>
-ST_10 : Operation 218 [1/1] (0.00ns) (grouped into LUT with out node m_3)   --->   "%shl_ln1012 = shl i64 %zext_ln1010, i64 %zext_ln1012"   --->   Operation 218 'shl' 'shl_ln1012' <Predicate = (!icmp_ln169)> <Delay = 0.00> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 1.38> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
-ST_10 : Operation 219 [1/1] (0.28ns) (out node of the LUT)   --->   "%select_ln1011 = select i1 %icmp_ln1011, i1 %select_ln999, i1 %and_ln1002_1"   --->   Operation 219 'select' 'select_ln1011' <Predicate = (!icmp_ln169)> <Delay = 0.28> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.44> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_10 : Operation 220 [1/1] (0.00ns) (grouped into LUT with out node m_3)   --->   "%m_2 = select i1 %icmp_ln1011, i64 %lshr_ln1011, i64 %shl_ln1012"   --->   Operation 220 'select' 'm_2' <Predicate = (!icmp_ln169)> <Delay = 0.00> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.44> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_10 : Operation 221 [1/1] (0.00ns) (grouped into LUT with out node m_3)   --->   "%zext_ln1014 = zext i1 %select_ln1011"   --->   Operation 221 'zext' 'zext_ln1014' <Predicate = (!icmp_ln169)> <Delay = 0.00>
-ST_10 : Operation 222 [1/1] (1.38ns) (out node of the LUT)   --->   "%m_3 = add i64 %m_2, i64 %zext_ln1014"   --->   Operation 222 'add' 'm_3' <Predicate = (!icmp_ln169)> <Delay = 1.38> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_10 : Operation 223 [1/1] (0.00ns)   --->   "%m_4 = partselect i63 @_ssdm_op_PartSelect.i63.i64.i32.i32, i64 %m_3, i32 1, i32 63"   --->   Operation 223 'partselect' 'm_4' <Predicate = (!icmp_ln169)> <Delay = 0.00>
-ST_10 : Operation 224 [1/1] (0.00ns)   --->   "%p_Result_s = bitselect i1 @_ssdm_op_BitSelect.i1.i64.i32, i64 %m_3, i32 25"   --->   Operation 224 'bitselect' 'p_Result_s' <Predicate = (!icmp_ln169)> <Delay = 0.00>
-ST_10 : Operation 225 [1/1] (0.00ns)   --->   "%trunc_ln996 = trunc i32 %l"   --->   Operation 225 'trunc' 'trunc_ln996' <Predicate = (!icmp_ln169)> <Delay = 0.00>
-ST_10 : Operation 226 [1/1] (0.42ns)   --->   "%store_ln168 = store i4 %add_ln168, i4 %i_2" [kernel.cpp:168]   --->   Operation 226 'store' 'store_ln168' <Predicate = (icmp_ln169)> <Delay = 0.42>
-ST_10 : Operation 227 [1/1] (0.00ns)   --->   "%br_ln0 = br void %._crit_edge135.loopexit"   --->   Operation 227 'br' 'br_ln0' <Predicate = (icmp_ln169)> <Delay = 0.00>
+State 10 <SV = 8> <Delay = 2.37>
+ST_10 : Operation 155 [1/2] (0.67ns)   --->   "%matrixC_val_old_V = load i4 %matrixC_buffer_V_addr_2" [kernel.cpp:120]   --->   Operation 155 'load' 'matrixC_val_old_V' <Predicate = (!tmp_11)> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_10 : Operation 156 [1/1] (1.01ns)   --->   "%valC_V = add i32 %matrixC_val_old_V, i32 %matrixC_val_i_V"   --->   Operation 156 'add' 'valC_V' <Predicate = (!tmp_11)> <Delay = 1.01> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 157 [1/1] (0.67ns)   --->   "%store_ln122 = store i32 %valC_V, i4 %matrixC_buffer_V_addr_2" [kernel.cpp:122]   --->   Operation 157 'store' 'store_ln122' <Predicate = (!tmp_11)> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_10 : Operation 158 [1/1] (0.00ns)   --->   "%br_ln160 = br void %_ZN13ap_fixed_baseILi32ELi16ELb1EL9ap_q_mode5EL9ap_o_mode3ELi0EEC2Ed.exit._crit_edge" [kernel.cpp:160]   --->   Operation 158 'br' 'br_ln160' <Predicate = (!tmp_11)> <Delay = 0.00>
+ST_10 : Operation 159 [1/1] (0.00ns)   --->   "%br_ln0 = br void"   --->   Operation 159 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
 
-State 11 <SV = 6> <Delay = 3.52>
-ST_11 : Operation 228 [1/1] (0.00ns)   --->   "%specloopname_ln169 = specloopname void @_ssdm_op_SpecLoopName, void @empty_3" [kernel.cpp:169]   --->   Operation 228 'specloopname' 'specloopname_ln169' <Predicate = true> <Delay = 0.00>
-ST_11 : Operation 229 [1/1] (0.00ns)   --->   "%zext_ln1015 = zext i63 %m_4"   --->   Operation 229 'zext' 'zext_ln1015' <Predicate = (!icmp_ln988)> <Delay = 0.00>
-ST_11 : Operation 230 [1/1] (0.39ns)   --->   "%select_ln996 = select i1 %p_Result_s, i8 127, i8 126"   --->   Operation 230 'select' 'select_ln996' <Predicate = (!icmp_ln988)> <Delay = 0.39> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.44> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_11 : Operation 231 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%sub_ln1017 = sub i8 16, i8 %trunc_ln996"   --->   Operation 231 'sub' 'sub_ln1017' <Predicate = (!icmp_ln988)> <Delay = 0.00> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.52> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
-ST_11 : Operation 232 [1/1] (1.05ns) (root node of TernaryAdder)   --->   "%add_ln1017 = add i8 %sub_ln1017, i8 %select_ln996"   --->   Operation 232 'add' 'add_ln1017' <Predicate = (!icmp_ln988)> <Delay = 1.05> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.52> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
-ST_11 : Operation 233 [1/1] (0.00ns)   --->   "%tmp = bitconcatenate i9 @_ssdm_op_BitConcatenate.i9.i1.i8, i1 %p_Result_2, i8 %add_ln1017"   --->   Operation 233 'bitconcatenate' 'tmp' <Predicate = (!icmp_ln988)> <Delay = 0.00>
-ST_11 : Operation 234 [1/1] (0.00ns)   --->   "%p_Result_5 = partset i64 @_ssdm_op_PartSet.i64.i64.i9.i32.i32, i64 %zext_ln1015, i9 %tmp, i32 23, i32 31"   --->   Operation 234 'partset' 'p_Result_5' <Predicate = (!icmp_ln988)> <Delay = 0.00>
-ST_11 : Operation 235 [1/1] (0.00ns)   --->   "%LD = trunc i64 %p_Result_5"   --->   Operation 235 'trunc' 'LD' <Predicate = (!icmp_ln988)> <Delay = 0.00>
-ST_11 : Operation 236 [1/1] (0.00ns)   --->   "%bitcast_ln751 = bitcast i32 %LD"   --->   Operation 236 'bitcast' 'bitcast_ln751' <Predicate = (!icmp_ln988)> <Delay = 0.00>
-ST_11 : Operation 237 [1/1] (0.44ns)   --->   "%select_ln988 = select i1 %icmp_ln988, i32 0, i32 %bitcast_ln751"   --->   Operation 237 'select' 'select_ln988' <Predicate = true> <Delay = 0.44> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.44> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_11 : Operation 238 [1/1] (0.75ns)   --->   "%switch_ln174 = switch i4 %j_1, void %V.i211.case.7, i4 0, void %V.i211.case.0, i4 1, void %V.i211.case.1, i4 2, void %V.i211.case.2, i4 3, void %V.i211.case.3, i4 4, void %V.i211.case.4, i4 5, void %V.i211.case.5, i4 6, void %V.i211.case.6" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174]   --->   Operation 238 'switch' 'switch_ln174' <Predicate = true> <Delay = 0.75>
-ST_11 : Operation 239 [1/1] (0.00ns)   --->   "%bitcast_ln174_7 = bitcast i32 %select_ln988" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174]   --->   Operation 239 'bitcast' 'bitcast_ln174_7' <Predicate = (j_1 == 6)> <Delay = 0.00>
-ST_11 : Operation 240 [1/1] (1.63ns)   --->   "%write_ln174 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %fifoSortMatrixC_o_6_V, i32 %bitcast_ln174_7" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174]   --->   Operation 240 'write' 'write_ln174' <Predicate = (j_1 == 6)> <Delay = 1.63> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = -1> <FIFO>
-ST_11 : Operation 241 [1/1] (0.00ns)   --->   "%br_ln174 = br void %V.i211.exit" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174]   --->   Operation 241 'br' 'br_ln174' <Predicate = (j_1 == 6)> <Delay = 0.00>
-ST_11 : Operation 242 [1/1] (0.00ns)   --->   "%bitcast_ln174_6 = bitcast i32 %select_ln988" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174]   --->   Operation 242 'bitcast' 'bitcast_ln174_6' <Predicate = (j_1 == 5)> <Delay = 0.00>
-ST_11 : Operation 243 [1/1] (1.63ns)   --->   "%write_ln174 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %fifoSortMatrixC_o_5_V, i32 %bitcast_ln174_6" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174]   --->   Operation 243 'write' 'write_ln174' <Predicate = (j_1 == 5)> <Delay = 1.63> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = -1> <FIFO>
-ST_11 : Operation 244 [1/1] (0.00ns)   --->   "%br_ln174 = br void %V.i211.exit" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174]   --->   Operation 244 'br' 'br_ln174' <Predicate = (j_1 == 5)> <Delay = 0.00>
-ST_11 : Operation 245 [1/1] (0.00ns)   --->   "%bitcast_ln174_5 = bitcast i32 %select_ln988" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174]   --->   Operation 245 'bitcast' 'bitcast_ln174_5' <Predicate = (j_1 == 4)> <Delay = 0.00>
-ST_11 : Operation 246 [1/1] (1.63ns)   --->   "%write_ln174 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %fifoSortMatrixC_o_4_V, i32 %bitcast_ln174_5" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174]   --->   Operation 246 'write' 'write_ln174' <Predicate = (j_1 == 4)> <Delay = 1.63> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = -1> <FIFO>
-ST_11 : Operation 247 [1/1] (0.00ns)   --->   "%br_ln174 = br void %V.i211.exit" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174]   --->   Operation 247 'br' 'br_ln174' <Predicate = (j_1 == 4)> <Delay = 0.00>
-ST_11 : Operation 248 [1/1] (0.00ns)   --->   "%bitcast_ln174_4 = bitcast i32 %select_ln988" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174]   --->   Operation 248 'bitcast' 'bitcast_ln174_4' <Predicate = (j_1 == 3)> <Delay = 0.00>
-ST_11 : Operation 249 [1/1] (1.63ns)   --->   "%write_ln174 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %fifoSortMatrixC_o_3_V, i32 %bitcast_ln174_4" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174]   --->   Operation 249 'write' 'write_ln174' <Predicate = (j_1 == 3)> <Delay = 1.63> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = -1> <FIFO>
-ST_11 : Operation 250 [1/1] (0.00ns)   --->   "%br_ln174 = br void %V.i211.exit" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174]   --->   Operation 250 'br' 'br_ln174' <Predicate = (j_1 == 3)> <Delay = 0.00>
-ST_11 : Operation 251 [1/1] (0.00ns)   --->   "%bitcast_ln174_3 = bitcast i32 %select_ln988" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174]   --->   Operation 251 'bitcast' 'bitcast_ln174_3' <Predicate = (j_1 == 2)> <Delay = 0.00>
-ST_11 : Operation 252 [1/1] (1.63ns)   --->   "%write_ln174 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %fifoSortMatrixC_o_2_V, i32 %bitcast_ln174_3" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174]   --->   Operation 252 'write' 'write_ln174' <Predicate = (j_1 == 2)> <Delay = 1.63> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = -1> <FIFO>
-ST_11 : Operation 253 [1/1] (0.00ns)   --->   "%br_ln174 = br void %V.i211.exit" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174]   --->   Operation 253 'br' 'br_ln174' <Predicate = (j_1 == 2)> <Delay = 0.00>
-ST_11 : Operation 254 [1/1] (0.00ns)   --->   "%bitcast_ln174_2 = bitcast i32 %select_ln988" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174]   --->   Operation 254 'bitcast' 'bitcast_ln174_2' <Predicate = (j_1 == 1)> <Delay = 0.00>
-ST_11 : Operation 255 [1/1] (1.63ns)   --->   "%write_ln174 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %fifoSortMatrixC_o_1_V, i32 %bitcast_ln174_2" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174]   --->   Operation 255 'write' 'write_ln174' <Predicate = (j_1 == 1)> <Delay = 1.63> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = -1> <FIFO>
-ST_11 : Operation 256 [1/1] (0.00ns)   --->   "%br_ln174 = br void %V.i211.exit" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174]   --->   Operation 256 'br' 'br_ln174' <Predicate = (j_1 == 1)> <Delay = 0.00>
-ST_11 : Operation 257 [1/1] (0.00ns)   --->   "%bitcast_ln174_1 = bitcast i32 %select_ln988" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174]   --->   Operation 257 'bitcast' 'bitcast_ln174_1' <Predicate = (j_1 == 0)> <Delay = 0.00>
-ST_11 : Operation 258 [1/1] (1.63ns)   --->   "%write_ln174 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %fifoSortMatrixC_o_0_V, i32 %bitcast_ln174_1" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174]   --->   Operation 258 'write' 'write_ln174' <Predicate = (j_1 == 0)> <Delay = 1.63> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = -1> <FIFO>
-ST_11 : Operation 259 [1/1] (0.00ns)   --->   "%br_ln174 = br void %V.i211.exit" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174]   --->   Operation 259 'br' 'br_ln174' <Predicate = (j_1 == 0)> <Delay = 0.00>
-ST_11 : Operation 260 [1/1] (0.00ns)   --->   "%bitcast_ln174 = bitcast i32 %select_ln988" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174]   --->   Operation 260 'bitcast' 'bitcast_ln174' <Predicate = (j_1 != 0 & j_1 != 1 & j_1 != 2 & j_1 != 3 & j_1 != 4 & j_1 != 5 & j_1 != 6)> <Delay = 0.00>
-ST_11 : Operation 261 [1/1] (1.63ns)   --->   "%write_ln174 = write void @_ssdm_op_Write.ap_fifo.volatile.i32P0A, i32 %fifoSortMatrixC_o_7_V, i32 %bitcast_ln174" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174]   --->   Operation 261 'write' 'write_ln174' <Predicate = (j_1 != 0 & j_1 != 1 & j_1 != 2 & j_1 != 3 & j_1 != 4 & j_1 != 5 & j_1 != 6)> <Delay = 1.63> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = -1> <FIFO>
-ST_11 : Operation 262 [1/1] (0.00ns)   --->   "%br_ln174 = br void %V.i211.exit" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174]   --->   Operation 262 'br' 'br_ln174' <Predicate = (j_1 != 0 & j_1 != 1 & j_1 != 2 & j_1 != 3 & j_1 != 4 & j_1 != 5 & j_1 != 6)> <Delay = 0.00>
-ST_11 : Operation 263 [1/1] (0.00ns)   --->   "%br_ln0 = br void"   --->   Operation 263 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+State 11 <SV = 3> <Delay = 0.79>
+ST_11 : Operation 160 [1/1] (0.00ns)   --->   "%i_8 = load i4 %i_3"   --->   Operation 160 'load' 'i_8' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 161 [1/1] (0.72ns)   --->   "%icmp_ln168 = icmp_eq  i4 %i_8, i4 8" [kernel.cpp:168]   --->   Operation 161 'icmp' 'icmp_ln168' <Predicate = true> <Delay = 0.72> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 162 [1/1] (0.00ns)   --->   "%empty_61 = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 8, i64 8, i64 8"   --->   Operation 162 'speclooptripcount' 'empty_61' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 163 [1/1] (0.79ns)   --->   "%add_ln168 = add i4 %i_8, i4 1" [kernel.cpp:168]   --->   Operation 163 'add' 'add_ln168' <Predicate = true> <Delay = 0.79> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 164 [1/1] (0.00ns)   --->   "%br_ln168 = br i1 %icmp_ln168, void %.split15, void" [kernel.cpp:168]   --->   Operation 164 'br' 'br_ln168' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 165 [1/1] (0.00ns)   --->   "%specloopname_ln168 = specloopname void @_ssdm_op_SpecLoopName, void @empty_14" [kernel.cpp:168]   --->   Operation 165 'specloopname' 'specloopname_ln168' <Predicate = (!icmp_ln168)> <Delay = 0.00>
+ST_11 : Operation 166 [1/1] (0.42ns)   --->   "%br_ln169 = br void" [kernel.cpp:169]   --->   Operation 166 'br' 'br_ln169' <Predicate = (!icmp_ln168)> <Delay = 0.42>
+ST_11 : Operation 167 [1/1] (0.00ns)   --->   "%ret_ln175 = ret" [kernel.cpp:175]   --->   Operation 167 'ret' 'ret_ln175' <Predicate = (icmp_ln168)> <Delay = 0.00>
+
+State 12 <SV = 4> <Delay = 1.47>
+ST_12 : Operation 168 [1/1] (0.00ns)   --->   "%j_1 = phi i2 0, void %.split15, i2 %add_ln169, void %.split._crit_edge12" [kernel.cpp:169]   --->   Operation 168 'phi' 'j_1' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 169 [1/1] (0.00ns)   --->   "%trunc_ln988 = trunc i2 %j_1"   --->   Operation 169 'trunc' 'trunc_ln988' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 170 [1/1] (0.00ns)   --->   "%tmp_5_cast = bitconcatenate i4 @_ssdm_op_BitConcatenate.i4.i1.i3, i1 %trunc_ln988, i3 0"   --->   Operation 170 'bitconcatenate' 'tmp_5_cast' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 171 [1/1] (0.79ns)   --->   "%add_ln988 = add i4 %tmp_5_cast, i4 %i_8"   --->   Operation 171 'add' 'add_ln988' <Predicate = true> <Delay = 0.79> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 172 [1/1] (0.00ns)   --->   "%zext_ln988 = zext i4 %add_ln988"   --->   Operation 172 'zext' 'zext_ln988' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 173 [1/1] (0.00ns)   --->   "%matrixC_buffer_V_addr_1 = getelementptr i32 %matrixC_buffer_V, i64 0, i64 %zext_ln988"   --->   Operation 173 'getelementptr' 'matrixC_buffer_V_addr_1' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 174 [1/1] (0.44ns)   --->   "%icmp_ln169 = icmp_eq  i2 %j_1, i2 2" [kernel.cpp:169]   --->   Operation 174 'icmp' 'icmp_ln169' <Predicate = true> <Delay = 0.44> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 175 [1/1] (0.00ns)   --->   "%empty_62 = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 2, i64 2, i64 2"   --->   Operation 175 'speclooptripcount' 'empty_62' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 176 [1/1] (0.54ns)   --->   "%add_ln169 = add i2 %j_1, i2 1" [kernel.cpp:169]   --->   Operation 176 'add' 'add_ln169' <Predicate = true> <Delay = 0.54> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 177 [1/1] (0.00ns)   --->   "%br_ln169 = br i1 %icmp_ln169, void %.split_ifconv, void" [kernel.cpp:169]   --->   Operation 177 'br' 'br_ln169' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 178 [2/2] (0.67ns)   --->   "%p_Val2_s = load i4 %matrixC_buffer_V_addr_1"   --->   Operation 178 'load' 'p_Val2_s' <Predicate = (!icmp_ln169)> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_12 : Operation 179 [1/1] (0.42ns)   --->   "%store_ln168 = store i4 %add_ln168, i4 %i_3" [kernel.cpp:168]   --->   Operation 179 'store' 'store_ln168' <Predicate = (icmp_ln169)> <Delay = 0.42>
+ST_12 : Operation 180 [1/1] (0.00ns)   --->   "%br_ln0 = br void %._crit_edge135.loopexit"   --->   Operation 180 'br' 'br_ln0' <Predicate = (icmp_ln169)> <Delay = 0.00>
+
+State 13 <SV = 5> <Delay = 7.23>
+ST_13 : Operation 181 [1/2] (0.67ns)   --->   "%p_Val2_s = load i4 %matrixC_buffer_V_addr_1"   --->   Operation 181 'load' 'p_Val2_s' <Predicate = true> <Delay = 0.67> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 16> <RAM>
+ST_13 : Operation 182 [1/1] (0.99ns)   --->   "%icmp_ln988 = icmp_eq  i32 %p_Val2_s, i32 0"   --->   Operation 182 'icmp' 'icmp_ln988' <Predicate = true> <Delay = 0.99> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 183 [1/1] (0.00ns)   --->   "%p_Result_6 = bitselect i1 @_ssdm_op_BitSelect.i1.i32.i32, i32 %p_Val2_s, i32 31"   --->   Operation 183 'bitselect' 'p_Result_6' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 184 [1/1] (1.01ns)   --->   "%tmp_V = sub i32 0, i32 %p_Val2_s"   --->   Operation 184 'sub' 'tmp_V' <Predicate = true> <Delay = 1.01> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 185 [1/1] (0.44ns)   --->   "%m_5 = select i1 %p_Result_6, i32 %tmp_V, i32 %p_Val2_s"   --->   Operation 185 'select' 'm_5' <Predicate = true> <Delay = 0.44> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.44> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_13 : Operation 186 [1/1] (0.00ns)   --->   "%p_Result_7 = partselect i32 @_ssdm_op_PartSelect.i32.i32.i32.i32, i32 %m_5, i32 31, i32 0"   --->   Operation 186 'partselect' 'p_Result_7' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 187 [1/1] (0.00ns)   --->   "%l = cttz i32 @llvm.cttz.i32, i32 %p_Result_7, i1 1"   --->   Operation 187 'cttz' 'l' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 188 [1/1] (1.01ns)   --->   "%sub_ln997 = sub i32 32, i32 %l"   --->   Operation 188 'sub' 'sub_ln997' <Predicate = true> <Delay = 1.01> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 189 [1/1] (1.01ns)   --->   "%lsb_index = add i32 %sub_ln997, i32 4294967272"   --->   Operation 189 'add' 'lsb_index' <Predicate = true> <Delay = 1.01> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 190 [1/1] (0.00ns)   --->   "%tmp_4 = partselect i31 @_ssdm_op_PartSelect.i31.i32.i32.i32, i32 %lsb_index, i32 1, i32 31"   --->   Operation 190 'partselect' 'tmp_4' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 191 [1/1] (0.99ns)   --->   "%icmp_ln999 = icmp_sgt  i31 %tmp_4, i31 0"   --->   Operation 191 'icmp' 'icmp_ln999' <Predicate = true> <Delay = 0.99> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 192 [1/1] (0.00ns)   --->   "%trunc_ln1000 = trunc i32 %sub_ln997"   --->   Operation 192 'trunc' 'trunc_ln1000' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 193 [1/1] (0.78ns)   --->   "%sub_ln1000 = sub i6 57, i6 %trunc_ln1000"   --->   Operation 193 'sub' 'sub_ln1000' <Predicate = true> <Delay = 0.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 194 [1/1] (0.00ns) (grouped into LUT with out node icmp_ln1002)   --->   "%zext_ln1000 = zext i6 %sub_ln1000"   --->   Operation 194 'zext' 'zext_ln1000' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 195 [1/1] (0.00ns) (grouped into LUT with out node icmp_ln1002)   --->   "%lshr_ln1000 = lshr i32 4294967295, i32 %zext_ln1000"   --->   Operation 195 'lshr' 'lshr_ln1000' <Predicate = true> <Delay = 0.00> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 1.38> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 196 [1/1] (0.00ns) (grouped into LUT with out node icmp_ln1002)   --->   "%shl_ln1002 = shl i32 1, i32 %lsb_index"   --->   Operation 196 'shl' 'shl_ln1002' <Predicate = true> <Delay = 0.00> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 1.38> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 197 [1/1] (0.00ns) (grouped into LUT with out node icmp_ln1002)   --->   "%or_ln1002_1 = or i32 %lshr_ln1000, i32 %shl_ln1002"   --->   Operation 197 'or' 'or_ln1002_1' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 198 [1/1] (0.00ns) (grouped into LUT with out node icmp_ln1002)   --->   "%and_ln1002 = and i32 %m_5, i32 %or_ln1002_1"   --->   Operation 198 'and' 'and_ln1002' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 199 [1/1] (1.38ns) (out node of the LUT)   --->   "%icmp_ln1002 = icmp_ne  i32 %and_ln1002, i32 0"   --->   Operation 199 'icmp' 'icmp_ln1002' <Predicate = true> <Delay = 1.38> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 200 [1/1] (0.00ns) (grouped into LUT with out node select_ln1011)   --->   "%tmp_5 = bitselect i1 @_ssdm_op_BitSelect.i1.i32.i32, i32 %lsb_index, i32 31"   --->   Operation 200 'bitselect' 'tmp_5' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 201 [1/1] (0.00ns) (grouped into LUT with out node select_ln1011)   --->   "%xor_ln1002 = xor i1 %tmp_5, i1 1"   --->   Operation 201 'xor' 'xor_ln1002' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 202 [1/1] (0.00ns)   --->   "%p_Result_8 = bitselect i1 @_ssdm_op_BitSelect.i1.i32.i32, i32 %m_5, i32 %lsb_index"   --->   Operation 202 'bitselect' 'p_Result_8' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 203 [1/1] (0.99ns)   --->   "%icmp_ln1011 = icmp_sgt  i32 %lsb_index, i32 0"   --->   Operation 203 'icmp' 'icmp_ln1011' <Predicate = true> <Delay = 0.99> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 204 [1/1] (0.00ns) (grouped into LUT with out node select_ln1011)   --->   "%and_ln1002_1 = and i1 %p_Result_8, i1 %xor_ln1002"   --->   Operation 204 'and' 'and_ln1002_1' <Predicate = true> <Delay = 0.00> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 205 [1/1] (0.00ns)   --->   "%zext_ln1012_1 = zext i32 %m_5"   --->   Operation 205 'zext' 'zext_ln1012_1' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 206 [1/1] (1.01ns)   --->   "%sub_ln1012 = sub i32 25, i32 %sub_ln997"   --->   Operation 206 'sub' 'sub_ln1012' <Predicate = true> <Delay = 1.01> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 207 [1/1] (0.00ns) (grouped into LUT with out node m_2)   --->   "%zext_ln1012 = zext i32 %sub_ln1012"   --->   Operation 207 'zext' 'zext_ln1012' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 208 [1/1] (0.00ns) (grouped into LUT with out node m_2)   --->   "%shl_ln1012 = shl i64 %zext_ln1012_1, i64 %zext_ln1012"   --->   Operation 208 'shl' 'shl_ln1012' <Predicate = true> <Delay = 0.00> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 1.38> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 209 [1/1] (0.00ns) (grouped into LUT with out node select_ln1011)   --->   "%select_ln999 = select i1 %icmp_ln999, i1 %icmp_ln1002, i1 %p_Result_8"   --->   Operation 209 'select' 'select_ln999' <Predicate = true> <Delay = 0.00> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.44> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_13 : Operation 210 [1/1] (1.01ns)   --->   "%add_ln1011 = add i32 %sub_ln997, i32 4294967271"   --->   Operation 210 'add' 'add_ln1011' <Predicate = true> <Delay = 1.01> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 211 [1/1] (0.00ns) (grouped into LUT with out node m_2)   --->   "%zext_ln1011 = zext i32 %add_ln1011"   --->   Operation 211 'zext' 'zext_ln1011' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 212 [1/1] (0.00ns) (grouped into LUT with out node m_2)   --->   "%lshr_ln1011 = lshr i64 %zext_ln1012_1, i64 %zext_ln1011"   --->   Operation 212 'lshr' 'lshr_ln1011' <Predicate = true> <Delay = 0.00> <CoreInst = "Shifter">   --->   Core 75 'Shifter' <Latency = 0> <II = 1> <Delay = 1.38> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 213 [1/1] (0.28ns) (out node of the LUT)   --->   "%select_ln1011 = select i1 %icmp_ln1011, i1 %select_ln999, i1 %and_ln1002_1"   --->   Operation 213 'select' 'select_ln1011' <Predicate = true> <Delay = 0.28> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.44> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_13 : Operation 214 [1/1] (0.00ns) (grouped into LUT with out node m_2)   --->   "%m = select i1 %icmp_ln1011, i64 %lshr_ln1011, i64 %shl_ln1012"   --->   Operation 214 'select' 'm' <Predicate = true> <Delay = 0.00> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.44> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_13 : Operation 215 [1/1] (0.00ns) (grouped into LUT with out node m_2)   --->   "%zext_ln1014 = zext i1 %select_ln1011"   --->   Operation 215 'zext' 'zext_ln1014' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 216 [1/1] (1.38ns) (out node of the LUT)   --->   "%m_2 = add i64 %m, i64 %zext_ln1014"   --->   Operation 216 'add' 'm_2' <Predicate = true> <Delay = 1.38> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 217 [1/1] (0.00ns)   --->   "%m_6 = partselect i63 @_ssdm_op_PartSelect.i63.i64.i32.i32, i64 %m_2, i32 1, i32 63"   --->   Operation 217 'partselect' 'm_6' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 218 [1/1] (0.00ns)   --->   "%p_Result_s = bitselect i1 @_ssdm_op_BitSelect.i1.i64.i32, i64 %m_2, i32 25"   --->   Operation 218 'bitselect' 'p_Result_s' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 219 [1/1] (0.00ns)   --->   "%trunc_ln996 = trunc i32 %l"   --->   Operation 219 'trunc' 'trunc_ln996' <Predicate = true> <Delay = 0.00>
+
+State 14 <SV = 6> <Delay = 3.52>
+ST_14 : Operation 220 [1/1] (0.00ns)   --->   "%specloopname_ln169 = specloopname void @_ssdm_op_SpecLoopName, void @empty_13" [kernel.cpp:169]   --->   Operation 220 'specloopname' 'specloopname_ln169' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 221 [1/1] (0.00ns)   --->   "%zext_ln1015 = zext i63 %m_6"   --->   Operation 221 'zext' 'zext_ln1015' <Predicate = (!icmp_ln988)> <Delay = 0.00>
+ST_14 : Operation 222 [1/1] (0.39ns)   --->   "%select_ln996 = select i1 %p_Result_s, i8 127, i8 126"   --->   Operation 222 'select' 'select_ln996' <Predicate = (!icmp_ln988)> <Delay = 0.39> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.44> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_14 : Operation 223 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%sub_ln1017 = sub i8 16, i8 %trunc_ln996"   --->   Operation 223 'sub' 'sub_ln1017' <Predicate = (!icmp_ln988)> <Delay = 0.00> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.52> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_14 : Operation 224 [1/1] (1.05ns) (root node of TernaryAdder)   --->   "%add_ln1017 = add i8 %sub_ln1017, i8 %select_ln996"   --->   Operation 224 'add' 'add_ln1017' <Predicate = (!icmp_ln988)> <Delay = 1.05> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.52> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync> <CReg>
+ST_14 : Operation 225 [1/1] (0.00ns)   --->   "%tmp = bitconcatenate i9 @_ssdm_op_BitConcatenate.i9.i1.i8, i1 %p_Result_6, i8 %add_ln1017"   --->   Operation 225 'bitconcatenate' 'tmp' <Predicate = (!icmp_ln988)> <Delay = 0.00>
+ST_14 : Operation 226 [1/1] (0.00ns)   --->   "%p_Result_9 = partset i64 @_ssdm_op_PartSet.i64.i64.i9.i32.i32, i64 %zext_ln1015, i9 %tmp, i32 23, i32 31"   --->   Operation 226 'partset' 'p_Result_9' <Predicate = (!icmp_ln988)> <Delay = 0.00>
+ST_14 : Operation 227 [1/1] (0.00ns)   --->   "%LD = trunc i64 %p_Result_9"   --->   Operation 227 'trunc' 'LD' <Predicate = (!icmp_ln988)> <Delay = 0.00>
+ST_14 : Operation 228 [1/1] (0.00ns)   --->   "%bitcast_ln751 = bitcast i32 %LD"   --->   Operation 228 'bitcast' 'bitcast_ln751' <Predicate = (!icmp_ln988)> <Delay = 0.00>
+ST_14 : Operation 229 [1/1] (0.44ns)   --->   "%select_ln988 = select i1 %icmp_ln988, i32 0, i32 %bitcast_ln751"   --->   Operation 229 'select' 'select_ln988' <Predicate = true> <Delay = 0.44> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.44> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_14 : Operation 230 [1/1] (0.00ns)   --->   "%br_ln174 = br i1 %trunc_ln988, void %branch4, void %branch5" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174]   --->   Operation 230 'br' 'br_ln174' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 231 [1/1] (1.63ns)   --->   "%write_ln174 = write void @_ssdm_op_Write.ap_fifo.volatile.floatP0A, i32 %fifoSortMatrixC_o_0, i32 %select_ln988" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174]   --->   Operation 231 'write' 'write_ln174' <Predicate = (!trunc_ln988)> <Delay = 1.63> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 32> <FIFO>
+ST_14 : Operation 232 [1/1] (0.00ns)   --->   "%br_ln174 = br void %.split._crit_edge12" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174]   --->   Operation 232 'br' 'br_ln174' <Predicate = (!trunc_ln988)> <Delay = 0.00>
+ST_14 : Operation 233 [1/1] (1.63ns)   --->   "%write_ln174 = write void @_ssdm_op_Write.ap_fifo.volatile.floatP0A, i32 %fifoSortMatrixC_o_03, i32 %select_ln988" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174]   --->   Operation 233 'write' 'write_ln174' <Predicate = (trunc_ln988)> <Delay = 1.63> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 32> <FIFO>
+ST_14 : Operation 234 [1/1] (0.00ns)   --->   "%br_ln174 = br void %.split._crit_edge12" [D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174]   --->   Operation 234 'br' 'br_ln174' <Predicate = (trunc_ln988)> <Delay = 0.00>
+ST_14 : Operation 235 [1/1] (0.00ns)   --->   "%br_ln0 = br void"   --->   Operation 235 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
 
 
 ============================================================
@@ -373,73 +354,101 @@ ST_11 : Operation 263 [1/1] (0.00ns)   --->   "%br_ln0 = br void"   --->   Opera
 ============================================================
 Target clock period: 10ns, clock uncertainty: 2.7ns.
 
- <State 1>: 0.427ns
+ <State 1>: 1.84ns
 The critical path consists of the following:
-	'alloca' operation ('i') [27]  (0 ns)
-	'store' operation ('store_ln135', kernel.cpp:135) of constant 0 on local variable 'i' [90]  (0.427 ns)
+	fifo read operation ('lenEdgeListPtr_read') on port 'lenEdgeListPtr' [11]  (1.84 ns)
 
  <State 2>: 2.36ns
 The critical path consists of the following:
-	fifo read operation ('tmp', D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145) on port 'fifoEdgeListPtr_i_V' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145) [152]  (1.64 ns)
-	'store' operation ('store_ln143', kernel.cpp:143) of variable 'tmp', D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145 on local variable 'i' [154]  (0.427 ns)
+	fifo read operation ('tmp', D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145) on port 'fifoEdgeListPtr_calC15' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145) [52]  (1.64 ns)
+	'store' operation ('store_ln143', kernel.cpp:143) of variable 'tmp', D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145 on local variable 'i' [54]  (0.427 ns)
 	blocking operation 0.294 ns on control path)
 
- <State 3>: 1.4ns
+ <State 3>: 1.47ns
 The critical path consists of the following:
-	'phi' operation ('j', kernel.cpp:136) with incoming values : ('add_ln136', kernel.cpp:136) [111]  (0 ns)
-	'add' operation ('add_ln136', kernel.cpp:136) [114]  (0.797 ns)
-	blocking operation 0.601 ns on control path)
+	'phi' operation ('j', kernel.cpp:136) with incoming values : ('add_ln136', kernel.cpp:136) [32]  (0 ns)
+	'add' operation ('add_ln137', kernel.cpp:137) [35]  (0.797 ns)
+	'getelementptr' operation ('matrixC_buffer_V_addr', kernel.cpp:137) [37]  (0 ns)
+	'store' operation ('store_ln137', kernel.cpp:137) of constant 0 on array 'matrixC_buffer.V', kernel.cpp:134 [44]  (0.677 ns)
 
- <State 4>: 0ns
+ <State 4>: 2.63ns
 The critical path consists of the following:
-
- <State 5>: 2.63ns
-The critical path consists of the following:
-	fifo read operation ('tmp', D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145) on port 'fifoEdgeListPtr_i_V' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145) [166]  (1.64 ns)
+	fifo read operation ('tmp', D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145) on port 'fifoEdgeListPtr_calC15' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145) [66]  (1.64 ns)
 	blocking operation 0.991 ns on control path)
 
- <State 6>: 2.01ns
+ <State 5>: 1.42ns
 The critical path consists of the following:
-	'load' operation ('i_1_load', kernel.cpp:148) on local variable 'i' [164]  (0 ns)
-	'icmp' operation ('empty_24', kernel.cpp:148) [167]  (0.991 ns)
-	'select' operation ('smax', kernel.cpp:148) [168]  (0 ns)
-	'sub' operation ('sub_ln148', kernel.cpp:148) [169]  (1.02 ns)
+	'phi' operation ('i') with incoming values : ('start_addr') ('i', kernel.cpp:148) [69]  (0 ns)
+	'icmp' operation ('icmp_ln148', kernel.cpp:148) [70]  (0.991 ns)
+	blocking operation 0.427 ns on control path)
 
- <State 7>: 0ns
+ <State 6>: 1.02ns
 The critical path consists of the following:
+	'add' operation ('i', kernel.cpp:148) [168]  (1.02 ns)
 
- <State 8>: 0.797ns
+ <State 7>: 4.37ns
 The critical path consists of the following:
-	'load' operation ('i', kernel.cpp:168) on local variable 'i' [181]  (0 ns)
-	'add' operation ('add_ln168', kernel.cpp:168) [185]  (0.797 ns)
+	fifo read operation ('fifoCalcMatrixC_i_0_read', D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145) on port 'fifoCalcMatrixC_i_0' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145) [105]  (1.64 ns)
+	multiplexor before 'phi' operation ('tmp', D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145) with incoming values : ('fifoCalcMatrixC_i_0_read', D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145) ('fifoCalcMatrixC_i_02_read', D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145) [111]  (0.427 ns)
+	'phi' operation ('tmp', D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145) with incoming values : ('fifoCalcMatrixC_i_0_read', D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145) ('fifoCalcMatrixC_i_02_read', D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:145) [111]  (0 ns)
+	'fpext' operation ('d') [112]  (2.31 ns)
 
- <State 9>: 0.677ns
+ <State 8>: 3.44ns
 The critical path consists of the following:
-	'load' operation ('matrixC_buffer_V_0_load') on array 'matrixC_buffer.V[0]', kernel.cpp:134 [190]  (0.677 ns)
+	'fpext' operation ('d') [112]  (2.31 ns)
+	'icmp' operation ('icmp_ln580') [123]  (1.13 ns)
 
- <State 10>: 7.28ns
+ <State 9>: 6.32ns
 The critical path consists of the following:
-	'phi' operation ('j', kernel.cpp:169) with incoming values : ('add_ln169', kernel.cpp:169) [207]  (0 ns)
-	'mux' operation ('__Val2__') [215]  (0.721 ns)
-	'sub' operation ('tmp.V') [218]  (1.02 ns)
-	'select' operation ('tmp.V') [219]  (0.449 ns)
-	'cttz' operation ('l') [221]  (0 ns)
-	'sub' operation ('sub_ln997') [222]  (1.02 ns)
-	'add' operation ('lsb_index') [223]  (1.02 ns)
-	'shl' operation ('shl_ln1002') [230]  (0 ns)
-	'or' operation ('or_ln1002_1') [231]  (0 ns)
-	'and' operation ('and_ln1002') [232]  (0 ns)
-	'icmp' operation ('icmp_ln1002') [233]  (1.39 ns)
-	'select' operation ('select_ln999') [239]  (0 ns)
-	'select' operation ('select_ln1011') [247]  (0.287 ns)
-	'add' operation ('m') [250]  (1.39 ns)
+	'sub' operation ('F2') [124]  (0.809 ns)
+	'icmp' operation ('icmp_ln590') [125]  (0.976 ns)
+	'select' operation ('sh_amt') [128]  (0.375 ns)
+	'icmp' operation ('icmp_ln612') [141]  (0.817 ns)
+	'select' operation ('select_ln612') [143]  (0 ns)
+	'select' operation ('select_ln591') [146]  (1.39 ns)
+	'select' operation ('select_ln590') [150]  (1.51 ns)
+	'select' operation ('matrixC_val_i.V') [151]  (0.449 ns)
 
- <State 11>: 3.53ns
+ <State 10>: 2.37ns
 The critical path consists of the following:
-	'select' operation ('select_ln996') [254]  (0.393 ns)
-	'add' operation ('add_ln1017') [257]  (1.05 ns)
-	'select' operation ('select_ln988') [262]  (0.449 ns)
-	fifo write operation ('write_ln174', D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174) on port 'fifoSortMatrixC_o_0_V' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174) [290]  (1.64 ns)
+	'load' operation ('matrixC_val_old.V', kernel.cpp:120) on array 'matrixC_buffer.V', kernel.cpp:134 [159]  (0.677 ns)
+	'add' operation ('valC.V') [160]  (1.02 ns)
+	'store' operation ('store_ln122', kernel.cpp:122) of variable 'valC.V' on array 'matrixC_buffer.V', kernel.cpp:134 [161]  (0.677 ns)
+
+ <State 11>: 0.797ns
+The critical path consists of the following:
+	'load' operation ('i') on local variable 'i' [179]  (0 ns)
+	'add' operation ('add_ln168', kernel.cpp:168) [182]  (0.797 ns)
+
+ <State 12>: 1.47ns
+The critical path consists of the following:
+	'phi' operation ('j', kernel.cpp:169) with incoming values : ('add_ln169', kernel.cpp:169) [188]  (0 ns)
+	'add' operation ('add_ln988') [191]  (0.797 ns)
+	'getelementptr' operation ('matrixC_buffer_V_addr_1') [193]  (0 ns)
+	'load' operation ('__Val2__') on array 'matrixC_buffer.V', kernel.cpp:134 [200]  (0.677 ns)
+
+ <State 13>: 7.24ns
+The critical path consists of the following:
+	'load' operation ('__Val2__') on array 'matrixC_buffer.V', kernel.cpp:134 [200]  (0.677 ns)
+	'sub' operation ('tmp.V') [203]  (1.02 ns)
+	'select' operation ('m') [204]  (0.449 ns)
+	'cttz' operation ('l') [206]  (0 ns)
+	'sub' operation ('sub_ln997') [207]  (1.02 ns)
+	'add' operation ('lsb_index') [208]  (1.02 ns)
+	'shl' operation ('shl_ln1002') [215]  (0 ns)
+	'or' operation ('or_ln1002_1') [216]  (0 ns)
+	'and' operation ('and_ln1002') [217]  (0 ns)
+	'icmp' operation ('icmp_ln1002') [218]  (1.39 ns)
+	'select' operation ('select_ln999') [228]  (0 ns)
+	'select' operation ('select_ln1011') [232]  (0.287 ns)
+	'add' operation ('m') [235]  (1.39 ns)
+
+ <State 14>: 3.53ns
+The critical path consists of the following:
+	'select' operation ('select_ln996') [239]  (0.393 ns)
+	'add' operation ('add_ln1017') [242]  (1.05 ns)
+	'select' operation ('select_ln988') [247]  (0.449 ns)
+	fifo write operation ('write_ln174', D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174) on port 'fifoSortMatrixC_o_0' (D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/hls_stream_39.h:174) [250]  (1.64 ns)
 
 
 ============================================================
@@ -461,6 +470,9 @@ N/A
 	State 9
 	State 10
 	State 11
+	State 12
+	State 13
+	State 14
 
 
 ============================================================

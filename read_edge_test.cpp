@@ -8,8 +8,8 @@ void read_edge_list_ptr(int lenEdgeListPtr,
                         hls::stream<int> & fifoEdgeListPtr_o
                         );
 int main() {
-    int lenEdgeListPtr = 3;
-    int HLSPtr_i[] = {0, 7, 12};
+    int lenEdgeListPtr = 2;
+    int HLSPtr_i[] = {0, 11};
 
     hls::stream<int> fifoEdgeListPtr_o;
 

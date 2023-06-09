@@ -1,0 +1,2479 @@
+
+
+================================================================
+== Vitis HLS Report for 'krnl_sparse_matrix_acc'
+================================================================
+* Date:           Fri Jun  9 10:20:01 2023
+
+* Version:        2021.1 (Build 3247384 on Thu Jun 10 19:36:33 MDT 2021)
+* Project:        kernel_acc
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynquplus
+* Target device:  xczu7ev-ffvc1156-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  7.300 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+----------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
+    |   min   |   max   |    min   |    max   | min | max |   Type   |
+    +---------+---------+----------+----------+-----+-----+----------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|  dataflow|
+    +---------+---------+----------+----------+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        +-----------------------+--------------------+---------+---------+-----------+----------+-----+-----+---------+
+        |                       |                    |  Latency (cycles) |  Latency (absolute)  |  Interval | Pipeline|
+        |        Instance       |       Module       |   min   |   max   |    min    |    max   | min | max |   Type  |
+        +-----------------------+--------------------+---------+---------+-----------+----------+-----+-----+---------+
+        |read_edge_list_ptr_U0  |read_edge_list_ptr  |        2|        ?|  20.000 ns|         ?|    2|    ?|       no|
+        |read_A_U0              |read_A              |        2|        ?|  20.000 ns|         ?|    2|    ?|       no|
+        |read_B_U0              |read_B              |        2|        ?|  20.000 ns|         ?|    2|    ?|       no|
+        |calc_C_U0              |calc_C              |        ?|        ?|          ?|         ?|    ?|    ?|       no|
+        |sort_C_U0              |sort_C              |        ?|        ?|          ?|         ?|    ?|    ?|       no|
+        |entry_proc_U0          |entry_proc          |        0|        0|       0 ns|      0 ns|    0|    0|       no|
+        |write_C_U0             |write_C             |        ?|        ?|          ?|         ?|    ?|    ?|       no|
+        +-----------------------+--------------------+---------+---------+-----------+----------+-----+-----+---------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+------+--------+--------+-----+
+|       Name      | BRAM_18K|  DSP |   FF   |   LUT  | URAM|
++-----------------+---------+------+--------+--------+-----+
+|DSP              |        -|     -|       -|       -|    -|
+|Expression       |        -|     -|       0|      32|    -|
+|FIFO             |        -|     -|    1584|    1281|    -|
+|Instance         |       20|     9|    5138|    8181|    0|
+|Memory           |        -|     -|       -|       -|    -|
+|Multiplexer      |        -|     -|       -|      54|    -|
+|Register         |        -|     -|       6|       -|    -|
++-----------------+---------+------+--------+--------+-----+
+|Total            |       20|     9|    6728|    9548|    0|
++-----------------+---------+------+--------+--------+-----+
+|Available        |      624|  1728|  460800|  230400|   96|
++-----------------+---------+------+--------+--------+-----+
+|Utilization (%)  |        3|    ~0|       1|       4|    0|
++-----------------+---------+------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +-----------------------+--------------------+---------+----+-----+------+-----+
+    |        Instance       |       Module       | BRAM_18K| DSP|  FF |  LUT | URAM|
+    +-----------------------+--------------------+---------+----+-----+------+-----+
+    |calc_C_U0              |calc_C              |        0|   3|  603|   713|    0|
+    |control_s_axi_U        |control_s_axi       |        0|   0|  576|  1000|    0|
+    |entry_proc_U0          |entry_proc          |        0|   0|   98|    29|    0|
+    |gmem0_m_axi_U          |gmem0_m_axi         |        4|   0|  512|   580|    0|
+    |gmem1_m_axi_U          |gmem1_m_axi         |        4|   0|  512|   580|    0|
+    |gmem2_m_axi_U          |gmem2_m_axi         |        4|   0|  512|   580|    0|
+    |gmem3_m_axi_U          |gmem3_m_axi         |        4|   0|  512|   580|    0|
+    |gmem4_m_axi_U          |gmem4_m_axi         |        4|   0|  512|   580|    0|
+    |read_A_U0              |read_A              |        0|   0|  199|   222|    0|
+    |read_B_U0              |read_B              |        0|   3|  139|   220|    0|
+    |read_edge_list_ptr_U0  |read_edge_list_ptr  |        0|   0|  108|   209|    0|
+    |sort_C_U0              |sort_C              |        0|   0|  557|  2499|    0|
+    |write_C_U0             |write_C             |        0|   3|  298|   389|    0|
+    +-----------------------+--------------------+---------+----+-----+------+-----+
+    |Total                  |                    |       20|   9| 5138|  8181|    0|
+    +-----------------------+--------------------+---------+----+-----+------+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    +-----------------------------+---------+----+----+-----+------+-----+---------+
+    |             Name            | BRAM_18K| FF | LUT| URAM| Depth| Bits| Size:D*B|
+    +-----------------------------+---------+----+----+-----+------+-----+---------+
+    |M_c_channel_U                |        0|  99|   0|    -|     4|   32|      128|
+    |N_c_U                        |        0|  99|   0|    -|     4|   32|      128|
+    |fifoCalcMatrixCArray_V_0_U   |        0|  99|   0|    -|    32|   32|     1024|
+    |fifoCalcMatrixCArray_V_1_U   |        0|  99|   0|    -|    32|   32|     1024|
+    |fifoEdgeListPtr_U            |        0|  99|   0|    -|    32|   32|     1024|
+    |fifoEdgeListPtr_calC_U       |        0|  99|   0|    -|    32|   32|     1024|
+    |fifoMatrixAIdx_U             |        0|  99|   0|    -|    32|   32|     1024|
+    |fifoMatrixA_U                |        0|  99|   0|    -|    32|   32|     1024|
+    |fifoMatrixB_U                |        0|  99|   0|    -|    32|   32|     1024|
+    |fifoMatrixCIdxArray_V_V_0_U  |        0|  99|   0|    -|    32|   16|      512|
+    |fifoMatrixCIdxArray_V_V_1_U  |        0|  99|   0|    -|    32|   16|      512|
+    |fifoSortMatrixCArray_V_0_U   |        0|  99|   0|    -|    32|   32|     1024|
+    |fifoSortMatrixCArray_V_1_U   |        0|  99|   0|    -|    32|   32|     1024|
+    |lenEdgeListPtr_c27_U         |        0|  99|   0|    -|     2|   32|       64|
+    |lenEdgeListPtr_c_U           |        0|  99|   0|    -|     2|   32|       64|
+    |matrixC_o_c_channel_U        |        0|  99|   0|    -|     4|   64|      256|
+    +-----------------------------+---------+----+----+-----+------+-----+---------+
+    |Total                        |        0|1584|   0|    0|   368|  512|    10880|
+    +-----------------------------+---------+----+----+-----+------+-----+---------+
+
+    * Expression: 
+    +-------------------------------------------+----------+----+---+----+------------+------------+
+    |               Variable Name               | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-------------------------------------------+----------+----+---+----+------------+------------+
+    |ap_channel_done_M_c_channel                |       and|   0|  0|   2|           1|           1|
+    |ap_channel_done_matrixC_o_c_channel        |       and|   0|  0|   2|           1|           1|
+    |ap_idle                                    |       and|   0|  0|   2|           1|           1|
+    |ap_sync_ready                              |       and|   0|  0|   2|           1|           1|
+    |entry_proc_U0_ap_continue                  |       and|   0|  0|   2|           1|           1|
+    |entry_proc_U0_ap_start                     |       and|   0|  0|   2|           1|           1|
+    |read_A_U0_ap_start                         |       and|   0|  0|   2|           1|           1|
+    |read_B_U0_ap_start                         |       and|   0|  0|   2|           1|           1|
+    |read_edge_list_ptr_U0_ap_start             |       and|   0|  0|   2|           1|           1|
+    |write_C_U0_ap_start                        |       and|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_M_c_channel          |        or|   0|  0|   2|           1|           1|
+    |ap_sync_channel_write_matrixC_o_c_channel  |        or|   0|  0|   2|           1|           1|
+    |ap_sync_entry_proc_U0_ap_ready             |        or|   0|  0|   2|           1|           1|
+    |ap_sync_read_A_U0_ap_ready                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_read_B_U0_ap_ready                 |        or|   0|  0|   2|           1|           1|
+    |ap_sync_read_edge_list_ptr_U0_ap_ready     |        or|   0|  0|   2|           1|           1|
+    +-------------------------------------------+----------+----+---+----+------------+------------+
+    |Total                                      |          |   0|  0|  32|          16|          16|
+    +-------------------------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-----------------------------------------------+----+-----------+-----+-----------+
+    |                      Name                     | LUT| Input Size| Bits| Total Bits|
+    +-----------------------------------------------+----+-----------+-----+-----------+
+    |ap_sync_reg_channel_write_M_c_channel          |   9|          2|    1|          2|
+    |ap_sync_reg_channel_write_matrixC_o_c_channel  |   9|          2|    1|          2|
+    |ap_sync_reg_entry_proc_U0_ap_ready             |   9|          2|    1|          2|
+    |ap_sync_reg_read_A_U0_ap_ready                 |   9|          2|    1|          2|
+    |ap_sync_reg_read_B_U0_ap_ready                 |   9|          2|    1|          2|
+    |ap_sync_reg_read_edge_list_ptr_U0_ap_ready     |   9|          2|    1|          2|
+    +-----------------------------------------------+----+-----------+-----+-----------+
+    |Total                                          |  54|         12|    6|         12|
+    +-----------------------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-----------------------------------------------+---+----+-----+-----------+
+    |                      Name                     | FF| LUT| Bits| Const Bits|
+    +-----------------------------------------------+---+----+-----+-----------+
+    |ap_sync_reg_channel_write_M_c_channel          |  1|   0|    1|          0|
+    |ap_sync_reg_channel_write_matrixC_o_c_channel  |  1|   0|    1|          0|
+    |ap_sync_reg_entry_proc_U0_ap_ready             |  1|   0|    1|          0|
+    |ap_sync_reg_read_A_U0_ap_ready                 |  1|   0|    1|          0|
+    |ap_sync_reg_read_B_U0_ap_ready                 |  1|   0|    1|          0|
+    |ap_sync_reg_read_edge_list_ptr_U0_ap_ready     |  1|   0|    1|          0|
+    +-----------------------------------------------+---+----+-----+-----------+
+    |Total                                          |  6|   0|    6|          0|
+    +-----------------------------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------------------+-----+-----+------------+------------------------+--------------+
+|       RTL Ports       | Dir | Bits|  Protocol  |      Source Object     |    C Type    |
++-----------------------+-----+-----+------------+------------------------+--------------+
+|s_axi_control_AWVALID  |   in|    1|       s_axi|                 control|        scalar|
+|s_axi_control_AWREADY  |  out|    1|       s_axi|                 control|        scalar|
+|s_axi_control_AWADDR   |   in|    7|       s_axi|                 control|        scalar|
+|s_axi_control_WVALID   |   in|    1|       s_axi|                 control|        scalar|
+|s_axi_control_WREADY   |  out|    1|       s_axi|                 control|        scalar|
+|s_axi_control_WDATA    |   in|   32|       s_axi|                 control|        scalar|
+|s_axi_control_WSTRB    |   in|    4|       s_axi|                 control|        scalar|
+|s_axi_control_ARVALID  |   in|    1|       s_axi|                 control|        scalar|
+|s_axi_control_ARREADY  |  out|    1|       s_axi|                 control|        scalar|
+|s_axi_control_ARADDR   |   in|    7|       s_axi|                 control|        scalar|
+|s_axi_control_RVALID   |  out|    1|       s_axi|                 control|        scalar|
+|s_axi_control_RREADY   |   in|    1|       s_axi|                 control|        scalar|
+|s_axi_control_RDATA    |  out|   32|       s_axi|                 control|        scalar|
+|s_axi_control_RRESP    |  out|    2|       s_axi|                 control|        scalar|
+|s_axi_control_BVALID   |  out|    1|       s_axi|                 control|        scalar|
+|s_axi_control_BREADY   |   in|    1|       s_axi|                 control|        scalar|
+|s_axi_control_BRESP    |  out|    2|       s_axi|                 control|        scalar|
+|ap_clk                 |   in|    1|  ap_ctrl_hs|  krnl_sparse_matrix_acc|  return value|
+|ap_rst_n               |   in|    1|  ap_ctrl_hs|  krnl_sparse_matrix_acc|  return value|
+|interrupt              |  out|    1|  ap_ctrl_hs|  krnl_sparse_matrix_acc|  return value|
+|m_axi_gmem0_AWVALID    |  out|    1|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_AWREADY    |   in|    1|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_AWADDR     |  out|   64|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_AWID       |  out|    1|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_AWLEN      |  out|    8|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_AWSIZE     |  out|    3|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_AWBURST    |  out|    2|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_AWLOCK     |  out|    2|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_AWCACHE    |  out|    4|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_AWPROT     |  out|    3|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_AWQOS      |  out|    4|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_AWREGION   |  out|    4|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_AWUSER     |  out|    1|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_WVALID     |  out|    1|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_WREADY     |   in|    1|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_WDATA      |  out|   32|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_WSTRB      |  out|    4|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_WLAST      |  out|    1|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_WID        |  out|    1|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_WUSER      |  out|    1|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_ARVALID    |  out|    1|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_ARREADY    |   in|    1|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_ARADDR     |  out|   64|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_ARID       |  out|    1|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_ARLEN      |  out|    8|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_ARSIZE     |  out|    3|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_ARBURST    |  out|    2|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_ARLOCK     |  out|    2|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_ARCACHE    |  out|    4|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_ARPROT     |  out|    3|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_ARQOS      |  out|    4|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_ARREGION   |  out|    4|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_ARUSER     |  out|    1|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_RVALID     |   in|    1|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_RREADY     |  out|    1|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_RDATA      |   in|   32|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_RLAST      |   in|    1|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_RID        |   in|    1|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_RUSER      |   in|    1|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_RRESP      |   in|    2|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_BVALID     |   in|    1|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_BREADY     |  out|    1|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_BRESP      |   in|    2|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_BID        |   in|    1|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem0_BUSER      |   in|    1|       m_axi|                   gmem0|       pointer|
+|m_axi_gmem1_AWVALID    |  out|    1|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_AWREADY    |   in|    1|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_AWADDR     |  out|   64|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_AWID       |  out|    1|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_AWLEN      |  out|    8|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_AWSIZE     |  out|    3|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_AWBURST    |  out|    2|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_AWLOCK     |  out|    2|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_AWCACHE    |  out|    4|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_AWPROT     |  out|    3|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_AWQOS      |  out|    4|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_AWREGION   |  out|    4|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_AWUSER     |  out|    1|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_WVALID     |  out|    1|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_WREADY     |   in|    1|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_WDATA      |  out|   32|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_WSTRB      |  out|    4|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_WLAST      |  out|    1|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_WID        |  out|    1|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_WUSER      |  out|    1|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_ARVALID    |  out|    1|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_ARREADY    |   in|    1|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_ARADDR     |  out|   64|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_ARID       |  out|    1|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_ARLEN      |  out|    8|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_ARSIZE     |  out|    3|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_ARBURST    |  out|    2|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_ARLOCK     |  out|    2|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_ARCACHE    |  out|    4|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_ARPROT     |  out|    3|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_ARQOS      |  out|    4|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_ARREGION   |  out|    4|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_ARUSER     |  out|    1|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_RVALID     |   in|    1|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_RREADY     |  out|    1|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_RDATA      |   in|   32|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_RLAST      |   in|    1|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_RID        |   in|    1|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_RUSER      |   in|    1|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_RRESP      |   in|    2|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_BVALID     |   in|    1|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_BREADY     |  out|    1|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_BRESP      |   in|    2|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_BID        |   in|    1|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem1_BUSER      |   in|    1|       m_axi|                   gmem1|       pointer|
+|m_axi_gmem2_AWVALID    |  out|    1|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_AWREADY    |   in|    1|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_AWADDR     |  out|   64|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_AWID       |  out|    1|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_AWLEN      |  out|    8|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_AWSIZE     |  out|    3|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_AWBURST    |  out|    2|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_AWLOCK     |  out|    2|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_AWCACHE    |  out|    4|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_AWPROT     |  out|    3|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_AWQOS      |  out|    4|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_AWREGION   |  out|    4|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_AWUSER     |  out|    1|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_WVALID     |  out|    1|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_WREADY     |   in|    1|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_WDATA      |  out|   32|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_WSTRB      |  out|    4|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_WLAST      |  out|    1|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_WID        |  out|    1|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_WUSER      |  out|    1|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_ARVALID    |  out|    1|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_ARREADY    |   in|    1|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_ARADDR     |  out|   64|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_ARID       |  out|    1|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_ARLEN      |  out|    8|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_ARSIZE     |  out|    3|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_ARBURST    |  out|    2|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_ARLOCK     |  out|    2|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_ARCACHE    |  out|    4|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_ARPROT     |  out|    3|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_ARQOS      |  out|    4|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_ARREGION   |  out|    4|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_ARUSER     |  out|    1|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_RVALID     |   in|    1|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_RREADY     |  out|    1|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_RDATA      |   in|   32|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_RLAST      |   in|    1|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_RID        |   in|    1|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_RUSER      |   in|    1|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_RRESP      |   in|    2|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_BVALID     |   in|    1|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_BREADY     |  out|    1|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_BRESP      |   in|    2|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_BID        |   in|    1|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem2_BUSER      |   in|    1|       m_axi|                   gmem2|       pointer|
+|m_axi_gmem3_AWVALID    |  out|    1|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_AWREADY    |   in|    1|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_AWADDR     |  out|   64|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_AWID       |  out|    1|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_AWLEN      |  out|    8|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_AWSIZE     |  out|    3|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_AWBURST    |  out|    2|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_AWLOCK     |  out|    2|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_AWCACHE    |  out|    4|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_AWPROT     |  out|    3|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_AWQOS      |  out|    4|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_AWREGION   |  out|    4|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_AWUSER     |  out|    1|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_WVALID     |  out|    1|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_WREADY     |   in|    1|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_WDATA      |  out|   32|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_WSTRB      |  out|    4|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_WLAST      |  out|    1|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_WID        |  out|    1|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_WUSER      |  out|    1|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_ARVALID    |  out|    1|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_ARREADY    |   in|    1|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_ARADDR     |  out|   64|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_ARID       |  out|    1|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_ARLEN      |  out|    8|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_ARSIZE     |  out|    3|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_ARBURST    |  out|    2|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_ARLOCK     |  out|    2|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_ARCACHE    |  out|    4|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_ARPROT     |  out|    3|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_ARQOS      |  out|    4|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_ARREGION   |  out|    4|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_ARUSER     |  out|    1|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_RVALID     |   in|    1|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_RREADY     |  out|    1|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_RDATA      |   in|   32|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_RLAST      |   in|    1|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_RID        |   in|    1|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_RUSER      |   in|    1|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_RRESP      |   in|    2|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_BVALID     |   in|    1|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_BREADY     |  out|    1|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_BRESP      |   in|    2|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_BID        |   in|    1|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem3_BUSER      |   in|    1|       m_axi|                   gmem3|       pointer|
+|m_axi_gmem4_AWVALID    |  out|    1|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_AWREADY    |   in|    1|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_AWADDR     |  out|   64|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_AWID       |  out|    1|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_AWLEN      |  out|    8|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_AWSIZE     |  out|    3|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_AWBURST    |  out|    2|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_AWLOCK     |  out|    2|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_AWCACHE    |  out|    4|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_AWPROT     |  out|    3|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_AWQOS      |  out|    4|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_AWREGION   |  out|    4|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_AWUSER     |  out|    1|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_WVALID     |  out|    1|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_WREADY     |   in|    1|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_WDATA      |  out|   32|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_WSTRB      |  out|    4|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_WLAST      |  out|    1|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_WID        |  out|    1|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_WUSER      |  out|    1|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_ARVALID    |  out|    1|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_ARREADY    |   in|    1|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_ARADDR     |  out|   64|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_ARID       |  out|    1|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_ARLEN      |  out|    8|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_ARSIZE     |  out|    3|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_ARBURST    |  out|    2|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_ARLOCK     |  out|    2|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_ARCACHE    |  out|    4|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_ARPROT     |  out|    3|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_ARQOS      |  out|    4|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_ARREGION   |  out|    4|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_ARUSER     |  out|    1|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_RVALID     |   in|    1|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_RREADY     |  out|    1|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_RDATA      |   in|   32|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_RLAST      |   in|    1|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_RID        |   in|    1|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_RUSER      |   in|    1|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_RRESP      |   in|    2|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_BVALID     |   in|    1|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_BREADY     |  out|    1|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_BRESP      |   in|    2|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_BID        |   in|    1|       m_axi|                   gmem4|       pointer|
+|m_axi_gmem4_BUSER      |   in|    1|       m_axi|                   gmem4|       pointer|
++-----------------------+-----+-----+------------+------------------------+--------------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 2
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 9
+* Pipeline : 0
+* Dataflow Pipeline: 1
+  DF-Pipeline-0: Size = 9, States = { 1 2 3 4 5 6 7 8 9 }
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.00>
+ST_1 : Operation 10 [1/1] (1.00ns)   --->   "%N_read = read i32 @_ssdm_op_Read.s_axilite.i32, i32 %N"   --->   Operation 10 'read' 'N_read' <Predicate = true> <Delay = 1.00> <CoreInst = "s_axilite">   --->   Core 122 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_1 : Operation 11 [1/1] (1.00ns)   --->   "%K_read = read i32 @_ssdm_op_Read.s_axilite.i32, i32 %K"   --->   Operation 11 'read' 'K_read' <Predicate = true> <Delay = 1.00> <CoreInst = "s_axilite">   --->   Core 122 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_1 : Operation 12 [1/1] (1.00ns)   --->   "%M_read = read i32 @_ssdm_op_Read.s_axilite.i32, i32 %M"   --->   Operation 12 'read' 'M_read' <Predicate = true> <Delay = 1.00> <CoreInst = "s_axilite">   --->   Core 122 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_1 : Operation 13 [1/1] (1.00ns)   --->   "%lenEdgePtr_read = read i32 @_ssdm_op_Read.s_axilite.i32, i32 %lenEdgePtr"   --->   Operation 13 'read' 'lenEdgePtr_read' <Predicate = true> <Delay = 1.00> <CoreInst = "s_axilite">   --->   Core 122 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_1 : Operation 14 [1/1] (1.00ns)   --->   "%lenEdgeListPtr_read = read i32 @_ssdm_op_Read.s_axilite.i32, i32 %lenEdgeListPtr"   --->   Operation 14 'read' 'lenEdgeListPtr_read' <Predicate = true> <Delay = 1.00> <CoreInst = "s_axilite">   --->   Core 122 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_1 : Operation 15 [1/1] (1.00ns)   --->   "%matrixC_o_read = read i64 @_ssdm_op_Read.s_axilite.i64, i64 %matrixC_o"   --->   Operation 15 'read' 'matrixC_o_read' <Predicate = true> <Delay = 1.00> <CoreInst = "s_axilite">   --->   Core 122 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_1 : Operation 16 [1/1] (1.00ns)   --->   "%matrixB_i_read = read i64 @_ssdm_op_Read.s_axilite.i64, i64 %matrixB_i"   --->   Operation 16 'read' 'matrixB_i_read' <Predicate = true> <Delay = 1.00> <CoreInst = "s_axilite">   --->   Core 122 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_1 : Operation 17 [1/1] (1.00ns)   --->   "%matrixA_i_read = read i64 @_ssdm_op_Read.s_axilite.i64, i64 %matrixA_i"   --->   Operation 17 'read' 'matrixA_i_read' <Predicate = true> <Delay = 1.00> <CoreInst = "s_axilite">   --->   Core 122 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_1 : Operation 18 [1/1] (1.00ns)   --->   "%matrixA_hls_idx_read = read i64 @_ssdm_op_Read.s_axilite.i64, i64 %matrixA_hls_idx"   --->   Operation 18 'read' 'matrixA_hls_idx_read' <Predicate = true> <Delay = 1.00> <CoreInst = "s_axilite">   --->   Core 122 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_1 : Operation 19 [1/1] (1.00ns)   --->   "%HLSPtr_i_read = read i64 @_ssdm_op_Read.s_axilite.i64, i64 %HLSPtr_i"   --->   Operation 19 'read' 'HLSPtr_i_read' <Predicate = true> <Delay = 1.00> <CoreInst = "s_axilite">   --->   Core 122 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%N_c = alloca i64 1"   --->   Operation 20 'alloca' 'N_c' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 4> <FIFO>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%lenEdgeListPtr_c27 = alloca i64 1"   --->   Operation 21 'alloca' 'lenEdgeListPtr_c27' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%lenEdgeListPtr_c = alloca i64 1"   --->   Operation 22 'alloca' 'lenEdgeListPtr_c' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%fifoEdgeListPtr = alloca i64 1" [kernel.cpp:220]   --->   Operation 23 'alloca' 'fifoEdgeListPtr' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 32> <FIFO>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%fifoMatrixAIdx = alloca i64 1" [kernel.cpp:222]   --->   Operation 24 'alloca' 'fifoMatrixAIdx' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 32> <FIFO>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%fifoMatrixA = alloca i64 1" [kernel.cpp:224]   --->   Operation 25 'alloca' 'fifoMatrixA' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 32> <FIFO>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%fifoMatrixB = alloca i64 1" [kernel.cpp:226]   --->   Operation 26 'alloca' 'fifoMatrixB' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 32> <FIFO>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%fifoEdgeListPtr_calC = alloca i64 1" [kernel.cpp:228]   --->   Operation 27 'alloca' 'fifoEdgeListPtr_calC' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 32> <FIFO>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%fifoMatrixCIdxArray_V_V_0 = alloca i64 1"   --->   Operation 28 'alloca' 'fifoMatrixCIdxArray_V_V_0' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 16> <Depth = 32> <FIFO>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%fifoMatrixCIdxArray_V_V_1 = alloca i64 1"   --->   Operation 29 'alloca' 'fifoMatrixCIdxArray_V_V_1' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 16> <Depth = 32> <FIFO>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%fifoCalcMatrixCArray_V_0 = alloca i64 1"   --->   Operation 30 'alloca' 'fifoCalcMatrixCArray_V_0' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 32> <FIFO>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%fifoCalcMatrixCArray_V_1 = alloca i64 1"   --->   Operation 31 'alloca' 'fifoCalcMatrixCArray_V_1' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 32> <FIFO>
+ST_1 : Operation 32 [1/1] (0.00ns)   --->   "%fifoSortMatrixCArray_V_0 = alloca i64 1"   --->   Operation 32 'alloca' 'fifoSortMatrixCArray_V_0' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 32> <FIFO>
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%fifoSortMatrixCArray_V_1 = alloca i64 1"   --->   Operation 33 'alloca' 'fifoSortMatrixCArray_V_1' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 32> <FIFO>
+
+State 2 <SV = 1> <Delay = 7.30>
+ST_2 : Operation 34 [2/2] (7.30ns)   --->   "%call_ln239 = call void @read_edge_list_ptr, i32 %lenEdgeListPtr_read, i32 %gmem0, i64 %HLSPtr_i_read, i32 %fifoEdgeListPtr, i32 %lenEdgeListPtr_c27" [kernel.cpp:239]   --->   Operation 34 'call' 'call_ln239' <Predicate = true> <Delay = 7.30> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 35 [2/2] (7.30ns)   --->   "%call_ln240 = call void @read_A, i32 %lenEdgePtr_read, i32 %gmem1, i64 %matrixA_hls_idx_read, i32 %gmem2, i64 %matrixA_i_read, i32 %fifoMatrixAIdx, i32 %fifoMatrixA" [kernel.cpp:240]   --->   Operation 35 'call' 'call_ln240' <Predicate = true> <Delay = 7.30> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 36 [2/2] (7.30ns)   --->   "%call_ln241 = call void @read_B, i32 %K_read, i32 %N_read, i32 %gmem3, i64 %matrixB_i_read, i32 %fifoMatrixB, i32 %N_c" [kernel.cpp:241]   --->   Operation 36 'call' 'call_ln241' <Predicate = true> <Delay = 7.30> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 3 <SV = 2> <Delay = 0.00>
+ST_3 : Operation 37 [1/2] (0.00ns)   --->   "%call_ln239 = call void @read_edge_list_ptr, i32 %lenEdgeListPtr_read, i32 %gmem0, i64 %HLSPtr_i_read, i32 %fifoEdgeListPtr, i32 %lenEdgeListPtr_c27" [kernel.cpp:239]   --->   Operation 37 'call' 'call_ln239' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 38 [1/2] (0.00ns)   --->   "%call_ln240 = call void @read_A, i32 %lenEdgePtr_read, i32 %gmem1, i64 %matrixA_hls_idx_read, i32 %gmem2, i64 %matrixA_i_read, i32 %fifoMatrixAIdx, i32 %fifoMatrixA" [kernel.cpp:240]   --->   Operation 38 'call' 'call_ln240' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 39 [1/2] (0.00ns)   --->   "%call_ln241 = call void @read_B, i32 %K_read, i32 %N_read, i32 %gmem3, i64 %matrixB_i_read, i32 %fifoMatrixB, i32 %N_c" [kernel.cpp:241]   --->   Operation 39 'call' 'call_ln241' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 4 <SV = 3> <Delay = 0.00>
+ST_4 : Operation 40 [2/2] (0.00ns)   --->   "%call_ln242 = call void @calc_C, i32 %lenEdgeListPtr_c27, i32 %fifoEdgeListPtr, i32 %fifoMatrixAIdx, i32 %fifoMatrixA, i32 %fifoMatrixB, i32 %fifoEdgeListPtr_calC, i16 %fifoMatrixCIdxArray_V_V_0, i16 %fifoMatrixCIdxArray_V_V_1, i32 %fifoCalcMatrixCArray_V_0, i32 %fifoCalcMatrixCArray_V_1, i32 %lenEdgeListPtr_c" [kernel.cpp:242]   --->   Operation 40 'call' 'call_ln242' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 5 <SV = 4> <Delay = 0.00>
+ST_5 : Operation 41 [1/2] (0.00ns)   --->   "%call_ln242 = call void @calc_C, i32 %lenEdgeListPtr_c27, i32 %fifoEdgeListPtr, i32 %fifoMatrixAIdx, i32 %fifoMatrixA, i32 %fifoMatrixB, i32 %fifoEdgeListPtr_calC, i16 %fifoMatrixCIdxArray_V_V_0, i16 %fifoMatrixCIdxArray_V_V_1, i32 %fifoCalcMatrixCArray_V_0, i32 %fifoCalcMatrixCArray_V_1, i32 %lenEdgeListPtr_c" [kernel.cpp:242]   --->   Operation 41 'call' 'call_ln242' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 6 <SV = 5> <Delay = 0.00>
+ST_6 : Operation 42 [2/2] (0.00ns)   --->   "%call_ln243 = call void @sort_C, i32 %lenEdgeListPtr_c, i32 %fifoEdgeListPtr_calC, i16 %fifoMatrixCIdxArray_V_V_0, i16 %fifoMatrixCIdxArray_V_V_1, i32 %fifoCalcMatrixCArray_V_0, i32 %fifoCalcMatrixCArray_V_1, i32 %fifoSortMatrixCArray_V_0, i32 %fifoSortMatrixCArray_V_1" [kernel.cpp:243]   --->   Operation 42 'call' 'call_ln243' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 7 <SV = 6> <Delay = 0.00>
+ST_7 : Operation 43 [1/2] (0.00ns)   --->   "%call_ln243 = call void @sort_C, i32 %lenEdgeListPtr_c, i32 %fifoEdgeListPtr_calC, i16 %fifoMatrixCIdxArray_V_V_0, i16 %fifoMatrixCIdxArray_V_V_1, i32 %fifoCalcMatrixCArray_V_0, i32 %fifoCalcMatrixCArray_V_1, i32 %fifoSortMatrixCArray_V_0, i32 %fifoSortMatrixCArray_V_1" [kernel.cpp:243]   --->   Operation 43 'call' 'call_ln243' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 8 <SV = 7> <Delay = 0.00>
+ST_8 : Operation 44 [1/1] (0.00ns)   --->   "%call_ret = call i96 @entry_proc, i64 %matrixC_o_read, i32 %M_read"   --->   Operation 44 'call' 'call_ret' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_8 : Operation 45 [1/1] (0.00ns)   --->   "%matrixC_o_c_channel = extractvalue i96 %call_ret"   --->   Operation 45 'extractvalue' 'matrixC_o_c_channel' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 4> <FIFO>
+ST_8 : Operation 46 [1/1] (0.00ns)   --->   "%M_c_channel = extractvalue i96 %call_ret"   --->   Operation 46 'extractvalue' 'M_c_channel' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 4> <FIFO>
+ST_8 : Operation 47 [2/2] (0.00ns)   --->   "%call_ln244 = call void @write_C, i32 %M_c_channel, i32 %N_c, i32 %fifoSortMatrixCArray_V_0, i32 %fifoSortMatrixCArray_V_1, i32 %gmem4, i64 %matrixC_o_c_channel" [kernel.cpp:244]   --->   Operation 47 'call' 'call_ln244' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 9 <SV = 8> <Delay = 0.00>
+ST_9 : Operation 48 [1/1] (0.00ns)   --->   "%empty = specchannel i32 @_ssdm_op_SpecChannel, void @N_c_str, i32 1, void @p_str, void @p_str, i32 4, i32 0, i32 %N_c, i32 %N_c"   --->   Operation 48 'specchannel' 'empty' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 49 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %N_c, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @p_str"   --->   Operation 49 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 50 [1/1] (0.00ns)   --->   "%empty_67 = specchannel i32 @_ssdm_op_SpecChannel, void @lenEdgeListPtr_c27_str, i32 1, void @p_str, void @p_str, i32 2, i32 0, i32 %lenEdgeListPtr_c27, i32 %lenEdgeListPtr_c27"   --->   Operation 50 'specchannel' 'empty_67' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 51 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %lenEdgeListPtr_c27, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @p_str"   --->   Operation 51 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 52 [1/1] (0.00ns)   --->   "%empty_68 = specchannel i32 @_ssdm_op_SpecChannel, void @lenEdgeListPtr_c_str, i32 1, void @p_str, void @p_str, i32 2, i32 0, i32 %lenEdgeListPtr_c, i32 %lenEdgeListPtr_c"   --->   Operation 52 'specchannel' 'empty_68' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 53 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %lenEdgeListPtr_c, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @p_str"   --->   Operation 53 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 54 [1/1] (0.00ns)   --->   "%specdataflowpipeline_ln0 = specdataflowpipeline void @_ssdm_op_SpecDataflowPipeline, i32 4294967295, i32 0, void @empty_20"   --->   Operation 54 'specdataflowpipeline' 'specdataflowpipeline_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 55 [1/1] (0.00ns)   --->   "%spectopmodule_ln0 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_3"   --->   Operation 55 'spectopmodule' 'spectopmodule_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 56 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %gmem0, void @empty_19, i32 0, i32 0, void @empty_20, i32 0, i32 0, void @empty_21, void @empty_22, void @empty_20, i32 16, i32 16, i32 16, i32 16, void @empty_20, void @empty_20"   --->   Operation 56 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 57 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %gmem0"   --->   Operation 57 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 58 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %gmem1, void @empty_19, i32 0, i32 0, void @empty_20, i32 0, i32 0, void @empty_23, void @empty_22, void @empty_20, i32 16, i32 16, i32 16, i32 16, void @empty_20, void @empty_20"   --->   Operation 58 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 59 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %gmem1"   --->   Operation 59 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 60 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %gmem2, void @empty_19, i32 0, i32 0, void @empty_20, i32 0, i32 0, void @empty_24, void @empty_22, void @empty_20, i32 16, i32 16, i32 16, i32 16, void @empty_20, void @empty_20"   --->   Operation 60 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 61 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %gmem2"   --->   Operation 61 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 62 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %gmem3, void @empty_19, i32 0, i32 0, void @empty_20, i32 0, i32 0, void @empty_25, void @empty_22, void @empty_20, i32 16, i32 16, i32 16, i32 16, void @empty_20, void @empty_20"   --->   Operation 62 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 63 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %gmem3"   --->   Operation 63 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 64 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %gmem4, void @empty_19, i32 0, i32 0, void @empty_20, i32 0, i32 0, void @empty_8, void @empty_22, void @empty_20, i32 16, i32 16, i32 16, i32 16, void @empty_20, void @empty_20"   --->   Operation 64 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 65 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %gmem4"   --->   Operation 65 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 66 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %HLSPtr_i, void @empty_26, i32 0, i32 0, void @empty_20, i32 0, i32 0, void @empty_27, void @empty_28, void @empty_20, i32 0, i32 0, i32 0, i32 0, void @empty_20, void @empty_29"   --->   Operation 66 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 67 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %HLSPtr_i, void @empty_31, i32 0, i32 0, void @empty_20, i32 0, i32 0, void @empty_20, void @empty_20, void @empty_20, i32 0, i32 0, i32 0, i32 0, void @empty_20, void @empty_29"   --->   Operation 67 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 68 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %matrixA_hls_idx, void @empty_26, i32 0, i32 0, void @empty_20, i32 0, i32 0, void @empty_27, void @empty_32, void @empty_20, i32 0, i32 0, i32 0, i32 0, void @empty_20, void @empty_29"   --->   Operation 68 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 69 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %matrixA_hls_idx, void @empty_31, i32 0, i32 0, void @empty_20, i32 0, i32 0, void @empty_20, void @empty_20, void @empty_20, i32 0, i32 0, i32 0, i32 0, void @empty_20, void @empty_29"   --->   Operation 69 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 70 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %matrixA_i, void @empty_26, i32 0, i32 0, void @empty_20, i32 0, i32 0, void @empty_27, void @empty_33, void @empty_20, i32 0, i32 0, i32 0, i32 0, void @empty_20, void @empty_29"   --->   Operation 70 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 71 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %matrixA_i, void @empty_31, i32 0, i32 0, void @empty_20, i32 0, i32 0, void @empty_20, void @empty_20, void @empty_20, i32 0, i32 0, i32 0, i32 0, void @empty_20, void @empty_29"   --->   Operation 71 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 72 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %matrixB_i, void @empty_26, i32 0, i32 0, void @empty_20, i32 0, i32 0, void @empty_27, void @empty_34, void @empty_20, i32 0, i32 0, i32 0, i32 0, void @empty_20, void @empty_29"   --->   Operation 72 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 73 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %matrixB_i, void @empty_31, i32 0, i32 0, void @empty_20, i32 0, i32 0, void @empty_20, void @empty_20, void @empty_20, i32 0, i32 0, i32 0, i32 0, void @empty_20, void @empty_29"   --->   Operation 73 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 74 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %matrixC_o, void @empty_26, i32 0, i32 0, void @empty_20, i32 0, i32 0, void @empty_27, void @empty_35, void @empty_20, i32 0, i32 0, i32 0, i32 0, void @empty_20, void @empty_29"   --->   Operation 74 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 75 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %matrixC_o, void @empty_31, i32 0, i32 0, void @empty_20, i32 0, i32 0, void @empty_20, void @empty_20, void @empty_20, i32 0, i32 0, i32 0, i32 0, void @empty_20, void @empty_29"   --->   Operation 75 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 76 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %lenEdgeListPtr"   --->   Operation 76 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 77 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %lenEdgeListPtr, void @empty_26, i32 0, i32 0, void @empty_20, i32 0, i32 0, void @empty_27, void @empty_36, void @empty_20, i32 0, i32 0, i32 0, i32 0, void @empty_20, void @empty_20"   --->   Operation 77 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 78 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %lenEdgeListPtr, void @empty_31, i32 0, i32 0, void @empty_20, i32 0, i32 0, void @empty_20, void @empty_20, void @empty_20, i32 0, i32 0, i32 0, i32 0, void @empty_20, void @empty_20"   --->   Operation 78 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 79 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %lenEdgePtr"   --->   Operation 79 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 80 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %lenEdgePtr, void @empty_26, i32 0, i32 0, void @empty_20, i32 0, i32 0, void @empty_27, void @empty_37, void @empty_20, i32 0, i32 0, i32 0, i32 0, void @empty_20, void @empty_20"   --->   Operation 80 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 81 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %lenEdgePtr, void @empty_31, i32 0, i32 0, void @empty_20, i32 0, i32 0, void @empty_20, void @empty_20, void @empty_20, i32 0, i32 0, i32 0, i32 0, void @empty_20, void @empty_20"   --->   Operation 81 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 82 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %M"   --->   Operation 82 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 83 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %M, void @empty_26, i32 0, i32 0, void @empty_20, i32 0, i32 0, void @empty_27, void @empty, void @empty_20, i32 0, i32 0, i32 0, i32 0, void @empty_20, void @empty_20"   --->   Operation 83 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 84 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %M, void @empty_31, i32 0, i32 0, void @empty_20, i32 0, i32 0, void @empty_20, void @empty_20, void @empty_20, i32 0, i32 0, i32 0, i32 0, void @empty_20, void @empty_20"   --->   Operation 84 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 85 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %K"   --->   Operation 85 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 86 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %K, void @empty_26, i32 0, i32 0, void @empty_20, i32 0, i32 0, void @empty_27, void @empty_0, void @empty_20, i32 0, i32 0, i32 0, i32 0, void @empty_20, void @empty_20"   --->   Operation 86 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 87 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %K, void @empty_31, i32 0, i32 0, void @empty_20, i32 0, i32 0, void @empty_20, void @empty_20, void @empty_20, i32 0, i32 0, i32 0, i32 0, void @empty_20, void @empty_20"   --->   Operation 87 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 88 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %N"   --->   Operation 88 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 89 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %N, void @empty_26, i32 0, i32 0, void @empty_20, i32 0, i32 0, void @empty_27, void @empty_1, void @empty_20, i32 0, i32 0, i32 0, i32 0, void @empty_20, void @empty_20"   --->   Operation 89 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 90 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %N, void @empty_31, i32 0, i32 0, void @empty_20, i32 0, i32 0, void @empty_20, void @empty_20, void @empty_20, i32 0, i32 0, i32 0, i32 0, void @empty_20, void @empty_20"   --->   Operation 90 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 91 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 0, void @empty_26, i32 0, i32 0, void @empty_20, i32 0, i32 0, void @empty_27, void @empty_20, void @empty_20, i32 0, i32 0, i32 0, i32 0, void @empty_20, void @empty_20"   --->   Operation 91 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 92 [1/1] (0.00ns)   --->   "%empty_69 = specchannel i32 @_ssdm_op_SpecChannel, void @fifoEdgeListPtr_str, i32 1, void @p_str, void @p_str, i32 32, i32 32, i32 %fifoEdgeListPtr, i32 %fifoEdgeListPtr"   --->   Operation 92 'specchannel' 'empty_69' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 93 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fifoEdgeListPtr, void @empty_2, i32 0, i32 0, void @empty_20, i32 0, i32 0, void @empty_20, void @empty_20, void @empty_20, i32 0, i32 0, i32 0, i32 0, void @empty_20, void @empty_20"   --->   Operation 93 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 94 [1/1] (0.00ns)   --->   "%empty_70 = specchannel i32 @_ssdm_op_SpecChannel, void @fifoMatrixAIdx_str, i32 1, void @p_str, void @p_str, i32 32, i32 32, i32 %fifoMatrixAIdx, i32 %fifoMatrixAIdx"   --->   Operation 94 'specchannel' 'empty_70' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 95 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fifoMatrixAIdx, void @empty_2, i32 0, i32 0, void @empty_20, i32 0, i32 0, void @empty_20, void @empty_20, void @empty_20, i32 0, i32 0, i32 0, i32 0, void @empty_20, void @empty_20"   --->   Operation 95 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 96 [1/1] (0.00ns)   --->   "%empty_71 = specchannel i32 @_ssdm_op_SpecChannel, void @fifoMatrixA_str, i32 1, void @p_str, void @p_str, i32 32, i32 32, i32 %fifoMatrixA, i32 %fifoMatrixA"   --->   Operation 96 'specchannel' 'empty_71' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 97 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fifoMatrixA, void @empty_2, i32 0, i32 0, void @empty_20, i32 0, i32 0, void @empty_20, void @empty_20, void @empty_20, i32 0, i32 0, i32 0, i32 0, void @empty_20, void @empty_20"   --->   Operation 97 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 98 [1/1] (0.00ns)   --->   "%empty_72 = specchannel i32 @_ssdm_op_SpecChannel, void @fifoMatrixB_str, i32 1, void @p_str, void @p_str, i32 32, i32 32, i32 %fifoMatrixB, i32 %fifoMatrixB"   --->   Operation 98 'specchannel' 'empty_72' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 99 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fifoMatrixB, void @empty_2, i32 0, i32 0, void @empty_20, i32 0, i32 0, void @empty_20, void @empty_20, void @empty_20, i32 0, i32 0, i32 0, i32 0, void @empty_20, void @empty_20"   --->   Operation 99 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 100 [1/1] (0.00ns)   --->   "%empty_73 = specchannel i32 @_ssdm_op_SpecChannel, void @fifoEdgeListPtr_calC_str, i32 1, void @p_str, void @p_str, i32 32, i32 32, i32 %fifoEdgeListPtr_calC, i32 %fifoEdgeListPtr_calC"   --->   Operation 100 'specchannel' 'empty_73' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 101 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fifoEdgeListPtr_calC, void @empty_2, i32 0, i32 0, void @empty_20, i32 0, i32 0, void @empty_20, void @empty_20, void @empty_20, i32 0, i32 0, i32 0, i32 0, void @empty_20, void @empty_20"   --->   Operation 101 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 102 [1/1] (0.00ns)   --->   "%empty_74 = specchannel i32 @_ssdm_op_SpecChannel, void @fifoMatrixCIdxArray_OC_V_OC_V_OC_0_str, i32 1, void @p_str, void @p_str, i32 32, i32 32, i16 %fifoMatrixCIdxArray_V_V_0, i16 %fifoMatrixCIdxArray_V_V_0"   --->   Operation 102 'specchannel' 'empty_74' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 103 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %fifoMatrixCIdxArray_V_V_0, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @p_str"   --->   Operation 103 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 104 [1/1] (0.00ns)   --->   "%empty_75 = specchannel i32 @_ssdm_op_SpecChannel, void @fifoMatrixCIdxArray_OC_V_OC_V_OC_1_str, i32 1, void @p_str, void @p_str, i32 32, i32 32, i16 %fifoMatrixCIdxArray_V_V_1, i16 %fifoMatrixCIdxArray_V_V_1"   --->   Operation 104 'specchannel' 'empty_75' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 105 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %fifoMatrixCIdxArray_V_V_1, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @p_str"   --->   Operation 105 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 106 [1/1] (0.00ns)   --->   "%empty_76 = specchannel i32 @_ssdm_op_SpecChannel, void @fifoCalcMatrixCArray_OC_V_OC_0_str, i32 1, void @p_str, void @p_str, i32 32, i32 32, i32 %fifoCalcMatrixCArray_V_0, i32 %fifoCalcMatrixCArray_V_0"   --->   Operation 106 'specchannel' 'empty_76' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 107 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fifoCalcMatrixCArray_V_0, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @p_str"   --->   Operation 107 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 108 [1/1] (0.00ns)   --->   "%empty_77 = specchannel i32 @_ssdm_op_SpecChannel, void @fifoCalcMatrixCArray_OC_V_OC_1_str, i32 1, void @p_str, void @p_str, i32 32, i32 32, i32 %fifoCalcMatrixCArray_V_1, i32 %fifoCalcMatrixCArray_V_1"   --->   Operation 108 'specchannel' 'empty_77' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 109 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fifoCalcMatrixCArray_V_1, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @p_str"   --->   Operation 109 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 110 [1/1] (0.00ns)   --->   "%empty_78 = specchannel i32 @_ssdm_op_SpecChannel, void @fifoSortMatrixCArray_OC_V_OC_0_str, i32 1, void @p_str, void @p_str, i32 32, i32 32, i32 %fifoSortMatrixCArray_V_0, i32 %fifoSortMatrixCArray_V_0"   --->   Operation 110 'specchannel' 'empty_78' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 111 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fifoSortMatrixCArray_V_0, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @p_str"   --->   Operation 111 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 112 [1/1] (0.00ns)   --->   "%empty_79 = specchannel i32 @_ssdm_op_SpecChannel, void @fifoSortMatrixCArray_OC_V_OC_1_str, i32 1, void @p_str, void @p_str, i32 32, i32 32, i32 %fifoSortMatrixCArray_V_1, i32 %fifoSortMatrixCArray_V_1"   --->   Operation 112 'specchannel' 'empty_79' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 113 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %fifoSortMatrixCArray_V_1, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @p_str"   --->   Operation 113 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 114 [1/2] (0.00ns)   --->   "%call_ln244 = call void @write_C, i32 %M_c_channel, i32 %N_c, i32 %fifoSortMatrixCArray_V_0, i32 %fifoSortMatrixCArray_V_1, i32 %gmem4, i64 %matrixC_o_c_channel" [kernel.cpp:244]   --->   Operation 114 'call' 'call_ln244' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_9 : Operation 115 [1/1] (0.00ns)   --->   "%ret_ln245 = ret" [kernel.cpp:245]   --->   Operation 115 'ret' 'ret_ln245' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+STG Binding: 
+---------------- STG Properties BEGIN ----------------
+- Is combinational: 0
+- Is one-state seq: 0
+- Is datapath-only: 0
+- Is pipelined: 0
+- Is top level: 1
+Port [ Return ] is wired: 1; IO mode=ap_ctrl_hs:ce=0
+Port [ gmem0]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=4; pingpong=0; private_global=0; IO mode=m_axi:ce=0
+Port [ gmem1]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=4; pingpong=0; private_global=0; IO mode=m_axi:ce=0
+Port [ gmem2]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=4; pingpong=0; private_global=0; IO mode=m_axi:ce=0
+Port [ gmem3]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=4; pingpong=0; private_global=0; IO mode=m_axi:ce=0
+Port [ gmem4]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=4; pingpong=0; private_global=0; IO mode=m_axi:ce=0
+Port [ HLSPtr_i]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ matrixA_hls_idx]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ matrixA_i]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ matrixB_i]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ matrixC_o]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ lenEdgeListPtr]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ lenEdgePtr]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ M]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ K]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ N]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+---------------- STG Properties END ------------------
+
+---------------- Datapath Model BEGIN ----------------
+
+<LifeTime>
+<method=bitvector/>
+N_read                    (read                ) [ 0011000000]
+K_read                    (read                ) [ 0011000000]
+M_read                    (read                ) [ 0011111110]
+lenEdgePtr_read           (read                ) [ 0011000000]
+lenEdgeListPtr_read       (read                ) [ 0011000000]
+matrixC_o_read            (read                ) [ 0011111110]
+matrixB_i_read            (read                ) [ 0011000000]
+matrixA_i_read            (read                ) [ 0011000000]
+matrixA_hls_idx_read      (read                ) [ 0011000000]
+HLSPtr_i_read             (read                ) [ 0011000000]
+N_c                       (alloca              ) [ 0011111111]
+lenEdgeListPtr_c27        (alloca              ) [ 0011111111]
+lenEdgeListPtr_c          (alloca              ) [ 0011111111]
+fifoEdgeListPtr           (alloca              ) [ 0011111111]
+fifoMatrixAIdx            (alloca              ) [ 0011111111]
+fifoMatrixA               (alloca              ) [ 0011111111]
+fifoMatrixB               (alloca              ) [ 0011111111]
+fifoEdgeListPtr_calC      (alloca              ) [ 0011111111]
+fifoMatrixCIdxArray_V_V_0 (alloca              ) [ 0011111111]
+fifoMatrixCIdxArray_V_V_1 (alloca              ) [ 0011111111]
+fifoCalcMatrixCArray_V_0  (alloca              ) [ 0011111111]
+fifoCalcMatrixCArray_V_1  (alloca              ) [ 0011111111]
+fifoSortMatrixCArray_V_0  (alloca              ) [ 0011111111]
+fifoSortMatrixCArray_V_1  (alloca              ) [ 0011111111]
+call_ln239                (call                ) [ 0000000000]
+call_ln240                (call                ) [ 0000000000]
+call_ln241                (call                ) [ 0000000000]
+call_ln242                (call                ) [ 0000000000]
+call_ln243                (call                ) [ 0000000000]
+call_ret                  (call                ) [ 0000000000]
+matrixC_o_c_channel       (extractvalue        ) [ 0000000001]
+M_c_channel               (extractvalue        ) [ 0000000001]
+empty                     (specchannel         ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+empty_67                  (specchannel         ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+empty_68                  (specchannel         ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+specdataflowpipeline_ln0  (specdataflowpipeline) [ 0000000000]
+spectopmodule_ln0         (spectopmodule       ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+specbitsmap_ln0           (specbitsmap         ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+specbitsmap_ln0           (specbitsmap         ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+specbitsmap_ln0           (specbitsmap         ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+specbitsmap_ln0           (specbitsmap         ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+specbitsmap_ln0           (specbitsmap         ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+specbitsmap_ln0           (specbitsmap         ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+specbitsmap_ln0           (specbitsmap         ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+specbitsmap_ln0           (specbitsmap         ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+specbitsmap_ln0           (specbitsmap         ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+specbitsmap_ln0           (specbitsmap         ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+empty_69                  (specchannel         ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+empty_70                  (specchannel         ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+empty_71                  (specchannel         ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+empty_72                  (specchannel         ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+empty_73                  (specchannel         ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+empty_74                  (specchannel         ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+empty_75                  (specchannel         ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+empty_76                  (specchannel         ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+empty_77                  (specchannel         ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+empty_78                  (specchannel         ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+empty_79                  (specchannel         ) [ 0000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000]
+call_ln244                (call                ) [ 0000000000]
+ret_ln245                 (ret                 ) [ 0000000000]
+</LifeTime>
+
+<model>
+
+<comp_list>
+<comp id="0" class="1000" name="gmem0">
+<pin_list>
+<pin id="1" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="gmem0"/></StgValue>
+</bind>
+</comp>
+
+<comp id="2" class="1000" name="gmem1">
+<pin_list>
+<pin id="3" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="gmem1"/></StgValue>
+</bind>
+</comp>
+
+<comp id="4" class="1000" name="gmem2">
+<pin_list>
+<pin id="5" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="gmem2"/></StgValue>
+</bind>
+</comp>
+
+<comp id="6" class="1000" name="gmem3">
+<pin_list>
+<pin id="7" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="gmem3"/></StgValue>
+</bind>
+</comp>
+
+<comp id="8" class="1000" name="gmem4">
+<pin_list>
+<pin id="9" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="gmem4"/></StgValue>
+</bind>
+</comp>
+
+<comp id="10" class="1000" name="HLSPtr_i">
+<pin_list>
+<pin id="11" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="HLSPtr_i"/></StgValue>
+</bind>
+</comp>
+
+<comp id="12" class="1000" name="matrixA_hls_idx">
+<pin_list>
+<pin id="13" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="matrixA_hls_idx"/></StgValue>
+</bind>
+</comp>
+
+<comp id="14" class="1000" name="matrixA_i">
+<pin_list>
+<pin id="15" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="matrixA_i"/></StgValue>
+</bind>
+</comp>
+
+<comp id="16" class="1000" name="matrixB_i">
+<pin_list>
+<pin id="17" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="matrixB_i"/></StgValue>
+</bind>
+</comp>
+
+<comp id="18" class="1000" name="matrixC_o">
+<pin_list>
+<pin id="19" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="matrixC_o"/></StgValue>
+</bind>
+</comp>
+
+<comp id="20" class="1000" name="lenEdgeListPtr">
+<pin_list>
+<pin id="21" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="lenEdgeListPtr"/></StgValue>
+</bind>
+</comp>
+
+<comp id="22" class="1000" name="lenEdgePtr">
+<pin_list>
+<pin id="23" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="lenEdgePtr"/></StgValue>
+</bind>
+</comp>
+
+<comp id="24" class="1000" name="M">
+<pin_list>
+<pin id="25" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="M"/></StgValue>
+</bind>
+</comp>
+
+<comp id="26" class="1000" name="K">
+<pin_list>
+<pin id="27" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="K"/></StgValue>
+</bind>
+</comp>
+
+<comp id="28" class="1000" name="N">
+<pin_list>
+<pin id="29" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="N"/></StgValue>
+</bind>
+</comp>
+
+<comp id="30" class="1001" name="const_30">
+<pin_list>
+<pin id="31" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Read.s_axilite.i32"/></StgValue>
+</bind>
+</comp>
+
+<comp id="32" class="1001" name="const_32">
+<pin_list>
+<pin id="33" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Read.s_axilite.i64"/></StgValue>
+</bind>
+</comp>
+
+<comp id="34" class="1001" name="const_34">
+<pin_list>
+<pin id="35" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="36" class="1001" name="const_36">
+<pin_list>
+<pin id="37" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="read_edge_list_ptr"/></StgValue>
+</bind>
+</comp>
+
+<comp id="38" class="1001" name="const_38">
+<pin_list>
+<pin id="39" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="read_A"/></StgValue>
+</bind>
+</comp>
+
+<comp id="40" class="1001" name="const_40">
+<pin_list>
+<pin id="41" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="read_B"/></StgValue>
+</bind>
+</comp>
+
+<comp id="42" class="1001" name="const_42">
+<pin_list>
+<pin id="43" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="calc_C"/></StgValue>
+</bind>
+</comp>
+
+<comp id="44" class="1001" name="const_44">
+<pin_list>
+<pin id="45" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="sort_C"/></StgValue>
+</bind>
+</comp>
+
+<comp id="46" class="1001" name="const_46">
+<pin_list>
+<pin id="47" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="entry_proc"/></StgValue>
+</bind>
+</comp>
+
+<comp id="48" class="1001" name="const_48">
+<pin_list>
+<pin id="49" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="write_C"/></StgValue>
+</bind>
+</comp>
+
+<comp id="50" class="1001" name="const_50">
+<pin_list>
+<pin id="51" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecChannel"/></StgValue>
+</bind>
+</comp>
+
+<comp id="52" class="1001" name="const_52">
+<pin_list>
+<pin id="53" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="N_c_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="54" class="1001" name="const_54">
+<pin_list>
+<pin id="55" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="56" class="1001" name="const_56">
+<pin_list>
+<pin id="57" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="p_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="58" class="1001" name="const_58">
+<pin_list>
+<pin id="59" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="60" class="1001" name="const_60">
+<pin_list>
+<pin id="61" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="62" class="1001" name="const_62">
+<pin_list>
+<pin id="63" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecInterface"/></StgValue>
+</bind>
+</comp>
+
+<comp id="64" class="1001" name="const_64">
+<pin_list>
+<pin id="65" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="ap_fifo_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="66" class="1001" name="const_66">
+<pin_list>
+<pin id="67" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="68" class="1001" name="const_68">
+<pin_list>
+<pin id="69" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="70" class="1001" name="const_70">
+<pin_list>
+<pin id="71" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="lenEdgeListPtr_c27_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="72" class="1001" name="const_72">
+<pin_list>
+<pin id="73" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="lenEdgeListPtr_c_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="74" class="1001" name="const_74">
+<pin_list>
+<pin id="75" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecDataflowPipeline"/></StgValue>
+</bind>
+</comp>
+
+<comp id="76" class="1001" name="const_76">
+<pin_list>
+<pin id="77" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="78" class="1001" name="const_78">
+<pin_list>
+<pin id="79" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_20"/></StgValue>
+</bind>
+</comp>
+
+<comp id="80" class="1001" name="const_80">
+<pin_list>
+<pin id="81" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecTopModule"/></StgValue>
+</bind>
+</comp>
+
+<comp id="82" class="1001" name="const_82">
+<pin_list>
+<pin id="83" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_3"/></StgValue>
+</bind>
+</comp>
+
+<comp id="84" class="1001" name="const_84">
+<pin_list>
+<pin id="85" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_19"/></StgValue>
+</bind>
+</comp>
+
+<comp id="86" class="1001" name="const_86">
+<pin_list>
+<pin id="87" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_21"/></StgValue>
+</bind>
+</comp>
+
+<comp id="88" class="1001" name="const_88">
+<pin_list>
+<pin id="89" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_22"/></StgValue>
+</bind>
+</comp>
+
+<comp id="90" class="1001" name="const_90">
+<pin_list>
+<pin id="91" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_SpecBitsMap"/></StgValue>
+</bind>
+</comp>
+
+<comp id="92" class="1001" name="const_92">
+<pin_list>
+<pin id="93" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_23"/></StgValue>
+</bind>
+</comp>
+
+<comp id="94" class="1001" name="const_94">
+<pin_list>
+<pin id="95" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_24"/></StgValue>
+</bind>
+</comp>
+
+<comp id="96" class="1001" name="const_96">
+<pin_list>
+<pin id="97" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_25"/></StgValue>
+</bind>
+</comp>
+
+<comp id="98" class="1001" name="const_98">
+<pin_list>
+<pin id="99" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_8"/></StgValue>
+</bind>
+</comp>
+
+<comp id="100" class="1001" name="const_100">
+<pin_list>
+<pin id="101" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_26"/></StgValue>
+</bind>
+</comp>
+
+<comp id="102" class="1001" name="const_102">
+<pin_list>
+<pin id="103" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_27"/></StgValue>
+</bind>
+</comp>
+
+<comp id="104" class="1001" name="const_104">
+<pin_list>
+<pin id="105" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_28"/></StgValue>
+</bind>
+</comp>
+
+<comp id="106" class="1001" name="const_106">
+<pin_list>
+<pin id="107" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_29"/></StgValue>
+</bind>
+</comp>
+
+<comp id="108" class="1001" name="const_108">
+<pin_list>
+<pin id="109" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_31"/></StgValue>
+</bind>
+</comp>
+
+<comp id="110" class="1001" name="const_110">
+<pin_list>
+<pin id="111" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_32"/></StgValue>
+</bind>
+</comp>
+
+<comp id="112" class="1001" name="const_112">
+<pin_list>
+<pin id="113" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_33"/></StgValue>
+</bind>
+</comp>
+
+<comp id="114" class="1001" name="const_114">
+<pin_list>
+<pin id="115" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_34"/></StgValue>
+</bind>
+</comp>
+
+<comp id="116" class="1001" name="const_116">
+<pin_list>
+<pin id="117" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_35"/></StgValue>
+</bind>
+</comp>
+
+<comp id="118" class="1001" name="const_118">
+<pin_list>
+<pin id="119" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_36"/></StgValue>
+</bind>
+</comp>
+
+<comp id="120" class="1001" name="const_120">
+<pin_list>
+<pin id="121" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_37"/></StgValue>
+</bind>
+</comp>
+
+<comp id="122" class="1001" name="const_122">
+<pin_list>
+<pin id="123" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty"/></StgValue>
+</bind>
+</comp>
+
+<comp id="124" class="1001" name="const_124">
+<pin_list>
+<pin id="125" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_0"/></StgValue>
+</bind>
+</comp>
+
+<comp id="126" class="1001" name="const_126">
+<pin_list>
+<pin id="127" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_1"/></StgValue>
+</bind>
+</comp>
+
+<comp id="128" class="1001" name="const_128">
+<pin_list>
+<pin id="129" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="fifoEdgeListPtr_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="130" class="1001" name="const_130">
+<pin_list>
+<pin id="131" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="132" class="1001" name="const_132">
+<pin_list>
+<pin id="133" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="empty_2"/></StgValue>
+</bind>
+</comp>
+
+<comp id="134" class="1001" name="const_134">
+<pin_list>
+<pin id="135" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="fifoMatrixAIdx_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="136" class="1001" name="const_136">
+<pin_list>
+<pin id="137" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="fifoMatrixA_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="138" class="1001" name="const_138">
+<pin_list>
+<pin id="139" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="fifoMatrixB_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="140" class="1001" name="const_140">
+<pin_list>
+<pin id="141" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="fifoEdgeListPtr_calC_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="142" class="1001" name="const_142">
+<pin_list>
+<pin id="143" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="fifoMatrixCIdxArray_OC_V_OC_V_OC_0_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="144" class="1001" name="const_144">
+<pin_list>
+<pin id="145" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="fifoMatrixCIdxArray_OC_V_OC_V_OC_1_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="146" class="1001" name="const_146">
+<pin_list>
+<pin id="147" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="fifoCalcMatrixCArray_OC_V_OC_0_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="148" class="1001" name="const_148">
+<pin_list>
+<pin id="149" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="fifoCalcMatrixCArray_OC_V_OC_1_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="150" class="1001" name="const_150">
+<pin_list>
+<pin id="151" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="fifoSortMatrixCArray_OC_V_OC_0_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="152" class="1001" name="const_152">
+<pin_list>
+<pin id="153" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="fifoSortMatrixCArray_OC_V_OC_1_str"/></StgValue>
+</bind>
+</comp>
+
+<comp id="154" class="1004" name="N_c_fu_154">
+<pin_list>
+<pin id="155" dir="0" index="0" bw="1" slack="0"/>
+<pin id="156" dir="1" index="1" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opcode="alloca(26) " fcode="alloca"/>
+<opset="N_c/1 "/>
+</bind>
+</comp>
+
+<comp id="158" class="1004" name="lenEdgeListPtr_c27_fu_158">
+<pin_list>
+<pin id="159" dir="0" index="0" bw="1" slack="0"/>
+<pin id="160" dir="1" index="1" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opcode="alloca(26) " fcode="alloca"/>
+<opset="lenEdgeListPtr_c27/1 "/>
+</bind>
+</comp>
+
+<comp id="162" class="1004" name="lenEdgeListPtr_c_fu_162">
+<pin_list>
+<pin id="163" dir="0" index="0" bw="1" slack="0"/>
+<pin id="164" dir="1" index="1" bw="32" slack="3"/>
+</pin_list>
+<bind>
+<opcode="alloca(26) " fcode="alloca"/>
+<opset="lenEdgeListPtr_c/1 "/>
+</bind>
+</comp>
+
+<comp id="166" class="1004" name="fifoEdgeListPtr_fu_166">
+<pin_list>
+<pin id="167" dir="0" index="0" bw="1" slack="0"/>
+<pin id="168" dir="1" index="1" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opcode="alloca(26) " fcode="alloca"/>
+<opset="fifoEdgeListPtr/1 "/>
+</bind>
+</comp>
+
+<comp id="170" class="1004" name="fifoMatrixAIdx_fu_170">
+<pin_list>
+<pin id="171" dir="0" index="0" bw="1" slack="0"/>
+<pin id="172" dir="1" index="1" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opcode="alloca(26) " fcode="alloca"/>
+<opset="fifoMatrixAIdx/1 "/>
+</bind>
+</comp>
+
+<comp id="174" class="1004" name="fifoMatrixA_fu_174">
+<pin_list>
+<pin id="175" dir="0" index="0" bw="1" slack="0"/>
+<pin id="176" dir="1" index="1" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opcode="alloca(26) " fcode="alloca"/>
+<opset="fifoMatrixA/1 "/>
+</bind>
+</comp>
+
+<comp id="178" class="1004" name="fifoMatrixB_fu_178">
+<pin_list>
+<pin id="179" dir="0" index="0" bw="1" slack="0"/>
+<pin id="180" dir="1" index="1" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opcode="alloca(26) " fcode="alloca"/>
+<opset="fifoMatrixB/1 "/>
+</bind>
+</comp>
+
+<comp id="182" class="1004" name="fifoEdgeListPtr_calC_fu_182">
+<pin_list>
+<pin id="183" dir="0" index="0" bw="1" slack="0"/>
+<pin id="184" dir="1" index="1" bw="32" slack="3"/>
+</pin_list>
+<bind>
+<opcode="alloca(26) " fcode="alloca"/>
+<opset="fifoEdgeListPtr_calC/1 "/>
+</bind>
+</comp>
+
+<comp id="186" class="1004" name="fifoMatrixCIdxArray_V_V_0_fu_186">
+<pin_list>
+<pin id="187" dir="0" index="0" bw="1" slack="0"/>
+<pin id="188" dir="1" index="1" bw="16" slack="3"/>
+</pin_list>
+<bind>
+<opcode="alloca(26) " fcode="alloca"/>
+<opset="fifoMatrixCIdxArray_V_V_0/1 "/>
+</bind>
+</comp>
+
+<comp id="190" class="1004" name="fifoMatrixCIdxArray_V_V_1_fu_190">
+<pin_list>
+<pin id="191" dir="0" index="0" bw="1" slack="0"/>
+<pin id="192" dir="1" index="1" bw="16" slack="3"/>
+</pin_list>
+<bind>
+<opcode="alloca(26) " fcode="alloca"/>
+<opset="fifoMatrixCIdxArray_V_V_1/1 "/>
+</bind>
+</comp>
+
+<comp id="194" class="1004" name="fifoCalcMatrixCArray_V_0_fu_194">
+<pin_list>
+<pin id="195" dir="0" index="0" bw="1" slack="0"/>
+<pin id="196" dir="1" index="1" bw="32" slack="3"/>
+</pin_list>
+<bind>
+<opcode="alloca(26) " fcode="alloca"/>
+<opset="fifoCalcMatrixCArray_V_0/1 "/>
+</bind>
+</comp>
+
+<comp id="198" class="1004" name="fifoCalcMatrixCArray_V_1_fu_198">
+<pin_list>
+<pin id="199" dir="0" index="0" bw="1" slack="0"/>
+<pin id="200" dir="1" index="1" bw="32" slack="3"/>
+</pin_list>
+<bind>
+<opcode="alloca(26) " fcode="alloca"/>
+<opset="fifoCalcMatrixCArray_V_1/1 "/>
+</bind>
+</comp>
+
+<comp id="202" class="1004" name="fifoSortMatrixCArray_V_0_fu_202">
+<pin_list>
+<pin id="203" dir="0" index="0" bw="1" slack="0"/>
+<pin id="204" dir="1" index="1" bw="32" slack="5"/>
+</pin_list>
+<bind>
+<opcode="alloca(26) " fcode="alloca"/>
+<opset="fifoSortMatrixCArray_V_0/1 "/>
+</bind>
+</comp>
+
+<comp id="206" class="1004" name="fifoSortMatrixCArray_V_1_fu_206">
+<pin_list>
+<pin id="207" dir="0" index="0" bw="1" slack="0"/>
+<pin id="208" dir="1" index="1" bw="32" slack="5"/>
+</pin_list>
+<bind>
+<opcode="alloca(26) " fcode="alloca"/>
+<opset="fifoSortMatrixCArray_V_1/1 "/>
+</bind>
+</comp>
+
+<comp id="210" class="1004" name="N_read_read_fu_210">
+<pin_list>
+<pin id="211" dir="0" index="0" bw="32" slack="0"/>
+<pin id="212" dir="0" index="1" bw="32" slack="0"/>
+<pin id="213" dir="1" index="2" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="N_read/1 "/>
+</bind>
+</comp>
+
+<comp id="216" class="1004" name="K_read_read_fu_216">
+<pin_list>
+<pin id="217" dir="0" index="0" bw="32" slack="0"/>
+<pin id="218" dir="0" index="1" bw="32" slack="0"/>
+<pin id="219" dir="1" index="2" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="K_read/1 "/>
+</bind>
+</comp>
+
+<comp id="222" class="1004" name="M_read_read_fu_222">
+<pin_list>
+<pin id="223" dir="0" index="0" bw="32" slack="0"/>
+<pin id="224" dir="0" index="1" bw="32" slack="0"/>
+<pin id="225" dir="1" index="2" bw="32" slack="7"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="M_read/1 "/>
+</bind>
+</comp>
+
+<comp id="228" class="1004" name="lenEdgePtr_read_read_fu_228">
+<pin_list>
+<pin id="229" dir="0" index="0" bw="32" slack="0"/>
+<pin id="230" dir="0" index="1" bw="32" slack="0"/>
+<pin id="231" dir="1" index="2" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="lenEdgePtr_read/1 "/>
+</bind>
+</comp>
+
+<comp id="234" class="1004" name="lenEdgeListPtr_read_read_fu_234">
+<pin_list>
+<pin id="235" dir="0" index="0" bw="32" slack="0"/>
+<pin id="236" dir="0" index="1" bw="32" slack="0"/>
+<pin id="237" dir="1" index="2" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="lenEdgeListPtr_read/1 "/>
+</bind>
+</comp>
+
+<comp id="240" class="1004" name="matrixC_o_read_read_fu_240">
+<pin_list>
+<pin id="241" dir="0" index="0" bw="64" slack="0"/>
+<pin id="242" dir="0" index="1" bw="64" slack="0"/>
+<pin id="243" dir="1" index="2" bw="64" slack="7"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="matrixC_o_read/1 "/>
+</bind>
+</comp>
+
+<comp id="246" class="1004" name="matrixB_i_read_read_fu_246">
+<pin_list>
+<pin id="247" dir="0" index="0" bw="64" slack="0"/>
+<pin id="248" dir="0" index="1" bw="64" slack="0"/>
+<pin id="249" dir="1" index="2" bw="64" slack="1"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="matrixB_i_read/1 "/>
+</bind>
+</comp>
+
+<comp id="252" class="1004" name="matrixA_i_read_read_fu_252">
+<pin_list>
+<pin id="253" dir="0" index="0" bw="64" slack="0"/>
+<pin id="254" dir="0" index="1" bw="64" slack="0"/>
+<pin id="255" dir="1" index="2" bw="64" slack="1"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="matrixA_i_read/1 "/>
+</bind>
+</comp>
+
+<comp id="258" class="1004" name="matrixA_hls_idx_read_read_fu_258">
+<pin_list>
+<pin id="259" dir="0" index="0" bw="64" slack="0"/>
+<pin id="260" dir="0" index="1" bw="64" slack="0"/>
+<pin id="261" dir="1" index="2" bw="64" slack="1"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="matrixA_hls_idx_read/1 "/>
+</bind>
+</comp>
+
+<comp id="264" class="1004" name="HLSPtr_i_read_read_fu_264">
+<pin_list>
+<pin id="265" dir="0" index="0" bw="64" slack="0"/>
+<pin id="266" dir="0" index="1" bw="64" slack="0"/>
+<pin id="267" dir="1" index="2" bw="64" slack="1"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="HLSPtr_i_read/1 "/>
+</bind>
+</comp>
+
+<comp id="270" class="1004" name="grp_read_edge_list_ptr_fu_270">
+<pin_list>
+<pin id="271" dir="0" index="0" bw="0" slack="0"/>
+<pin id="272" dir="0" index="1" bw="32" slack="1"/>
+<pin id="273" dir="0" index="2" bw="32" slack="0"/>
+<pin id="274" dir="0" index="3" bw="64" slack="1"/>
+<pin id="275" dir="0" index="4" bw="32" slack="1"/>
+<pin id="276" dir="0" index="5" bw="32" slack="1"/>
+<pin id="277" dir="1" index="6" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="call(48) " fcode="call"/>
+<opset="call_ln239/2 "/>
+</bind>
+</comp>
+
+<comp id="280" class="1004" name="grp_read_A_fu_280">
+<pin_list>
+<pin id="281" dir="0" index="0" bw="0" slack="0"/>
+<pin id="282" dir="0" index="1" bw="32" slack="1"/>
+<pin id="283" dir="0" index="2" bw="32" slack="0"/>
+<pin id="284" dir="0" index="3" bw="64" slack="1"/>
+<pin id="285" dir="0" index="4" bw="32" slack="0"/>
+<pin id="286" dir="0" index="5" bw="64" slack="1"/>
+<pin id="287" dir="0" index="6" bw="32" slack="1"/>
+<pin id="288" dir="0" index="7" bw="32" slack="1"/>
+<pin id="289" dir="1" index="8" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="call(48) " fcode="call"/>
+<opset="call_ln240/2 "/>
+</bind>
+</comp>
+
+<comp id="293" class="1004" name="grp_read_B_fu_293">
+<pin_list>
+<pin id="294" dir="0" index="0" bw="0" slack="0"/>
+<pin id="295" dir="0" index="1" bw="32" slack="1"/>
+<pin id="296" dir="0" index="2" bw="32" slack="1"/>
+<pin id="297" dir="0" index="3" bw="32" slack="0"/>
+<pin id="298" dir="0" index="4" bw="64" slack="1"/>
+<pin id="299" dir="0" index="5" bw="32" slack="1"/>
+<pin id="300" dir="0" index="6" bw="32" slack="1"/>
+<pin id="301" dir="1" index="7" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="call(48) " fcode="call"/>
+<opset="call_ln241/2 "/>
+</bind>
+</comp>
+
+<comp id="304" class="1004" name="grp_calc_C_fu_304">
+<pin_list>
+<pin id="305" dir="0" index="0" bw="0" slack="0"/>
+<pin id="306" dir="0" index="1" bw="32" slack="3"/>
+<pin id="307" dir="0" index="2" bw="32" slack="3"/>
+<pin id="308" dir="0" index="3" bw="32" slack="3"/>
+<pin id="309" dir="0" index="4" bw="32" slack="3"/>
+<pin id="310" dir="0" index="5" bw="32" slack="3"/>
+<pin id="311" dir="0" index="6" bw="32" slack="3"/>
+<pin id="312" dir="0" index="7" bw="16" slack="3"/>
+<pin id="313" dir="0" index="8" bw="16" slack="3"/>
+<pin id="314" dir="0" index="9" bw="32" slack="3"/>
+<pin id="315" dir="0" index="10" bw="32" slack="3"/>
+<pin id="316" dir="0" index="11" bw="32" slack="3"/>
+<pin id="317" dir="1" index="12" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="call(48) " fcode="call"/>
+<opset="call_ln242/4 "/>
+</bind>
+</comp>
+
+<comp id="319" class="1004" name="grp_sort_C_fu_319">
+<pin_list>
+<pin id="320" dir="0" index="0" bw="0" slack="0"/>
+<pin id="321" dir="0" index="1" bw="32" slack="5"/>
+<pin id="322" dir="0" index="2" bw="32" slack="5"/>
+<pin id="323" dir="0" index="3" bw="16" slack="5"/>
+<pin id="324" dir="0" index="4" bw="16" slack="5"/>
+<pin id="325" dir="0" index="5" bw="32" slack="5"/>
+<pin id="326" dir="0" index="6" bw="32" slack="5"/>
+<pin id="327" dir="0" index="7" bw="32" slack="5"/>
+<pin id="328" dir="0" index="8" bw="32" slack="5"/>
+<pin id="329" dir="1" index="9" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="call(48) " fcode="call"/>
+<opset="call_ln243/6 "/>
+</bind>
+</comp>
+
+<comp id="331" class="1004" name="call_ret_entry_proc_fu_331">
+<pin_list>
+<pin id="332" dir="0" index="0" bw="96" slack="0"/>
+<pin id="333" dir="0" index="1" bw="64" slack="7"/>
+<pin id="334" dir="0" index="2" bw="32" slack="7"/>
+<pin id="335" dir="1" index="3" bw="96" slack="0"/>
+</pin_list>
+<bind>
+<opcode="call(48) " fcode="call"/>
+<opset="call_ret/8 "/>
+</bind>
+</comp>
+
+<comp id="337" class="1004" name="grp_write_C_fu_337">
+<pin_list>
+<pin id="338" dir="0" index="0" bw="0" slack="0"/>
+<pin id="339" dir="0" index="1" bw="32" slack="0"/>
+<pin id="340" dir="0" index="2" bw="32" slack="7"/>
+<pin id="341" dir="0" index="3" bw="32" slack="7"/>
+<pin id="342" dir="0" index="4" bw="32" slack="7"/>
+<pin id="343" dir="0" index="5" bw="32" slack="0"/>
+<pin id="344" dir="0" index="6" bw="64" slack="0"/>
+<pin id="345" dir="1" index="7" bw="0" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="call(48) " fcode="call"/>
+<opset="call_ln244/8 "/>
+</bind>
+</comp>
+
+<comp id="348" class="1004" name="matrixC_o_c_channel_fu_348">
+<pin_list>
+<pin id="349" dir="0" index="0" bw="96" slack="0"/>
+<pin id="350" dir="1" index="1" bw="64" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="matrixC_o_c_channel/8 "/>
+</bind>
+</comp>
+
+<comp id="353" class="1004" name="M_c_channel_fu_353">
+<pin_list>
+<pin id="354" dir="0" index="0" bw="96" slack="0"/>
+<pin id="355" dir="1" index="1" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="extractvalue(56) " fcode="extractvalue"/>
+<opset="M_c_channel/8 "/>
+</bind>
+</comp>
+
+<comp id="358" class="1005" name="N_read_reg_358">
+<pin_list>
+<pin id="359" dir="0" index="0" bw="32" slack="1"/>
+<pin id="360" dir="1" index="1" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opset="N_read "/>
+</bind>
+</comp>
+
+<comp id="363" class="1005" name="K_read_reg_363">
+<pin_list>
+<pin id="364" dir="0" index="0" bw="32" slack="1"/>
+<pin id="365" dir="1" index="1" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opset="K_read "/>
+</bind>
+</comp>
+
+<comp id="368" class="1005" name="M_read_reg_368">
+<pin_list>
+<pin id="369" dir="0" index="0" bw="32" slack="7"/>
+<pin id="370" dir="1" index="1" bw="32" slack="7"/>
+</pin_list>
+<bind>
+<opset="M_read "/>
+</bind>
+</comp>
+
+<comp id="373" class="1005" name="lenEdgePtr_read_reg_373">
+<pin_list>
+<pin id="374" dir="0" index="0" bw="32" slack="1"/>
+<pin id="375" dir="1" index="1" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opset="lenEdgePtr_read "/>
+</bind>
+</comp>
+
+<comp id="378" class="1005" name="lenEdgeListPtr_read_reg_378">
+<pin_list>
+<pin id="379" dir="0" index="0" bw="32" slack="1"/>
+<pin id="380" dir="1" index="1" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opset="lenEdgeListPtr_read "/>
+</bind>
+</comp>
+
+<comp id="383" class="1005" name="matrixC_o_read_reg_383">
+<pin_list>
+<pin id="384" dir="0" index="0" bw="64" slack="7"/>
+<pin id="385" dir="1" index="1" bw="64" slack="7"/>
+</pin_list>
+<bind>
+<opset="matrixC_o_read "/>
+</bind>
+</comp>
+
+<comp id="388" class="1005" name="matrixB_i_read_reg_388">
+<pin_list>
+<pin id="389" dir="0" index="0" bw="64" slack="1"/>
+<pin id="390" dir="1" index="1" bw="64" slack="1"/>
+</pin_list>
+<bind>
+<opset="matrixB_i_read "/>
+</bind>
+</comp>
+
+<comp id="393" class="1005" name="matrixA_i_read_reg_393">
+<pin_list>
+<pin id="394" dir="0" index="0" bw="64" slack="1"/>
+<pin id="395" dir="1" index="1" bw="64" slack="1"/>
+</pin_list>
+<bind>
+<opset="matrixA_i_read "/>
+</bind>
+</comp>
+
+<comp id="398" class="1005" name="matrixA_hls_idx_read_reg_398">
+<pin_list>
+<pin id="399" dir="0" index="0" bw="64" slack="1"/>
+<pin id="400" dir="1" index="1" bw="64" slack="1"/>
+</pin_list>
+<bind>
+<opset="matrixA_hls_idx_read "/>
+</bind>
+</comp>
+
+<comp id="403" class="1005" name="HLSPtr_i_read_reg_403">
+<pin_list>
+<pin id="404" dir="0" index="0" bw="64" slack="1"/>
+<pin id="405" dir="1" index="1" bw="64" slack="1"/>
+</pin_list>
+<bind>
+<opset="HLSPtr_i_read "/>
+</bind>
+</comp>
+
+<comp id="408" class="1005" name="N_c_reg_408">
+<pin_list>
+<pin id="409" dir="0" index="0" bw="32" slack="1"/>
+<pin id="410" dir="1" index="1" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opset="N_c "/>
+</bind>
+</comp>
+
+<comp id="414" class="1005" name="lenEdgeListPtr_c27_reg_414">
+<pin_list>
+<pin id="415" dir="0" index="0" bw="32" slack="1"/>
+<pin id="416" dir="1" index="1" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opset="lenEdgeListPtr_c27 "/>
+</bind>
+</comp>
+
+<comp id="420" class="1005" name="lenEdgeListPtr_c_reg_420">
+<pin_list>
+<pin id="421" dir="0" index="0" bw="32" slack="3"/>
+<pin id="422" dir="1" index="1" bw="32" slack="3"/>
+</pin_list>
+<bind>
+<opset="lenEdgeListPtr_c "/>
+</bind>
+</comp>
+
+<comp id="426" class="1005" name="fifoEdgeListPtr_reg_426">
+<pin_list>
+<pin id="427" dir="0" index="0" bw="32" slack="1"/>
+<pin id="428" dir="1" index="1" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opset="fifoEdgeListPtr "/>
+</bind>
+</comp>
+
+<comp id="432" class="1005" name="fifoMatrixAIdx_reg_432">
+<pin_list>
+<pin id="433" dir="0" index="0" bw="32" slack="1"/>
+<pin id="434" dir="1" index="1" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opset="fifoMatrixAIdx "/>
+</bind>
+</comp>
+
+<comp id="438" class="1005" name="fifoMatrixA_reg_438">
+<pin_list>
+<pin id="439" dir="0" index="0" bw="32" slack="1"/>
+<pin id="440" dir="1" index="1" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opset="fifoMatrixA "/>
+</bind>
+</comp>
+
+<comp id="444" class="1005" name="fifoMatrixB_reg_444">
+<pin_list>
+<pin id="445" dir="0" index="0" bw="32" slack="1"/>
+<pin id="446" dir="1" index="1" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opset="fifoMatrixB "/>
+</bind>
+</comp>
+
+<comp id="450" class="1005" name="fifoEdgeListPtr_calC_reg_450">
+<pin_list>
+<pin id="451" dir="0" index="0" bw="32" slack="3"/>
+<pin id="452" dir="1" index="1" bw="32" slack="3"/>
+</pin_list>
+<bind>
+<opset="fifoEdgeListPtr_calC "/>
+</bind>
+</comp>
+
+<comp id="456" class="1005" name="fifoMatrixCIdxArray_V_V_0_reg_456">
+<pin_list>
+<pin id="457" dir="0" index="0" bw="16" slack="3"/>
+<pin id="458" dir="1" index="1" bw="16" slack="3"/>
+</pin_list>
+<bind>
+<opset="fifoMatrixCIdxArray_V_V_0 "/>
+</bind>
+</comp>
+
+<comp id="462" class="1005" name="fifoMatrixCIdxArray_V_V_1_reg_462">
+<pin_list>
+<pin id="463" dir="0" index="0" bw="16" slack="3"/>
+<pin id="464" dir="1" index="1" bw="16" slack="3"/>
+</pin_list>
+<bind>
+<opset="fifoMatrixCIdxArray_V_V_1 "/>
+</bind>
+</comp>
+
+<comp id="468" class="1005" name="fifoCalcMatrixCArray_V_0_reg_468">
+<pin_list>
+<pin id="469" dir="0" index="0" bw="32" slack="3"/>
+<pin id="470" dir="1" index="1" bw="32" slack="3"/>
+</pin_list>
+<bind>
+<opset="fifoCalcMatrixCArray_V_0 "/>
+</bind>
+</comp>
+
+<comp id="474" class="1005" name="fifoCalcMatrixCArray_V_1_reg_474">
+<pin_list>
+<pin id="475" dir="0" index="0" bw="32" slack="3"/>
+<pin id="476" dir="1" index="1" bw="32" slack="3"/>
+</pin_list>
+<bind>
+<opset="fifoCalcMatrixCArray_V_1 "/>
+</bind>
+</comp>
+
+<comp id="480" class="1005" name="fifoSortMatrixCArray_V_0_reg_480">
+<pin_list>
+<pin id="481" dir="0" index="0" bw="32" slack="5"/>
+<pin id="482" dir="1" index="1" bw="32" slack="5"/>
+</pin_list>
+<bind>
+<opset="fifoSortMatrixCArray_V_0 "/>
+</bind>
+</comp>
+
+<comp id="486" class="1005" name="fifoSortMatrixCArray_V_1_reg_486">
+<pin_list>
+<pin id="487" dir="0" index="0" bw="32" slack="5"/>
+<pin id="488" dir="1" index="1" bw="32" slack="5"/>
+</pin_list>
+<bind>
+<opset="fifoSortMatrixCArray_V_1 "/>
+</bind>
+</comp>
+
+<comp id="492" class="1005" name="matrixC_o_c_channel_reg_492">
+<pin_list>
+<pin id="493" dir="0" index="0" bw="64" slack="1"/>
+<pin id="494" dir="1" index="1" bw="64" slack="1"/>
+</pin_list>
+<bind>
+<opset="matrixC_o_c_channel "/>
+</bind>
+</comp>
+
+<comp id="497" class="1005" name="M_c_channel_reg_497">
+<pin_list>
+<pin id="498" dir="0" index="0" bw="32" slack="1"/>
+<pin id="499" dir="1" index="1" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opset="M_c_channel "/>
+</bind>
+</comp>
+
+</comp_list>
+
+<net_list>
+<net id="157"><net_src comp="34" pin="0"/><net_sink comp="154" pin=0"/></net>
+
+<net id="161"><net_src comp="34" pin="0"/><net_sink comp="158" pin=0"/></net>
+
+<net id="165"><net_src comp="34" pin="0"/><net_sink comp="162" pin=0"/></net>
+
+<net id="169"><net_src comp="34" pin="0"/><net_sink comp="166" pin=0"/></net>
+
+<net id="173"><net_src comp="34" pin="0"/><net_sink comp="170" pin=0"/></net>
+
+<net id="177"><net_src comp="34" pin="0"/><net_sink comp="174" pin=0"/></net>
+
+<net id="181"><net_src comp="34" pin="0"/><net_sink comp="178" pin=0"/></net>
+
+<net id="185"><net_src comp="34" pin="0"/><net_sink comp="182" pin=0"/></net>
+
+<net id="189"><net_src comp="34" pin="0"/><net_sink comp="186" pin=0"/></net>
+
+<net id="193"><net_src comp="34" pin="0"/><net_sink comp="190" pin=0"/></net>
+
+<net id="197"><net_src comp="34" pin="0"/><net_sink comp="194" pin=0"/></net>
+
+<net id="201"><net_src comp="34" pin="0"/><net_sink comp="198" pin=0"/></net>
+
+<net id="205"><net_src comp="34" pin="0"/><net_sink comp="202" pin=0"/></net>
+
+<net id="209"><net_src comp="34" pin="0"/><net_sink comp="206" pin=0"/></net>
+
+<net id="214"><net_src comp="30" pin="0"/><net_sink comp="210" pin=0"/></net>
+
+<net id="215"><net_src comp="28" pin="0"/><net_sink comp="210" pin=1"/></net>
+
+<net id="220"><net_src comp="30" pin="0"/><net_sink comp="216" pin=0"/></net>
+
+<net id="221"><net_src comp="26" pin="0"/><net_sink comp="216" pin=1"/></net>
+
+<net id="226"><net_src comp="30" pin="0"/><net_sink comp="222" pin=0"/></net>
+
+<net id="227"><net_src comp="24" pin="0"/><net_sink comp="222" pin=1"/></net>
+
+<net id="232"><net_src comp="30" pin="0"/><net_sink comp="228" pin=0"/></net>
+
+<net id="233"><net_src comp="22" pin="0"/><net_sink comp="228" pin=1"/></net>
+
+<net id="238"><net_src comp="30" pin="0"/><net_sink comp="234" pin=0"/></net>
+
+<net id="239"><net_src comp="20" pin="0"/><net_sink comp="234" pin=1"/></net>
+
+<net id="244"><net_src comp="32" pin="0"/><net_sink comp="240" pin=0"/></net>
+
+<net id="245"><net_src comp="18" pin="0"/><net_sink comp="240" pin=1"/></net>
+
+<net id="250"><net_src comp="32" pin="0"/><net_sink comp="246" pin=0"/></net>
+
+<net id="251"><net_src comp="16" pin="0"/><net_sink comp="246" pin=1"/></net>
+
+<net id="256"><net_src comp="32" pin="0"/><net_sink comp="252" pin=0"/></net>
+
+<net id="257"><net_src comp="14" pin="0"/><net_sink comp="252" pin=1"/></net>
+
+<net id="262"><net_src comp="32" pin="0"/><net_sink comp="258" pin=0"/></net>
+
+<net id="263"><net_src comp="12" pin="0"/><net_sink comp="258" pin=1"/></net>
+
+<net id="268"><net_src comp="32" pin="0"/><net_sink comp="264" pin=0"/></net>
+
+<net id="269"><net_src comp="10" pin="0"/><net_sink comp="264" pin=1"/></net>
+
+<net id="278"><net_src comp="36" pin="0"/><net_sink comp="270" pin=0"/></net>
+
+<net id="279"><net_src comp="0" pin="0"/><net_sink comp="270" pin=2"/></net>
+
+<net id="290"><net_src comp="38" pin="0"/><net_sink comp="280" pin=0"/></net>
+
+<net id="291"><net_src comp="2" pin="0"/><net_sink comp="280" pin=2"/></net>
+
+<net id="292"><net_src comp="4" pin="0"/><net_sink comp="280" pin=4"/></net>
+
+<net id="302"><net_src comp="40" pin="0"/><net_sink comp="293" pin=0"/></net>
+
+<net id="303"><net_src comp="6" pin="0"/><net_sink comp="293" pin=3"/></net>
+
+<net id="318"><net_src comp="42" pin="0"/><net_sink comp="304" pin=0"/></net>
+
+<net id="330"><net_src comp="44" pin="0"/><net_sink comp="319" pin=0"/></net>
+
+<net id="336"><net_src comp="46" pin="0"/><net_sink comp="331" pin=0"/></net>
+
+<net id="346"><net_src comp="48" pin="0"/><net_sink comp="337" pin=0"/></net>
+
+<net id="347"><net_src comp="8" pin="0"/><net_sink comp="337" pin=5"/></net>
+
+<net id="351"><net_src comp="331" pin="3"/><net_sink comp="348" pin=0"/></net>
+
+<net id="352"><net_src comp="348" pin="1"/><net_sink comp="337" pin=6"/></net>
+
+<net id="356"><net_src comp="331" pin="3"/><net_sink comp="353" pin=0"/></net>
+
+<net id="357"><net_src comp="353" pin="1"/><net_sink comp="337" pin=1"/></net>
+
+<net id="361"><net_src comp="210" pin="2"/><net_sink comp="358" pin=0"/></net>
+
+<net id="362"><net_src comp="358" pin="1"/><net_sink comp="293" pin=2"/></net>
+
+<net id="366"><net_src comp="216" pin="2"/><net_sink comp="363" pin=0"/></net>
+
+<net id="367"><net_src comp="363" pin="1"/><net_sink comp="293" pin=1"/></net>
+
+<net id="371"><net_src comp="222" pin="2"/><net_sink comp="368" pin=0"/></net>
+
+<net id="372"><net_src comp="368" pin="1"/><net_sink comp="331" pin=2"/></net>
+
+<net id="376"><net_src comp="228" pin="2"/><net_sink comp="373" pin=0"/></net>
+
+<net id="377"><net_src comp="373" pin="1"/><net_sink comp="280" pin=1"/></net>
+
+<net id="381"><net_src comp="234" pin="2"/><net_sink comp="378" pin=0"/></net>
+
+<net id="382"><net_src comp="378" pin="1"/><net_sink comp="270" pin=1"/></net>
+
+<net id="386"><net_src comp="240" pin="2"/><net_sink comp="383" pin=0"/></net>
+
+<net id="387"><net_src comp="383" pin="1"/><net_sink comp="331" pin=1"/></net>
+
+<net id="391"><net_src comp="246" pin="2"/><net_sink comp="388" pin=0"/></net>
+
+<net id="392"><net_src comp="388" pin="1"/><net_sink comp="293" pin=4"/></net>
+
+<net id="396"><net_src comp="252" pin="2"/><net_sink comp="393" pin=0"/></net>
+
+<net id="397"><net_src comp="393" pin="1"/><net_sink comp="280" pin=5"/></net>
+
+<net id="401"><net_src comp="258" pin="2"/><net_sink comp="398" pin=0"/></net>
+
+<net id="402"><net_src comp="398" pin="1"/><net_sink comp="280" pin=3"/></net>
+
+<net id="406"><net_src comp="264" pin="2"/><net_sink comp="403" pin=0"/></net>
+
+<net id="407"><net_src comp="403" pin="1"/><net_sink comp="270" pin=3"/></net>
+
+<net id="411"><net_src comp="154" pin="1"/><net_sink comp="408" pin=0"/></net>
+
+<net id="412"><net_src comp="408" pin="1"/><net_sink comp="293" pin=6"/></net>
+
+<net id="413"><net_src comp="408" pin="1"/><net_sink comp="337" pin=2"/></net>
+
+<net id="417"><net_src comp="158" pin="1"/><net_sink comp="414" pin=0"/></net>
+
+<net id="418"><net_src comp="414" pin="1"/><net_sink comp="270" pin=5"/></net>
+
+<net id="419"><net_src comp="414" pin="1"/><net_sink comp="304" pin=1"/></net>
+
+<net id="423"><net_src comp="162" pin="1"/><net_sink comp="420" pin=0"/></net>
+
+<net id="424"><net_src comp="420" pin="1"/><net_sink comp="304" pin=11"/></net>
+
+<net id="425"><net_src comp="420" pin="1"/><net_sink comp="319" pin=1"/></net>
+
+<net id="429"><net_src comp="166" pin="1"/><net_sink comp="426" pin=0"/></net>
+
+<net id="430"><net_src comp="426" pin="1"/><net_sink comp="270" pin=4"/></net>
+
+<net id="431"><net_src comp="426" pin="1"/><net_sink comp="304" pin=2"/></net>
+
+<net id="435"><net_src comp="170" pin="1"/><net_sink comp="432" pin=0"/></net>
+
+<net id="436"><net_src comp="432" pin="1"/><net_sink comp="280" pin=6"/></net>
+
+<net id="437"><net_src comp="432" pin="1"/><net_sink comp="304" pin=3"/></net>
+
+<net id="441"><net_src comp="174" pin="1"/><net_sink comp="438" pin=0"/></net>
+
+<net id="442"><net_src comp="438" pin="1"/><net_sink comp="280" pin=7"/></net>
+
+<net id="443"><net_src comp="438" pin="1"/><net_sink comp="304" pin=4"/></net>
+
+<net id="447"><net_src comp="178" pin="1"/><net_sink comp="444" pin=0"/></net>
+
+<net id="448"><net_src comp="444" pin="1"/><net_sink comp="293" pin=5"/></net>
+
+<net id="449"><net_src comp="444" pin="1"/><net_sink comp="304" pin=5"/></net>
+
+<net id="453"><net_src comp="182" pin="1"/><net_sink comp="450" pin=0"/></net>
+
+<net id="454"><net_src comp="450" pin="1"/><net_sink comp="304" pin=6"/></net>
+
+<net id="455"><net_src comp="450" pin="1"/><net_sink comp="319" pin=2"/></net>
+
+<net id="459"><net_src comp="186" pin="1"/><net_sink comp="456" pin=0"/></net>
+
+<net id="460"><net_src comp="456" pin="1"/><net_sink comp="304" pin=7"/></net>
+
+<net id="461"><net_src comp="456" pin="1"/><net_sink comp="319" pin=3"/></net>
+
+<net id="465"><net_src comp="190" pin="1"/><net_sink comp="462" pin=0"/></net>
+
+<net id="466"><net_src comp="462" pin="1"/><net_sink comp="304" pin=8"/></net>
+
+<net id="467"><net_src comp="462" pin="1"/><net_sink comp="319" pin=4"/></net>
+
+<net id="471"><net_src comp="194" pin="1"/><net_sink comp="468" pin=0"/></net>
+
+<net id="472"><net_src comp="468" pin="1"/><net_sink comp="304" pin=9"/></net>
+
+<net id="473"><net_src comp="468" pin="1"/><net_sink comp="319" pin=5"/></net>
+
+<net id="477"><net_src comp="198" pin="1"/><net_sink comp="474" pin=0"/></net>
+
+<net id="478"><net_src comp="474" pin="1"/><net_sink comp="304" pin=10"/></net>
+
+<net id="479"><net_src comp="474" pin="1"/><net_sink comp="319" pin=6"/></net>
+
+<net id="483"><net_src comp="202" pin="1"/><net_sink comp="480" pin=0"/></net>
+
+<net id="484"><net_src comp="480" pin="1"/><net_sink comp="319" pin=7"/></net>
+
+<net id="485"><net_src comp="480" pin="1"/><net_sink comp="337" pin=3"/></net>
+
+<net id="489"><net_src comp="206" pin="1"/><net_sink comp="486" pin=0"/></net>
+
+<net id="490"><net_src comp="486" pin="1"/><net_sink comp="319" pin=8"/></net>
+
+<net id="491"><net_src comp="486" pin="1"/><net_sink comp="337" pin=4"/></net>
+
+<net id="495"><net_src comp="348" pin="1"/><net_sink comp="492" pin=0"/></net>
+
+<net id="496"><net_src comp="492" pin="1"/><net_sink comp="337" pin=6"/></net>
+
+<net id="500"><net_src comp="353" pin="1"/><net_sink comp="497" pin=0"/></net>
+
+<net id="501"><net_src comp="497" pin="1"/><net_sink comp="337" pin=1"/></net>
+
+</net_list>
+
+</model> 
+---------------- Datapath Model END ------------------
+
+* FSMD analyzer results:
+  - Output states:
+	Port: gmem4 | {8 9 }
+ - Input state : 
+	Port: krnl_sparse_matrix_acc : gmem0 | {2 3 }
+	Port: krnl_sparse_matrix_acc : gmem1 | {2 3 }
+	Port: krnl_sparse_matrix_acc : gmem2 | {2 3 }
+	Port: krnl_sparse_matrix_acc : gmem3 | {2 3 }
+	Port: krnl_sparse_matrix_acc : HLSPtr_i | {1 }
+	Port: krnl_sparse_matrix_acc : matrixA_hls_idx | {1 }
+	Port: krnl_sparse_matrix_acc : matrixA_i | {1 }
+	Port: krnl_sparse_matrix_acc : matrixB_i | {1 }
+	Port: krnl_sparse_matrix_acc : matrixC_o | {1 }
+	Port: krnl_sparse_matrix_acc : lenEdgeListPtr | {1 }
+	Port: krnl_sparse_matrix_acc : lenEdgePtr | {1 }
+	Port: krnl_sparse_matrix_acc : M | {1 }
+	Port: krnl_sparse_matrix_acc : K | {1 }
+	Port: krnl_sparse_matrix_acc : N | {1 }
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+		matrixC_o_c_channel : 1
+		M_c_channel : 1
+		call_ln244 : 2
+	State 9
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+
+* Functional unit list:
+|----------|----------------------------------|---------|---------|---------|---------|---------|---------|
+| Operation|          Functional Unit         |   BRAM  |   DSP   |  Delay  |    FF   |   LUT   |   URAM  |
+|----------|----------------------------------|---------|---------|---------|---------|---------|---------|
+|          |   grp_read_edge_list_ptr_fu_270  |    0    |    0    |  0.427  |   159   |    86   |    0    |
+|          |         grp_read_A_fu_280        |    0    |    0    |  0.854  |   253   |    95   |    0    |
+|          |         grp_read_B_fu_293        |    0    |    3    |  0.427  |   159   |   106   |    0    |
+|   call   |         grp_calc_C_fu_304        |    0    |    3    |  0.476  |   656   |   441   |    0    |
+|          |         grp_sort_C_fu_319        |    0    |    0    |  1.001  |   583   |   2000  |    0    |
+|          |    call_ret_entry_proc_fu_331    |    0    |    0    |    0    |    0    |    0    |    0    |
+|          |        grp_write_C_fu_337        |    0    |    3    |  0.427  |   445   |   228   |    0    |
+|----------|----------------------------------|---------|---------|---------|---------|---------|---------|
+|          |        N_read_read_fu_210        |    0    |    0    |    0    |    0    |    0    |    0    |
+|          |        K_read_read_fu_216        |    0    |    0    |    0    |    0    |    0    |    0    |
+|          |        M_read_read_fu_222        |    0    |    0    |    0    |    0    |    0    |    0    |
+|          |    lenEdgePtr_read_read_fu_228   |    0    |    0    |    0    |    0    |    0    |    0    |
+|   read   |  lenEdgeListPtr_read_read_fu_234 |    0    |    0    |    0    |    0    |    0    |    0    |
+|          |    matrixC_o_read_read_fu_240    |    0    |    0    |    0    |    0    |    0    |    0    |
+|          |    matrixB_i_read_read_fu_246    |    0    |    0    |    0    |    0    |    0    |    0    |
+|          |    matrixA_i_read_read_fu_252    |    0    |    0    |    0    |    0    |    0    |    0    |
+|          | matrixA_hls_idx_read_read_fu_258 |    0    |    0    |    0    |    0    |    0    |    0    |
+|          |     HLSPtr_i_read_read_fu_264    |    0    |    0    |    0    |    0    |    0    |    0    |
+|----------|----------------------------------|---------|---------|---------|---------|---------|---------|
+|extractvalue|    matrixC_o_c_channel_fu_348    |    0    |    0    |    0    |    0    |    0    |    0    |
+|          |        M_c_channel_fu_353        |    0    |    0    |    0    |    0    |    0    |    0    |
+|----------|----------------------------------|---------|---------|---------|---------|---------|---------|
+|   Total  |                                  |    0    |    9    |  3.612  |   2255  |   2956  |    0    |
+|----------|----------------------------------|---------|---------|---------|---------|---------|---------|
+
+Memories:
+N/A
+
+* Register list:
++---------------------------------+--------+
+|                                 |   FF   |
++---------------------------------+--------+
+|      HLSPtr_i_read_reg_403      |   64   |
+|          K_read_reg_363         |   32   |
+|       M_c_channel_reg_497       |   32   |
+|          M_read_reg_368         |   32   |
+|           N_c_reg_408           |   32   |
+|          N_read_reg_358         |   32   |
+| fifoCalcMatrixCArray_V_0_reg_468|   32   |
+| fifoCalcMatrixCArray_V_1_reg_474|   32   |
+|   fifoEdgeListPtr_calC_reg_450  |   32   |
+|     fifoEdgeListPtr_reg_426     |   32   |
+|      fifoMatrixAIdx_reg_432     |   32   |
+|       fifoMatrixA_reg_438       |   32   |
+|       fifoMatrixB_reg_444       |   32   |
+|fifoMatrixCIdxArray_V_V_0_reg_456|   16   |
+|fifoMatrixCIdxArray_V_V_1_reg_462|   16   |
+| fifoSortMatrixCArray_V_0_reg_480|   32   |
+| fifoSortMatrixCArray_V_1_reg_486|   32   |
+|    lenEdgeListPtr_c27_reg_414   |   32   |
+|     lenEdgeListPtr_c_reg_420    |   32   |
+|   lenEdgeListPtr_read_reg_378   |   32   |
+|     lenEdgePtr_read_reg_373     |   32   |
+|   matrixA_hls_idx_read_reg_398  |   64   |
+|      matrixA_i_read_reg_393     |   64   |
+|      matrixB_i_read_reg_388     |   64   |
+|   matrixC_o_c_channel_reg_492   |   64   |
+|      matrixC_o_read_reg_383     |   64   |
++---------------------------------+--------+
+|              Total              |   992  |
++---------------------------------+--------+
+
+* Multiplexer (MUX) list: 
+|--------------------|------|------|------|--------||---------||---------|
+|        Comp        |  Pin | Size |  BW  | S x BW ||  Delay  ||   LUT   |
+|--------------------|------|------|------|--------||---------||---------|
+| grp_write_C_fu_337 |  p1  |   2  |  32  |   64   ||    9    |
+| grp_write_C_fu_337 |  p6  |   2  |  64  |   128  ||    9    |
+|--------------------|------|------|------|--------||---------||---------|
+|        Total       |      |      |      |   192  ||  0.854  ||    18   |
+|--------------------|------|------|------|--------||---------||---------|
+
+
+
+* Summary:
++-----------+--------+--------+--------+--------+--------+--------+
+|           |  BRAM  |   DSP  |  Delay |   FF   |   LUT  |  URAM  |
++-----------+--------+--------+--------+--------+--------+--------+
+|  Function |    0   |    9   |    3   |  2255  |  2956  |    0   |
+|   Memory  |    -   |    -   |    -   |    -   |    -   |    -   |
+|Multiplexer|    -   |    -   |    0   |    -   |   18   |    -   |
+|  Register |    -   |    -   |    -   |   992  |    -   |    -   |
++-----------+--------+--------+--------+--------+--------+--------+
+|   Total   |    0   |    9   |    4   |  3247  |  2974  |    0   |
++-----------+--------+--------+--------+--------+--------+--------+

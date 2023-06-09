@@ -23153,7 +23153,7 @@ void read_A(int lenEdgePtr,
    hls::stream<uint32_t> & fifoMatrixAIdx_o,
             hls::stream<float> & fifoMatrixA_o
             ) {
- int dataSize = 4 * lenEdgePtr;
+ int dataSize = 2 * lenEdgePtr;
  matrixA_rd:
  for (int i = 0; i < dataSize; i++) {
    fifoMatrixAIdx_o.write(matrixA_hls_idx[i]);
@@ -23191,13 +23191,13 @@ void calc_C(int lenEdgeListPtr,
    hls::stream<float> & fifoMatrixB_i,
 
    hls::stream<int> & fifoEdgeListPtrC_o,
-   hls::stream<ap_uint<16>> fifoMatrixCIdx_o[8],
-   hls::stream<float> fifoCalcMatrixC_o[8]){
+   hls::stream<ap_uint<16>> fifoMatrixCIdx_o[2],
+   hls::stream<float> fifoCalcMatrixC_o[2]){
 
- float matrixB_buffer[8][8];
+ float matrixB_buffer[2][8];
 
  VITIS_LOOP_66_1: for (int i = 0; i < 8; i++){
-  VITIS_LOOP_67_2: for (int j = 0; j < 8; j++){
+  VITIS_LOOP_67_2: for (int j = 0; j < 2; j++){
    if (!fifoMatrixB_i.empty()){
     matrixB_buffer[j][i] = fifoMatrixB_i.read();
    }else{
@@ -23218,17 +23218,17 @@ void calc_C(int lenEdgeListPtr,
    for (int i = start_addr; i < end_addr; i++){
 
     loop_diff_pe:
-    for (int n = 0; n < 4; n++){
-#pragma HLS PIPELINE II=1
- float tempA_val = fifoMatrixA_i.read();
+    for (int n = 0; n < 2; n++){
+     float tempA_val = fifoMatrixA_i.read();
      ap_uint<32> tempA_idx = fifoMatrixAIdx_i.read();
      ap_uint<16> tempA_col = tempA_idx(31, 16);
      ap_uint<16> tempA_row = tempA_idx(15, 0);
-     float temp_res[8];
+     float temp_res[2];
 
      loop_for_col:
-     for (int j = 0; j < 8; j++){
-      if(tempA_row[15] == 0){
+     for (int j = 0; j < 2; j++){
+#pragma HLS UNROLL factor=1
+ if(tempA_row[15] == 0){
        calc_C_core(tempA_col, tempA_val, matrixB_buffer[j], temp_res[j]);
       }else{
        temp_res[j] = 0;
@@ -23255,21 +23255,18 @@ void sort_C_core(ap_uint<16> row_i,
  valC_o[row_i] = valC;
 }
 
-__attribute__((sdx_kernel("sort_C", 0))) void sort_C(int lenEdgeListPtr,
+void sort_C(int lenEdgeListPtr,
 
    hls::stream<int> & fifoEdgeListPtr_i,
-      hls::stream<ap_uint<16>> fifoMatrixCIdx_i[8],
-      hls::stream<float> fifoCalcMatrixC_i[8],
+      hls::stream<ap_uint<16>> fifoMatrixCIdx_i[2],
+      hls::stream<float> fifoCalcMatrixC_i[2],
 
-      hls::stream<float> fifoSortMatrixC_o[8]){_ssdm_SpecArrayDimSize(fifoMatrixCIdx_i, 8);_ssdm_SpecArrayDimSize(fifoCalcMatrixC_i, 8);_ssdm_SpecArrayDimSize(fifoSortMatrixC_o, 8);
-#pragma HLS TOP name=sort_C
-# 131 "kernel.cpp"
+      hls::stream<float> fifoSortMatrixC_o[2]){
 
 
-
- ap_fixed<32, 16> matrixC_buffer[8][8];
+ ap_fixed<32, 16> matrixC_buffer[2][8];
  VITIS_LOOP_135_1: for (int i = 0; i < 8; i++){
-  VITIS_LOOP_136_2: for (int j = 0; j < 8; j++){
+  VITIS_LOOP_136_2: for (int j = 0; j < 2; j++){
    matrixC_buffer[j][i] = 0.0;
   }
  }
@@ -23284,12 +23281,12 @@ __attribute__((sdx_kernel("sort_C", 0))) void sort_C(int lenEdgeListPtr,
   for (int i = start_addr; i < end_addr; i++){
 
    loop_diff_pe:
-   for (int n = 0; n < 4; n++){
-#pragma HLS PIPELINE II=1
- loop_for_col:
-    for (int j = 0; j < 8; j++){
+   for (int n = 0; n < 2; n++){
 
-     ap_uint<16> row = fifoMatrixCIdx_i[j].read();
+    loop_for_col:
+    for (int j = 0; j < 2; j++){
+#pragma HLS UNROLL factor=1
+ ap_uint<16> row = fifoMatrixCIdx_i[j].read();
      ap_fixed<32, 16> matrixC_val_i = fifoCalcMatrixC_i[j].read();
      if (row[15] == 0){
       sort_C_core(row, matrixC_val_i, matrixC_buffer[j]);
@@ -23302,8 +23299,9 @@ __attribute__((sdx_kernel("sort_C", 0))) void sort_C(int lenEdgeListPtr,
  }
 
  VITIS_LOOP_168_3: for (int i = 0; i < 8; i++){
-  VITIS_LOOP_169_4: for (int j = 0; j < 8; j++){
-   fifoSortMatrixC_o[j].write(matrixC_buffer[j][i]);
+  VITIS_LOOP_169_4: for (int j = 0; j < 2; j++){
+#pragma HLS UNROLL factor=1
+ fifoSortMatrixC_o[j].write(matrixC_buffer[j][i]);
   }
  }
 
@@ -23311,25 +23309,73 @@ __attribute__((sdx_kernel("sort_C", 0))) void sort_C(int lenEdgeListPtr,
 
 void write_C(const int M,
     const int N,
-    hls::stream<float> & fifoSortMatrixC_i,
-    hls::vector<float, 8 * 2>* matrixC_o
+    hls::stream<float> fifoSortMatrixC_i[2],
+    float* matrixC_o
     ){
- unsigned int dataSize = M * N;
- unsigned int numStep = ((dataSize - 1) / 8) + 1;
- float matrix_buffer [32];
-
- VITIS_LOOP_185_1: for (int i = 0; i < numStep * 8; i++){
-  if (!fifoSortMatrixC_i.empty()){
-   matrix_buffer[i] = fifoSortMatrixC_i.read();
-  }else{
-   matrix_buffer[i] = 0;
+ mem_wr:
+ for (int i = 0; i < M; i++){
+  VITIS_LOOP_184_1: for (int j = 0; j < N; j++){
+   matrixC_o[j + i * N] = fifoSortMatrixC_i[j].read();
   }
  }
+}
 
- VITIS_LOOP_193_2: for (int i = 0; i < numStep; i++) {
-  VITIS_LOOP_194_3: for (int j = 0; j < 8; j++){
-#pragma HLS pipeline II=1
- (*matrixC_o)[i * 8 + j] = matrix_buffer[i * 8 + j];
-  }
- }
+__attribute__((sdx_kernel("krnl_sparse_matrix_acc", 0))) void krnl_sparse_matrix_acc(int* HLSPtr_i,
+       uint32_t* matrixA_hls_idx,
+       float* matrixA_i,
+       float* matrixB_i,
+       float* matrixC_o,
+       int lenEdgeListPtr,
+       int lenEdgePtr,
+       int M,
+       int K,
+       int N
+       ) {
+#pragma HLS TOP name=krnl_sparse_matrix_acc
+# 200 "kernel.cpp"
+
+#pragma HLS INTERFACE m_axi port = HLSPtr_i offset = slave bundle = gmem0
+#pragma HLS INTERFACE m_axi port = matrixA_hls_idx offset = slave bundle = gmem1
+#pragma HLS INTERFACE m_axi port = matrixA_i offset = slave bundle = gmem2
+#pragma HLS INTERFACE m_axi port = matrixB_i offset = slave bundle = gmem3
+#pragma HLS INTERFACE m_axi port = matrixC_o offset = slave bundle = gmem4
+
+#pragma HLS INTERFACE s_axilite port = HLSPtr_i
+#pragma HLS INTERFACE s_axilite port = matrixA_hls_idx
+#pragma HLS INTERFACE s_axilite port = matrixA_i
+#pragma HLS INTERFACE s_axilite port = matrixB_i
+#pragma HLS INTERFACE s_axilite port = matrixC_o
+
+#pragma HLS INTERFACE s_axilite port = lenEdgeListPtr
+#pragma HLS INTERFACE s_axilite port = lenEdgePtr
+#pragma HLS INTERFACE s_axilite port = M
+#pragma HLS INTERFACE s_axilite port = K
+#pragma HLS INTERFACE s_axilite port = N
+#pragma HLS INTERFACE s_axilite port = return
+
+ hls::stream<int> fifoEdgeListPtr;
+#pragma HLS STREAM variable = fifoEdgeListPtr depth = 32
+ hls::stream<uint32_t> fifoMatrixAIdx;
+#pragma HLS STREAM variable = fifoMatrixAIdx depth = 32
+ hls::stream<float> fifoMatrixA;
+#pragma HLS STREAM variable = fifoMatrixA depth = 32
+ hls::stream<float> fifoMatrixB;
+#pragma HLS STREAM variable = fifoMatrixB depth = 32
+ hls::stream<int> fifoEdgeListPtr_calC;
+#pragma HLS STREAM variable = fifoEdgeListPtr_calC depth = 32
+ hls::stream<ap_uint<16>> fifoMatrixCIdxArray[2];
+#pragma HLS STREAM variable = fifoMatrixCIdxArray depth = 32
+ hls::stream<float> fifoCalcMatrixCArray[2];
+#pragma HLS STREAM variable = fifoCalcMatrixCArray depth = 32
+ hls::stream<float> fifoSortMatrixCArray[2];
+#pragma HLS STREAM variable = fifoSortMatrixCArray depth = 32
+
+
+#pragma HLS DATAFLOW
+ read_edge_list_ptr(lenEdgeListPtr, HLSPtr_i, fifoEdgeListPtr);
+ read_A(lenEdgePtr, matrixA_hls_idx, matrixA_i, fifoMatrixAIdx, fifoMatrixA);
+ read_B(K, N, matrixB_i, fifoMatrixB);
+ calc_C(lenEdgeListPtr, fifoEdgeListPtr, fifoMatrixAIdx, fifoMatrixA, fifoMatrixB, fifoEdgeListPtr_calC, fifoMatrixCIdxArray, fifoCalcMatrixCArray);
+ sort_C(lenEdgeListPtr, fifoEdgeListPtr_calC, fifoMatrixCIdxArray, fifoCalcMatrixCArray, fifoSortMatrixCArray);
+ write_C(M, N, fifoSortMatrixCArray, matrixC_o);
 }

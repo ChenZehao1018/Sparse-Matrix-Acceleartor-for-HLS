@@ -1,92 +1,74 @@
 <root versionMajor = "1" versionMinor = "5">
-  <kernel src_name="sort_C" language="c" hwCtrl="ap_ctrl_hs" mem_layout="fpga64-xilinx-none">
+  <kernel src_name="krnl_sparse_matrix_acc" language="c" hwCtrl="ap_ctrl_hs" mem_layout="fpga64-xilinx-none">
     <args>
-      <arg id="0" access_type="r" src_name="lenEdgeListPtr" src_type="int" src_isptr="0" src_bitwidth="32" src_size_or_depth="1">
-        <hw hw_usage="data" hw_interface="Register" hw_name="lenEdgeListPtr" hw_bitwidth="32" hw_size_or_depth="1">
-          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
+      <arg id="0" access_type="r" src_name="HLSPtr_i" src_type="int*" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="MAXI" hw_name="gmem0" hw_bitwidth="32" hw_size_or_depth="0">
+          <constraint constraint_type="pragma interface" mode="m_axi" register_option="0" offset="slave" latency="0" num_read_outstanding="16" num_write_outstanding="16" max_read_burst_length="16" max_write_burst_length="16" max_widen_bitwidth="0"/>
+          <constraint constraint_type="bitwidth" orig_bitwidth="32" final_bitwidth="32"/>
+        </hw>
+        <hw hw_usage="address" hw_interface="S_AXILite" hw_name="control" hw_bitwidth="32" hw_size_or_depth="0">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="16"/>
         </hw>
       </arg>
-      <arg id="1" access_type="r" src_name="fifoEdgeListPtr_i" src_type="stream&lt;int, 0&gt;&amp;" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
-        <hw hw_usage="data" hw_interface="FIFO" hw_name="fifoEdgeListPtr_i_V" hw_bitwidth="32" hw_size_or_depth="0">
-          <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0"/>
+      <arg id="1" access_type="r" src_name="matrixA_hls_idx" src_type="unsigned int*" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="MAXI" hw_name="gmem1" hw_bitwidth="32" hw_size_or_depth="0">
+          <constraint constraint_type="pragma interface" mode="m_axi" register_option="0" offset="slave" latency="0" num_read_outstanding="16" num_write_outstanding="16" max_read_burst_length="16" max_write_burst_length="16" max_widen_bitwidth="0"/>
+          <constraint constraint_type="bitwidth" orig_bitwidth="32" final_bitwidth="32"/>
+        </hw>
+        <hw hw_usage="address" hw_interface="S_AXILite" hw_name="control" hw_bitwidth="32" hw_size_or_depth="0">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="28"/>
         </hw>
       </arg>
-      <arg id="2" access_type="r" src_name="fifoMatrixCIdx_i" src_type="stream&lt;ap_uint&lt;16&gt;, 0&gt;*" src_isptr="1" src_bitwidth="16" src_size_or_depth="1">
-        <hw hw_usage="data" hw_interface="FIFO" hw_name="fifoMatrixCIdx_i_0_V" hw_bitwidth="16" hw_size_or_depth="0">
-          <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0"/>
+      <arg id="2" access_type="r" src_name="matrixA_i" src_type="float*" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="MAXI" hw_name="gmem2" hw_bitwidth="32" hw_size_or_depth="0">
+          <constraint constraint_type="pragma interface" mode="m_axi" register_option="0" offset="slave" latency="0" num_read_outstanding="16" num_write_outstanding="16" max_read_burst_length="16" max_write_burst_length="16" max_widen_bitwidth="0"/>
+          <constraint constraint_type="bitwidth" orig_bitwidth="32" final_bitwidth="32"/>
         </hw>
-        <hw hw_usage="data" hw_interface="FIFO" hw_name="fifoMatrixCIdx_i_1_V" hw_bitwidth="16" hw_size_or_depth="0">
-          <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0"/>
-        </hw>
-        <hw hw_usage="data" hw_interface="FIFO" hw_name="fifoMatrixCIdx_i_2_V" hw_bitwidth="16" hw_size_or_depth="0">
-          <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0"/>
-        </hw>
-        <hw hw_usage="data" hw_interface="FIFO" hw_name="fifoMatrixCIdx_i_3_V" hw_bitwidth="16" hw_size_or_depth="0">
-          <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0"/>
-        </hw>
-        <hw hw_usage="data" hw_interface="FIFO" hw_name="fifoMatrixCIdx_i_4_V" hw_bitwidth="16" hw_size_or_depth="0">
-          <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0"/>
-        </hw>
-        <hw hw_usage="data" hw_interface="FIFO" hw_name="fifoMatrixCIdx_i_5_V" hw_bitwidth="16" hw_size_or_depth="0">
-          <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0"/>
-        </hw>
-        <hw hw_usage="data" hw_interface="FIFO" hw_name="fifoMatrixCIdx_i_6_V" hw_bitwidth="16" hw_size_or_depth="0">
-          <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0"/>
-        </hw>
-        <hw hw_usage="data" hw_interface="FIFO" hw_name="fifoMatrixCIdx_i_7_V" hw_bitwidth="16" hw_size_or_depth="0">
-          <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0"/>
+        <hw hw_usage="address" hw_interface="S_AXILite" hw_name="control" hw_bitwidth="32" hw_size_or_depth="0">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="40"/>
         </hw>
       </arg>
-      <arg id="3" access_type="r" src_name="fifoCalcMatrixC_i" src_type="stream&lt;float, 0&gt;*" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
-        <hw hw_usage="data" hw_interface="FIFO" hw_name="fifoCalcMatrixC_i_0_V" hw_bitwidth="32" hw_size_or_depth="0">
-          <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0"/>
+      <arg id="3" access_type="r" src_name="matrixB_i" src_type="float*" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="MAXI" hw_name="gmem3" hw_bitwidth="32" hw_size_or_depth="0">
+          <constraint constraint_type="pragma interface" mode="m_axi" register_option="0" offset="slave" latency="0" num_read_outstanding="16" num_write_outstanding="16" max_read_burst_length="16" max_write_burst_length="16" max_widen_bitwidth="0"/>
+          <constraint constraint_type="bitwidth" orig_bitwidth="32" final_bitwidth="32"/>
         </hw>
-        <hw hw_usage="data" hw_interface="FIFO" hw_name="fifoCalcMatrixC_i_1_V" hw_bitwidth="32" hw_size_or_depth="0">
-          <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0"/>
-        </hw>
-        <hw hw_usage="data" hw_interface="FIFO" hw_name="fifoCalcMatrixC_i_2_V" hw_bitwidth="32" hw_size_or_depth="0">
-          <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0"/>
-        </hw>
-        <hw hw_usage="data" hw_interface="FIFO" hw_name="fifoCalcMatrixC_i_3_V" hw_bitwidth="32" hw_size_or_depth="0">
-          <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0"/>
-        </hw>
-        <hw hw_usage="data" hw_interface="FIFO" hw_name="fifoCalcMatrixC_i_4_V" hw_bitwidth="32" hw_size_or_depth="0">
-          <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0"/>
-        </hw>
-        <hw hw_usage="data" hw_interface="FIFO" hw_name="fifoCalcMatrixC_i_5_V" hw_bitwidth="32" hw_size_or_depth="0">
-          <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0"/>
-        </hw>
-        <hw hw_usage="data" hw_interface="FIFO" hw_name="fifoCalcMatrixC_i_6_V" hw_bitwidth="32" hw_size_or_depth="0">
-          <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0"/>
-        </hw>
-        <hw hw_usage="data" hw_interface="FIFO" hw_name="fifoCalcMatrixC_i_7_V" hw_bitwidth="32" hw_size_or_depth="0">
-          <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0"/>
+        <hw hw_usage="address" hw_interface="S_AXILite" hw_name="control" hw_bitwidth="32" hw_size_or_depth="0">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="52"/>
         </hw>
       </arg>
-      <arg id="4" access_type="w" src_name="fifoSortMatrixC_o" src_type="stream&lt;float, 0&gt;*" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
-        <hw hw_usage="data" hw_interface="FIFO" hw_name="fifoSortMatrixC_o_0_V" hw_bitwidth="32" hw_size_or_depth="0">
-          <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0"/>
+      <arg id="4" access_type="w" src_name="matrixC_o" src_type="float*" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="MAXI" hw_name="gmem4" hw_bitwidth="32" hw_size_or_depth="0">
+          <constraint constraint_type="pragma interface" mode="m_axi" register_option="0" offset="slave" latency="0" num_read_outstanding="16" num_write_outstanding="16" max_read_burst_length="16" max_write_burst_length="16" max_widen_bitwidth="0"/>
+          <constraint constraint_type="bitwidth" orig_bitwidth="32" final_bitwidth="32"/>
         </hw>
-        <hw hw_usage="data" hw_interface="FIFO" hw_name="fifoSortMatrixC_o_1_V" hw_bitwidth="32" hw_size_or_depth="0">
-          <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0"/>
+        <hw hw_usage="address" hw_interface="S_AXILite" hw_name="control" hw_bitwidth="32" hw_size_or_depth="0">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="64"/>
         </hw>
-        <hw hw_usage="data" hw_interface="FIFO" hw_name="fifoSortMatrixC_o_2_V" hw_bitwidth="32" hw_size_or_depth="0">
-          <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0"/>
+      </arg>
+      <arg id="5" access_type="r" src_name="lenEdgeListPtr" src_type="int" src_isptr="0" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="control" hw_bitwidth="32" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="76"/>
         </hw>
-        <hw hw_usage="data" hw_interface="FIFO" hw_name="fifoSortMatrixC_o_3_V" hw_bitwidth="32" hw_size_or_depth="0">
-          <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0"/>
+      </arg>
+      <arg id="6" access_type="r" src_name="lenEdgePtr" src_type="int" src_isptr="0" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="control" hw_bitwidth="32" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="84"/>
         </hw>
-        <hw hw_usage="data" hw_interface="FIFO" hw_name="fifoSortMatrixC_o_4_V" hw_bitwidth="32" hw_size_or_depth="0">
-          <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0"/>
+      </arg>
+      <arg id="7" access_type="r" src_name="M" src_type="int" src_isptr="0" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="control" hw_bitwidth="32" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="92"/>
         </hw>
-        <hw hw_usage="data" hw_interface="FIFO" hw_name="fifoSortMatrixC_o_5_V" hw_bitwidth="32" hw_size_or_depth="0">
-          <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0"/>
+      </arg>
+      <arg id="8" access_type="r" src_name="K" src_type="int" src_isptr="0" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="control" hw_bitwidth="32" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="100"/>
         </hw>
-        <hw hw_usage="data" hw_interface="FIFO" hw_name="fifoSortMatrixC_o_6_V" hw_bitwidth="32" hw_size_or_depth="0">
-          <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0"/>
-        </hw>
-        <hw hw_usage="data" hw_interface="FIFO" hw_name="fifoSortMatrixC_o_7_V" hw_bitwidth="32" hw_size_or_depth="0">
-          <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0"/>
+      </arg>
+      <arg id="9" access_type="r" src_name="N" src_type="int" src_isptr="0" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="control" hw_bitwidth="32" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="108"/>
         </hw>
       </arg>
     </args>

@@ -1,0 +1,226 @@
+<profile>
+
+<section name = "Vitis HLS Report for 'calc_C'" level="0">
+<item name = "Date">Fri Jun  9 10:19:59 2023
+</item>
+<item name = "Version">2021.1 (Build 3247384 on Thu Jun 10 19:36:33 MDT 2021)</item>
+<item name = "Project">kernel_acc</item>
+<item name = "Solution">solution1 (Vivado IP Flow Target)</item>
+<item name = "Product family">zynquplus</item>
+<item name = "Target device">xczu7ev-ffvc1156-2-e</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00 ns, 7.016 ns, 2.70 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">?, ?, ?, ?, ?, ?, no</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- VITIS_LOOP_66_1">48, 48, 6, -, -, 8, no</column>
+<column name=" + VITIS_LOOP_67_2">4, 4, 2, -, -, 2, no</column>
+<column name="- loop_repeat_iter">?, ?, ?, -, -, ?, no</column>
+<column name=" + loop_diff_window">?, ?, 30, -, -, ?, no</column>
+<column name="  ++ loop_diff_pe">28, 28, 14, -, -, 2, no</column>
+<column name="   +++ loop_for_col">12, 12, 6, -, -, 2, no</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="6">Name, BRAM_18K, DSP, FF, LUT, URAM</keys>
+<column name="DSP">-, -, -, -, -</column>
+<column name="Expression">-, -, 0, 302, -</column>
+<column name="FIFO">-, -, -, -, -</column>
+<column name="Instance">-, 3, 128, 135, -</column>
+<column name="Memory">0, -, 64, 8, 0</column>
+<column name="Multiplexer">-, -, -, 268, -</column>
+<column name="Register">-, -, 411, -, -</column>
+<specialColumn name="Available">624, 1728, 460800, 230400, 96</specialColumn>
+<specialColumn name="Utilization (%)">0, ~0, ~0, ~0, 0</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
+<column name="fmul_32ns_32ns_32_3_max_dsp_1_U23">fmul_32ns_32ns_32_3_max_dsp_1, 0, 3, 128, 135, 0</column>
+</table>
+</item>
+<item name = "DSP"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="10">Memory, Module, BRAM_18K, FF, LUT, URAM, Words, Bits, Banks, W*Bits*Banks</keys>
+<column name="matrixB_buffer_U">calc_C_matrixB_buffer, 0, 64, 8, 0, 16, 32, 1, 512</column>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="8">Name, BRAM_18K, FF, LUT, URAM, Depth, Bits, Size:D*B</keys>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="add_ln48_fu_454_p2">+, 0, 0, 12, 4, 4</column>
+<column name="add_ln66_fu_301_p2">+, 0, 0, 12, 4, 1</column>
+<column name="add_ln67_fu_350_p2">+, 0, 0, 9, 2, 1</column>
+<column name="add_ln69_fu_334_p2">+, 0, 0, 12, 4, 4</column>
+<column name="add_ln79_fu_307_p2">+, 0, 0, 39, 32, 2</column>
+<column name="add_ln96_fu_470_p2">+, 0, 0, 9, 2, 1</column>
+<column name="i_16_fu_436_p2">+, 0, 0, 39, 32, 1</column>
+<column name="iter_4_fu_379_p2">+, 0, 0, 38, 31, 1</column>
+<column name="n_2_fu_404_p2">+, 0, 0, 9, 2, 1</column>
+<column name="ap_block_state3">and, 0, 0, 2, 1, 1</column>
+<column name="ap_condition_453">and, 0, 0, 2, 1, 1</column>
+<column name="ap_predicate_op59_read_state3">and, 0, 0, 2, 1, 1</column>
+<column name="tmp_nbreadreq_fu_156_p3">and, 0, 0, 2, 1, 0</column>
+<column name="icmp_ln66_fu_295_p2">icmp, 0, 0, 9, 4, 5</column>
+<column name="icmp_ln67_fu_344_p2">icmp, 0, 0, 8, 2, 3</column>
+<column name="icmp_ln79_fu_374_p2">icmp, 0, 0, 20, 32, 32</column>
+<column name="icmp_ln85_fu_385_p2">icmp, 0, 0, 20, 32, 32</column>
+<column name="icmp_ln88_fu_398_p2">icmp, 0, 0, 8, 2, 3</column>
+<column name="icmp_ln96_fu_464_p2">icmp, 0, 0, 8, 2, 3</column>
+<column name="ap_block_state1">or, 0, 0, 2, 1, 1</column>
+<column name="ap_block_state13">or, 0, 0, 2, 1, 1</column>
+<column name="ap_block_state2">or, 0, 0, 2, 1, 1</column>
+<column name="ap_block_state5">or, 0, 0, 2, 1, 1</column>
+<column name="ap_block_state7">or, 0, 0, 2, 1, 1</column>
+<column name="empty_83_fu_476_p3">select, 0, 0, 32, 1, 1</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+<column name="ap_NS_fsm">65, 14, 1, 14</column>
+<column name="ap_done">9, 2, 1, 2</column>
+<column name="fifoCalcMatrixC_o_02_blk_n">9, 2, 1, 2</column>
+<column name="fifoCalcMatrixC_o_0_blk_n">9, 2, 1, 2</column>
+<column name="fifoEdgeListPtr11_blk_n">9, 2, 1, 2</column>
+<column name="fifoEdgeListPtr_calC15_blk_n">9, 2, 1, 2</column>
+<column name="fifoMatrixA13_blk_n">9, 2, 1, 2</column>
+<column name="fifoMatrixAIdx12_blk_n">9, 2, 1, 2</column>
+<column name="fifoMatrixB14_blk_n">9, 2, 1, 2</column>
+<column name="fifoMatrixCIdx_o_0_0_0_01_blk_n">9, 2, 1, 2</column>
+<column name="fifoMatrixCIdx_o_0_0_0_0_blk_n">9, 2, 1, 2</column>
+<column name="i_13_fu_124">9, 2, 32, 64</column>
+<column name="i_6_reg_251">9, 2, 32, 64</column>
+<column name="i_fu_112">9, 2, 4, 8</column>
+<column name="iter_fu_120">9, 2, 31, 62</column>
+<column name="j_3_reg_272">9, 2, 2, 4</column>
+<column name="j_reg_228">9, 2, 2, 4</column>
+<column name="lenEdgeListPtr_blk_n">9, 2, 1, 2</column>
+<column name="lenEdgeListPtr_c_blk_n">9, 2, 1, 2</column>
+<column name="matrixB_buffer_address0">14, 3, 4, 12</column>
+<column name="n_reg_261">9, 2, 2, 4</column>
+<column name="real_start">9, 2, 1, 2</column>
+<column name="storemerge_reg_239">9, 2, 32, 64</column>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="add_ln66_reg_502">4, 0, 4, 0</column>
+<column name="add_ln67_reg_534">2, 0, 2, 0</column>
+<column name="add_ln79_reg_521">32, 0, 32, 0</column>
+<column name="add_ln96_reg_613">2, 0, 2, 0</column>
+<column name="ap_CS_fsm">13, 0, 13, 0</column>
+<column name="ap_done_reg">1, 0, 1, 0</column>
+<column name="i_13_fu_124">32, 0, 32, 0</column>
+<column name="i_6_reg_251">32, 0, 32, 0</column>
+<column name="i_fu_112">4, 0, 4, 0</column>
+<column name="iter_4_reg_553">31, 0, 31, 0</column>
+<column name="iter_fu_120">31, 0, 31, 0</column>
+<column name="j_3_reg_272">2, 0, 2, 0</column>
+<column name="j_reg_228">2, 0, 2, 0</column>
+<column name="lenEdgeListPtr_read_reg_491">32, 0, 32, 0</column>
+<column name="matrixB_buffer_addr_reg_526">4, 0, 4, 0</column>
+<column name="matrixB_buffer_load_reg_618">32, 0, 32, 0</column>
+<column name="n_2_reg_570">2, 0, 2, 0</column>
+<column name="n_reg_261">2, 0, 2, 0</column>
+<column name="start_once_reg">1, 0, 1, 0</column>
+<column name="storemerge_reg_239">32, 0, 32, 0</column>
+<column name="tempA_col_V_cast_reg_591">4, 0, 4, 0</column>
+<column name="tempA_row_V_reg_580">16, 0, 16, 0</column>
+<column name="temp_res_reg_623">32, 0, 32, 0</column>
+<column name="tmp_19_reg_586">1, 0, 1, 0</column>
+<column name="tmp_21_reg_558">32, 0, 32, 0</column>
+<column name="tmp_22_reg_575">32, 0, 32, 0</column>
+<column name="trunc_ln48_reg_601">1, 0, 1, 0</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="ap_clk">in, 1, ap_ctrl_hs, calc_C, return value</column>
+<column name="ap_rst">in, 1, ap_ctrl_hs, calc_C, return value</column>
+<column name="ap_start">in, 1, ap_ctrl_hs, calc_C, return value</column>
+<column name="start_full_n">in, 1, ap_ctrl_hs, calc_C, return value</column>
+<column name="ap_done">out, 1, ap_ctrl_hs, calc_C, return value</column>
+<column name="ap_continue">in, 1, ap_ctrl_hs, calc_C, return value</column>
+<column name="ap_idle">out, 1, ap_ctrl_hs, calc_C, return value</column>
+<column name="ap_ready">out, 1, ap_ctrl_hs, calc_C, return value</column>
+<column name="start_out">out, 1, ap_ctrl_hs, calc_C, return value</column>
+<column name="start_write">out, 1, ap_ctrl_hs, calc_C, return value</column>
+<column name="lenEdgeListPtr_dout">in, 32, ap_fifo, lenEdgeListPtr, pointer</column>
+<column name="lenEdgeListPtr_empty_n">in, 1, ap_fifo, lenEdgeListPtr, pointer</column>
+<column name="lenEdgeListPtr_read">out, 1, ap_fifo, lenEdgeListPtr, pointer</column>
+<column name="fifoEdgeListPtr11_dout">in, 32, ap_fifo, fifoEdgeListPtr11, pointer</column>
+<column name="fifoEdgeListPtr11_empty_n">in, 1, ap_fifo, fifoEdgeListPtr11, pointer</column>
+<column name="fifoEdgeListPtr11_read">out, 1, ap_fifo, fifoEdgeListPtr11, pointer</column>
+<column name="fifoMatrixAIdx12_dout">in, 32, ap_fifo, fifoMatrixAIdx12, pointer</column>
+<column name="fifoMatrixAIdx12_empty_n">in, 1, ap_fifo, fifoMatrixAIdx12, pointer</column>
+<column name="fifoMatrixAIdx12_read">out, 1, ap_fifo, fifoMatrixAIdx12, pointer</column>
+<column name="fifoMatrixA13_dout">in, 32, ap_fifo, fifoMatrixA13, pointer</column>
+<column name="fifoMatrixA13_empty_n">in, 1, ap_fifo, fifoMatrixA13, pointer</column>
+<column name="fifoMatrixA13_read">out, 1, ap_fifo, fifoMatrixA13, pointer</column>
+<column name="fifoMatrixB14_dout">in, 32, ap_fifo, fifoMatrixB14, pointer</column>
+<column name="fifoMatrixB14_empty_n">in, 1, ap_fifo, fifoMatrixB14, pointer</column>
+<column name="fifoMatrixB14_read">out, 1, ap_fifo, fifoMatrixB14, pointer</column>
+<column name="fifoEdgeListPtr_calC15_din">out, 32, ap_fifo, fifoEdgeListPtr_calC15, pointer</column>
+<column name="fifoEdgeListPtr_calC15_full_n">in, 1, ap_fifo, fifoEdgeListPtr_calC15, pointer</column>
+<column name="fifoEdgeListPtr_calC15_write">out, 1, ap_fifo, fifoEdgeListPtr_calC15, pointer</column>
+<column name="fifoMatrixCIdx_o_0_0_0_0_din">out, 16, ap_fifo, fifoMatrixCIdx_o_0_0_0_0, pointer</column>
+<column name="fifoMatrixCIdx_o_0_0_0_0_full_n">in, 1, ap_fifo, fifoMatrixCIdx_o_0_0_0_0, pointer</column>
+<column name="fifoMatrixCIdx_o_0_0_0_0_write">out, 1, ap_fifo, fifoMatrixCIdx_o_0_0_0_0, pointer</column>
+<column name="fifoMatrixCIdx_o_0_0_0_01_din">out, 16, ap_fifo, fifoMatrixCIdx_o_0_0_0_01, pointer</column>
+<column name="fifoMatrixCIdx_o_0_0_0_01_full_n">in, 1, ap_fifo, fifoMatrixCIdx_o_0_0_0_01, pointer</column>
+<column name="fifoMatrixCIdx_o_0_0_0_01_write">out, 1, ap_fifo, fifoMatrixCIdx_o_0_0_0_01, pointer</column>
+<column name="fifoCalcMatrixC_o_0_din">out, 32, ap_fifo, fifoCalcMatrixC_o_0, pointer</column>
+<column name="fifoCalcMatrixC_o_0_full_n">in, 1, ap_fifo, fifoCalcMatrixC_o_0, pointer</column>
+<column name="fifoCalcMatrixC_o_0_write">out, 1, ap_fifo, fifoCalcMatrixC_o_0, pointer</column>
+<column name="fifoCalcMatrixC_o_02_din">out, 32, ap_fifo, fifoCalcMatrixC_o_02, pointer</column>
+<column name="fifoCalcMatrixC_o_02_full_n">in, 1, ap_fifo, fifoCalcMatrixC_o_02, pointer</column>
+<column name="fifoCalcMatrixC_o_02_write">out, 1, ap_fifo, fifoCalcMatrixC_o_02, pointer</column>
+<column name="lenEdgeListPtr_c_din">out, 32, ap_fifo, lenEdgeListPtr_c, pointer</column>
+<column name="lenEdgeListPtr_c_full_n">in, 1, ap_fifo, lenEdgeListPtr_c, pointer</column>
+<column name="lenEdgeListPtr_c_write">out, 1, ap_fifo, lenEdgeListPtr_c, pointer</column>
+</table>
+</item>
+</section>
+</profile>

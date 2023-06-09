@@ -1,10 +1,10 @@
 
-set TopModule "sort_C"
+set TopModule "krnl_sparse_matrix_acc"
 set ClockPeriod 10
 set ClockList ap_clk
 set HasVivadoClockPeriod 1
 set CombLogicFlag 0
-set PipelineFlag 0
+set PipelineFlag 1
 set DataflowTaskPipelineFlag 1
 set TrivialPipelineFlag 0
 set noPortSwitchingFlag 0
@@ -14,7 +14,7 @@ set NbRWValue 0
 set intNbAccess 0
 set NewDSPMapping 1
 set HasDSPModule 0
-set ResetLevelFlag 1
+set ResetLevelFlag 0
 set ResetStyle control
 set ResetSyncFlag 1
 set ResetRegisterFlag 0
@@ -23,7 +23,7 @@ set ResetRegisterNum 0
 set FsmEncStyle onehot
 set MaxFanout 0
 set RtlPrefix {}
-set RtlSubPrefix sort_C_
+set RtlSubPrefix krnl_sparse_matrix_acc_
 set ExtraCCFlags {}
 set ExtraCLdFlags {}
 set SynCheckOptions {}
@@ -45,7 +45,7 @@ set TargetInfo xczu7ev:-ffvc1156:-2-e
 set SourceFiles {sc {} c ../../kernel.cpp}
 set SourceFlags {sc {} c {{}}}
 set DirectiveFile D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/solution1/solution1.directive
-set TBFiles {verilog ../../cal_C_test.cpp bc ../../cal_C_test.cpp vhdl ../../cal_C_test.cpp sc ../../cal_C_test.cpp cas ../../cal_C_test.cpp c {}}
+set TBFiles {verilog ../../write_C_test.cpp bc ../../write_C_test.cpp vhdl ../../write_C_test.cpp sc ../../write_C_test.cpp cas ../../write_C_test.cpp c {}}
 set SpecLanguage C
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TVOutFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}

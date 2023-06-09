@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'sort_C'
 ================================================================
-* Date:           Thu Jun  8 15:00:06 2023
+* Date:           Fri Jun  9 10:20:00 2023
 
 * Version:        2021.1 (Build 3247384 on Thu Jun 10 19:36:33 MDT 2021)
 * Project:        kernel_acc
@@ -20,7 +20,7 @@
     +--------+----------+----------+------------+
     |  Clock |  Target  | Estimated| Uncertainty|
     +--------+----------+----------+------------+
-    |ap_clk  |  10.00 ns|  7.280 ns|     2.70 ns|
+    |ap_clk  |  10.00 ns|  7.236 ns|     2.70 ns|
     +--------+----------+----------+------------+
 
 + Latency: 
@@ -34,23 +34,21 @@
 
     + Detail: 
         * Instance: 
-        +----------------------------------------------------------+-----------------------------------------------+---------+---------+----------+----------+-----+-----+---------+
-        |                                                          |                                               |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
-        |                         Instance                         |                     Module                    |   min   |   max   |    min   |    max   | min | max |   Type  |
-        +----------------------------------------------------------+-----------------------------------------------+---------+---------+----------+----------+-----+-----+---------+
-        |grp_sort_C_Pipeline_loop_diff_window_loop_diff_pe_fu_475  |sort_C_Pipeline_loop_diff_window_loop_diff_pe  |        ?|        ?|         ?|         ?|    ?|    ?|       no|
-        +----------------------------------------------------------+-----------------------------------------------+---------+---------+----------+----------+-----+-----+---------+
+        N/A
 
         * Loop: 
         +---------------------+---------+---------+----------+-----------+-----------+------+----------+
         |                     |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
         |      Loop Name      |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
         +---------------------+---------+---------+----------+-----------+-----------+------+----------+
-        |- VITIS_LOOP_135_1   |      144|      144|        18|          -|          -|     8|        no|
-        | + VITIS_LOOP_136_2  |       16|       16|         2|          -|          -|     8|        no|
+        |- VITIS_LOOP_135_1   |       32|       32|         4|          -|          -|     8|        no|
+        | + VITIS_LOOP_136_2  |        2|        2|         1|          -|          -|     2|        no|
         |- loop_repeat_iter   |        ?|        ?|         ?|          -|          -|     ?|        no|
-        |- VITIS_LOOP_168_3   |      152|      152|        19|          -|          -|     8|        no|
-        | + VITIS_LOOP_169_4  |       16|       16|         2|          -|          -|     8|        no|
+        | + loop_diff_window  |        ?|        ?|        22|          -|          -|     ?|        no|
+        |  ++ loop_diff_pe    |       20|       20|        10|          -|          -|     2|        no|
+        |   +++ loop_for_col  |        8|        8|         4|          -|          -|     2|        no|
+        |- VITIS_LOOP_168_3   |       64|       64|         8|          -|          -|     8|        no|
+        | + VITIS_LOOP_169_4  |        6|        6|         3|          -|          -|     2|        no|
         +---------------------+---------+---------+----------+-----------+-----------+------+----------+
 
 
@@ -63,221 +61,208 @@
 |       Name      | BRAM_18K|  DSP |   FF   |   LUT  | URAM|
 +-----------------+---------+------+--------+--------+-----+
 |DSP              |        -|     -|       -|       -|    -|
-|Expression       |        -|     -|       0|    1433|    -|
+|Expression       |        -|     -|       0|    2192|    -|
 |FIFO             |        -|     -|       -|       -|    -|
-|Instance         |        -|     -|    1306|    6164|    -|
-|Memory           |        0|     -|     512|      32|    0|
-|Multiplexer      |        -|     -|       -|     840|    -|
-|Register         |        -|     -|     557|       -|    -|
+|Instance         |        -|     -|       -|       -|    -|
+|Memory           |        0|     -|      64|       8|    0|
+|Multiplexer      |        -|     -|       -|     299|    -|
+|Register         |        -|     -|     493|       -|    -|
 +-----------------+---------+------+--------+--------+-----+
-|Total            |        0|     0|    2375|    8469|    0|
+|Total            |        0|     0|     557|    2499|    0|
 +-----------------+---------+------+--------+--------+-----+
 |Available        |      624|  1728|  460800|  230400|   96|
 +-----------------+---------+------+--------+--------+-----+
-|Utilization (%)  |        0|     0|      ~0|       3|    0|
+|Utilization (%)  |        0|     0|      ~0|       1|    0|
 +-----------------+---------+------+--------+--------+-----+
 
 + Detail: 
     * Instance: 
-    +----------------------------------------------------------+-----------------------------------------------+---------+----+------+------+-----+
-    |                         Instance                         |                     Module                    | BRAM_18K| DSP|  FF  |  LUT | URAM|
-    +----------------------------------------------------------+-----------------------------------------------+---------+----+------+------+-----+
-    |mux_83_32_1_1_U31                                         |mux_83_32_1_1                                  |        0|   0|     0|    43|    0|
-    |grp_sort_C_Pipeline_loop_diff_window_loop_diff_pe_fu_475  |sort_C_Pipeline_loop_diff_window_loop_diff_pe  |        0|   0|  1306|  6121|    0|
-    +----------------------------------------------------------+-----------------------------------------------+---------+----+------+------+-----+
-    |Total                                                     |                                               |        0|   0|  1306|  6164|    0|
-    +----------------------------------------------------------+-----------------------------------------------+---------+----+------+------+-----+
+    +------------------------------+--------------------------+---------+----+---+----+-----+
+    |           Instance           |          Module          | BRAM_18K| DSP| FF| LUT| URAM|
+    +------------------------------+--------------------------+---------+----+---+----+-----+
+    |fpext_32ns_64_2_no_dsp_1_U37  |fpext_32ns_64_2_no_dsp_1  |        0|   0|  0|   0|    0|
+    +------------------------------+--------------------------+---------+----+---+----+-----+
+    |Total                         |                          |        0|   0|  0|   0|    0|
+    +------------------------------+--------------------------+---------+----+---+----+-----+
 
     * DSP: 
     N/A
 
     * Memory: 
-    +----------------------+--------------------+---------+----+----+-----+------+-----+------+-------------+
-    |        Memory        |       Module       | BRAM_18K| FF | LUT| URAM| Words| Bits| Banks| W*Bits*Banks|
-    +----------------------+--------------------+---------+----+----+-----+------+-----+------+-------------+
-    |matrixC_buffer_V_0_U  |matrixC_buffer_V_0  |        0|  64|   4|    0|     8|   32|     1|          256|
-    |matrixC_buffer_V_1_U  |matrixC_buffer_V_0  |        0|  64|   4|    0|     8|   32|     1|          256|
-    |matrixC_buffer_V_2_U  |matrixC_buffer_V_0  |        0|  64|   4|    0|     8|   32|     1|          256|
-    |matrixC_buffer_V_3_U  |matrixC_buffer_V_0  |        0|  64|   4|    0|     8|   32|     1|          256|
-    |matrixC_buffer_V_4_U  |matrixC_buffer_V_0  |        0|  64|   4|    0|     8|   32|     1|          256|
-    |matrixC_buffer_V_5_U  |matrixC_buffer_V_0  |        0|  64|   4|    0|     8|   32|     1|          256|
-    |matrixC_buffer_V_6_U  |matrixC_buffer_V_0  |        0|  64|   4|    0|     8|   32|     1|          256|
-    |matrixC_buffer_V_7_U  |matrixC_buffer_V_0  |        0|  64|   4|    0|     8|   32|     1|          256|
-    +----------------------+--------------------+---------+----+----+-----+------+-----+------+-------------+
-    |Total                 |                    |        0| 512|  32|    0|    64|  256|     8|         2048|
-    +----------------------+--------------------+---------+----+----+-----+------+-----+------+-------------+
+    +--------------------+-----------------------+---------+----+----+-----+------+-----+------+-------------+
+    |       Memory       |         Module        | BRAM_18K| FF | LUT| URAM| Words| Bits| Banks| W*Bits*Banks|
+    +--------------------+-----------------------+---------+----+----+-----+------+-----+------+-------------+
+    |matrixC_buffer_V_U  |calc_C_matrixB_buffer  |        0|  64|   8|    0|    16|   32|     1|          512|
+    +--------------------+-----------------------+---------+----+----+-----+------+-----+------+-------------+
+    |Total               |                       |        0|  64|   8|    0|    16|   32|     1|          512|
+    +--------------------+-----------------------+---------+----+----+-----+------+-----+------+-------------+
 
     * FIFO: 
     N/A
 
     * Expression: 
-    +----------------------------------+----------+----+---+-----+------------+------------+
-    |           Variable Name          | Operation| DSP| FF| LUT | Bitwidth P0| Bitwidth P1|
-    +----------------------------------+----------+----+---+-----+------------+------------+
-    |add_ln1011_fu_864_p2              |         +|   0|  0|   39|          32|           6|
-    |add_ln1017_fu_969_p2              |         +|   0|  0|   19|           8|           8|
-    |add_ln135_fu_546_p2               |         +|   0|  0|   12|           4|           1|
-    |add_ln136_fu_573_p2               |         +|   0|  0|   12|           4|           1|
-    |add_ln143_fu_552_p2               |         +|   0|  0|   39|          32|           2|
-    |add_ln168_fu_670_p2               |         +|   0|  0|   12|           4|           1|
-    |add_ln169_fu_682_p2               |         +|   0|  0|   12|           4|           1|
-    |iter_2_fu_599_p2                  |         +|   0|  0|   38|          31|           1|
-    |lsb_index_fu_758_p2               |         +|   0|  0|   39|          32|           6|
-    |m_3_fu_922_p2                     |         +|   0|  0|   71|          64|          64|
-    |sub_ln1000_fu_784_p2              |         -|   0|  0|   13|           4|           6|
-    |sub_ln1012_fu_886_p2              |         -|   0|  0|   39|           5|          32|
-    |sub_ln1017_fu_964_p2              |         -|   0|  0|   19|           5|           8|
-    |sub_ln148_fu_630_p2               |         -|   0|  0|   39|          32|          32|
-    |sub_ln997_fu_752_p2               |         -|   0|  0|   39|           6|          32|
-    |tmp_V_fu_720_p2                   |         -|   0|  0|   39|           1|          32|
-    |and_ln1002_1_fu_880_p2            |       and|   0|  0|    2|           1|           1|
-    |and_ln1002_fu_812_p2              |       and|   0|  0|   32|          32|          32|
-    |ap_block_state2                   |       and|   0|  0|    2|           1|           1|
-    |ap_block_state5                   |       and|   0|  0|    2|           1|           1|
-    |ap_predicate_op261_write_state11  |       and|   0|  0|    2|           1|           1|
-    |empty_24_fu_618_p2                |      icmp|   0|  0|   20|          32|          32|
-    |icmp_ln1002_fu_818_p2             |      icmp|   0|  0|   20|          32|           1|
-    |icmp_ln1011_fu_850_p2             |      icmp|   0|  0|   20|          32|           1|
-    |icmp_ln135_fu_540_p2              |      icmp|   0|  0|    9|           4|           5|
-    |icmp_ln136_fu_567_p2              |      icmp|   0|  0|    9|           4|           5|
-    |icmp_ln143_fu_594_p2              |      icmp|   0|  0|   20|          32|          32|
-    |icmp_ln168_fu_664_p2              |      icmp|   0|  0|    9|           4|           5|
-    |icmp_ln169_fu_676_p2              |      icmp|   0|  0|    9|           4|           5|
-    |icmp_ln988_fu_706_p2              |      icmp|   0|  0|   20|          32|           1|
-    |icmp_ln999_fu_774_p2              |      icmp|   0|  0|   19|          31|           1|
-    |lshr_ln1000_fu_794_p2             |      lshr|   0|  0|   96|           2|          32|
-    |lshr_ln1011_fu_874_p2             |      lshr|   0|  0|  179|          64|          64|
-    |ap_block_state11                  |        or|   0|  0|    2|           1|           1|
-    |or_ln1002_1_fu_806_p2             |        or|   0|  0|   32|          32|          32|
-    |m_2_fu_910_p3                     |    select|   0|  0|   64|           1|          64|
-    |select_ln1011_fu_902_p3           |    select|   0|  0|    2|           1|           1|
-    |select_ln988_fu_1002_p3           |    select|   0|  0|   32|           1|           1|
-    |select_ln996_fu_957_p3            |    select|   0|  0|    7|           1|           7|
-    |select_ln999_fu_856_p3            |    select|   0|  0|    2|           1|           1|
-    |smax_fu_623_p3                    |    select|   0|  0|   32|           1|          32|
-    |tmp_V_2_fu_726_p3                 |    select|   0|  0|   32|           1|          32|
-    |shl_ln1002_fu_800_p2              |       shl|   0|  0|   96|           1|          32|
-    |shl_ln1012_fu_896_p2              |       shl|   0|  0|  179|          64|          64|
-    |xor_ln1002_fu_836_p2              |       xor|   0|  0|    2|           1|           2|
-    +----------------------------------+----------+----+---+-----+------------+------------+
-    |Total                             |          |   0|  0| 1433|         683|         722|
-    +----------------------------------+----------+----+---+-----+------------+------------+
+    +--------------------------------+----------+----+---+-----+------------+------------+
+    |          Variable Name         | Operation| DSP| FF| LUT | Bitwidth P0| Bitwidth P1|
+    +--------------------------------+----------+----+---+-----+------------+------------+
+    |add_ln1011_fu_1002_p2           |         +|   0|  0|   39|          32|           6|
+    |add_ln1017_fu_1081_p2           |         +|   0|  0|   19|           8|           8|
+    |add_ln120_fu_753_p2             |         +|   0|  0|   12|           4|           4|
+    |add_ln135_fu_363_p2             |         +|   0|  0|   12|           4|           1|
+    |add_ln136_fu_412_p2             |         +|   0|  0|    9|           2|           1|
+    |add_ln137_fu_396_p2             |         +|   0|  0|   12|           4|           4|
+    |add_ln143_fu_369_p2             |         +|   0|  0|   39|          32|           2|
+    |add_ln154_fu_497_p2             |         +|   0|  0|    9|           2|           1|
+    |add_ln168_fu_778_p2             |         +|   0|  0|   12|           4|           1|
+    |add_ln169_fu_812_p2             |         +|   0|  0|    9|           2|           1|
+    |add_ln590_fu_578_p2             |         +|   0|  0|   19|          12|           6|
+    |add_ln988_fu_796_p2             |         +|   0|  0|   12|           4|           4|
+    |i_9_fu_473_p2                   |         +|   0|  0|   39|          32|           1|
+    |iter_2_fu_437_p2                |         +|   0|  0|   38|          31|           1|
+    |lsb_index_fu_874_p2             |         +|   0|  0|   39|          32|           6|
+    |m_2_fu_1038_p2                  |         +|   0|  0|   71|          64|          64|
+    |n_1_fu_467_p2                   |         +|   0|  0|    9|           2|           1|
+    |valC_V_fu_763_p2                |         +|   0|  0|   39|          32|          32|
+    |F2_fu_566_p2                    |         -|   0|  0|   19|          11|          12|
+    |man_V_1_fu_553_p2               |         -|   0|  0|   61|           1|          54|
+    |sub_ln1000_fu_900_p2            |         -|   0|  0|   13|           4|           6|
+    |sub_ln1012_fu_978_p2            |         -|   0|  0|   39|           5|          32|
+    |sub_ln1017_fu_1076_p2           |         -|   0|  0|   19|           5|           8|
+    |sub_ln590_fu_584_p2             |         -|   0|  0|   19|           5|          12|
+    |sub_ln997_fu_868_p2             |         -|   0|  0|   39|           6|          32|
+    |tmp_V_fu_836_p2                 |         -|   0|  0|   39|           1|          32|
+    |and_ln1002_1_fu_968_p2          |       and|   0|  0|    2|           1|           1|
+    |and_ln1002_fu_928_p2            |       and|   0|  0|   32|          32|          32|
+    |and_ln590_fu_720_p2             |       and|   0|  0|    2|           1|           1|
+    |and_ln591_fu_695_p2             |       and|   0|  0|    2|           1|           1|
+    |ap_block_state2                 |       and|   0|  0|    2|           1|           1|
+    |ap_block_state4                 |       and|   0|  0|    2|           1|           1|
+    |ap_condition_848                |       and|   0|  0|    2|           1|           1|
+    |ap_predicate_op101_read_state7  |       and|   0|  0|    2|           1|           1|
+    |ap_predicate_op103_read_state7  |       and|   0|  0|    2|           1|           1|
+    |ashr_ln595_fu_622_p2            |      ashr|   0|  0|  159|          54|          54|
+    |icmp_ln1002_fu_934_p2           |      icmp|   0|  0|   20|          32|           1|
+    |icmp_ln1011_fu_962_p2           |      icmp|   0|  0|   20|          32|           1|
+    |icmp_ln135_fu_357_p2            |      icmp|   0|  0|    9|           4|           5|
+    |icmp_ln136_fu_406_p2            |      icmp|   0|  0|    8|           2|           3|
+    |icmp_ln143_fu_432_p2            |      icmp|   0|  0|   20|          32|          32|
+    |icmp_ln148_fu_448_p2            |      icmp|   0|  0|   20|          32|          32|
+    |icmp_ln151_fu_461_p2            |      icmp|   0|  0|    8|           2|           3|
+    |icmp_ln154_fu_491_p2            |      icmp|   0|  0|    8|           2|           3|
+    |icmp_ln168_fu_772_p2            |      icmp|   0|  0|    9|           4|           5|
+    |icmp_ln169_fu_806_p2            |      icmp|   0|  0|    8|           2|           3|
+    |icmp_ln580_fu_533_p2            |      icmp|   0|  0|   28|          63|           1|
+    |icmp_ln590_fu_572_p2            |      icmp|   0|  0|   12|          12|           5|
+    |icmp_ln591_fu_602_p2            |      icmp|   0|  0|   12|          12|           5|
+    |icmp_ln594_fu_612_p2            |      icmp|   0|  0|   12|          12|           6|
+    |icmp_ln612_fu_670_p2            |      icmp|   0|  0|   10|           7|           1|
+    |icmp_ln988_fu_822_p2            |      icmp|   0|  0|   20|          32|           1|
+    |icmp_ln999_fu_890_p2            |      icmp|   0|  0|   19|          31|           1|
+    |lshr_ln1000_fu_910_p2           |      lshr|   0|  0|   96|           2|          32|
+    |lshr_ln1011_fu_1012_p2          |      lshr|   0|  0|  179|          64|          64|
+    |ap_block_state1                 |        or|   0|  0|    2|           1|           1|
+    |ap_block_state14                |        or|   0|  0|    2|           1|           1|
+    |ap_block_state7                 |        or|   0|  0|    2|           1|           1|
+    |or_ln1002_1_fu_922_p2           |        or|   0|  0|   32|          32|          32|
+    |or_ln591_fu_709_p2              |        or|   0|  0|    2|           1|           1|
+    |m_5_fu_842_p3                   |    select|   0|  0|   32|           1|          32|
+    |m_fu_1026_p3                    |    select|   0|  0|   64|           1|          64|
+    |man_V_2_fu_559_p3               |    select|   0|  0|   52|           1|          54|
+    |matrixC_val_i_V_fu_734_p3       |    select|   0|  0|   32|           1|           1|
+    |select_ln1011_fu_1018_p3        |    select|   0|  0|    2|           1|           1|
+    |select_ln590_fu_726_p3          |    select|   0|  0|   32|           1|          32|
+    |select_ln591_fu_701_p3          |    select|   0|  0|   32|           1|          32|
+    |select_ln594_fu_652_p3          |    select|   0|  0|   32|           1|          32|
+    |select_ln597_fu_644_p3          |    select|   0|  0|    2|           1|           2|
+    |select_ln612_fu_682_p3          |    select|   0|  0|   32|           1|          32|
+    |select_ln988_fu_1114_p3         |    select|   0|  0|   32|           1|           1|
+    |select_ln996_fu_1069_p3         |    select|   0|  0|    7|           1|           7|
+    |select_ln999_fu_994_p3          |    select|   0|  0|    2|           1|           1|
+    |sh_amt_fu_590_p3                |    select|   0|  0|   11|           1|          12|
+    |shl_ln1002_fu_916_p2            |       shl|   0|  0|   96|           1|          32|
+    |shl_ln1012_fu_988_p2            |       shl|   0|  0|  179|          64|          64|
+    |shl_ln613_fu_676_p2             |       shl|   0|  0|   96|          32|          32|
+    |xor_ln1002_fu_948_p2            |       xor|   0|  0|    2|           1|           2|
+    |xor_ln580_fu_690_p2             |       xor|   0|  0|    2|           1|           2|
+    |xor_ln591_fu_714_p2             |       xor|   0|  0|    2|           1|           2|
+    +--------------------------------+----------+----+---+-----+------------+------------+
+    |Total                           |          |   0|  0| 2192|         964|        1103|
+    +--------------------------------+----------+----+---+-----+------------+------------+
 
     * Multiplexer: 
-    +-----------------------------+----+-----------+-----+-----------+
-    |             Name            | LUT| Input Size| Bits| Total Bits|
-    +-----------------------------+----+-----------+-----+-----------+
-    |ap_NS_fsm                    |  65|         12|    1|         12|
-    |fifoCalcMatrixC_i_0_V_read   |   9|          2|    1|          2|
-    |fifoCalcMatrixC_i_1_V_read   |   9|          2|    1|          2|
-    |fifoCalcMatrixC_i_2_V_read   |   9|          2|    1|          2|
-    |fifoCalcMatrixC_i_3_V_read   |   9|          2|    1|          2|
-    |fifoCalcMatrixC_i_4_V_read   |   9|          2|    1|          2|
-    |fifoCalcMatrixC_i_5_V_read   |   9|          2|    1|          2|
-    |fifoCalcMatrixC_i_6_V_read   |   9|          2|    1|          2|
-    |fifoCalcMatrixC_i_7_V_read   |   9|          2|    1|          2|
-    |fifoEdgeListPtr_i_V_blk_n    |   9|          2|    1|          2|
-    |fifoMatrixCIdx_i_0_V_read    |   9|          2|    1|          2|
-    |fifoMatrixCIdx_i_1_V_read    |   9|          2|    1|          2|
-    |fifoMatrixCIdx_i_2_V_read    |   9|          2|    1|          2|
-    |fifoMatrixCIdx_i_3_V_read    |   9|          2|    1|          2|
-    |fifoMatrixCIdx_i_4_V_read    |   9|          2|    1|          2|
-    |fifoMatrixCIdx_i_5_V_read    |   9|          2|    1|          2|
-    |fifoMatrixCIdx_i_6_V_read    |   9|          2|    1|          2|
-    |fifoMatrixCIdx_i_7_V_read    |   9|          2|    1|          2|
-    |fifoSortMatrixC_o_0_V_blk_n  |   9|          2|    1|          2|
-    |fifoSortMatrixC_o_1_V_blk_n  |   9|          2|    1|          2|
-    |fifoSortMatrixC_o_2_V_blk_n  |   9|          2|    1|          2|
-    |fifoSortMatrixC_o_3_V_blk_n  |   9|          2|    1|          2|
-    |fifoSortMatrixC_o_4_V_blk_n  |   9|          2|    1|          2|
-    |fifoSortMatrixC_o_5_V_blk_n  |   9|          2|    1|          2|
-    |fifoSortMatrixC_o_6_V_blk_n  |   9|          2|    1|          2|
-    |fifoSortMatrixC_o_7_V_blk_n  |   9|          2|    1|          2|
-    |i_1_fu_224                   |   9|          2|   32|         64|
-    |i_2_fu_228                   |   9|          2|    4|          8|
-    |i_fu_184                     |   9|          2|    4|          8|
-    |iter_fu_220                  |   9|          2|   31|         62|
-    |j_1_reg_463                  |   9|          2|    4|          8|
-    |j_reg_452                    |   9|          2|    4|          8|
-    |matrixC_buffer_V_0_address0  |  20|          4|    3|         12|
-    |matrixC_buffer_V_0_ce0       |  14|          3|    1|          3|
-    |matrixC_buffer_V_0_d0        |  14|          3|   32|         96|
-    |matrixC_buffer_V_0_we0       |  14|          3|    1|          3|
-    |matrixC_buffer_V_1_address0  |  20|          4|    3|         12|
-    |matrixC_buffer_V_1_ce0       |  14|          3|    1|          3|
-    |matrixC_buffer_V_1_d0        |  14|          3|   32|         96|
-    |matrixC_buffer_V_1_we0       |  14|          3|    1|          3|
-    |matrixC_buffer_V_2_address0  |  20|          4|    3|         12|
-    |matrixC_buffer_V_2_ce0       |  14|          3|    1|          3|
-    |matrixC_buffer_V_2_d0        |  14|          3|   32|         96|
-    |matrixC_buffer_V_2_we0       |  14|          3|    1|          3|
-    |matrixC_buffer_V_3_address0  |  20|          4|    3|         12|
-    |matrixC_buffer_V_3_ce0       |  14|          3|    1|          3|
-    |matrixC_buffer_V_3_d0        |  14|          3|   32|         96|
-    |matrixC_buffer_V_3_we0       |  14|          3|    1|          3|
-    |matrixC_buffer_V_4_address0  |  20|          4|    3|         12|
-    |matrixC_buffer_V_4_ce0       |  14|          3|    1|          3|
-    |matrixC_buffer_V_4_d0        |  14|          3|   32|         96|
-    |matrixC_buffer_V_4_we0       |  14|          3|    1|          3|
-    |matrixC_buffer_V_5_address0  |  20|          4|    3|         12|
-    |matrixC_buffer_V_5_ce0       |  14|          3|    1|          3|
-    |matrixC_buffer_V_5_d0        |  14|          3|   32|         96|
-    |matrixC_buffer_V_5_we0       |  14|          3|    1|          3|
-    |matrixC_buffer_V_6_address0  |  20|          4|    3|         12|
-    |matrixC_buffer_V_6_ce0       |  14|          3|    1|          3|
-    |matrixC_buffer_V_6_d0        |  14|          3|   32|         96|
-    |matrixC_buffer_V_6_we0       |  14|          3|    1|          3|
-    |matrixC_buffer_V_7_address0  |  20|          4|    3|         12|
-    |matrixC_buffer_V_7_ce0       |  14|          3|    1|          3|
-    |matrixC_buffer_V_7_d0        |  14|          3|   32|         96|
-    |matrixC_buffer_V_7_we0       |  14|          3|    1|          3|
-    +-----------------------------+----+-----------+-----+-----------+
-    |Total                        | 840|        178|  401|       1132|
-    +-----------------------------+----+-----------+-----+-----------+
+    +---------------------------------+----+-----------+-----+-----------+
+    |               Name              | LUT| Input Size| Bits| Total Bits|
+    +---------------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                        |  65|         15|    1|         15|
+    |ap_done                          |   9|          2|    1|          2|
+    |ap_phi_mux_tmp_6_phi_fu_325_p4   |  14|          3|   32|         96|
+    |fifoCalcMatrixC_i_02_blk_n       |   9|          2|    1|          2|
+    |fifoCalcMatrixC_i_0_blk_n        |   9|          2|    1|          2|
+    |fifoEdgeListPtr_calC15_blk_n     |   9|          2|    1|          2|
+    |fifoMatrixCIdx_i_0_0_0_01_blk_n  |   9|          2|    1|          2|
+    |fifoMatrixCIdx_i_0_0_0_0_blk_n   |   9|          2|    1|          2|
+    |fifoSortMatrixC_o_03_blk_n       |   9|          2|    1|          2|
+    |fifoSortMatrixC_o_0_blk_n        |   9|          2|    1|          2|
+    |i_2_reg_278                      |   9|          2|   32|         64|
+    |i_3_fu_186                       |   9|          2|    4|          8|
+    |i_5_fu_182                       |   9|          2|   32|         64|
+    |i_fu_170                         |   9|          2|    4|          8|
+    |iter_fu_178                      |   9|          2|   31|         62|
+    |j_1_reg_334                      |   9|          2|    2|          4|
+    |j_2_reg_299                      |   9|          2|    2|          4|
+    |j_reg_267                        |   9|          2|    2|          4|
+    |lenEdgeListPtr_blk_n             |   9|          2|    1|          2|
+    |matrixC_buffer_V_address0        |  26|          5|    4|         20|
+    |matrixC_buffer_V_d0              |  14|          3|   32|         96|
+    |n_reg_288                        |   9|          2|    2|          4|
+    |row_V_reg_310                    |   9|          2|   16|         32|
+    |tmp_6_reg_322                    |   9|          2|   32|         64|
+    +---------------------------------+----+-----------+-----+-----------+
+    |Total                            | 299|         66|  237|        563|
+    +---------------------------------+----+-----------+-----+-----------+
 
     * Register: 
-    +-----------------------------------------------------------------------+----+----+-----+-----------+
-    |                                  Name                                 | FF | LUT| Bits| Const Bits|
-    +-----------------------------------------------------------------------+----+----+-----+-----------+
-    |add_ln135_reg_1064                                                     |   4|   0|    4|          0|
-    |add_ln136_reg_1131                                                     |   4|   0|    4|          0|
-    |add_ln143_reg_1123                                                     |  32|   0|   32|          0|
-    |add_ln168_reg_1164                                                     |   4|   0|    4|          0|
-    |add_ln169_reg_1252                                                     |   4|   0|    4|          0|
-    |ap_CS_fsm                                                              |  11|   0|   11|          0|
-    |grp_sort_C_Pipeline_loop_diff_window_loop_diff_pe_fu_475_ap_start_reg  |   1|   0|    1|          0|
-    |i_1_fu_224                                                             |  32|   0|   32|          0|
-    |i_2_fu_228                                                             |   4|   0|    4|          0|
-    |i_fu_184                                                               |   4|   0|    4|          0|
-    |icmp_ln988_reg_1257                                                    |   1|   0|    1|          0|
-    |iter_fu_220                                                            |  31|   0|   31|          0|
-    |j_1_reg_463                                                            |   4|   0|    4|          0|
-    |j_reg_452                                                              |   4|   0|    4|          0|
-    |m_4_reg_1267                                                           |  63|   0|   63|          0|
-    |matrixC_buffer_V_0_addr_reg_1069                                       |   3|   0|    3|          0|
-    |matrixC_buffer_V_0_load_reg_1209                                       |  32|   0|   32|          0|
-    |matrixC_buffer_V_1_addr_reg_1074                                       |   3|   0|    3|          0|
-    |matrixC_buffer_V_1_load_reg_1214                                       |  32|   0|   32|          0|
-    |matrixC_buffer_V_2_addr_reg_1079                                       |   3|   0|    3|          0|
-    |matrixC_buffer_V_2_load_reg_1219                                       |  32|   0|   32|          0|
-    |matrixC_buffer_V_3_addr_reg_1084                                       |   3|   0|    3|          0|
-    |matrixC_buffer_V_3_load_reg_1224                                       |  32|   0|   32|          0|
-    |matrixC_buffer_V_4_addr_reg_1089                                       |   3|   0|    3|          0|
-    |matrixC_buffer_V_4_load_reg_1229                                       |  32|   0|   32|          0|
-    |matrixC_buffer_V_5_addr_reg_1094                                       |   3|   0|    3|          0|
-    |matrixC_buffer_V_5_load_reg_1234                                       |  32|   0|   32|          0|
-    |matrixC_buffer_V_6_addr_reg_1099                                       |   3|   0|    3|          0|
-    |matrixC_buffer_V_6_load_reg_1239                                       |  32|   0|   32|          0|
-    |matrixC_buffer_V_7_addr_reg_1104                                       |   3|   0|    3|          0|
-    |matrixC_buffer_V_7_load_reg_1244                                       |  32|   0|   32|          0|
-    |p_Result_2_reg_1262                                                    |   1|   0|    1|          0|
-    |p_Result_s_reg_1272                                                    |   1|   0|    1|          0|
-    |tmp_47_reg_1142                                                        |  32|   0|   32|          0|
-    |tmp_s_reg_1156                                                         |  32|   0|   34|          2|
-    |trunc_ln996_reg_1277                                                   |   8|   0|    8|          0|
-    +-----------------------------------------------------------------------+----+----+-----+-----------+
-    |Total                                                                  | 557|   0|  559|          2|
-    +-----------------------------------------------------------------------+----+----+-----+-----------+
+    +----------------------------------+----+----+-----+-----------+
+    |               Name               | FF | LUT| Bits| Const Bits|
+    +----------------------------------+----+----+-----+-----------+
+    |add_ln135_reg_1141                |   4|   0|    4|          0|
+    |add_ln143_reg_1160                |  32|   0|   32|          0|
+    |add_ln154_reg_1224                |   2|   0|    2|          0|
+    |add_ln168_reg_1271                |   4|   0|    4|          0|
+    |add_ln169_reg_1288                |   2|   0|    2|          0|
+    |ap_CS_fsm                         |  14|   0|   14|          0|
+    |ap_done_reg                       |   1|   0|    1|          0|
+    |exp_tmp_reg_1234                  |  11|   0|   11|          0|
+    |i_2_reg_278                       |  32|   0|   32|          0|
+    |i_3_fu_186                        |   4|   0|    4|          0|
+    |i_5_fu_182                        |  32|   0|   32|          0|
+    |i_fu_170                          |   4|   0|    4|          0|
+    |icmp_ln580_reg_1244               |   1|   0|    1|          0|
+    |icmp_ln988_reg_1293               |   1|   0|    1|          0|
+    |iter_2_reg_1179                   |  31|   0|   31|          0|
+    |iter_fu_178                       |  31|   0|   31|          0|
+    |j_1_reg_334                       |   2|   0|    2|          0|
+    |j_2_reg_299                       |   2|   0|    2|          0|
+    |j_reg_267                         |   2|   0|    2|          0|
+    |lenEdgeListPtr_read_reg_1130      |  32|   0|   32|          0|
+    |m_6_reg_1303                      |  63|   0|   63|          0|
+    |matrixC_buffer_V_addr_2_reg_1260  |   4|   0|    4|          0|
+    |matrixC_val_i_V_reg_1251          |  32|   0|   32|          0|
+    |n_1_reg_1203                      |   2|   0|    2|          0|
+    |n_reg_288                         |   2|   0|    2|          0|
+    |p_Result_4_reg_1229               |   1|   0|    1|          0|
+    |p_Result_6_reg_1298               |   1|   0|    1|          0|
+    |p_Result_s_reg_1308               |   1|   0|    1|          0|
+    |row_V_reg_310                     |  16|   0|   16|          0|
+    |tmp_11_reg_1256                   |   1|   0|    1|          0|
+    |tmp_13_reg_1184                   |  32|   0|   32|          0|
+    |tmp_6_reg_322                     |  32|   0|   32|          0|
+    |tmp_7_cast_reg_1216               |   1|   0|    4|          3|
+    |trunc_ln574_reg_1239              |  52|   0|   52|          0|
+    |trunc_ln988_reg_1276              |   1|   0|    1|          0|
+    |trunc_ln996_reg_1313              |   8|   0|    8|          0|
+    +----------------------------------+----+----+-----+-----------+
+    |Total                             | 493|   0|  496|          3|
+    +----------------------------------+----+----+-----+-----------+
 
 
 
@@ -285,90 +270,39 @@
 == Interface
 ================================================================
 * Summary: 
-+-------------------------------+-----+-----+------------+-----------------------+--------------+
-|           RTL Ports           | Dir | Bits|  Protocol  |     Source Object     |    C Type    |
-+-------------------------------+-----+-----+------------+-----------------------+--------------+
-|ap_clk                         |   in|    1|  ap_ctrl_hs|                 sort_C|  return value|
-|ap_rst                         |   in|    1|  ap_ctrl_hs|                 sort_C|  return value|
-|ap_start                       |   in|    1|  ap_ctrl_hs|                 sort_C|  return value|
-|ap_done                        |  out|    1|  ap_ctrl_hs|                 sort_C|  return value|
-|ap_idle                        |  out|    1|  ap_ctrl_hs|                 sort_C|  return value|
-|ap_ready                       |  out|    1|  ap_ctrl_hs|                 sort_C|  return value|
-|lenEdgeListPtr                 |   in|   32|     ap_none|         lenEdgeListPtr|        scalar|
-|fifoEdgeListPtr_i_V_dout       |   in|   32|     ap_fifo|    fifoEdgeListPtr_i_V|       pointer|
-|fifoEdgeListPtr_i_V_empty_n    |   in|    1|     ap_fifo|    fifoEdgeListPtr_i_V|       pointer|
-|fifoEdgeListPtr_i_V_read       |  out|    1|     ap_fifo|    fifoEdgeListPtr_i_V|       pointer|
-|fifoMatrixCIdx_i_0_V_dout      |   in|   16|     ap_fifo|   fifoMatrixCIdx_i_0_V|       pointer|
-|fifoMatrixCIdx_i_0_V_empty_n   |   in|    1|     ap_fifo|   fifoMatrixCIdx_i_0_V|       pointer|
-|fifoMatrixCIdx_i_0_V_read      |  out|    1|     ap_fifo|   fifoMatrixCIdx_i_0_V|       pointer|
-|fifoMatrixCIdx_i_1_V_dout      |   in|   16|     ap_fifo|   fifoMatrixCIdx_i_1_V|       pointer|
-|fifoMatrixCIdx_i_1_V_empty_n   |   in|    1|     ap_fifo|   fifoMatrixCIdx_i_1_V|       pointer|
-|fifoMatrixCIdx_i_1_V_read      |  out|    1|     ap_fifo|   fifoMatrixCIdx_i_1_V|       pointer|
-|fifoMatrixCIdx_i_2_V_dout      |   in|   16|     ap_fifo|   fifoMatrixCIdx_i_2_V|       pointer|
-|fifoMatrixCIdx_i_2_V_empty_n   |   in|    1|     ap_fifo|   fifoMatrixCIdx_i_2_V|       pointer|
-|fifoMatrixCIdx_i_2_V_read      |  out|    1|     ap_fifo|   fifoMatrixCIdx_i_2_V|       pointer|
-|fifoMatrixCIdx_i_3_V_dout      |   in|   16|     ap_fifo|   fifoMatrixCIdx_i_3_V|       pointer|
-|fifoMatrixCIdx_i_3_V_empty_n   |   in|    1|     ap_fifo|   fifoMatrixCIdx_i_3_V|       pointer|
-|fifoMatrixCIdx_i_3_V_read      |  out|    1|     ap_fifo|   fifoMatrixCIdx_i_3_V|       pointer|
-|fifoMatrixCIdx_i_4_V_dout      |   in|   16|     ap_fifo|   fifoMatrixCIdx_i_4_V|       pointer|
-|fifoMatrixCIdx_i_4_V_empty_n   |   in|    1|     ap_fifo|   fifoMatrixCIdx_i_4_V|       pointer|
-|fifoMatrixCIdx_i_4_V_read      |  out|    1|     ap_fifo|   fifoMatrixCIdx_i_4_V|       pointer|
-|fifoMatrixCIdx_i_5_V_dout      |   in|   16|     ap_fifo|   fifoMatrixCIdx_i_5_V|       pointer|
-|fifoMatrixCIdx_i_5_V_empty_n   |   in|    1|     ap_fifo|   fifoMatrixCIdx_i_5_V|       pointer|
-|fifoMatrixCIdx_i_5_V_read      |  out|    1|     ap_fifo|   fifoMatrixCIdx_i_5_V|       pointer|
-|fifoMatrixCIdx_i_6_V_dout      |   in|   16|     ap_fifo|   fifoMatrixCIdx_i_6_V|       pointer|
-|fifoMatrixCIdx_i_6_V_empty_n   |   in|    1|     ap_fifo|   fifoMatrixCIdx_i_6_V|       pointer|
-|fifoMatrixCIdx_i_6_V_read      |  out|    1|     ap_fifo|   fifoMatrixCIdx_i_6_V|       pointer|
-|fifoMatrixCIdx_i_7_V_dout      |   in|   16|     ap_fifo|   fifoMatrixCIdx_i_7_V|       pointer|
-|fifoMatrixCIdx_i_7_V_empty_n   |   in|    1|     ap_fifo|   fifoMatrixCIdx_i_7_V|       pointer|
-|fifoMatrixCIdx_i_7_V_read      |  out|    1|     ap_fifo|   fifoMatrixCIdx_i_7_V|       pointer|
-|fifoCalcMatrixC_i_0_V_dout     |   in|   32|     ap_fifo|  fifoCalcMatrixC_i_0_V|       pointer|
-|fifoCalcMatrixC_i_0_V_empty_n  |   in|    1|     ap_fifo|  fifoCalcMatrixC_i_0_V|       pointer|
-|fifoCalcMatrixC_i_0_V_read     |  out|    1|     ap_fifo|  fifoCalcMatrixC_i_0_V|       pointer|
-|fifoCalcMatrixC_i_1_V_dout     |   in|   32|     ap_fifo|  fifoCalcMatrixC_i_1_V|       pointer|
-|fifoCalcMatrixC_i_1_V_empty_n  |   in|    1|     ap_fifo|  fifoCalcMatrixC_i_1_V|       pointer|
-|fifoCalcMatrixC_i_1_V_read     |  out|    1|     ap_fifo|  fifoCalcMatrixC_i_1_V|       pointer|
-|fifoCalcMatrixC_i_2_V_dout     |   in|   32|     ap_fifo|  fifoCalcMatrixC_i_2_V|       pointer|
-|fifoCalcMatrixC_i_2_V_empty_n  |   in|    1|     ap_fifo|  fifoCalcMatrixC_i_2_V|       pointer|
-|fifoCalcMatrixC_i_2_V_read     |  out|    1|     ap_fifo|  fifoCalcMatrixC_i_2_V|       pointer|
-|fifoCalcMatrixC_i_3_V_dout     |   in|   32|     ap_fifo|  fifoCalcMatrixC_i_3_V|       pointer|
-|fifoCalcMatrixC_i_3_V_empty_n  |   in|    1|     ap_fifo|  fifoCalcMatrixC_i_3_V|       pointer|
-|fifoCalcMatrixC_i_3_V_read     |  out|    1|     ap_fifo|  fifoCalcMatrixC_i_3_V|       pointer|
-|fifoCalcMatrixC_i_4_V_dout     |   in|   32|     ap_fifo|  fifoCalcMatrixC_i_4_V|       pointer|
-|fifoCalcMatrixC_i_4_V_empty_n  |   in|    1|     ap_fifo|  fifoCalcMatrixC_i_4_V|       pointer|
-|fifoCalcMatrixC_i_4_V_read     |  out|    1|     ap_fifo|  fifoCalcMatrixC_i_4_V|       pointer|
-|fifoCalcMatrixC_i_5_V_dout     |   in|   32|     ap_fifo|  fifoCalcMatrixC_i_5_V|       pointer|
-|fifoCalcMatrixC_i_5_V_empty_n  |   in|    1|     ap_fifo|  fifoCalcMatrixC_i_5_V|       pointer|
-|fifoCalcMatrixC_i_5_V_read     |  out|    1|     ap_fifo|  fifoCalcMatrixC_i_5_V|       pointer|
-|fifoCalcMatrixC_i_6_V_dout     |   in|   32|     ap_fifo|  fifoCalcMatrixC_i_6_V|       pointer|
-|fifoCalcMatrixC_i_6_V_empty_n  |   in|    1|     ap_fifo|  fifoCalcMatrixC_i_6_V|       pointer|
-|fifoCalcMatrixC_i_6_V_read     |  out|    1|     ap_fifo|  fifoCalcMatrixC_i_6_V|       pointer|
-|fifoCalcMatrixC_i_7_V_dout     |   in|   32|     ap_fifo|  fifoCalcMatrixC_i_7_V|       pointer|
-|fifoCalcMatrixC_i_7_V_empty_n  |   in|    1|     ap_fifo|  fifoCalcMatrixC_i_7_V|       pointer|
-|fifoCalcMatrixC_i_7_V_read     |  out|    1|     ap_fifo|  fifoCalcMatrixC_i_7_V|       pointer|
-|fifoSortMatrixC_o_0_V_din      |  out|   32|     ap_fifo|  fifoSortMatrixC_o_0_V|       pointer|
-|fifoSortMatrixC_o_0_V_full_n   |   in|    1|     ap_fifo|  fifoSortMatrixC_o_0_V|       pointer|
-|fifoSortMatrixC_o_0_V_write    |  out|    1|     ap_fifo|  fifoSortMatrixC_o_0_V|       pointer|
-|fifoSortMatrixC_o_1_V_din      |  out|   32|     ap_fifo|  fifoSortMatrixC_o_1_V|       pointer|
-|fifoSortMatrixC_o_1_V_full_n   |   in|    1|     ap_fifo|  fifoSortMatrixC_o_1_V|       pointer|
-|fifoSortMatrixC_o_1_V_write    |  out|    1|     ap_fifo|  fifoSortMatrixC_o_1_V|       pointer|
-|fifoSortMatrixC_o_2_V_din      |  out|   32|     ap_fifo|  fifoSortMatrixC_o_2_V|       pointer|
-|fifoSortMatrixC_o_2_V_full_n   |   in|    1|     ap_fifo|  fifoSortMatrixC_o_2_V|       pointer|
-|fifoSortMatrixC_o_2_V_write    |  out|    1|     ap_fifo|  fifoSortMatrixC_o_2_V|       pointer|
-|fifoSortMatrixC_o_3_V_din      |  out|   32|     ap_fifo|  fifoSortMatrixC_o_3_V|       pointer|
-|fifoSortMatrixC_o_3_V_full_n   |   in|    1|     ap_fifo|  fifoSortMatrixC_o_3_V|       pointer|
-|fifoSortMatrixC_o_3_V_write    |  out|    1|     ap_fifo|  fifoSortMatrixC_o_3_V|       pointer|
-|fifoSortMatrixC_o_4_V_din      |  out|   32|     ap_fifo|  fifoSortMatrixC_o_4_V|       pointer|
-|fifoSortMatrixC_o_4_V_full_n   |   in|    1|     ap_fifo|  fifoSortMatrixC_o_4_V|       pointer|
-|fifoSortMatrixC_o_4_V_write    |  out|    1|     ap_fifo|  fifoSortMatrixC_o_4_V|       pointer|
-|fifoSortMatrixC_o_5_V_din      |  out|   32|     ap_fifo|  fifoSortMatrixC_o_5_V|       pointer|
-|fifoSortMatrixC_o_5_V_full_n   |   in|    1|     ap_fifo|  fifoSortMatrixC_o_5_V|       pointer|
-|fifoSortMatrixC_o_5_V_write    |  out|    1|     ap_fifo|  fifoSortMatrixC_o_5_V|       pointer|
-|fifoSortMatrixC_o_6_V_din      |  out|   32|     ap_fifo|  fifoSortMatrixC_o_6_V|       pointer|
-|fifoSortMatrixC_o_6_V_full_n   |   in|    1|     ap_fifo|  fifoSortMatrixC_o_6_V|       pointer|
-|fifoSortMatrixC_o_6_V_write    |  out|    1|     ap_fifo|  fifoSortMatrixC_o_6_V|       pointer|
-|fifoSortMatrixC_o_7_V_din      |  out|   32|     ap_fifo|  fifoSortMatrixC_o_7_V|       pointer|
-|fifoSortMatrixC_o_7_V_full_n   |   in|    1|     ap_fifo|  fifoSortMatrixC_o_7_V|       pointer|
-|fifoSortMatrixC_o_7_V_write    |  out|    1|     ap_fifo|  fifoSortMatrixC_o_7_V|       pointer|
-+-------------------------------+-----+-----+------------+-----------------------+--------------+
++-----------------------------------+-----+-----+------------+---------------------------+--------------+
+|             RTL Ports             | Dir | Bits|  Protocol  |       Source Object       |    C Type    |
++-----------------------------------+-----+-----+------------+---------------------------+--------------+
+|ap_clk                             |   in|    1|  ap_ctrl_hs|                     sort_C|  return value|
+|ap_rst                             |   in|    1|  ap_ctrl_hs|                     sort_C|  return value|
+|ap_start                           |   in|    1|  ap_ctrl_hs|                     sort_C|  return value|
+|ap_done                            |  out|    1|  ap_ctrl_hs|                     sort_C|  return value|
+|ap_continue                        |   in|    1|  ap_ctrl_hs|                     sort_C|  return value|
+|ap_idle                            |  out|    1|  ap_ctrl_hs|                     sort_C|  return value|
+|ap_ready                           |  out|    1|  ap_ctrl_hs|                     sort_C|  return value|
+|lenEdgeListPtr_dout                |   in|   32|     ap_fifo|             lenEdgeListPtr|       pointer|
+|lenEdgeListPtr_empty_n             |   in|    1|     ap_fifo|             lenEdgeListPtr|       pointer|
+|lenEdgeListPtr_read                |  out|    1|     ap_fifo|             lenEdgeListPtr|       pointer|
+|fifoEdgeListPtr_calC15_dout        |   in|   32|     ap_fifo|     fifoEdgeListPtr_calC15|       pointer|
+|fifoEdgeListPtr_calC15_empty_n     |   in|    1|     ap_fifo|     fifoEdgeListPtr_calC15|       pointer|
+|fifoEdgeListPtr_calC15_read        |  out|    1|     ap_fifo|     fifoEdgeListPtr_calC15|       pointer|
+|fifoMatrixCIdx_i_0_0_0_0_dout      |   in|   16|     ap_fifo|   fifoMatrixCIdx_i_0_0_0_0|       pointer|
+|fifoMatrixCIdx_i_0_0_0_0_empty_n   |   in|    1|     ap_fifo|   fifoMatrixCIdx_i_0_0_0_0|       pointer|
+|fifoMatrixCIdx_i_0_0_0_0_read      |  out|    1|     ap_fifo|   fifoMatrixCIdx_i_0_0_0_0|       pointer|
+|fifoMatrixCIdx_i_0_0_0_01_dout     |   in|   16|     ap_fifo|  fifoMatrixCIdx_i_0_0_0_01|       pointer|
+|fifoMatrixCIdx_i_0_0_0_01_empty_n  |   in|    1|     ap_fifo|  fifoMatrixCIdx_i_0_0_0_01|       pointer|
+|fifoMatrixCIdx_i_0_0_0_01_read     |  out|    1|     ap_fifo|  fifoMatrixCIdx_i_0_0_0_01|       pointer|
+|fifoCalcMatrixC_i_0_dout           |   in|   32|     ap_fifo|        fifoCalcMatrixC_i_0|       pointer|
+|fifoCalcMatrixC_i_0_empty_n        |   in|    1|     ap_fifo|        fifoCalcMatrixC_i_0|       pointer|
+|fifoCalcMatrixC_i_0_read           |  out|    1|     ap_fifo|        fifoCalcMatrixC_i_0|       pointer|
+|fifoCalcMatrixC_i_02_dout          |   in|   32|     ap_fifo|       fifoCalcMatrixC_i_02|       pointer|
+|fifoCalcMatrixC_i_02_empty_n       |   in|    1|     ap_fifo|       fifoCalcMatrixC_i_02|       pointer|
+|fifoCalcMatrixC_i_02_read          |  out|    1|     ap_fifo|       fifoCalcMatrixC_i_02|       pointer|
+|fifoSortMatrixC_o_0_din            |  out|   32|     ap_fifo|        fifoSortMatrixC_o_0|       pointer|
+|fifoSortMatrixC_o_0_full_n         |   in|    1|     ap_fifo|        fifoSortMatrixC_o_0|       pointer|
+|fifoSortMatrixC_o_0_write          |  out|    1|     ap_fifo|        fifoSortMatrixC_o_0|       pointer|
+|fifoSortMatrixC_o_03_din           |  out|   32|     ap_fifo|       fifoSortMatrixC_o_03|       pointer|
+|fifoSortMatrixC_o_03_full_n        |   in|    1|     ap_fifo|       fifoSortMatrixC_o_03|       pointer|
+|fifoSortMatrixC_o_03_write         |  out|    1|     ap_fifo|       fifoSortMatrixC_o_03|       pointer|
++-----------------------------------+-----+-----+------------+---------------------------+--------------+
 

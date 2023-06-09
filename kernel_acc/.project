@@ -27,6 +27,11 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>ap_fixed_base.h</name>
+			<type>1</type>
+			<location>D:/Xilinx/Vitis_HLS/2021.1/common/technology/autopilot/ap_fixed_base.h</location>
+		</link>
+		<link>
 			<name>source</name>
 			<type>2</type>
 			<location>D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_acc/.apc/.src</location>
@@ -52,9 +57,9 @@
 			<location>D:/ProjectWork/SPARSE_MATRIX_ACC/kernel.h</location>
 		</link>
 		<link>
-			<name>testbench/cal_C_test.cpp</name>
+			<name>testbench/kernel_test.cpp</name>
 			<type>1</type>
-			<location>D:/ProjectWork/SPARSE_MATRIX_ACC/cal_C_test.cpp</location>
+			<location>D:/ProjectWork/SPARSE_MATRIX_ACC/kernel_test.cpp</location>
 		</link>
 		<link>
 			<name>solution1/constraints/.xml.directive</name>
