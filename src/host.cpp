@@ -149,7 +149,7 @@ int main(int argc, char* argv[]) {
     cout << "cpu calculation time: (" << timeCpu * 1000 << " msec)\n";
 
     cout << "cpu matrixC ouput:= ";
-    for(int i = 0; i < matrixC.size(); i++){
+    for(size_t i = 0; i < matrixC.size(); i++){
         cout << matrixC[i] << " ";
     }
     cout << endl;
@@ -166,35 +166,35 @@ int main(int argc, char* argv[]) {
     cout << "N: " << N << endl;
     
     cout << "edge_list_ptr_hls: ";
-    for (int i = 0; i < edge_list_ptr_hls.size(); i++) {
+    for (size_t i = 0; i < edge_list_ptr_hls.size(); i++) {
         cout << edge_list_ptr_hls[i] << ", ";
     }
     cout << endl;
 
     cout << "matrixA_hls_idx: ";
-    for (int i = 0; i < matrixA_idx_hls.size(); i++) {
-        cout << matrixA_hls_idx[i] << ", ";
+    for (size_t i = 0; i < matrixA_idx_hls.size(); i++) {
+        cout << matrixA_idx_hls[i] << ", ";
     }
     cout << endl;
 
     int count = 0;
     cout << "matrixA_hls_vec: ";
-    for (int i = 0; i < matrixA_vec_hls.size(); i++) {
+    for (size_t i = 0; i < matrixA_vec_hls.size(); i++) {
         count += 1;
-        cout << matrixA_hls_vec[i] << ", ";
+        cout << matrixA_vec_hls[i] << ", ";
     }
     cout << endl;
     cout << "count: " << count << endl;
 
     cout << "matrixB_hls_vec: ";
-    for (int i = 0; i < matrixB_vec_hls.size(); i++) {
-        cout << matrixB_hls_vec[i] << ", ";
+    for (size_t i = 0; i < matrixB_vec_hls.size(); i++) {
+        cout << matrixB_vec_hls[i] << ", ";
     }
     cout << endl;
 
     cout << "matrixC_hls_vec: ";
-    for (int i = 0; i < matrixC_vec_hls.size(); i++) {
-        cout << matrixC_hls_vec[i] << ", ";
+    for (size_t i = 0; i < matrixC_vec_hls.size(); i++) {
+        cout << matrixC_vec_hls[i] << ", ";
     }
     cout << endl;
 
