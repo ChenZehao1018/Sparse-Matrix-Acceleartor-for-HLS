@@ -1,0 +1,22 @@
+{
+    "containers": [
+        {
+            "name": "krnl_sparse_matrix_acc", 
+            "meet_system_timing": "true", 
+            "accelerators": [
+                {
+                    "name": "krnl_sparse_matrix_acc", 
+                    "check_timing": "true", 
+                    "PipelineType": "none", 
+                    "check_latency": "false", 
+                    "check_warning": "false",
+                    "loops": [
+                        {
+
+                        }
+                    ]
+                }
+            ]
+        } 
+    ]
+}
