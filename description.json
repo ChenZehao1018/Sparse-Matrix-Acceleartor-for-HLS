@@ -1,0 +1,81 @@
+{
+    "name": "sparse_matrix_acc", 
+    "description": [
+        "This is a sparse_matrix_acc check design. Design contains 3 compute units of a kernel which has access to all HBM pseudo-channels (0:31). Host application allocate buffer into all HBM banks and run these 3 compute units concurrently and measure the overall bandwidth between Kernel and HBM Memory."
+    ],
+    "flow": "vitis",
+    "platform_blocklist": [
+        "u25_",
+        "u30",
+        "u200", 
+        "zc",
+        "vck", 
+        "u250",
+        "aws-vu9p-f1",
+        "samsung",
+        "u2_",
+        "x3522pv",
+        "nodma",
+        "v70"
+    ], 
+    "runtime": [
+        "OpenCL"
+    ], 
+    "platform_type": "pcie",
+    "host": {
+        "host_exe": "sparse_matrix_acc",
+        "compiler": {
+            "sources": [
+                "REPO_DIR/common/includes/xcl2/xcl2.cpp",
+                "./src/host.cpp"
+            ], 
+            "includepaths": [
+                "REPO_DIR/common/includes/xcl2"
+            ]
+        }
+    }, 
+    "containers": [
+        {
+            "accelerators": [
+                {
+                    "location": "src/krnl_sparse_matrix_acc.cpp", 
+                    "name": "krnl_sparse_matrix_acc"
+                }
+            ], 
+            "name": "krnl_sparse_matrix_acc",
+            "ldclflags": "--config PROJECT/krnl_sparse_matrix_acc.cfg"
+        }
+    ],
+    "launch": [
+        {
+            "cmd_args": "BUILD/krnl_sparse_matrix_acc.xclbin", 
+            "name": "generic launch for all flows"
+        }
+    ], 
+    "contributors": [
+        {
+            "url": "http://www.xilinx.com", 
+            "group": "Xilinx"
+        }
+    ], 
+    "testinfo": {
+        "profile": "no",
+        "disable": false,
+        "jobs": [
+            {
+                "index": 0,
+                "dependency": [],
+                "env": "",
+                "cmd": "",
+                "max_memory_MB": 32768,
+                "max_time_min": 300
+            }
+        ],
+        "targets": [
+            "vitis_sw_emu",
+            "vitis_hw_emu",
+            "vitis_hw"
+        ],
+        "category": "canary"
+    }
+}
