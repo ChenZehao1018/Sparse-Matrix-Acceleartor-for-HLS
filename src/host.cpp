@@ -199,8 +199,6 @@ int main(int argc, char* argv[]) {
     }
     cout << endl;
 
-    return 0;
-
     // invoke_kernel
     if (argc != 2) {
         printf("Usage: %s <XCLBIN> \n", argv[0]);
