@@ -361,7 +361,7 @@ int main(int argc, char* argv[]) {
     // OPENCL HOST CODE AREA ENDS
 
     cout << "kernel output: = ";
-    for (int i = 0; i < matrixC_vec_hls.size(); i++) {
+    for (size_t i = 0; i < matrixC_vec_hls.size(); i++) {
         cout << matrixC_vec_hls[i] << " ,";
     }
     cout << endl;
