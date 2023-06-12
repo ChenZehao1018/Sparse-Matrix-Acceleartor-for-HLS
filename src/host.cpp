@@ -172,14 +172,14 @@ int main(int argc, char* argv[]) {
     cout << endl;
 
     cout << "matrixA_hls_idx: ";
-    for (int i = 0; i < matrixA_hls_idx.size(); i++) {
+    for (int i = 0; i < matrixA_idx_hls.size(); i++) {
         cout << matrixA_hls_idx[i] << ", ";
     }
     cout << endl;
 
     int count = 0;
     cout << "matrixA_hls_vec: ";
-    for (int i = 0; i < matrixA_hls_vec.size(); i++) {
+    for (int i = 0; i < matrixA_vec_hls.size(); i++) {
         count += 1;
         cout << matrixA_hls_vec[i] << ", ";
     }
@@ -187,13 +187,13 @@ int main(int argc, char* argv[]) {
     cout << "count: " << count << endl;
 
     cout << "matrixB_hls_vec: ";
-    for (int i = 0; i < matrixB_hls_vec.size(); i++) {
+    for (int i = 0; i < matrixB_vec_hls.size(); i++) {
         cout << matrixB_hls_vec[i] << ", ";
     }
     cout << endl;
 
     cout << "matrixC_hls_vec: ";
-    for (int i = 0; i < matrixC_hls_vec.size(); i++) {
+    for (int i = 0; i < matrixC_vec_hls.size(); i++) {
         cout << matrixC_hls_vec[i] << ", ";
     }
     cout << endl;
