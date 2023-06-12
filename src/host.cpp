@@ -167,7 +167,7 @@ int main(int argc, char* argv[]) {
     std::string binaryFile = argv[1];
     cl_int err;
     cl::CommandQueue q;
-    std::string krnl_name = "sparse_matrix_mul_acc";
+    std::string krnl_name = "krnl_sparse_matrix_acc";
     std::vector<cl::Kernel> krnls(NUM_KERNEL);
     cl::Context context;
 
@@ -198,7 +198,7 @@ int main(int argc, char* argv[]) {
 
             for (int i = 0; i < NUM_KERNEL; i++) {
                 std::string cu_id = std::to_string(i + 1);
-                std::string krnl_name_full = krnl_name + ":{" + "sparse_matrix_mul_acc_" + cu_id + "}";
+                std::string krnl_name_full = krnl_name + ":{" + "krnl_sparse_matrix_acc_" + cu_id + "}";
 
                 printf("Creating a kernel [%s] for CU(%d)\n", krnl_name_full.c_str(), i + 1);
 

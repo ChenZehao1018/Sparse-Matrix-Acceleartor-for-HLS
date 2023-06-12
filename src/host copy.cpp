@@ -104,6 +104,12 @@ int main(int argc, char* argv[]) {
     double timeCpu = chrono::duration_cast<chrono::nanoseconds>(endCpuTime - startCpuTime).count();
     cout << "cpu calculation time: (" << timeCpu * 1000 << " msec)\n";
 
+    cout << "cpu matrixC ouput:= ";
+    for(int i = 0; i < matrixC.size(); i++){
+        cout << matrixC[i] << " ";
+    }
+    cout << endl;
+
     cout << "invoking kernel ...\n";
     int lenEdgeListPtr = edge_list_ptr.size();
     int lenEdgePtr = edge_list_ptr.back();
