@@ -61,6 +61,7 @@ void prepare_matrixC_FPGA(int M,
 
 // Main function to demonstrate reading a sparse matrix, generating dense matrices B and C, and preparing sparse matrix A for FPGA.
 int main(int argc, char* argv[]) {
+    printf("This is the host file\n");
     printf("start main function\n");
     char *filename = "example_matrix/example_matrix.mtx";
     FILE *file = fopen(filename, "r");
