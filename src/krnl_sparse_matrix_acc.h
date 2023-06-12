@@ -1,5 +1,4 @@
 #define NUM_WORDS 8
 #define NUM_PE 2
 #define WINDOW_SIZE 8
-#define N0 6
-#define DATASIZE 32
+#define N0 1

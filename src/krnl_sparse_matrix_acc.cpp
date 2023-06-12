@@ -191,6 +191,7 @@ void write_C(const int M,
 		}
 	}
 }
+
 extern "C" {
 void krnl_sparse_matrix_acc(int* HLSPtr_i,
 							uint32_t* matrixA_hls_idx,
