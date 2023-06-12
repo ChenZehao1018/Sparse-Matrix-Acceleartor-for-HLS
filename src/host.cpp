@@ -182,12 +182,12 @@ int main(int argc, char* argv[]) {
         OCL_CHECK(err, q = cl::CommandQueue(context, device,
                                             CL_QUEUE_OUT_OF_ORDER_EXEC_MODE_ENABLE | CL_QUEUE_PROFILING_ENABLE, &err));
 
-        std::cout << "Trying to program device[" << i << "]: " << device.getInfo<CL_DEVICE_NAME>() << std::endl;
+        cout << "Trying to program device[" << i << "]: " << device.getInfo<CL_DEVICE_NAME>() << endl;
         cl::Program program(context, {device}, bins, nullptr, &err);
         if (err != CL_SUCCESS) {
-            std::cout << "Failed to program device[" << i << "] with xclbin file!\n";
+            cout << "Failed to program device[" << i << "] with xclbin file!\n";
         } else {
-            std::cout << "Device[" << i << "]: program successful!\n";
+            cout << "Device[" << i << "]: program successful!\n";
             // Creating Kernel object using Compute unit names
 
             for (int i = 0; i < NUM_KERNEL; i++) {
@@ -208,7 +208,7 @@ int main(int argc, char* argv[]) {
         }
     }
     if (!valid_device) {
-        std::cout << "Failed to program any device found, exit!\n";
+        cout << "Failed to program any device found, exit!\n";
         exit(EXIT_FAILURE);
     }
     std::vector<cl_mem_ext_ptr_t> inBufExtHLSPtr(NUM_KERNEL);
@@ -309,10 +309,16 @@ int main(int argc, char* argv[]) {
 
     bool match = true;
 
-    std::cout << "kernel_time = " << kernel_time_in_sec << std::endl;
+    cout << "kernel_time = " << kernel_time_in_sec << endl;
     // OPENCL HOST CODE AREA ENDS
-    
-    std::cout << (match ? "TEST PASSED" : "TEST FAILED") << std::endl;
+
+    cout << "kernel output: = ";
+    for (int i = 0; i < matrixC_vec_hls.size(); i++) {
+        cout << matrixC_vec_hls[i] << " ,";
+    }
+    cout << endl;
+
+    cout << (match ? "TEST PASSED" : "TEST FAILED") << endl;
     return (match ? EXIT_SUCCESS : EXIT_FAILURE);
 }
 
