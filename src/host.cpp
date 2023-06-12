@@ -158,6 +158,48 @@ int main(int argc, char* argv[]) {
     int lenEdgeListPtr = edge_list_ptr.size();
     int lenEdgePtr = edge_list_ptr.back();
 
+    
+    cout << "lenEdgeListPtr: " << lenEdgeListPtr << endl;
+    cout << "lenEdgePtr: " << lenEdgePtr << endl;
+    cout << "M: " << M << endl;
+    cout << "K: " << K << endl;
+    cout << "N: " << N << endl;
+    
+    cout << "edge_list_ptr_hls: ";
+    for (int i = 0; i < edge_list_ptr_hls.size(); i++) {
+        cout << edge_list_ptr_hls[i] << ", ";
+    }
+    cout << endl;
+
+    cout << "matrixA_hls_idx: ";
+    for (int i = 0; i < matrixA_hls_idx.size(); i++) {
+        cout << matrixA_hls_idx[i] << ", ";
+    }
+    cout << endl;
+
+    int count = 0;
+    cout << "matrixA_hls_vec: ";
+    for (int i = 0; i < matrixA_hls_vec.size(); i++) {
+        count += 1;
+        cout << matrixA_hls_vec[i] << ", ";
+    }
+    cout << endl;
+    cout << "count: " << count << endl;
+
+    cout << "matrixB_hls_vec: ";
+    for (int i = 0; i < matrixB_hls_vec.size(); i++) {
+        cout << matrixB_hls_vec[i] << ", ";
+    }
+    cout << endl;
+
+    cout << "matrixC_hls_vec: ";
+    for (int i = 0; i < matrixC_hls_vec.size(); i++) {
+        cout << matrixC_hls_vec[i] << ", ";
+    }
+    cout << endl;
+
+    return 0;
+
     // invoke_kernel
     if (argc != 2) {
         printf("Usage: %s <XCLBIN> \n", argv[0]);
