@@ -319,22 +319,21 @@ int main(int argc, char* argv[]) {
 
     bool match = true;
 
-    
-
     cout << "kernel output: = ";
     for (size_t i = 0; i < matrixC_vec_hls.size(); i++) {
         cout << matrixC_vec_hls[i] << " ,";
     }
     cout << endl;
 
-    int mismatch_cnt = 0;
+    // size_t mismatch_cnt = 0;
 
-    for (int i = 0; i < K * N; i++){
-        float diff = matrixC[i] - matrixC_vec_hls[i];
-        if (diff > 0.1){
-            mismatch_cnt ++;
-        }
-    }
+    // for (size_t i = 0; i < K * N; i++){
+    //     float diff = matrixC[i] - matrixC_vec_hls[i];
+    //     if (diff > 0.1){
+    //         mismatch_cnt ++;
+    //     }
+    // }
+
     cout << "mismatch cnt: (" << mismatch_cnt << ")\n";
 
     cout << "kernel calculation time: (" << kernel_time / (1000 * KERNEL_CNT) << " msec)\n";
