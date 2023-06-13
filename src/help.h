@@ -44,7 +44,7 @@ void cpu_matrix_cal(const int M,
                     vector<int> &cscRowIdx, 
                     vector<float> &cscVal){
     matrixC.resize(M * N, 0.0);
-    for (int iter = 0; iter < K; iter++){
+    for (int iter = 0; iter < WINDOW_SIZE; iter++){
         for (int i = 0; i < M; i++){
             for (int j = cscColPtr[i]; j < cscColPtr[i + 1]; j++){
                 int rowIdx = cscRowIdx[j];
