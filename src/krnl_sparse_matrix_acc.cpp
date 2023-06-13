@@ -52,6 +52,7 @@ void calc_C_core(ap_uint<16> colIdxA_i,
 }
 
 void calc_C(int lenEdgeListPtr,
+			int N,
 			//stream from read_edge_list_ptr()
 			hls::stream<int> & fifoEdgeListPtr_i,
 			//stream from read_A()
@@ -67,12 +68,14 @@ void calc_C(int lenEdgeListPtr,
 	float matrixB_buffer[N0][NUM_WORDS];
 	//read matrixB element
 	for (int i = 0; i < NUM_WORDS; i++){
-		for (int j = 0; j < N0; j++){
+		for (int j = 0; j < N; j++){
 			if (!fifoMatrixB_i.empty()){
 				matrixB_buffer[j][i] = fifoMatrixB_i.read();
-			}else{
-				matrixB_buffer[j][i] = 0;
 			}
+		}
+		for (int j = N; j < N0; j++){
+#pragma HLS UNROLL factor=1
+			matrixB_buffer[j][i] = 0;
 		}
 	}
 
@@ -189,9 +192,12 @@ void write_C(const int M,
 #pragma HLS PIPELINE off
 			matrixC_o[j + i * N] =  fifoSortMatrixC_i[j].read();
 		}
+		for (int j = N; j < N0; j++){
+#pragma HLS UNROLL factor=1
+			fifoSortMatrixC_i[j].read();
+		}
 	}
 }
-
 extern "C" {
 void krnl_sparse_matrix_acc(int* HLSPtr_i,
 							uint32_t* matrixA_hls_idx,
@@ -246,9 +252,8 @@ void krnl_sparse_matrix_acc(int* HLSPtr_i,
 	read_edge_list_ptr(lenEdgeListPtr, HLSPtr_i, fifoEdgeListPtr);
 	read_A(lenEdgePtr, matrixA_hls_idx, matrixA_i, fifoMatrixAIdx, fifoMatrixA);
 	read_B(K, N, matrixB_i, fifoMatrixB);
-	calc_C(lenEdgeListPtr, fifoEdgeListPtr, fifoMatrixAIdx, fifoMatrixA, fifoMatrixB, fifoEdgeListPtr_calC, fifoMatrixCIdxArray, fifoCalcMatrixCArray);
+	calc_C(lenEdgeListPtr, N, fifoEdgeListPtr, fifoMatrixAIdx, fifoMatrixA, fifoMatrixB, fifoEdgeListPtr_calC, fifoMatrixCIdxArray, fifoCalcMatrixCArray);
 	sort_C(lenEdgeListPtr, fifoEdgeListPtr_calC, fifoMatrixCIdxArray, fifoCalcMatrixCArray, fifoSortMatrixCArray);
 	write_C(M, N, fifoSortMatrixCArray, matrixC_o);
 }
 }
-

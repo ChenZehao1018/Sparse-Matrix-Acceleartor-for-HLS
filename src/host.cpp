@@ -147,7 +147,7 @@ int main(int argc, char* argv[]) {
     cpu_matrix_cal(M, N, K, numElements, matrixB, matrixC, cscColPtr, cscRowIdx, cscVal);
     auto endCpuTime = chrono::steady_clock::now();
     double timeCpu = chrono::duration_cast<chrono::nanoseconds>(endCpuTime - startCpuTime).count();
-    cout << "cpu calculation time: (" << timeCpu * 1000 << " msec)\n";
+    cout << "cpu calculation time: (" << timeCpu / 1000 << " msec)\n";
 
     cout << "cpu matrixC ouput:= ";
     for(size_t i = 0; i < matrixC.size(); i++){
@@ -319,11 +319,11 @@ int main(int argc, char* argv[]) {
     }
     q.finish();
 
-    double kernel_time_in_sec = 0;
+    double kernel_time_in_msec = 0;
 
     std::chrono::duration<double> kernel_time(0);
 
-    auto kernel_start = std::chrono::high_resolution_clock::now();
+    auto kernel_start = std::chrono::steady_clock::now();
     for (int i = 0; i < NUM_KERNEL; i++) {
         // Setting the k_vadd Arguments
         OCL_CHECK(err, err = krnls[i].setArg(0, buffer_HLSPtr[i]));
@@ -340,12 +340,12 @@ int main(int argc, char* argv[]) {
         OCL_CHECK(err, err = q.enqueueTask(krnls[i]));
     }
     q.finish();
-    auto kernel_end = std::chrono::high_resolution_clock::now();
+    auto kernel_end = std::chrono::steady_clock::now();
 
-    kernel_time = std::chrono::duration<double>(kernel_end - kernel_start);
+    kernel_time = std::chrono::duration_cast<chrono::nanoseconds>(kernel_end - kernel_start);
 
-    kernel_time_in_sec = kernel_time.count();
-    kernel_time_in_sec /= NUM_KERNEL;
+    kernel_time_in_msec = kernel_time.count() / 1000;
+    kernel_time_in_msec /= NUM_KERNEL;
 
     // Copy Result from Device Global Memory to Host Local Memory
     for (int i = 0; i < NUM_KERNEL; i++) {
@@ -356,7 +356,7 @@ int main(int argc, char* argv[]) {
 
     bool match = true;
 
-    cout << "kernel_time = " << kernel_time_in_sec << endl;
+    cout << "kernel_time = " << kernel_time_in_msec << endl;
     // OPENCL HOST CODE AREA ENDS
 
     cout << "kernel output: = ";
