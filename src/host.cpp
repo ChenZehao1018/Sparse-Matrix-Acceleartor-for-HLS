@@ -151,7 +151,7 @@ int main(int argc, char* argv[]) {
 
     int count = 0;
     cout << "cpu matrixC ouput:= ";
-    for(int i = 0; i < matrixC.size(); i++){
+    for(size_t i = 0; i < matrixC.size(); i++){
         count += 1;
         cout << matrixC[i] << ", ";
     }
