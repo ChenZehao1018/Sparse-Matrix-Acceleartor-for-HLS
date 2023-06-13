@@ -305,7 +305,7 @@ int main(int argc, char* argv[]) {
     q.finish();
     auto kernel_end = std::chrono::steady_clock::now();
 
-    double kernel_time = std::chrono::duration<double>(kernel_end - kernel_start).count();
+    double kernel_time = chrono::duration_cast<chrono::nanoseconds>(kernel_end - kernel_start).count() / NUM_KERNEL;
 
 
     // Copy Result from Device Global Memory to Host Local Memory
@@ -314,8 +314,6 @@ int main(int argc, char* argv[]) {
                                                         CL_MIGRATE_MEM_OBJECT_HOST));
     }
     q.finish();
-
-    bool match = true;
 
     cout << "kernel output: = ";
     for (size_t i = 0; i < matrixC_vec_hls.size(); i++) {
@@ -334,10 +332,10 @@ int main(int argc, char* argv[]) {
 
     cout << "mismatch cnt: (" << mismatch_cnt << ")\n";
 
-    cout << "kernel calculation time: (" << kernel_time * (1000) << " msec)\n";
+    cout << "kernel calculation time: (" << kernel_time / (1000 * NUM_KERNEL) << " msec)\n";
 
-    cout << (match ? "TEST PASSED" : "TEST FAILED") << endl;
-    return (match ? EXIT_SUCCESS : EXIT_FAILURE);
+    cout << "TEST FINISHED";
+    return EXIT_SUCCESS;
 }
 
 void read_matrixA(char *filename, 
