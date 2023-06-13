@@ -164,7 +164,6 @@ int main(int argc, char* argv[]) {
 
     cout << "M: " << M << endl;
     cout << "K: " << K << endl;
-    cout << "N: " << N << endl;
     
 
     // invoke_kernel
