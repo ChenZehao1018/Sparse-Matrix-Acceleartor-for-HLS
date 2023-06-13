@@ -332,7 +332,7 @@ int main(int argc, char* argv[]) {
 
     cout << "mismatch cnt: (" << mismatch_cnt << ")\n";
 
-    cout << "kernel calculation time: (" << kernel_time / (1000 * NUM_KERNEL) << " msec)\n";
+    cout << "kernel calculation time: (" << kernel_time / 1000 << " msec)\n";
 
     cout << "TEST FINISHED";
     return EXIT_SUCCESS;
