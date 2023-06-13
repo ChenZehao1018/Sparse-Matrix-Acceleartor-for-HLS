@@ -58,6 +58,8 @@ void prepare_matrixC_FPGA(int M,
                           int N,
                           vector<float> &matrixC_vec);
 
+void 
+
 
 // Main function to demonstrate reading a sparse matrix, generating dense matrices B and C, and preparing sparse matrix A for FPGA.
 int main(int argc, char* argv[]) {
@@ -308,8 +310,6 @@ int main(int argc, char* argv[]) {
     double kernel_time = std::chrono::duration_cast<chrono::nanoseconds>(kernel_end - kernel_start).count();
 
 
-    kernel_time /= NUM_KERNEL;
-
     // Copy Result from Device Global Memory to Host Local Memory
     for (int i = 0; i < NUM_KERNEL; i++) {
         OCL_CHECK(err, err = q.enqueueMigrateMemObjects({buffer_matrixC[i]},
@@ -319,14 +319,25 @@ int main(int argc, char* argv[]) {
 
     bool match = true;
 
-    cout << "kernel calculation time: (" << kernel_time / 1000 << " msec)\n";
-    // OPENCL HOST CODE AREA ENDS
+    
 
     cout << "kernel output: = ";
     for (size_t i = 0; i < matrixC_vec_hls.size(); i++) {
         cout << matrixC_vec_hls[i] << " ,";
     }
     cout << endl;
+
+    int mismatch_cnt = 0;
+
+    for (int i = 0; i < K * N; i++){
+        float diff = matrixC[i] - matrixC_vec_hls[i];
+        if (diff > 0.1){
+            mismatch_cnt ++;
+        }
+    }
+    cout << "mismatch cnt: (" << mismatch_cnt << ")\n";
+
+    cout << "kernel calculation time: (" << kernel_time / (1000 * KERNEL_CNT) << " msec)\n";
 
     cout << (match ? "TEST PASSED" : "TEST FAILED") << endl;
     return (match ? EXIT_SUCCESS : EXIT_FAILURE);
