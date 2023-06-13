@@ -58,8 +58,6 @@ void prepare_matrixC_FPGA(int M,
                           int N,
                           vector<float> &matrixC_vec);
 
-void 
-
 
 // Main function to demonstrate reading a sparse matrix, generating dense matrices B and C, and preparing sparse matrix A for FPGA.
 int main(int argc, char* argv[]) {
@@ -325,14 +323,14 @@ int main(int argc, char* argv[]) {
     }
     cout << endl;
 
-    // size_t mismatch_cnt = 0;
+    size_t mismatch_cnt = 0;
 
-    // for (size_t i = 0; i < K * N; i++){
-    //     float diff = matrixC[i] - matrixC_vec_hls[i];
-    //     if (diff > 0.1){
-    //         mismatch_cnt ++;
-    //     }
-    // }
+    for (size_t i = 0; i < K * N; i++){
+        float diff = matrixC[i] - matrixC_vec_hls[i];
+        if (diff > 0.1){
+            mismatch_cnt ++;
+        }
+    }
 
     cout << "mismatch cnt: (" << mismatch_cnt << ")\n";
 
