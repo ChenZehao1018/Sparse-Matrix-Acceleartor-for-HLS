@@ -143,9 +143,9 @@ int main(int argc, char* argv[]) {
 
     vector<float> matrixC;
     cout << "estimating time running calculation on cpu ...\n";
-    auto startCpuTime = chrono::high_resolution_clock::now();
+    auto startCpuTime = chrono::steady_clock::now();
     cpu_matrix_cal(M, N, K, numElements, matrixB, matrixC, cscColPtr, cscRowIdx, cscVal);
-    auto endCpuTime = chrono::high_resolution_clock::now();
+    auto endCpuTime = chrono::steady_clock::now();
     double timeCpu = chrono::duration_cast<chrono::nanoseconds>(endCpuTime - startCpuTime).count();
     cout << "cpu calculation time: (" << timeCpu / 1000 << " msec)\n";
 
@@ -286,7 +286,7 @@ int main(int argc, char* argv[]) {
     }
     q.finish();
 
-    auto kernel_start = std::chrono::high_resolution_clock::now();
+    auto kernel_start = std::chrono::steady_clock::now();
     for (int i = 0; i < NUM_KERNEL; i++) {
         // Setting the k_vadd Arguments
         OCL_CHECK(err, err = krnls[i].setArg(0, buffer_HLSPtr[i]));
@@ -303,7 +303,7 @@ int main(int argc, char* argv[]) {
         OCL_CHECK(err, err = q.enqueueTask(krnls[i]));
     }
     q.finish();
-    auto kernel_end = std::chrono::high_resolution_clock::now();
+    auto kernel_end = std::chrono::steady_clock::now();
 
     double kernel_time = std::chrono::duration_cast<chrono::nanoseconds>(kernel_end - kernel_start).count();
 
