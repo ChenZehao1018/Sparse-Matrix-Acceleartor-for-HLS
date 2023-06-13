@@ -63,7 +63,7 @@ void prepare_matrixC_FPGA(int M,
 int main(int argc, char* argv[]) {
     printf("This is the host file\n");
     printf("start main function\n");
-    char *filename = "example_matrix/example_matrix.mtx";
+    char *filename = "beacxc/beacxc.mtx";
     FILE *file = fopen(filename, "r");
     if(!file){
         cout << "file does not exist!" << endl;
@@ -143,61 +143,29 @@ int main(int argc, char* argv[]) {
 
     vector<float> matrixC;
     cout << "estimating time running calculation on cpu ...\n";
-    auto startCpuTime = chrono::steady_clock::now();
+    auto startCpuTime = chrono::high_resolution_clock::now();
     cpu_matrix_cal(M, N, K, numElements, matrixB, matrixC, cscColPtr, cscRowIdx, cscVal);
-    auto endCpuTime = chrono::steady_clock::now();
+    auto endCpuTime = chrono::high_resolution_clock::now();
     double timeCpu = chrono::duration_cast<chrono::nanoseconds>(endCpuTime - startCpuTime).count();
     cout << "cpu calculation time: (" << timeCpu / 1000 << " msec)\n";
 
+    int count = 0;
     cout << "cpu matrixC ouput:= ";
-    for(size_t i = 0; i < matrixC.size(); i++){
-        cout << matrixC[i] << " ";
+    for(int i = 0; i < matrixC.size(); i++){
+        count += 1;
+        cout << matrixC[i] << ", ";
     }
     cout << endl;
+    cout << "count: " << count << endl;
 
     cout << "invoking kernel ...\n";
     int lenEdgeListPtr = edge_list_ptr.size();
     int lenEdgePtr = edge_list_ptr.back();
 
-    
-    cout << "lenEdgeListPtr: " << lenEdgeListPtr << endl;
-    cout << "lenEdgePtr: " << lenEdgePtr << endl;
     cout << "M: " << M << endl;
     cout << "K: " << K << endl;
     cout << "N: " << N << endl;
     
-    cout << "edge_list_ptr_hls: ";
-    for (size_t i = 0; i < edge_list_ptr_hls.size(); i++) {
-        cout << edge_list_ptr_hls[i] << ", ";
-    }
-    cout << endl;
-
-    cout << "matrixA_hls_idx: ";
-    for (size_t i = 0; i < matrixA_idx_hls.size(); i++) {
-        cout << matrixA_idx_hls[i] << ", ";
-    }
-    cout << endl;
-
-    int count = 0;
-    cout << "matrixA_hls_vec: ";
-    for (size_t i = 0; i < matrixA_vec_hls.size(); i++) {
-        count += 1;
-        cout << matrixA_vec_hls[i] << ", ";
-    }
-    cout << endl;
-    cout << "count: " << count << endl;
-
-    cout << "matrixB_hls_vec: ";
-    for (size_t i = 0; i < matrixB_vec_hls.size(); i++) {
-        cout << matrixB_vec_hls[i] << ", ";
-    }
-    cout << endl;
-
-    cout << "matrixC_hls_vec: ";
-    for (size_t i = 0; i < matrixC_vec_hls.size(); i++) {
-        cout << matrixC_vec_hls[i] << ", ";
-    }
-    cout << endl;
 
     // invoke_kernel
     if (argc != 2) {
@@ -319,11 +287,7 @@ int main(int argc, char* argv[]) {
     }
     q.finish();
 
-    double kernel_time_in_msec = 0;
-
-    std::chrono::duration<double> kernel_time(0);
-
-    auto kernel_start = std::chrono::steady_clock::now();
+    auto kernel_start = std::chrono::high_resolution_clock::now();
     for (int i = 0; i < NUM_KERNEL; i++) {
         // Setting the k_vadd Arguments
         OCL_CHECK(err, err = krnls[i].setArg(0, buffer_HLSPtr[i]));
@@ -340,12 +304,12 @@ int main(int argc, char* argv[]) {
         OCL_CHECK(err, err = q.enqueueTask(krnls[i]));
     }
     q.finish();
-    auto kernel_end = std::chrono::steady_clock::now();
+    auto kernel_end = std::chrono::high_resolution_clock::now();
 
-    kernel_time = std::chrono::duration_cast<chrono::nanoseconds>(kernel_end - kernel_start);
+    double kernel_time = std::chrono::duration_cast<chrono::nanoseconds>(kernel_end - kernel_start).count();
 
-    kernel_time_in_msec = kernel_time.count() / 1000;
-    kernel_time_in_msec /= NUM_KERNEL;
+
+    kernel_time /= NUM_KERNEL;
 
     // Copy Result from Device Global Memory to Host Local Memory
     for (int i = 0; i < NUM_KERNEL; i++) {
@@ -356,7 +320,7 @@ int main(int argc, char* argv[]) {
 
     bool match = true;
 
-    cout << "kernel_time = " << kernel_time_in_msec << endl;
+    cout << "kernel calculation time: (" << kernel_time / 1000 << " msec)\n";
     // OPENCL HOST CODE AREA ENDS
 
     cout << "kernel output: = ";

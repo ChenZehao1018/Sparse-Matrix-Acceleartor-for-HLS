@@ -54,7 +54,7 @@ void prepare_matrixC_FPGA(int M,
 // Main function to demonstrate reading a sparse matrix, generating dense matrices B and C, and preparing sparse matrix A for FPGA.
 int main(int argc, char* argv[]) {
     printf("start main function\n");
-    char *filename = "example_matrix/example_matrix.mtx";
+    char *filename = "beacxc/beacxc.mtx";
     FILE *file = fopen(filename, "r");
     if(!file){
         cout << "file does not exist!" << endl;
@@ -104,52 +104,55 @@ int main(int argc, char* argv[]) {
     double timeCpu = chrono::duration_cast<chrono::nanoseconds>(endCpuTime - startCpuTime).count();
     cout << "cpu calculation time: (" << timeCpu * 1000 << " msec)\n";
 
+    int count = 0;
     cout << "cpu matrixC ouput:= ";
     for(int i = 0; i < matrixC.size(); i++){
-        cout << matrixC[i] << " ";
-    }
-    cout << endl;
-
-    cout << "invoking kernel ...\n";
-    int lenEdgeListPtr = edge_list_ptr.size();
-    int lenEdgePtr = edge_list_ptr.back();
-    
-    cout << "lenEdgeListPtr: " << lenEdgeListPtr << endl;
-    cout << "lenEdgePtr: " << lenEdgePtr << endl;
-
-    
-    cout << "edge_list_ptr_hls: ";
-    for (int i = 0; i < edge_list_ptr_hls.size(); i++) {
-        cout << edge_list_ptr_hls[i] << ", ";
-    }
-    cout << endl;
-
-    cout << "matrixA_hls_idx: ";
-    for (int i = 0; i < matrixA_hls_idx.size(); i++) {
-        cout << matrixA_hls_idx[i] << ", ";
-    }
-    cout << endl;
-
-    int count = 0;
-    cout << "matrixA_hls_vec: ";
-    for (int i = 0; i < matrixA_hls_vec.size(); i++) {
         count += 1;
-        cout << matrixA_hls_vec[i] << ", ";
+        cout << matrixC[i] << ", ";
     }
     cout << endl;
     cout << "count: " << count << endl;
 
-    cout << "matrixB_hls_vec: ";
-    for (int i = 0; i < matrixB_hls_vec.size(); i++) {
-        cout << matrixB_hls_vec[i] << ", ";
-    }
-    cout << endl;
+    // cout << "invoking kernel ...\n";
+    // int lenEdgeListPtr = edge_list_ptr.size();
+    // int lenEdgePtr = edge_list_ptr.back();
+    
+    // cout << "lenEdgeListPtr: " << lenEdgeListPtr << endl;
+    // cout << "lenEdgePtr: " << lenEdgePtr << endl;
 
-    cout << "matrixC_hls_vec: ";
-    for (int i = 0; i < matrixC_hls_vec.size(); i++) {
-        cout << matrixC_hls_vec[i] << ", ";
-    }
-    cout << endl;
+    
+    // cout << "edge_list_ptr_hls: ";
+    // for (int i = 0; i < edge_list_ptr_hls.size(); i++) {
+    //     cout << edge_list_ptr_hls[i] << ", ";
+    // }
+    // cout << endl;
+
+    // cout << "matrixA_hls_idx: ";
+    // for (int i = 0; i < matrixA_hls_idx.size(); i++) {
+    //     cout << matrixA_hls_idx[i] << ", ";
+    // }
+    // cout << endl;
+
+    // int count = 0;
+    // cout << "matrixA_hls_vec: ";
+    // for (int i = 0; i < matrixA_hls_vec.size(); i++) {
+    //     count += 1;
+    //     cout << matrixA_hls_vec[i] << ", ";
+    // }
+    // cout << endl;
+    // cout << "count: " << count << endl;
+
+    // cout << "matrixB_hls_vec: ";
+    // for (int i = 0; i < matrixB_hls_vec.size(); i++) {
+    //     cout << matrixB_hls_vec[i] << ", ";
+    // }
+    // cout << endl;
+
+    // cout << "matrixC_hls_vec: ";
+    // for (int i = 0; i < matrixC_hls_vec.size(); i++) {
+    //     cout << matrixC_hls_vec[i] << ", ";
+    // }
+    // cout << endl;
 
     return 0;
 }
