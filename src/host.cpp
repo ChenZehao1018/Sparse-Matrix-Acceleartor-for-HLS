@@ -305,7 +305,7 @@ int main(int argc, char* argv[]) {
     q.finish();
     auto kernel_end = std::chrono::steady_clock::now();
 
-    double kernel_time = std::chrono::duration_cast<chrono::nanoseconds>(kernel_end - kernel_start).count();
+    double kernel_time = std::chrono::duration<double>(kernel_end - kernel_start).count();
 
 
     // Copy Result from Device Global Memory to Host Local Memory
@@ -334,7 +334,7 @@ int main(int argc, char* argv[]) {
 
     cout << "mismatch cnt: (" << mismatch_cnt << ")\n";
 
-    cout << "kernel calculation time: (" << kernel_time / (1000 * KERNEL_CNT) << " msec)\n";
+    cout << "kernel calculation time: (" << kernel_time * (1000) << " msec)\n";
 
     cout << (match ? "TEST PASSED" : "TEST FAILED") << endl;
     return (match ? EXIT_SUCCESS : EXIT_FAILURE);
