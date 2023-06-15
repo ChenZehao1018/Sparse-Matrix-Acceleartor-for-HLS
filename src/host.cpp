@@ -148,15 +148,6 @@ int main(int argc, char* argv[]) {
     auto endCpuTime = chrono::steady_clock::now();
     double timeCpu = chrono::duration_cast<chrono::nanoseconds>(endCpuTime - startCpuTime).count();
 
-    int count = 0;
-    cout << "cpu matrixC ouput:= ";
-    for(size_t i = 0; i < matrixC.size(); i++){
-        count += 1;
-        cout << matrixC[i] << ", ";
-    }
-    cout << endl;
-    cout << "count: " << count << endl;
-
     cout << "invoking kernel ...\n";
     int lenEdgeListPtr = edge_list_ptr.size();
     int lenEdgePtr = edge_list_ptr.back();
@@ -311,12 +302,6 @@ int main(int argc, char* argv[]) {
     }
     q.finish();
     auto write_end = std::chrono::steady_clock::now();
-    cout << "kernel output: = ";
-
-    for (size_t i = 0; i < matrixC_vec_hls.size(); i++) {
-        cout << matrixC_vec_hls[i] << " ,";
-    }
-    cout << endl;
 
     size_t mismatch_cnt = 0;
 
