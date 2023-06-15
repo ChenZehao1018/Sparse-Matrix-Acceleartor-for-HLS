@@ -141,12 +141,21 @@ int main(int argc, char* argv[]) {
     }
     cout << "preparing sparse C done\n";
 
-    vector<float> matrixC;
+    vector<float> matrixC_col;
     cout << "estimating time running calculation on cpu ...\n";
     auto startCpuTime = chrono::steady_clock::now();
-    cpu_matrix_cal(M, N, K, numElements, matrixB, matrixC, cscColPtr, cscRowIdx, cscVal);
+    cpu_matrix_cal(M, N, K, numElements, matrixB, matrixC_col, cscColPtr, cscRowIdx, cscVal);
     auto endCpuTime = chrono::steady_clock::now();
     double timeCpu = chrono::duration_cast<chrono::nanoseconds>(endCpuTime - startCpuTime).count();
+
+    vector<float> matrixC;
+    matrixC.resize(matrixC_col.size(), 0);
+    //re-arrange matrixC
+    for(int i = 0; i < M; i++){
+        for (int j = 0; j < N; j++){
+            matrixC[j + i * N] = matrixC_col[i + j * M];
+        }
+    }
 
     cout << "invoking kernel ...\n";
     int lenEdgeListPtr = edge_list_ptr.size();

@@ -54,7 +54,7 @@ void prepare_matrixC_FPGA(int M,
 // Main function to demonstrate reading a sparse matrix, generating dense matrices B and C, and preparing sparse matrix A for FPGA.
 int main(int argc, char* argv[]) {
     printf("start main function\n");
-    char *filename = "beacxc/beacxc.mtx";
+    char *filename = "example_matrix/example_matrix.mtx";
     FILE *file = fopen(filename, "r");
     if(!file){
         cout << "file does not exist!" << endl;
@@ -63,7 +63,7 @@ int main(int argc, char* argv[]) {
         fclose(file);
     }
     int M, K, N, numElements;
-    N = 1;
+    N = 3;
     bool matrixType = false;
     vector<int> cscColPtr;
     vector<int> cscRowIdx;
@@ -96,13 +96,22 @@ int main(int argc, char* argv[]) {
     prepare_matrixC_FPGA(M, N, matrixC_hls_vec);
     cout << "preparing sparse C done\n";
 
-    vector<float> matrixC;
+    vector<float> matrixC_col;
     cout << "estimating time running calculation on cpu ...\n";
     auto startCpuTime = chrono::steady_clock::now();
-    cpu_matrix_cal(M, N, K, numElements, matrixB, matrixC, cscColPtr, cscRowIdx, cscVal);
+    cpu_matrix_cal(M, N, K, numElements, matrixB, matrixC_col, cscColPtr, cscRowIdx, cscVal);
     auto endCpuTime = chrono::steady_clock::now();
     double timeCpu = chrono::duration_cast<chrono::nanoseconds>(endCpuTime - startCpuTime).count();
     cout << "cpu calculation time: (" << timeCpu * 1000 << " msec)\n";
+
+    vector<float> matrixC;
+    matrixC.resize(matrixC_col.size(), 0);
+    //re-arrange matrixC
+    for(int i = 0; i < M; i++){
+        for (int j = 0; j < N; j++){
+            matrixC[j + i * N] = matrixC_col[i + j * M];
+        }
+    }
 
     int count = 0;
     cout << "cpu matrixC ouput:= ";
