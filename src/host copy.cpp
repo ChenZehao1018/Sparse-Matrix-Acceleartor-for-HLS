@@ -63,7 +63,7 @@ int main(int argc, char* argv[]) {
         fclose(file);
     }
     int M, K, N, numElements;
-    N = 3;
+    N = 10;
     bool matrixType = false;
     vector<int> cscColPtr;
     vector<int> cscRowIdx;
@@ -151,11 +151,11 @@ int main(int argc, char* argv[]) {
     // cout << endl;
     // cout << "count: " << count << endl;
 
-    // cout << "matrixB_hls_vec: ";
-    // for (int i = 0; i < matrixB_hls_vec.size(); i++) {
-    //     cout << matrixB_hls_vec[i] << ", ";
-    // }
-    // cout << endl;
+    cout << "matrixB_hls_vec: ";
+    for (int i = 0; i < matrixB_hls_vec.size(); i++) {
+        cout << matrixB_hls_vec[i] << ", ";
+    }
+    cout << endl;
 
     // cout << "matrixC_hls_vec: ";
     // for (int i = 0; i < matrixC_hls_vec.size(); i++) {
