@@ -50,7 +50,7 @@ void cpu_matrix_cal(const int M,
                 int rowIdx = cscRowIdx[j];
                 float value = cscVal[j];
                 for (int n = 0; n < N; n++){
-                    matrixC[rowIdx + M * n] += value * matrixB[i + K * n];
+                    matrixC[rowIdx + M * n] = value * matrixB[i + K * n];
                 }
             }
         }

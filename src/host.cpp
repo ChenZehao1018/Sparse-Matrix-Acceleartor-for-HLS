@@ -147,7 +147,6 @@ int main(int argc, char* argv[]) {
     cpu_matrix_cal(M, N, K, numElements, matrixB, matrixC, cscColPtr, cscRowIdx, cscVal);
     auto endCpuTime = chrono::steady_clock::now();
     double timeCpu = chrono::duration_cast<chrono::nanoseconds>(endCpuTime - startCpuTime).count();
-    cout << "cpu calculation time: (" << timeCpu / 1000 << " msec)\n";
 
     int count = 0;
     cout << "cpu matrixC ouput:= ";
@@ -332,8 +331,8 @@ int main(int argc, char* argv[]) {
     double kernel_time = chrono::duration_cast<chrono::nanoseconds>(kernel_end - kernel_start).count() / NUM_KERNEL;
     double write_time = chrono::duration_cast<chrono::nanoseconds>(write_end - write_start).count() / NUM_KERNEL;
 
+    cout << "cpu calculation time: (" << timeCpu / 1000 << " msec)\n";
     cout << "mismatch cnt: (" << mismatch_cnt << ")\n";
-
     cout << "read memory time: (" << read_time / 1000 << " msec)\n";
     cout << "kernel calculation time: (" << kernel_time / 1000 << " msec)\n";
     cout << "write memory time: (" << write_time / 1000 << " msec)\n";
