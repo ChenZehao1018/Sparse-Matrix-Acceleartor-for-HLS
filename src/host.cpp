@@ -237,8 +237,6 @@ int main(int argc, char* argv[]) {
     std::vector<cl::Buffer> buffer_matrixB(NUM_KERNEL);
     std::vector<cl::Buffer> buffer_matrixC(NUM_KERNEL);
 
-
-    //why 4?
     for (int i = 0; i < NUM_KERNEL; i++) {
         inBufExtHLSPtr[i].obj = edge_list_ptr_hls.data();
         inBufExtHLSPtr[i].param = 0;
@@ -260,7 +258,7 @@ int main(int argc, char* argv[]) {
         outBufExtMatrixC[i].param = 0;
         outBufExtMatrixC[i].flags = pc[(i * 4) + 4];
     }
-
+    
     for (int i = 0; i < NUM_KERNEL; i++) {
         OCL_CHECK(err,
                   buffer_HLSPtr[i] = cl::Buffer(context, CL_MEM_READ_ONLY | CL_MEM_EXT_PTR_XILINX | CL_MEM_USE_HOST_PTR,
@@ -278,13 +276,14 @@ int main(int argc, char* argv[]) {
                   buffer_matrixC[i] = cl::Buffer(context, CL_MEM_READ_ONLY | CL_MEM_EXT_PTR_XILINX | CL_MEM_USE_HOST_PTR,
                                                 sizeof(float) * matrixC_vec_hls.size(), &outBufExtMatrixC[i], &err));
     }
-
+    auto read_start = std::chrono::steady_clock::now();
     // Copy input data to Device Global Memory
     for (int i = 0; i < NUM_KERNEL; i++) {
         OCL_CHECK(err,
                   err = q.enqueueMigrateMemObjects({buffer_HLSPtr[i], buffer_matrixAIdx[i], buffer_matrixA[i], buffer_matrixB[i]}, 0 /* 0 means from host*/));
     }
     q.finish();
+    auto read_end = std::chrono::steady_clock::now();
 
     auto kernel_start = std::chrono::steady_clock::now();
     for (int i = 0; i < NUM_KERNEL; i++) {
@@ -305,17 +304,16 @@ int main(int argc, char* argv[]) {
     q.finish();
     auto kernel_end = std::chrono::steady_clock::now();
 
-    double kernel_time = chrono::duration_cast<chrono::nanoseconds>(kernel_end - kernel_start).count() / NUM_KERNEL;
-
-
+    auto write_start = std::chrono::steady_clock::now();
     // Copy Result from Device Global Memory to Host Local Memory
     for (int i = 0; i < NUM_KERNEL; i++) {
         OCL_CHECK(err, err = q.enqueueMigrateMemObjects({buffer_matrixC[i]},
                                                         CL_MIGRATE_MEM_OBJECT_HOST));
     }
     q.finish();
-
+    auto write_end = std::chrono::steady_clock::now();
     cout << "kernel output: = ";
+
     for (size_t i = 0; i < matrixC_vec_hls.size(); i++) {
         cout << matrixC_vec_hls[i] << " ,";
     }
@@ -330,9 +328,15 @@ int main(int argc, char* argv[]) {
         }
     }
 
+    double read_time = chrono::duration_cast<chrono::nanoseconds>(read_end - read_start).count() / NUM_KERNEL;
+    double kernel_time = chrono::duration_cast<chrono::nanoseconds>(kernel_end - kernel_start).count() / NUM_KERNEL;
+    double write_time = chrono::duration_cast<chrono::nanoseconds>(write_end - write_start).count() / NUM_KERNEL;
+
     cout << "mismatch cnt: (" << mismatch_cnt << ")\n";
 
+    cout << "read memory time: (" << read_time / 1000 << " msec)\n";
     cout << "kernel calculation time: (" << kernel_time / 1000 << " msec)\n";
+    cout << "write memory time: (" << write_time / 1000 << " msec)\n";
 
     cout << "TEST FINISHED";
     return EXIT_SUCCESS;
