@@ -54,7 +54,7 @@ void prepare_matrixC_FPGA(int M,
 // Main function to demonstrate reading a sparse matrix, generating dense matrices B and C, and preparing sparse matrix A for FPGA.
 int main(int argc, char* argv[]) {
     printf("start main function\n");
-    char *filename = "example_matrix/example_matrix.mtx";
+    char *filename = "nasa4704/nasa4704.mtx";
     FILE *file = fopen(filename, "r");
     if(!file){
         cout << "file does not exist!" << endl;
@@ -63,7 +63,7 @@ int main(int argc, char* argv[]) {
         fclose(file);
     }
     int M, K, N, numElements;
-    N = 10;
+    N = 1;
     bool matrixType = false;
     vector<int> cscColPtr;
     vector<int> cscRowIdx;
@@ -113,14 +113,14 @@ int main(int argc, char* argv[]) {
         }
     }
 
-    int count = 0;
-    cout << "cpu matrixC ouput:= ";
-    for(int i = 0; i < matrixC.size(); i++){
-        count += 1;
-        cout << matrixC[i] << ", ";
-    }
-    cout << endl;
-    cout << "count: " << count << endl;
+    // int count = 0;
+    // cout << "cpu matrixC ouput:= ";
+    // for(int i = 0; i < matrixC.size(); i++){
+    //     count += 1;
+    //     cout << matrixC[i] << ", ";
+    // }
+    // cout << endl;
+    // cout << "count: " << count << endl;
 
     // cout << "invoking kernel ...\n";
     // int lenEdgeListPtr = edge_list_ptr.size();
@@ -151,11 +151,11 @@ int main(int argc, char* argv[]) {
     // cout << endl;
     // cout << "count: " << count << endl;
 
-    cout << "matrixB_hls_vec: ";
-    for (int i = 0; i < matrixB_hls_vec.size(); i++) {
-        cout << matrixB_hls_vec[i] << ", ";
-    }
-    cout << endl;
+    // cout << "matrixB_hls_vec: ";
+    // for (int i = 0; i < matrixB_hls_vec.size(); i++) {
+    //     cout << matrixB_hls_vec[i] << ", ";
+    // }
+    // cout << endl;
 
     // cout << "matrixC_hls_vec: ";
     // for (int i = 0; i < matrixC_hls_vec.size(); i++) {
