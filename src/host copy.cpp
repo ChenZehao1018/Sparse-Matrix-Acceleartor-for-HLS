@@ -54,7 +54,7 @@ void prepare_matrixC_FPGA(int M,
 // Main function to demonstrate reading a sparse matrix, generating dense matrices B and C, and preparing sparse matrix A for FPGA.
 int main(int argc, char* argv[]) {
     printf("start main function\n");
-    char *filename = "nasa4704/nasa4704.mtx";
+    char *filename = "beacxc/beacxc.mtx";
     FILE *file = fopen(filename, "r");
     if(!file){
         cout << "file does not exist!" << endl;
@@ -63,7 +63,7 @@ int main(int argc, char* argv[]) {
         fclose(file);
     }
     int M, K, N, numElements;
-    N = 1;
+    N = 4;
     bool matrixType = false;
     vector<int> cscColPtr;
     vector<int> cscRowIdx;
@@ -102,7 +102,7 @@ int main(int argc, char* argv[]) {
     cpu_matrix_cal(M, N, K, numElements, matrixB, matrixC_col, cscColPtr, cscRowIdx, cscVal);
     auto endCpuTime = chrono::steady_clock::now();
     double timeCpu = chrono::duration_cast<chrono::nanoseconds>(endCpuTime - startCpuTime).count();
-    cout << "cpu calculation time: (" << timeCpu * 1000 << " msec)\n";
+    cout << "cpu calculation time: (" << timeCpu / 1000 << " msec)\n";
 
     vector<float> matrixC;
     matrixC.resize(matrixC_col.size(), 0);

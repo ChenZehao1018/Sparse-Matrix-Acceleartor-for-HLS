@@ -73,7 +73,7 @@ int main(int argc, char* argv[]) {
     }
 
     int M, K, N, numElements;
-    N = 5;
+    N = 4;
     bool matrixType = false;
     vector<int> cscColPtr;
     vector<int> cscRowIdx;
