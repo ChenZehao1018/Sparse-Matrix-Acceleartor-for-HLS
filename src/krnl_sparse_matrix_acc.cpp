@@ -4,8 +4,8 @@
 #include <hls_vector.h>
 #include "krnl_sparse_matrix_acc.h"
 
-void read_edge_list_ptr(int lenEdgeListPtr,
-						int* HLSPtr_i,
+void read_edge_list_ptr(const unsigned int lenEdgeListPtr,
+						const int* HLSPtr_i,
                         hls::stream<int> & fifoEdgeListPtr_o
                         ) {
 	ptr_rd:
@@ -15,9 +15,9 @@ void read_edge_list_ptr(int lenEdgeListPtr,
 	}
 }
 
-void read_A(int lenEdgePtr,
-			uint32_t* matrixA_hls_idx,
-			float* matrixA_i,
+void read_A(const unsigned int lenEdgePtr,
+			const uint32_t* matrixA_hls_idx,
+			const float* matrixA_i,
 			hls::stream<uint32_t> & fifoMatrixAIdx_o,
             hls::stream<float> & fifoMatrixA_o
             ) {
@@ -30,9 +30,9 @@ void read_A(int lenEdgePtr,
 	}
 }
 
-void read_B(int K,
-        	int N,
-			float* matrixB_i,
+void read_B(const unsigned int K,
+			const unsigned int N,
+			const float* matrixB_i,
             hls::stream<float> & fifoMatrixB_o
             ) {
 	int dataSize = K * N;
@@ -212,17 +212,17 @@ void write_C(const int M,
 		}
 	}
 }
-
-void krnl_sparse_matrix_acc(int* HLSPtr_i,
-							uint32_t* matrixA_hls_idx,
-							float* matrixA_i,
-							float* matrixB_i,
+extern "C" {
+void krnl_sparse_matrix_acc(const int* HLSPtr_i,
+							const uint32_t* matrixA_hls_idx,
+							const float* matrixA_i,
+							const float* matrixB_i,
 							float* matrixC_o,
-							int lenEdgeListPtr,
-							int lenEdgePtr,
-							int M,
-							int K,
-							int N
+							const unsigned int lenEdgeListPtr,
+							const unsigned int lenEdgePtr,
+							const unsigned int M,
+							const unsigned int K,
+							const unsigned int N
 							) {
 #pragma HLS INTERFACE m_axi port = HLSPtr_i offset = slave bundle = gmem0
 #pragma HLS INTERFACE m_axi port = matrixA_hls_idx offset = slave bundle = gmem1
@@ -270,4 +270,4 @@ void krnl_sparse_matrix_acc(int* HLSPtr_i,
 	sort_C(lenEdgeListPtr, fifoEdgeListPtr_calC, fifoMatrixCIdxArray, fifoCalcMatrixCArray, fifoSortMatrixCArray);
 	write_C(M, N, fifoSortMatrixCArray, matrixC_o);
 }
-
+}
