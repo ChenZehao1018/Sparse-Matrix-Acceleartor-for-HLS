@@ -10,7 +10,8 @@ void read_edge_list_ptr(const unsigned int lenEdgeListPtr,
                         ) {
 	ptr_rd:
 	for (int i = 0; i < lenEdgeListPtr; i++){
-#pragma HLS PIPELINE off
+#pragma HLS PIPELINE II=1
+#pragma HLS UNROLL factor=1
 		fifoEdgeListPtr_o.write(HLSPtr_i[i]);
 	}
 }
@@ -24,7 +25,8 @@ void read_A(const unsigned int lenEdgePtr,
 	int dataSize = NUM_PE * lenEdgePtr;
 	matrixA_rd:
 	for (int i = 0; i < dataSize; i++) {
-#pragma HLS PIPELINE off
+#pragma HLS PIPELINE II=1
+#pragma HLS UNROLL factor=1
 			fifoMatrixAIdx_o.write(matrixA_hls_idx[i]);
 			fifoMatrixA_o.write(matrixA_i[i]);
 	}
@@ -38,7 +40,8 @@ void read_B(const unsigned int K,
 	int dataSize = K * N;
 	matrixB_rd:
 	for (int i = 0; i < dataSize; i++) {
-#pragma HLS PIPELINE off
+#pragma HLS PIPELINE II=1
+#pragma HLS UNROLL factor=1
 		fifoMatrixB_o.write(matrixB_i[i]);
 	}
 }
@@ -197,7 +200,8 @@ void write_C(const int M,
 	for (int i = 0; i < M; i++){
 #pragma HLS loop_flatten off
 		for (int j = 0; j < N; j++){
-#pragma HLS PIPELINE off
+#pragma HLS PIPELINE II=1
+#pragma HLS UNROLL factor=1
 			matrixC_o[j + i * N] =  fifoSortMatrixC_i[j].read();
 		}
 		for (int j = N; j < N0; j++){

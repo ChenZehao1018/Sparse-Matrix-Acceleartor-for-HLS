@@ -238,23 +238,23 @@ int main(int argc, char* argv[]) {
     for (int i = 0; i < NUM_KERNEL; i++) {
         inBufExtHLSPtr[i].obj = edge_list_ptr_hls.data();
         inBufExtHLSPtr[i].param = 0;
-        inBufExtHLSPtr[i].flags = pc[i * 4];
+        inBufExtHLSPtr[i].flags = pc[i * 5];
 
         inBufExtMatrixAIdx[i].obj = matrixA_idx_hls.data();
         inBufExtMatrixAIdx[i].param = 0;
-        inBufExtMatrixAIdx[i].flags = pc[(i * 4) + 1];
+        inBufExtMatrixAIdx[i].flags = pc[(i * 5) + 1];
 
         inBufExtMatrixA[i].obj = matrixA_vec_hls.data();
         inBufExtMatrixA[i].param = 0;
-        inBufExtMatrixA[i].flags = pc[(i * 4) + 2];
+        inBufExtMatrixA[i].flags = pc[(i * 5) + 2];
 
         inBufExtMAtrixB[i].obj = matrixB_vec_hls.data();
         inBufExtMAtrixB[i].param = 0;
-        inBufExtMAtrixB[i].flags = pc[(i * 4) + 3];
+        inBufExtMAtrixB[i].flags = pc[(i * 5) + 3];
 
         outBufExtMatrixC[i].obj = matrixC_vec_hls.data();
         outBufExtMatrixC[i].param = 0;
-        outBufExtMatrixC[i].flags = pc[(i * 4) + 4];
+        outBufExtMatrixC[i].flags = pc[(i * 5) + 4];
     }
     
     for (int i = 0; i < NUM_KERNEL; i++) {
